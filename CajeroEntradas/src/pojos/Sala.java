@@ -17,7 +17,7 @@ public class Sala implements Serializable{
 	private String Nombre = null;
 	private String Pelicula = null;
 	
-	ArrayList<Pelicula> peliculas;
+	ArrayList<Proyeccion> proyeccion;
 	Cine cine =null;
 	
 	

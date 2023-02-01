@@ -1,6 +1,7 @@
 package pojos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Cliente implements Serializable{
 
@@ -18,4 +19,6 @@ public class Cliente implements Serializable{
 	private int tfno = 0;
 	private String direccion = null;
 	private String email = null;
+	
+	ArrayList <Entrada>entradas;
 }
