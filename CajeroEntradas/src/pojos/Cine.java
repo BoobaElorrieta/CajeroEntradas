@@ -13,9 +13,8 @@ public class Cine {
 	
 	
 	
-	bsgsdgsd
 	
-	
+	fasfgasg
 	
 	
 	
