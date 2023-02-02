@@ -2,6 +2,7 @@ package pojos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Cliente implements Serializable{
 
@@ -21,4 +22,6 @@ public class Cliente implements Serializable{
 	private String email = null;
 	
 	ArrayList <Entrada>entradas;
+
+	
 }

@@ -3,6 +3,7 @@ package pojos;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 
 public class Proyeccion implements Serializable {
@@ -10,6 +11,7 @@ public class Proyeccion implements Serializable {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 5154322425865131472L;
 	
 	private int id = 0;
@@ -20,4 +22,71 @@ public class Proyeccion implements Serializable {
 	Sala sala = null;
 	Pelicula pelicula = null;
 	ArrayList <Entrada> entradas;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Date getFecha() {
+		return Fecha;
+	}
+	public void setFecha(Date fecha) {
+		Fecha = fecha;
+	}
+	public Date getHora() {
+		return Hora;
+	}
+	public void setHora(Date hora) {
+		Hora = hora;
+	}
+	public Sala getSala() {
+		return sala;
+	}
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+	public Pelicula getPelicula() {
+		return pelicula;
+	}
+	public void setPelicula(Pelicula pelicula) {
+		this.pelicula = pelicula;
+	}
+	public ArrayList<Entrada> getEntradas() {
+		return entradas;
+	}
+	public void setEntradas(ArrayList<Entrada> entradas) {
+		this.entradas = entradas;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(Fecha, Hora, entradas, id, pelicula, sala);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Proyeccion other = (Proyeccion) obj;
+		return Objects.equals(Fecha, other.Fecha) && Objects.equals(Hora, other.Hora)
+				&& Objects.equals(entradas, other.entradas) && id == other.id
+				&& Objects.equals(pelicula, other.pelicula) && Objects.equals(sala, other.sala);
+	}
+	@Override
+	public String toString() {
+		return "Proyeccion [id=" + id + ", Fecha=" + Fecha + ", Hora=" + Hora + ", sala=" + sala + ", pelicula="
+				+ pelicula + ", entradas=" + entradas + "]";
+	}
+	
+	
+	
 }

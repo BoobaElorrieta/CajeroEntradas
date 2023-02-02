@@ -2,6 +2,7 @@ package pojos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Pelicula implements Serializable {
 	/**
@@ -20,4 +21,5 @@ public class Pelicula implements Serializable {
 	
 	ArrayList<Sala> salas;
 
+	
 }

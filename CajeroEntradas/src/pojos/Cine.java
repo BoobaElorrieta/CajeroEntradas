@@ -2,6 +2,7 @@ package pojos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Cine implements Serializable {
 	/**
@@ -51,6 +52,28 @@ public class Cine implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod, direccion, nombre, salas);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cine other = (Cine) obj;
+		return cod == other.cod && Objects.equals(direccion, other.direccion) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(salas, other.salas);
+	}
+
+	@Override
+	public String toString() {
+		return "Cine [cod=" + cod + ", nombre=" + nombre + ", direccion=" + direccion + ", salas=" + salas + "]";
+	}
 	
 }
