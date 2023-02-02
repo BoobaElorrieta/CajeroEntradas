@@ -18,6 +18,7 @@ public class Proyeccion implements Serializable {
 	
 	private Date Fecha = null;
 	private Date Hora = null;
+	private int Precio = 0;
 	
 	Sala sala = null;
 	Pelicula pelicula = null;
@@ -40,6 +41,12 @@ public class Proyeccion implements Serializable {
 	public void setHora(Date hora) {
 		Hora = hora;
 	}
+	public int getPrecio() {
+		return Precio;
+	}
+	public void setPrecio(int precio) {
+		Precio = precio;
+	}
 	public Sala getSala() {
 		return sala;
 	}
@@ -61,13 +68,10 @@ public class Proyeccion implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(Fecha, Hora, entradas, id, pelicula, sala);
+		return Objects.hash(Fecha, Hora, Precio, entradas, id, pelicula, sala);
 	}
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,16 +81,15 @@ public class Proyeccion implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Proyeccion other = (Proyeccion) obj;
-		return Objects.equals(Fecha, other.Fecha) && Objects.equals(Hora, other.Hora)
+		return Objects.equals(Fecha, other.Fecha) && Objects.equals(Hora, other.Hora) && Precio == other.Precio
 				&& Objects.equals(entradas, other.entradas) && id == other.id
 				&& Objects.equals(pelicula, other.pelicula) && Objects.equals(sala, other.sala);
 	}
 	@Override
 	public String toString() {
-		return "Proyeccion [id=" + id + ", Fecha=" + Fecha + ", Hora=" + Hora + ", sala=" + sala + ", pelicula="
-				+ pelicula + ", entradas=" + entradas + "]";
+		return "Proyeccion [id=" + id + ", Fecha=" + Fecha + ", Hora=" + Hora + ", Precio=" + Precio + ", sala=" + sala
+				+ ", pelicula=" + pelicula + ", entradas=" + entradas + "]";
 	}
-	
 	
 	
 }

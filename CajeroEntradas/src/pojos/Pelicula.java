@@ -21,5 +21,82 @@ public class Pelicula implements Serializable {
 	
 	ArrayList<Sala> salas;
 
+	public int getCod() {
+		return cod;
+	}
+
+	public void setCod(int cod) {
+		this.cod = cod;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public int getDuracion() {
+		return duracion;
+	}
+
+	public void setDuracion(int duracion) {
+		this.duracion = duracion;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public int getCoste() {
+		return coste;
+	}
+
+	public void setCoste(int coste) {
+		this.coste = coste;
+	}
+
+	public ArrayList<Sala> getSalas() {
+		return salas;
+	}
+
+	public void setSalas(ArrayList<Sala> salas) {
+		this.salas = salas;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod, coste, duracion, genero, salas, titulo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pelicula other = (Pelicula) obj;
+		return cod == other.cod && coste == other.coste && duracion == other.duracion
+				&& Objects.equals(genero, other.genero) && Objects.equals(salas, other.salas)
+				&& Objects.equals(titulo, other.titulo);
+	}
+
+	@Override
+	public String toString() {
+		return "Pelicula [cod=" + cod + ", titulo=" + titulo + ", duracion=" + duracion + ", genero=" + genero
+				+ ", coste=" + coste + ", salas=" + salas + "]";
+	}
+
 	
 }

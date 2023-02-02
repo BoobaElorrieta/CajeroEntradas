@@ -12,8 +12,7 @@ public class Entrada implements Serializable{
 
 	private int cod = 0;
 	
-	private String nombre = null;
-	private String direccion = null;
+	
 	
 	
 

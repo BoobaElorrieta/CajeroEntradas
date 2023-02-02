@@ -23,5 +23,5 @@ public class Cliente implements Serializable{
 	
 	ArrayList <Entrada>entradas;
 
-	
+	 
 }
