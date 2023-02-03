@@ -7,12 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ProyectoCajeroEntrada {
+public class Inicio {
 
 	private JFrame frame;
 	private JButton btnRegistrarseInicio;
@@ -33,7 +32,7 @@ public class ProyectoCajeroEntrada {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ProyectoCajeroEntrada window = new ProyectoCajeroEntrada();
+					Inicio window = new Inicio();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +44,7 @@ public class ProyectoCajeroEntrada {
 	/**
 	 * Create the application.
 	 */
-	public ProyectoCajeroEntrada() {
+	public Inicio() {
 		initialize();
 	}
 
