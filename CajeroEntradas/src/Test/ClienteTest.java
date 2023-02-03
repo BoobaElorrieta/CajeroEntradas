@@ -121,7 +121,7 @@ class ClienteTest {
 	@Test
 	public void testToString() {
 		Cliente cliente = new Cliente();
-		cliente.setDni("Hola");
+		cliente.setDni("Holas");
 		cliente.setNombre("Hola");
 		cliente.setApellidos("Hola");
 		cliente.setSexo("Hola");
