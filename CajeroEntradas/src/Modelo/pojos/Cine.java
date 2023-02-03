@@ -1,4 +1,4 @@
-package pojos;
+package Modelo.pojos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
