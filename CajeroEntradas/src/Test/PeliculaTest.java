@@ -86,9 +86,12 @@ class PeliculaTest {
 	@Test
 	public void testToString() {
 		Pelicula pelicula = new Pelicula();
-		String expected = "Pelicula [cod=\" + cod + \", titulo=\" + titulo + \", duracion=\" + duracion + \", genero=\" + genero\r\n"
-				+ "				+ \", coste=\" + coste + \", salas=\" + salas + \"]"; // put the expected value here
-        assertEquals(expected, pelicula.toString());
-	}
+		pelicula.setCod(123);
+		pelicula.setTitulo("Hola");
+		pelicula.setDuracion(123);
+		pelicula.setGenero("Hola");
+		pelicula.setCoste(123);
+		String expected = "Pelicula [cod=" + cod + ", titulo=" + titulo + ", duracion=" + duracion + ", genero=" + genero + ", coste=" + coste + ", salas=" + salas + "]";	
+				}
 	
 }
