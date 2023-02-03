@@ -29,7 +29,7 @@ class EntradaTest {
 	@Test
 	public void testfechaDeCompra() {
 		Entrada entrada = new Entrada();
-		Date fechaDeCompra=  2012-12-12;
+		Date fechaDeCompra=  ;
 		entrada.setFechaDeCompra(fechaDeCompra);
 		assertNotEquals("fechaDeCompra no esta accesible", fechaDeCompra, entrada.getFechaDeCompra());
 	}
