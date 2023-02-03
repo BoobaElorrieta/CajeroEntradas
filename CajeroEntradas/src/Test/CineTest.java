@@ -41,9 +41,39 @@ class CineTest {
 	}
 	
 	@Test
-	public void testEquals() {
-	Cine cine = new Cine();
-	Cine cine2 = new Cine();
-	assertNotEquals(cine, cine2);
+	public void testCineExiste() {
+		Cine cine = new Cine();
+		cine.setCod(1234);
+		cine.setNombre("Zipi");
+		Cine otroCine= new Cine();
+		otroCine.setCod(1234);
+		otroCine.setNombre("Zipi");
+		
+		assertEquals("usuarios no son iguales!!!!", cine, otroCine);	
+		
+	}
+
+	@Test
+	public void testCineNoExiste() {
+		Cine cine= new Cine();
+		cine.setCod(1234);
+		cine.setNombre("Zipi");
+		
+		Cine otroUsuario= new Cine();
+		otroUsuario.setCod(1234);
+		otroUsuario.setNombre("Zipi");
+		
+		assertNotEquals("usuarios son iguales!!!!", cine, otroUsuario);			
+	}
+	
+	@Test
+	public void testToString () {
+		Cine cine = new Cine(); // you didn't supply the object, so I guessed
+		cine.setCod(123);
+		cine.setNombre("asd");
+		cine.setDireccion("Calle tus muelas");
+		cine.setSalas(null);
+        String expected = "Cine [cod=" + cine.getCod() + ", nombre=" + cine.getNombre() + ", direccion=" + cine.getDireccion() + ", salas=" + cine.getSalas() +  "]"; // put the expected value here
+        assertEquals(expected, cine.toString());
 	}
 }
