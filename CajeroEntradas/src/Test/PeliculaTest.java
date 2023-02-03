@@ -96,7 +96,7 @@ class PeliculaTest {
 	@Test
 	public void testToString() {
 		Pelicula pelicula = new Pelicula();
-		pelicula.setCod(123);
+		pelicula.setCod(1234);
 		pelicula.setTitulo("Hola");
 		pelicula.setDuracion(123);
 		pelicula.setGenero("Hola");
