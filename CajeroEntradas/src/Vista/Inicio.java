@@ -7,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -19,12 +18,6 @@ public class Inicio {
 	private JPanel panelInicio;
 	private JButton btnIniciarInicio;
 	private JLabel lblBienvanidaInicio;
-	private JPanel panelRegistro;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-
 	/**
 	 * Launch the application.
 	 */
