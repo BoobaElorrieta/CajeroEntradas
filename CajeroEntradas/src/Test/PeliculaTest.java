@@ -58,8 +58,37 @@ class PeliculaTest {
 	}
 	
 	@Test
-	public void testEquals() {
+	public void testPeliculaExiste() {
+		Pelicula pelicula = new Pelicula();
+		pelicula.setCod( 1234);
+		pelicula.setTitulo("Zipi");
+		Pelicula pelicula2 = new Pelicula();
+		pelicula2.setCod(1234);
+		pelicula2.setTitulo("Zipi");
 		
+		assertEquals("usuarios no son iguales!!!!", pelicula, pelicula2);
+		}
+	
+	@Test
+	public void testPeliculaNoExiste() {
+		Pelicula pelicula = new Pelicula();
+		pelicula.setCod( 1234);
+		pelicula.setTitulo("Zipi");
+		
+		Pelicula pelicula2 = new Pelicula();
+		pelicula2.setCod(1234);
+		pelicula2.setTitulo("Zipi");
+		
+		assertNotEquals("usuarios son iguales!!!!", pelicula, pelicula2);
+		
+	}
+	
+	@Test
+	public void testToString() {
+		Pelicula pelicula = new Pelicula();
+		String expected = "Pelicula [cod=\" + cod + \", titulo=\" + titulo + \", duracion=\" + duracion + \", genero=\" + genero\r\n"
+				+ "				+ \", coste=\" + coste + \", salas=\" + salas + \"]"; // put the expected value here
+        assertEquals(expected, pelicula.toString());
 	}
 	
 }

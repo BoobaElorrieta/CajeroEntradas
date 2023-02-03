@@ -26,13 +26,46 @@ class EntradaTest {
 		assertEquals("Cod no esta accesible", cod, entrada.getCod());
 	}
 	
-//	@Test
-//	public void testfechaDeCompra() {
-//		Entrada entrada = new Entrada();
-//		Date fechaDeCompra=  ;
-//		entrada.setFechaDeCompra(fechaDeCompra);
-//		assertNotEquals("fechaDeCompra no esta accesible", fechaDeCompra, entrada.getFechaDeCompra());
-//	}
-//	
+	@Test
+	public void testfechaDeCompra() {
+		Entrada entrada = new Entrada();
+		Date fechaDeCompra= null  ;
+		entrada.setFechaDeCompra(fechaDeCompra);
+		assertNotEquals("fechaDeCompra no esta accesible", fechaDeCompra, entrada.getFechaDeCompra());
+	}
 	
+	@Test
+	public void testEntradaExiste() {
+		Entrada entrada= new Entrada();
+		entrada.setCod(123);
+		entrada.setFechaDeCompra(null);
+		
+		Entrada otraEntrada= new Entrada();
+		otraEntrada.setCod(123);
+		otraEntrada.setFechaDeCompra(null);
+		
+		assertEquals("usuarios no son iguales!!!!", entrada, otraEntrada);
+		
+	}
+	
+	@Test
+	public void testEntradaNoExiste() {
+		Entrada entrada= new Entrada();
+		entrada.setCod(123);
+		entrada.setFechaDeCompra(null);
+		
+		Entrada otraEntrada= new Entrada();
+		otraEntrada.setCod(1234);
+		otraEntrada.setFechaDeCompra(null);;
+		
+		assertNotEquals("usuarios son iguales!!!!", entrada, otraEntrada);
+}
+	@Test
+	public void testToString () {
+		Entrada entrada = new Entrada();
+		entrada.setCod(123);
+		entrada.setFechaDeCompra(null);
+		String expected = "Entrada [cod=" + entrada.getCod() + ", fechaDeCompra=" + entrada.getFechaDeCompra() + ", cliente=" + entrada.getCliente() + "]";
+		assertEquals(expected, entrada.toString());
+	}
 }
