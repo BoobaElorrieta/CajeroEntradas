@@ -3,10 +3,12 @@ package Test;
 import static org.junit.Assert.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
 import Modelo.pojos.Pelicula;
+import Modelo.pojos.Sala;
 
 class PeliculaTest {
 
@@ -55,6 +57,14 @@ class PeliculaTest {
 		int coste = 125;
 		pelicula.setCod(coste);
 		assertNotEquals("Id no está accesible", coste, pelicula.getCod());
+	}
+	
+	@Test
+	public void testSala() {
+		Pelicula pelicula = new Pelicula();
+		ArrayList<Sala> sala = null;
+		pelicula.setSalas(sala);
+		assertNotEquals("Id no está accesible", sala, pelicula.getCod());
 	}
 
 	@Test
