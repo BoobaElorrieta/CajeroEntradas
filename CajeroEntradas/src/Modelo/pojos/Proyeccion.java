@@ -23,6 +23,7 @@ public class Proyeccion implements Serializable {
 	Sala sala = null;
 	Pelicula pelicula = null;
 	ArrayList <Entrada> entradas;
+	
 	public int getId() {
 		return id;
 	}
