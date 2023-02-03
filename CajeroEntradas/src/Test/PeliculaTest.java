@@ -57,4 +57,9 @@ class PeliculaTest {
 		assertNotEquals("Id no está accesible", coste, pelicula.getCod());
 	}
 	
+	@Test
+	public void testEquals() {
+		
+	}
+	
 }
