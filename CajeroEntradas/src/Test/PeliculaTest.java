@@ -40,7 +40,7 @@ class PeliculaTest {
 		pelicula.setCod(duracion);
 		assertEquals("Id no está accesible", duracion, pelicula.getCod());
 	}
-	
+
 	@Test
 	public void testGenero() {
 		Pelicula pelicula = new Pelicula();
@@ -48,7 +48,7 @@ class PeliculaTest {
 		pelicula.setTitulo(genero);
 		assertNotEquals("Nombre no está accesible", genero, pelicula.getTitulo());
 	}
-	
+
 	@Test
 	public void testCoste() {
 		Pelicula pelicula = new Pelicula();
@@ -56,33 +56,33 @@ class PeliculaTest {
 		pelicula.setCod(coste);
 		assertNotEquals("Id no está accesible", coste, pelicula.getCod());
 	}
-	
+
 	@Test
 	public void testPeliculaExiste() {
 		Pelicula pelicula = new Pelicula();
-		pelicula.setCod( 1234);
+		pelicula.setCod(1234);
 		pelicula.setTitulo("Zipi");
 		Pelicula pelicula2 = new Pelicula();
 		pelicula2.setCod(1234);
 		pelicula2.setTitulo("Zipi");
-		
+
 		assertEquals("usuarios no son iguales!!!!", pelicula, pelicula2);
-		}
-	
+	}
+
 	@Test
 	public void testPeliculaNoExiste() {
 		Pelicula pelicula = new Pelicula();
-		pelicula.setCod( 1234);
+		pelicula.setCod(1234);
 		pelicula.setTitulo("Zipi");
-		
+
 		Pelicula pelicula2 = new Pelicula();
 		pelicula2.setCod(1234);
 		pelicula2.setTitulo("Zipi");
-		
+
 		assertNotEquals("usuarios son iguales!!!!", pelicula, pelicula2);
-		
+
 	}
-	
+
 	@Test
 	public void testToString() {
 		Pelicula pelicula = new Pelicula();
@@ -91,7 +91,10 @@ class PeliculaTest {
 		pelicula.setDuracion(123);
 		pelicula.setGenero("Hola");
 		pelicula.setCoste(123);
-		String expected = "Pelicula [cod=" + cod + ", titulo=" + titulo + ", duracion=" + duracion + ", genero=" + genero + ", coste=" + coste + ", salas=" + salas + "]";	
-				}
-	
+		pelicula.setSalas(null);
+		String expected = "Pelicula [cod=" + pelicula.getCod() + ", titulo=" + pelicula.getTitulo() + ", duracion="
+				+ pelicula.getDuracion() + ", genero=" + pelicula.getGenero() + ", coste=" + pelicula.getCoste()
+				+ ", salas=" + pelicula.getSalas() + "]";
+	}
+
 }
