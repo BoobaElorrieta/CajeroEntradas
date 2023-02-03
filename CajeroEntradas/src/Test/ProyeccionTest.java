@@ -7,7 +7,6 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import Modelo.pojos.Cine;
 import Modelo.pojos.Proyeccion;
 
 class ProyeccionTest {
