@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
 
 public class Registro extends JFrame {
 	
@@ -25,8 +26,7 @@ public class Registro extends JFrame {
 	private JTextField textFieldTelefonoRegistro;
 	private JTextField textFieldEMailRegistro;
 	private JLabel lblNombreRegistro;
-	private JRadioButton rdbtnHombreRegistro;
-	private JRadioButton rdbtnMujerRegistro;
+	private JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -127,17 +127,13 @@ public class Registro extends JFrame {
 		textFieldEMailRegistro.setBounds(446, 271, 149, 20);
 		contentPane.add(textFieldEMailRegistro);
 		
-		rdbtnHombreRegistro = new JRadioButton("Hombre");
-		rdbtnHombreRegistro.setBounds(446, 156, 89, 23);
-		contentPane.add(rdbtnHombreRegistro);
-		
-		rdbtnMujerRegistro = new JRadioButton("Mujer");
-		rdbtnMujerRegistro.setBounds(540, 156, 89, 23);
-		contentPane.add(rdbtnMujerRegistro);
-		
 		JButton btnCancelarRegistro = new JButton("Cancelar");
 		btnCancelarRegistro.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnCancelarRegistro.setBounds(388, 346, 186, 42);
 		contentPane.add(btnCancelarRegistro);
+		
+		comboBox = new JComboBox();
+		comboBox.setBounds(445, 156, 150, 20);
+		contentPane.add(comboBox);
 	}
 }
