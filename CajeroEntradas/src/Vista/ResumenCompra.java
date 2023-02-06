@@ -59,6 +59,13 @@ public class ResumenCompra extends JFrame {
 		contentPane.add(txtAreaPrecioTotal);
 		
 		btnComprar = new JButton("Comprar");
+		btnComprar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				contentPane.getParent().getParent().getParent().setVisible(false);
+			}
+		});
 		btnComprar.setBounds(344, 349, 127, 61);
 		contentPane.add(btnComprar);
 		

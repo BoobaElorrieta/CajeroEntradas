@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
@@ -17,7 +19,6 @@ public class Login extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField;
 	private JButton btnAceptar;
-	private JButton btnCancelar;
 
 	/**
 	 * Create the frame.
@@ -57,11 +58,7 @@ public class Login extends JFrame {
 		contentPane.add(textField_1);
 		
 		btnAceptar = new JButton("Aceptar y guardar ticket");
-		btnAceptar.setBounds(98, 280, 203, 67);
+		btnAceptar.setBounds(246, 295, 203, 67);
 		contentPane.add(btnAceptar);
-		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(364, 280, 203, 67);
-		contentPane.add(btnCancelar);
 	}
 }
