@@ -14,39 +14,39 @@ public class Proyeccion implements Serializable {
 	
 	private static final long serialVersionUID = 5154322425865131472L;
 	
-	private int id = 0;
+	private int cod = 0;
 	
-	private Date Fecha = null;
-	private Date Hora = null;
-	private int Precio = 0;
+	private Date fecha = null;
+	private Date hora = null;
+	private int precio = 0;
 	
 	Sala sala = null;
 	Pelicula pelicula = null;
 	ArrayList <Entrada> entradas;
 	
-	public int getId() {
-		return id;
+	public int getCod() {
+		return cod;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCod(int cod) {
+		this.cod = cod;
 	}
 	public Date getFecha() {
-		return Fecha;
+		return fecha;
 	}
 	public void setFecha(Date fecha) {
-		Fecha = fecha;
+		this.fecha = fecha;
 	}
 	public Date getHora() {
-		return Hora;
+		return hora;
 	}
 	public void setHora(Date hora) {
-		Hora = hora;
+		this.hora = hora;
 	}
 	public int getPrecio() {
-		return Precio;
+		return precio;
 	}
 	public void setPrecio(int precio) {
-		Precio = precio;
+		this.precio = precio;
 	}
 	public Sala getSala() {
 		return sala;
@@ -71,7 +71,7 @@ public class Proyeccion implements Serializable {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Fecha, Hora, Precio, entradas, id, pelicula, sala);
+		return Objects.hash(cod, entradas, fecha, hora, pelicula, precio, sala);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -82,15 +82,14 @@ public class Proyeccion implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Proyeccion other = (Proyeccion) obj;
-		return Objects.equals(Fecha, other.Fecha) && Objects.equals(Hora, other.Hora) && Precio == other.Precio
-				&& Objects.equals(entradas, other.entradas) && id == other.id
-				&& Objects.equals(pelicula, other.pelicula) && Objects.equals(sala, other.sala);
+		return cod == other.cod && Objects.equals(entradas, other.entradas) && Objects.equals(fecha, other.fecha)
+				&& Objects.equals(hora, other.hora) && Objects.equals(pelicula, other.pelicula)
+				&& precio == other.precio && Objects.equals(sala, other.sala);
 	}
 	@Override
 	public String toString() {
-		return "Proyeccion [id=" + id + ", Fecha=" + Fecha + ", Hora=" + Hora + ", Precio=" + Precio + ", sala=" + sala
-				+ ", pelicula=" + pelicula + ", entradas=" + entradas + "]";
+		return "Proyeccion [cod=" + cod + ", fecha=" + fecha + ", hora=" + hora + ", precio=" + precio + ", sala="
+				+ sala + ", pelicula=" + pelicula + ", entradas=" + entradas + "]";
 	}
-	
 	
 }
