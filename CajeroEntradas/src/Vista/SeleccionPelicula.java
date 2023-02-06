@@ -62,6 +62,13 @@ public class SeleccionPelicula extends JFrame {
 		contentPane.add(btnAceptarSeleccionPeli);
 		
 		btnResumenDeCompraSeleccionCine = new JButton("Resumen de Compra");
+		btnResumenDeCompraSeleccionCine.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ResumenCompra resumenCompra = new ResumenCompra();
+				resumenCompra.setVisible(true);
+				contentPane.getParent().getParent().getParent().setVisible(false);
+			}
+		});
 		btnResumenDeCompraSeleccionCine.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnResumenDeCompraSeleccionCine.setBounds(394, 269, 207, 87);
 		contentPane.add(btnResumenDeCompraSeleccionCine);
