@@ -134,7 +134,11 @@ class ClienteTest {
 				+ cliente.getApellidos() + ", Sexo=" + cliente.getSexo() + ", Contraseña=" + cliente.getContrasena()
 				+ ", Tlfn=" + cliente.getTfno() + ", Direccion=" + cliente.getDireccion()
 				+", Email=" + cliente.getEmail() + ", Entradas=" + cliente.getEntradas() + "]";
+<<<<<<< HEAD
 		assertEquals(expected, cliente.toString());
 
+=======
+		assertNotEquals(expected, cliente.toString());
+>>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
 	}
 }

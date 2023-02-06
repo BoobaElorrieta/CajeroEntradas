@@ -105,8 +105,12 @@ class PeliculaTest {
 		String expected = "Pelicula [cod=" + pelicula.getCod() + ", titulo=" + pelicula.getTitulo() + ", duracion="
 				+ pelicula.getDuracion() + ", genero=" + pelicula.getGenero() + ", coste=" + pelicula.getCoste()
 				+ ", salas=" + pelicula.getSalas() + "]";
+<<<<<<< HEAD
 		assertEquals(expected, pelicula.toString());
 
+=======
+		assertNotEquals(expected, pelicula.toString());
+>>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
 	}
 
 }

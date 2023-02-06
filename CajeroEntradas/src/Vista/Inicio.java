@@ -46,7 +46,7 @@ public class Inicio {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 659, 398);
+		frame.setBounds(100, 100, 676, 460);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -73,7 +73,8 @@ public class Inicio {
 		btnIniciarInicio = new JButton("Iniciar");
 		btnIniciarInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
+				SeleccionCine seleccionPelis = new SeleccionCine();
+				seleccionPelis.setVisible(true);
 			}
 		});
 		btnIniciarInicio.setFont(new Font("Tahoma", Font.PLAIN, 26));
