@@ -51,7 +51,7 @@ public class Inicio {
 		frame.getContentPane().setLayout(null);
 		
 		panelInicio = new JPanel();
-		panelInicio.setBounds(0, 0, 643, 359);
+		panelInicio.setBounds(0, 0, 660, 421);
 		frame.getContentPane().add(panelInicio);
 		panelInicio.setLayout(null);
 		
@@ -78,7 +78,7 @@ public class Inicio {
 			}
 		});
 		btnIniciarInicio.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		btnIniciarInicio.setBounds(456, 255, 145, 72);
+		btnIniciarInicio.setBounds(456, 314, 145, 72);
 		panelInicio.add(btnIniciarInicio);
 		
 		lblBienvanidaInicio = new JLabel("Compra de entradas");
