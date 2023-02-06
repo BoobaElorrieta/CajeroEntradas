@@ -11,7 +11,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 
 public class Registro extends JFrame {
