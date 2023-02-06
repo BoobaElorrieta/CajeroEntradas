@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SeleccionPelicula extends JFrame {
 	
@@ -40,7 +42,7 @@ public class SeleccionPelicula extends JFrame {
 		lblNombreSeleccionPeli.setBounds(221, 26, 187, 50);
 		contentPane.add(lblNombreSeleccionPeli);
 		
-		lblPeliculasDisponiblesSeleccionPeliculas = new JLabel("Peliculas Disponibles");
+		lblPeliculasDisponiblesSeleccionPeliculas = new JLabel("Peliculas Disponibles:");
 		lblPeliculasDisponiblesSeleccionPeliculas.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblPeliculasDisponiblesSeleccionPeliculas.setBounds(27, 129, 221, 26);
 		contentPane.add(lblPeliculasDisponiblesSeleccionPeliculas);
@@ -50,6 +52,13 @@ public class SeleccionPelicula extends JFrame {
 		contentPane.add(comboBoxSeleccionPeliculas);
 		
 		btnAceptarSeleccionPeli = new JButton("Aceptar");
+		btnAceptarSeleccionPeli.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Horarios horario = new Horarios();
+				horario.setVisible(true);
+				contentPane.getParent().getParent().getParent().setVisible(false);
+			}
+		});
 		btnAceptarSeleccionPeli.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAceptarSeleccionPeli.setBounds(394, 127, 207, 82);
 		contentPane.add(btnAceptarSeleccionPeli);

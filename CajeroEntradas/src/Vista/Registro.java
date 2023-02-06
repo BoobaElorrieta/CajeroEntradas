@@ -27,6 +27,7 @@ public class Registro extends JFrame {
 	private JTextField textFieldEMailRegistro;
 	private JLabel lblNombreRegistro;
 	private JComboBox comboBox;
+	private JButton btnCancelarRegistro;
 
 	/**
 	 * Launch the application.
@@ -127,7 +128,12 @@ public class Registro extends JFrame {
 		textFieldEMailRegistro.setBounds(446, 271, 149, 20);
 		contentPane.add(textFieldEMailRegistro);
 		
-		JButton btnCancelarRegistro = new JButton("Cancelar");
+		btnCancelarRegistro = new JButton("Cancelar");
+		btnCancelarRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.getParent().getParent().getParent().setVisible(false);
+			}
+		});
 		btnCancelarRegistro.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnCancelarRegistro.setBounds(388, 346, 186, 42);
 		contentPane.add(btnCancelarRegistro);
