@@ -134,5 +134,6 @@ class ClienteTest {
 				+ cliente.getApellidos() + ", Sexo=" + cliente.getSexo() + ", Contraseña=" + cliente.getContrasena()
 				+ ", Tlfn=" + cliente.getTfno() + ", Direccion=" + cliente.getDireccion()
 				+", Email=" + cliente.getEmail() + ", Entradas=" + cliente.getEntradas() + "]";
+		assertNotEquals(expected, cliente.toString());
 	}
 }

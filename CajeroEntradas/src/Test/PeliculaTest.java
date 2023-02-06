@@ -105,6 +105,7 @@ class PeliculaTest {
 		String expected = "Pelicula [cod=" + pelicula.getCod() + ", titulo=" + pelicula.getTitulo() + ", duracion="
 				+ pelicula.getDuracion() + ", genero=" + pelicula.getGenero() + ", coste=" + pelicula.getCoste()
 				+ ", salas=" + pelicula.getSalas() + "]";
+		assertNotEquals(expected, pelicula.toString());
 	}
 
 }
