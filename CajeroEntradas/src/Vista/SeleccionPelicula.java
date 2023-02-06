@@ -16,7 +16,7 @@ public class SeleccionPelicula extends JFrame {
 	private JPanel contentPane;
 	private JLabel lblPeliculasDisponiblesSeleccionPeliculas;
 	private JButton btnAceptarSeleccionPeli;
-	private JButton btnResumenDeCompraSeleccionCine;
+	private JButton btnResumenDeCompraSeleccionPelicula;
 	private JComboBox comboBoxSeleccionPeliculas;
 
 	/**
@@ -36,7 +36,7 @@ public class SeleccionPelicula extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNombreSeleccionPeli = new JLabel("Cine Pepito");
-		lblNombreSeleccionPeli.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblNombreSeleccionPeli.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNombreSeleccionPeli.setBounds(221, 26, 187, 50);
 		contentPane.add(lblNombreSeleccionPeli);
 		
@@ -61,10 +61,10 @@ public class SeleccionPelicula extends JFrame {
 		btnAceptarSeleccionPeli.setBounds(394, 127, 207, 82);
 		contentPane.add(btnAceptarSeleccionPeli);
 		
-		btnResumenDeCompraSeleccionCine = new JButton("Resumen de Compra");
-		btnResumenDeCompraSeleccionCine.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnResumenDeCompraSeleccionCine.setBounds(394, 269, 207, 87);
-		contentPane.add(btnResumenDeCompraSeleccionCine);
+		btnResumenDeCompraSeleccionPelicula = new JButton("Resumen de Compra");
+		btnResumenDeCompraSeleccionPelicula.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnResumenDeCompraSeleccionPelicula.setBounds(394, 269, 207, 87);
+		contentPane.add(btnResumenDeCompraSeleccionPelicula);
 	}
 
 }
