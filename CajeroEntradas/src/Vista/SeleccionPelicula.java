@@ -18,11 +18,7 @@ public class SeleccionPelicula extends JFrame {
 	private JButton btnAceptarSeleccionPeli;
 	private JButton btnResumenDeCompraSeleccionPelicula;
 	private JComboBox comboBoxSeleccionPeliculas;
-
-	/**
-	 * Launch the application.
-	 */
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -60,11 +56,19 @@ public class SeleccionPelicula extends JFrame {
 		btnAceptarSeleccionPeli.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAceptarSeleccionPeli.setBounds(394, 127, 207, 82);
 		contentPane.add(btnAceptarSeleccionPeli);
-		
+
 		btnResumenDeCompraSeleccionPelicula = new JButton("Resumen de Compra");
+		btnResumenDeCompraSeleccionPelicula.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ResumenCompra resumenCompra = new ResumenCompra();
+				resumenCompra.setVisible(true);
+				contentPane.getParent().getParent().getParent().setVisible(false);
+			}
+		});
 		btnResumenDeCompraSeleccionPelicula.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnResumenDeCompraSeleccionPelicula.setBounds(394, 269, 207, 87);
 		contentPane.add(btnResumenDeCompraSeleccionPelicula);
+
 	}
 
 }
