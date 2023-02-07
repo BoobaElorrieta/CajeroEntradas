@@ -6,8 +6,8 @@ import vista.CajeroEntradas;
 public class Controlador {
 
 	public void asignarCine(Cine cine) {
-		
-		vista.CageroEntradas.ScCbSeleccionCine.addItem(cine.getNombre());
+		CajeroEntradas cajero = new CajeroEntradas ();
+		cajero.scCbSeleccionCine.addItem(cine.getNombre());
 	}
 
 
