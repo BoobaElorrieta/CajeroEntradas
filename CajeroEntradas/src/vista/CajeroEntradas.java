@@ -16,27 +16,27 @@ import javax.swing.JTextArea;
 public class CajeroEntradas {
 
 	private JFrame frame;
-	private JTextField RegistroTfNombre;
-	private JTextField RegistroTfApellidos;
-	private JTextField RegistroTfDNI;
-	private JTextField RegistroTfEmail;
-	private JTextField RegistroTfContrasena;
-	private JTextField RegistroTfTfno;
-	private JTextField RegistroTfDireccion;
-	private JButton ScBtnFinalizarSesion;
-	private JButton ScBtnAceptar;
-	public JComboBox ScCbSeleccionCine;
-	private JButton InicioBtnIniciar;
-	private JButton InicioBtnRegistrar;
-	private JComboBox RegistroCbSexo;
-	private JButton RegistroBtnAceptar;
-	private JButton RegistroBtnCancelar;
-	private JButton SpBtnResumenDeCompra;
-	private JComboBox SpCbSeleccionPeli;
-	private JButton SpBtnAceptar;
-	private JButton HorariosBtnAceptar;
-	private JComboBox HorariosCbHorariosDisponibles;
-	private JButton HorariosBtnCancelar;
+	private JTextField registroTfNombre;
+	private JTextField registroTfApellidos;
+	private JTextField registroTfDNI;
+	private JTextField registroTfEmail;
+	private JTextField registroTfContrasena;
+	private JTextField registroTfTfno;
+	private JTextField registroTfDireccion;
+	private JButton scBtnFinalizarSesion;
+	private JButton scBtnAceptar;
+	public JComboBox scCbSeleccionCine;
+	private JButton inicioBtnIniciar;
+	private JButton inicioBtnRegistrar;
+	private JComboBox registroCbSexo;
+	private JButton registroBtnAceptar;
+	private JButton registroBtnCancelar;
+	private JButton spBtnResumenDeCompra;
+	private JComboBox spCbSeleccionPeli;
+	private JButton spBtnAceptar;
+	private JButton horariosBtnAceptar;
+	private JComboBox horariosCbHorariosDisponibles;
+	private JButton horariosBtnCancelar;
 	private JTextArea rcTaEntradasSeleccionadas;
 	private JTextArea rcTaPrecioTotal;
 	private JButton rcBtnAceptar;
@@ -88,22 +88,27 @@ public class CajeroEntradas {
 		loginPanel.add(loginLbl);
 		
 		loginTfEmail = new JTextField();
-		loginTfEmail.setBounds(270, 86, 263, 37);
+		loginTfEmail.setBounds(235, 87, 263, 37);
 		loginPanel.add(loginTfEmail);
 		loginTfEmail.setColumns(10);
 		
 		loginTfContrasena = new JTextField();
 		loginTfContrasena.setColumns(10);
-		loginTfContrasena.setBounds(270, 181, 263, 37);
+		loginTfContrasena.setBounds(235, 182, 263, 37);
 		loginPanel.add(loginTfContrasena);
 		
 		JLabel loginLblEmail = new JLabel("Email:");
-		loginLblEmail.setBounds(232, 88, 28, 32);
+		loginLblEmail.setBounds(197, 89, 28, 32);
 		loginPanel.add(loginLblEmail);
 		
 		JLabel loginLblContrasena = new JLabel("Contraseña:");
-		loginLblContrasena.setBounds(200, 183, 66, 32);
+		loginLblContrasena.setBounds(165, 184, 66, 32);
 		loginPanel.add(loginLblContrasena);
+		
+		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
+		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		loginBtnAceptar.setBounds(235, 259, 263, 58);
+		loginPanel.add(loginBtnAceptar);
 		
 		JPanel resumenCompraPanel = new JPanel();
 		resumenCompraPanel.setBounds(0, 0, 672, 350);
@@ -140,203 +145,203 @@ public class CajeroEntradas {
 		rcBtnCancelar.setBounds(401, 273, 243, 51);
 		resumenCompraPanel.add(rcBtnCancelar);
 		
-		JPanel HorariosPanel = new JPanel();
-		HorariosPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(HorariosPanel);
-		HorariosPanel.setLayout(null);
+		JPanel horariosPanel = new JPanel();
+		horariosPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(horariosPanel);
+		horariosPanel.setLayout(null);
 		
 		JLabel horariosLbl = new JLabel("Horarios");
 		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		horariosLbl.setBounds(195, 11, 279, 57);
-		HorariosPanel.add(horariosLbl);
+		horariosPanel.add(horariosLbl);
 		
-		JLabel HorariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
-		HorariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
-		HorariosPanel.add(HorariosLblHorariosDisponibles);
+		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
+		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
+		horariosPanel.add(horariosLblHorariosDisponibles);
 		
-		HorariosCbHorariosDisponibles = new JComboBox();
-		HorariosCbHorariosDisponibles.setToolTipText("Horarios");
-		HorariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
-		HorariosPanel.add(HorariosCbHorariosDisponibles);
+		horariosCbHorariosDisponibles = new JComboBox();
+		horariosCbHorariosDisponibles.setToolTipText("Horarios");
+		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
+		horariosPanel.add(horariosCbHorariosDisponibles);
 		
-		HorariosBtnAceptar = new JButton("Aceptar");
-		HorariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		HorariosBtnAceptar.setBounds(462, 135, 186, 57);
-		HorariosPanel.add(HorariosBtnAceptar);
+		horariosBtnAceptar = new JButton("Aceptar");
+		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnAceptar.setBounds(462, 135, 186, 57);
+		horariosPanel.add(horariosBtnAceptar);
 		
-		HorariosBtnCancelar = new JButton("Cancelar");
-		HorariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		HorariosBtnCancelar.setBounds(462, 238, 186, 57);
-		HorariosPanel.add(HorariosBtnCancelar);
+		horariosBtnCancelar = new JButton("Cancelar");
+		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnCancelar.setBounds(462, 238, 186, 57);
+		horariosPanel.add(horariosBtnCancelar);
 		
-		JPanel SeleccionCinePanel = new JPanel();
-		SeleccionCinePanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(SeleccionCinePanel);
-		SeleccionCinePanel.setLayout(null);
+		JPanel seleccionCinePanel = new JPanel();
+		seleccionCinePanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionCinePanel);
+		seleccionCinePanel.setLayout(null);
 		
-		ScCbSeleccionCine = new JComboBox();
-		ScCbSeleccionCine.setToolTipText("Selecciona el Cine");
-		ScCbSeleccionCine.setBounds(55, 139, 239, 30);
-		SeleccionCinePanel.add(ScCbSeleccionCine);
+		scCbSeleccionCine = new JComboBox();
+		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
+		scCbSeleccionCine.setBounds(55, 139, 239, 30);
+		seleccionCinePanel.add(scCbSeleccionCine);
 		
-		JLabel ScLbl = new JLabel("Selecciona el Cine");
-		ScLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		ScLbl.setBounds(167, 25, 344, 36);
-		SeleccionCinePanel.add(ScLbl);
+		JLabel scLbl = new JLabel("Selecciona el Cine");
+		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		scLbl.setBounds(167, 25, 344, 36);
+		seleccionCinePanel.add(scLbl);
 		
-		ScBtnAceptar = new JButton("Aceptar");
-		ScBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		ScBtnAceptar.setBounds(422, 116, 224, 53);
-		SeleccionCinePanel.add(ScBtnAceptar);
+		scBtnAceptar = new JButton("Aceptar");
+		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnAceptar.setBounds(422, 116, 224, 53);
+		seleccionCinePanel.add(scBtnAceptar);
 		
-		ScBtnFinalizarSesion = new JButton("Finalizar Sesion");
-		ScBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		ScBtnFinalizarSesion.setBounds(422, 225, 224, 53);
-		SeleccionCinePanel.add(ScBtnFinalizarSesion);
+		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
+		seleccionCinePanel.add(scBtnFinalizarSesion);
 		
-		JPanel SeleccionPeliPanel = new JPanel();
-		SeleccionPeliPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(SeleccionPeliPanel);
-		SeleccionPeliPanel.setLayout(null);
+		JPanel seleccionPeliPanel = new JPanel();
+		seleccionPeliPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionPeliPanel);
+		seleccionPeliPanel.setLayout(null);
 		
-		JLabel SpLbl = new JLabel("Cine");
-		SpLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		SpLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		SpLbl.setBounds(208, 11, 274, 45);
-		SeleccionPeliPanel.add(SpLbl);
+		JLabel spLbl = new JLabel("Cine");
+		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		spLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		spLbl.setBounds(208, 11, 274, 45);
+		seleccionPeliPanel.add(spLbl);
 		
-		JLabel SpLblPelisDisponibles = new JLabel("Películas Disponibles:");
-		SpLblPelisDisponibles.setBounds(72, 124, 153, 22);
-		SeleccionPeliPanel.add(SpLblPelisDisponibles);
+		JLabel spLblPelisDisponibles = new JLabel("Películas Disponibles:");
+		spLblPelisDisponibles.setBounds(72, 124, 153, 22);
+		seleccionPeliPanel.add(spLblPelisDisponibles);
 		
-		SpCbSeleccionPeli = new JComboBox();
-		SpCbSeleccionPeli.setBounds(72, 157, 222, 22);
-		SeleccionPeliPanel.add(SpCbSeleccionPeli);
+		spCbSeleccionPeli = new JComboBox();
+		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
+		seleccionPeliPanel.add(spCbSeleccionPeli);
 		
-		SpBtnAceptar = new JButton("Aceptar");
-		SpBtnAceptar.setBounds(404, 126, 258, 53);
-		SeleccionPeliPanel.add(SpBtnAceptar);
+		spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.setBounds(404, 126, 258, 53);
+		seleccionPeliPanel.add(spBtnAceptar);
 		
-		SpBtnResumenDeCompra = new JButton("Resumen de Compra");
-		SpBtnResumenDeCompra.setBounds(404, 250, 258, 53);
-		SeleccionPeliPanel.add(SpBtnResumenDeCompra);
+		spBtnResumenDeCompra = new JButton("Resumen de Compra");
+		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
+		seleccionPeliPanel.add(spBtnResumenDeCompra);
 		
-		JPanel InicioPanel = new JPanel();
-		InicioPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(InicioPanel);
-		InicioPanel.setLayout(null);
+		JPanel inicioPanel = new JPanel();
+		inicioPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(inicioPanel);
+		inicioPanel.setLayout(null);
 		
-		JLabel InicioLbl = new JLabel("BOOBA");
-		InicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
-		InicioLbl.setBounds(71, 36, 158, 101);
-		InicioPanel.add(InicioLbl);
+		JLabel inicioLbl = new JLabel("BOOBA");
+		inicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		inicioLbl.setBounds(71, 36, 158, 101);
+		inicioPanel.add(inicioLbl);
 		
-		JLabel InicioLblCompra = new JLabel("Compra de Entradas");
-		InicioLblCompra.setBounds(71, 229, 120, 36);
-		InicioPanel.add(InicioLblCompra);
+		JLabel inicioLblCompra = new JLabel("Compra de Entradas");
+		inicioLblCompra.setBounds(71, 229, 120, 36);
+		inicioPanel.add(inicioLblCompra);
 		
-		InicioBtnIniciar = new JButton("Iniciar");
-		InicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		InicioBtnIniciar.setBounds(327, 218, 296, 99);
-		InicioPanel.add(InicioBtnIniciar);
+		inicioBtnIniciar = new JButton("Iniciar");
+		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		inicioBtnIniciar.setBounds(327, 218, 296, 99);
+		inicioPanel.add(inicioBtnIniciar);
 		
-		InicioBtnRegistrar = new JButton("Regístrate!");
-		InicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		InicioBtnRegistrar.setBounds(415, 25, 225, 36);
-		InicioPanel.add(InicioBtnRegistrar);
+		inicioBtnRegistrar = new JButton("Regístrate!");
+		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
+		inicioPanel.add(inicioBtnRegistrar);
 		
-		JPanel RegistroPanel = new JPanel();
-		RegistroPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(RegistroPanel);
-		RegistroPanel.setLayout(null);
+		JPanel registroPanel = new JPanel();
+		registroPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(registroPanel);
+		registroPanel.setLayout(null);
 		
-		JLabel RegistroLbl = new JLabel("Registro De Usuario");
-		RegistroLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		RegistroLbl.setBounds(152, 11, 350, 49);
-		RegistroPanel.add(RegistroLbl);
+		JLabel registroLbl = new JLabel("Registro De Usuario");
+		registroLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		registroLbl.setBounds(152, 11, 350, 49);
+		registroPanel.add(registroLbl);
 		
-		JLabel RegistroLblNombre = new JLabel("Nombre:");
-		RegistroLblNombre.setBounds(61, 91, 50, 14);
-		RegistroPanel.add(RegistroLblNombre);
+		JLabel registroLblNombre = new JLabel("Nombre:");
+		registroLblNombre.setBounds(61, 91, 50, 14);
+		registroPanel.add(registroLblNombre);
 		
-		JLabel RegistroLblApellidos = new JLabel("Apellidos:");
-		RegistroLblApellidos.setBounds(61, 128, 78, 14);
-		RegistroPanel.add(RegistroLblApellidos);
+		JLabel registroLblApellidos = new JLabel("Apellidos:");
+		registroLblApellidos.setBounds(61, 128, 78, 14);
+		registroPanel.add(registroLblApellidos);
 		
-		JLabel RegistroLblContraseña = new JLabel("Contraseña:");
-		RegistroLblContraseña.setBounds(371, 128, 71, 14);
-		RegistroPanel.add(RegistroLblContraseña);
+		JLabel registroLblContraseña = new JLabel("Contraseña:");
+		registroLblContraseña.setBounds(371, 128, 71, 14);
+		registroPanel.add(registroLblContraseña);
 		
-		JLabel RegistroLblDni = new JLabel("DNI:");
-		RegistroLblDni.setBounds(61, 169, 65, 14);
-		RegistroPanel.add(RegistroLblDni);
+		JLabel registroLblDni = new JLabel("DNI:");
+		registroLblDni.setBounds(61, 169, 65, 14);
+		registroPanel.add(registroLblDni);
 		
-		JLabel RegistroLblDireccion = new JLabel("Dirección:");
-		RegistroLblDireccion.setBounds(371, 212, 71, 14);
-		RegistroPanel.add(RegistroLblDireccion);
+		JLabel registroLblDireccion = new JLabel("Dirección:");
+		registroLblDireccion.setBounds(371, 212, 71, 14);
+		registroPanel.add(registroLblDireccion);
 		
-		JLabel RegistroLblSexo = new JLabel("Sexo:");
-		RegistroLblSexo.setBounds(61, 212, 59, 14);
-		RegistroPanel.add(RegistroLblSexo);
+		JLabel registroLblSexo = new JLabel("Sexo:");
+		registroLblSexo.setBounds(61, 212, 59, 14);
+		registroPanel.add(registroLblSexo);
 		
-		JLabel RegistroLblTfno = new JLabel("Teléfono:");
-		RegistroLblTfno.setBounds(371, 169, 65, 14);
-		RegistroPanel.add(RegistroLblTfno);
+		JLabel registroLblTfno = new JLabel("Teléfono:");
+		registroLblTfno.setBounds(371, 169, 65, 14);
+		registroPanel.add(registroLblTfno);
 		
-		JLabel RegistroLblEmail = new JLabel("E-Mail:");
-		RegistroLblEmail.setBounds(371, 91, 65, 14);
-		RegistroPanel.add(RegistroLblEmail);
+		JLabel registroLblEmail = new JLabel("E-Mail:");
+		registroLblEmail.setBounds(371, 91, 65, 14);
+		registroPanel.add(registroLblEmail);
 		
-		RegistroTfNombre = new JTextField();
-		RegistroTfNombre.setBounds(141, 89, 136, 17);
-		RegistroPanel.add(RegistroTfNombre);
-		RegistroTfNombre.setColumns(10);
+		registroTfNombre = new JTextField();
+		registroTfNombre.setBounds(141, 89, 136, 17);
+		registroPanel.add(registroTfNombre);
+		registroTfNombre.setColumns(10);
 		
-		RegistroTfApellidos = new JTextField();
-		RegistroTfApellidos.setColumns(10);
-		RegistroTfApellidos.setBounds(141, 125, 136, 17);
-		RegistroPanel.add(RegistroTfApellidos);
+		registroTfApellidos = new JTextField();
+		registroTfApellidos.setColumns(10);
+		registroTfApellidos.setBounds(141, 125, 136, 17);
+		registroPanel.add(registroTfApellidos);
 		
-		RegistroTfDNI = new JTextField();
-		RegistroTfDNI.setColumns(10);
-		RegistroTfDNI.setBounds(141, 166, 136, 17);
-		RegistroPanel.add(RegistroTfDNI);
+		registroTfDNI = new JTextField();
+		registroTfDNI.setColumns(10);
+		registroTfDNI.setBounds(141, 166, 136, 17);
+		registroPanel.add(registroTfDNI);
 		
-		RegistroTfEmail = new JTextField();
-		RegistroTfEmail.setColumns(10);
-		RegistroTfEmail.setBounds(444, 88, 136, 17);
-		RegistroPanel.add(RegistroTfEmail);
+		registroTfEmail = new JTextField();
+		registroTfEmail.setColumns(10);
+		registroTfEmail.setBounds(444, 88, 136, 17);
+		registroPanel.add(registroTfEmail);
 		
-		RegistroTfContrasena = new JTextField();
-		RegistroTfContrasena.setColumns(10);
-		RegistroTfContrasena.setBounds(444, 125, 136, 17);
-		RegistroPanel.add(RegistroTfContrasena);
+		registroTfContrasena = new JTextField();
+		registroTfContrasena.setColumns(10);
+		registroTfContrasena.setBounds(444, 125, 136, 17);
+		registroPanel.add(registroTfContrasena);
 		
-		RegistroTfTfno = new JTextField();
-		RegistroTfTfno.setColumns(10);
-		RegistroTfTfno.setBounds(444, 166, 136, 17);
-		RegistroPanel.add(RegistroTfTfno);
+		registroTfTfno = new JTextField();
+		registroTfTfno.setColumns(10);
+		registroTfTfno.setBounds(444, 166, 136, 17);
+		registroPanel.add(registroTfTfno);
 		
-		RegistroTfDireccion = new JTextField();
-		RegistroTfDireccion.setColumns(10);
-		RegistroTfDireccion.setBounds(444, 209, 136, 17);
-		RegistroPanel.add(RegistroTfDireccion);
+		registroTfDireccion = new JTextField();
+		registroTfDireccion.setColumns(10);
+		registroTfDireccion.setBounds(444, 209, 136, 17);
+		registroPanel.add(registroTfDireccion);
 		
-		RegistroCbSexo = new JComboBox();
-		RegistroCbSexo.setToolTipText("Seleccione su Sexo");
-		RegistroCbSexo.setMaximumRowCount(3);
-		RegistroCbSexo.setBounds(141, 208, 136, 18);
-		RegistroPanel.add(RegistroCbSexo);
+		registroCbSexo = new JComboBox();
+		registroCbSexo.setToolTipText("Seleccione su Sexo");
+		registroCbSexo.setMaximumRowCount(3);
+		registroCbSexo.setBounds(141, 208, 136, 18);
+		registroPanel.add(registroCbSexo);
 		
-		RegistroBtnAceptar = new JButton("Aceptar");
-		RegistroBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		RegistroBtnAceptar.setBounds(119, 259, 158, 49);
-		RegistroPanel.add(RegistroBtnAceptar);
+		registroBtnAceptar = new JButton("Aceptar");
+		registroBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		registroBtnAceptar.setBounds(119, 259, 158, 49);
+		registroPanel.add(registroBtnAceptar);
 		
-		RegistroBtnCancelar = new JButton("Cancelar");
-		RegistroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		RegistroBtnCancelar.setBounds(422, 259, 158, 49);
-		RegistroPanel.add(RegistroBtnCancelar);
+		registroBtnCancelar = new JButton("Cancelar");
+		registroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		registroBtnCancelar.setBounds(422, 259, 158, 49);
+		registroPanel.add(registroBtnCancelar);
 	}
 }
