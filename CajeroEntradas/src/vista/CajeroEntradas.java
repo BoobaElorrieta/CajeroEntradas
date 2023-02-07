@@ -16,6 +16,7 @@ import modelo.bbdd.SolicitaCines;
 
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class CajeroEntradas {
@@ -86,7 +87,7 @@ public class CajeroEntradas {
 		frame.getContentPane().add(seleccionCinePanel);
 		seleccionCinePanel.setLayout(null);
 		
-		scCbSeleccionCine = new JComboBox();
+		scCbSeleccionCine = new JComboBox<String>();
 		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
 		scCbSeleccionCine.setBounds(55, 139, 239, 30);
 		seleccionCinePanel.add(scCbSeleccionCine);
