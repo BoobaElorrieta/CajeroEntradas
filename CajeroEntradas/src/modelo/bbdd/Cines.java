@@ -1,4 +1,4 @@
-package Modelo.bbdd;
+package modelo.bbdd;
 
 public class Cines {
 	public static void main(String[] args) {
