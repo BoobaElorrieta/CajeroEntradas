@@ -55,29 +55,29 @@ public class CajeroEntradas {
 		RegistroLbl.setBounds(152, 11, 350, 49);
 		RegistroPanel.add(RegistroLbl);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(53, 91, 143, 14);
-		RegistroPanel.add(lblNewLabel);
+		JLabel RegistroLblNombre = new JLabel("Nombre:");
+		RegistroLblNombre.setBounds(53, 91, 143, 14);
+		RegistroPanel.add(RegistroLblNombre);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(53, 128, 143, 14);
-		RegistroPanel.add(lblNewLabel_1);
+		JLabel RegistroLblApellidos = new JLabel("Apellidos:");
+		RegistroLblApellidos.setBounds(53, 128, 143, 14);
+		RegistroPanel.add(RegistroLblApellidos);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(53, 169, 143, 14);
-		RegistroPanel.add(lblNewLabel_2);
+		JLabel RegistroLblContraseña = new JLabel("Contraseña:");
+		RegistroLblContraseña.setBounds(53, 169, 143, 14);
+		RegistroPanel.add(RegistroLblContraseña);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(53, 216, 143, 14);
-		RegistroPanel.add(lblNewLabel_3);
+		JLabel RegistroLblDni = new JLabel("DNI:");
+		RegistroLblDni.setBounds(53, 216, 143, 14);
+		RegistroPanel.add(RegistroLblDni);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(371, 91, 143, 14);
-		RegistroPanel.add(lblNewLabel_4);
+		JLabel RegistroLblDireccion = new JLabel("Direccion:");
+		RegistroLblDireccion.setBounds(371, 91, 143, 14);
+		RegistroPanel.add(RegistroLblDireccion);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("New label");
-		lblNewLabel_1_1.setBounds(371, 128, 143, 14);
-		RegistroPanel.add(lblNewLabel_1_1);
+		JLabel RegistroLabel = new JLabel("New label");
+		RegistroLabel.setBounds(371, 128, 143, 14);
+		RegistroPanel.add(RegistroLabel);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
 		lblNewLabel_2_1.setBounds(371, 169, 143, 14);
