@@ -3,6 +3,11 @@ package vista;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
 
 public class CajeroEntradas {
 
@@ -36,8 +41,74 @@ public class CajeroEntradas {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel RegistroPanel = new JPanel();
+		RegistroPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(RegistroPanel);
+		RegistroPanel.setLayout(null);
+		
+		JLabel RegistroLbl = new JLabel("Registro De Usuario");
+		RegistroLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		RegistroLbl.setBounds(152, 11, 350, 49);
+		RegistroPanel.add(RegistroLbl);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(53, 91, 143, 14);
+		RegistroPanel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(53, 128, 143, 14);
+		RegistroPanel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(53, 169, 143, 14);
+		RegistroPanel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3.setBounds(53, 216, 143, 14);
+		RegistroPanel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(371, 91, 143, 14);
+		RegistroPanel.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("New label");
+		lblNewLabel_1_1.setBounds(371, 128, 143, 14);
+		RegistroPanel.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("New label");
+		lblNewLabel_2_1.setBounds(371, 169, 143, 14);
+		RegistroPanel.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("New label");
+		lblNewLabel_3_1.setBounds(371, 216, 143, 14);
+		RegistroPanel.add(lblNewLabel_3_1);
+		
+		JPanel InicioPanel = new JPanel();
+		InicioPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(InicioPanel);
+		InicioPanel.setLayout(null);
+		
+		JLabel InicioLbl = new JLabel("BOOBA");
+		InicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		InicioLbl.setBounds(71, 36, 158, 101);
+		InicioPanel.add(InicioLbl);
+		
+		JLabel InicioLblCompra = new JLabel("Compra de Entradas");
+		InicioLblCompra.setBounds(71, 229, 120, 36);
+		InicioPanel.add(InicioLblCompra);
+		
+		JButton InicioBtnIniciar = new JButton("Iniciar");
+		InicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		InicioBtnIniciar.setBounds(327, 218, 296, 99);
+		InicioPanel.add(InicioBtnIniciar);
+		
+		JButton InicioBtnRegistrar = new JButton("Regístrate!");
+		InicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		InicioBtnRegistrar.setBounds(415, 25, 225, 36);
+		InicioPanel.add(InicioBtnRegistrar);
 	}
-
 }
