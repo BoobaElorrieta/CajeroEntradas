@@ -9,16 +9,17 @@ import java.util.ArrayList;
 
 import modelo.pojos.Cine;
 import utils.DBUtils;
+import vista.CajeroEntradas;
 
 public class SolicitaCines {
 
 	// Retorna todas las filas de la tabla alumno
 	// Si no hay nada, retorna NULL
-	private ArrayList <Cine> getAllEjemplos (){
+	private ArrayList <Cine> solicitaCine (){
 		ArrayList <Cine> ret = null;
 		
 		// SQL que queremos lanzar
-		String sql = "select * from t_alumno";
+		String sql = "select nombre from Cines";
 		
 		// La conexion con BBDD
 		Connection connection = null;
@@ -92,11 +93,11 @@ public class SolicitaCines {
 
 	public static void SolicitarCines () {
 		SolicitaCines solicitud = new SolicitaCines();
-		ArrayList<Cine> cines = solicitud.getAllEjemplos();
+		ArrayList<Cine> cines = solicitud.solicitaCine();
 		
-		Menu menu = new Menu ();
-		for (int i = 0; i < alumnos.size(); i++) {
-			menu.mostrarAlumno (alumnos.get(i));
+		CajeroEntradas cajero = new CajeroEntradas ();
+		for (int i = 0; i < cines.size(); i++) {
+			cajero.mostrarAlumno (cines.get(i));
 		}
 	}
 }
