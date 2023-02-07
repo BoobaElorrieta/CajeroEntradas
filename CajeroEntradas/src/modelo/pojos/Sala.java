@@ -9,16 +9,21 @@ import java.util.Objects;
 public class Sala implements Serializable{
 
 	/**
-	 * 
+	 *  Existe una relacion N:1 con Cine
+	 *  Existe una relacion 1:N con Proyección
 	 */
+	
 	private static final long serialVersionUID = -3596305966431711984L;
 
+//	Clave primaria
 	private int cod = 0;
 	
+//	Atributos
 	private String nombre = null;
 	
-	ArrayList<Proyeccion> proyeccion;
-	Cine cine = null;
+//	Relaciones
+	private ArrayList<Proyeccion> proyeccion = null;
+	private Cine cine = null;
 	
 	public int getCod() {
 		return cod;

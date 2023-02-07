@@ -6,19 +6,21 @@ import java.util.Objects;
 
 public class Pelicula implements Serializable {
 	/**
-	 * 
+	 *  Existe una relacion 1:N con Proyeccion
 	 */
 	private static final long serialVersionUID = -8809226843737235064L;
 
-
+// 	Clave primaria
 	private int cod = 0;
 	
+//	Atributos
 	private String titulo = null;
 	private int duracion = 0;
 	private String genero = null;
 	private int coste = 0;
 	
-	ArrayList<Proyeccion> proyecciones;
+//	Relaciones
+	private ArrayList<Proyeccion> proyecciones = null;
 
 	public int getCod() {
 		return cod;

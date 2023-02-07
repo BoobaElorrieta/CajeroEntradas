@@ -5,17 +5,22 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Cine implements Serializable {
+	
 	/**
-	 * 
+	 * Existe una relacion 1:N con Sala
 	 */
+	
 	private static final long serialVersionUID = 565880329585090674L;
 
+//	Clave primaria
 	private int cod = 0;
 	
+//	Atributos
 	private String nombre = null;
 	private String direccion = null;
 	
-	ArrayList <Sala> salas;
+//	Relaciones
+	private ArrayList <Sala> salas = null;
 
 	public int getCod() {
 		return cod;

@@ -20,9 +20,9 @@ public class Proyeccion implements Serializable {
 	private Date hora = null;
 	private int precio = 0;
 	
-	Sala sala = null;
-	Pelicula pelicula = null;
-	ArrayList <Entrada> entradas;
+	private Sala sala = null;
+	private Pelicula pelicula = null;
+	private ArrayList <Entrada> entradas = null;
 	
 	public int getCod() {
 		return cod;

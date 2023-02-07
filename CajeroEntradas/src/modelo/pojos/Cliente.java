@@ -21,7 +21,7 @@ public class Cliente implements Serializable{
 	private String direccion = null;
 	private String email = null;
 	
-	ArrayList <Entrada>entradas;
+	private ArrayList <Entrada>entradas = null;
 
 	public String getDni() {
 		return dni;
