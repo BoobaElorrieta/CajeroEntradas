@@ -10,6 +10,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 public class CajeroEntradas {
 
@@ -21,6 +23,24 @@ public class CajeroEntradas {
 	private JTextField RegistroTfContrasena;
 	private JTextField RegistroTfTfno;
 	private JTextField RegistroTfDireccion;
+	private JButton ScBtnFinalizarSesion;
+	private JButton ScBtnAceptar;
+	private JComboBox ScCbSeleccionCine;
+	private JButton InicioBtnIniciar;
+	private JButton InicioBtnRegistrar;
+	private JComboBox RegistroCbSexo;
+	private JButton RegistroBtnAceptar;
+	private JButton RegistroBtnCancelar;
+	private JButton SpBtnResumenDeCompra;
+	private JComboBox SpCbSeleccionPeli;
+	private JButton SpBtnAceptar;
+	private JButton HorariosBtnAceptar;
+	private JComboBox HorariosCbHorariosDisponibles;
+	private JButton HorariosBtnCancelar;
+	private JTextArea rcTaEntradasSeleccionadas;
+	private JTextArea rcTaPrecioTotal;
+	private JButton rcBtnAceptar;
+	private JButton rcBtnCancelar;
 
 	/**
 	 * Launch the application.
@@ -54,14 +74,133 @@ public class CajeroEntradas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		JPanel loginPanel = new JPanel();
+		loginPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(loginPanel);
+		loginPanel.setLayout(null);
+		
+		JLabel loginLbl = new JLabel("Login");
+		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		loginLbl.setBounds(227, 26, 263, 49);
+		loginPanel.add(loginLbl);
+		
+		JPanel resumenCompraPanel = new JPanel();
+		resumenCompraPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(resumenCompraPanel);
+		resumenCompraPanel.setLayout(null);
+		
+		JLabel rcLbl = new JLabel("Resumen De Compra");
+		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		rcLbl.setBounds(158, 11, 383, 51);
+		resumenCompraPanel.add(rcLbl);
+		
+		JLabel rcLblEntradasSeleccionadas = new JLabel("Entradas Seleccionadas:");
+		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
+		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
+		
+		rcTaEntradasSeleccionadas = new JTextArea();
+		rcTaEntradasSeleccionadas.setEditable(false);
+		rcTaEntradasSeleccionadas.setBounds(31, 101, 333, 223);
+		resumenCompraPanel.add(rcTaEntradasSeleccionadas);
+		
+		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
+		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
+		resumenCompraPanel.add(rcLblPrecioTotal);
+		
+		rcTaPrecioTotal = new JTextArea();
+		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
+		resumenCompraPanel.add(rcTaPrecioTotal);
+		
+		rcBtnAceptar = new JButton("Aceptar");
+		rcBtnAceptar.setBounds(401, 189, 243, 51);
+		resumenCompraPanel.add(rcBtnAceptar);
+		
+		rcBtnCancelar = new JButton("Cancelar");
+		rcBtnCancelar.setBounds(401, 273, 243, 51);
+		resumenCompraPanel.add(rcBtnCancelar);
+		
+		JPanel HorariosPanel = new JPanel();
+		HorariosPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(HorariosPanel);
+		HorariosPanel.setLayout(null);
+		
+		JLabel horariosLbl = new JLabel("Horarios");
+		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		horariosLbl.setBounds(195, 11, 279, 57);
+		HorariosPanel.add(horariosLbl);
+		
+		JLabel HorariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
+		HorariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
+		HorariosPanel.add(HorariosLblHorariosDisponibles);
+		
+		HorariosCbHorariosDisponibles = new JComboBox();
+		HorariosCbHorariosDisponibles.setToolTipText("Horarios");
+		HorariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
+		HorariosPanel.add(HorariosCbHorariosDisponibles);
+		
+		HorariosBtnAceptar = new JButton("Aceptar");
+		HorariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HorariosBtnAceptar.setBounds(462, 135, 186, 57);
+		HorariosPanel.add(HorariosBtnAceptar);
+		
+		HorariosBtnCancelar = new JButton("Cancelar");
+		HorariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HorariosBtnCancelar.setBounds(462, 238, 186, 57);
+		HorariosPanel.add(HorariosBtnCancelar);
+		
 		JPanel SeleccionCinePanel = new JPanel();
 		SeleccionCinePanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(SeleccionCinePanel);
 		SeleccionCinePanel.setLayout(null);
 		
-		JComboBox ScCbSeleccionCine = new JComboBox();
-		ScCbSeleccionCine.setBounds(54, 110, 239, 30);
+		ScCbSeleccionCine = new JComboBox();
+		ScCbSeleccionCine.setToolTipText("Selecciona el Cine");
+		ScCbSeleccionCine.setBounds(55, 139, 239, 30);
 		SeleccionCinePanel.add(ScCbSeleccionCine);
+		
+		JLabel ScLbl = new JLabel("Selecciona el Cine");
+		ScLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		ScLbl.setBounds(167, 25, 344, 36);
+		SeleccionCinePanel.add(ScLbl);
+		
+		ScBtnAceptar = new JButton("Aceptar");
+		ScBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		ScBtnAceptar.setBounds(422, 116, 224, 53);
+		SeleccionCinePanel.add(ScBtnAceptar);
+		
+		ScBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		ScBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		ScBtnFinalizarSesion.setBounds(422, 225, 224, 53);
+		SeleccionCinePanel.add(ScBtnFinalizarSesion);
+		
+		JPanel SeleccionPeliPanel = new JPanel();
+		SeleccionPeliPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(SeleccionPeliPanel);
+		SeleccionPeliPanel.setLayout(null);
+		
+		JLabel SpLbl = new JLabel("Cine");
+		SpLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		SpLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		SpLbl.setBounds(208, 11, 274, 45);
+		SeleccionPeliPanel.add(SpLbl);
+		
+		JLabel SpLblPelisDisponibles = new JLabel("Películas Disponibles:");
+		SpLblPelisDisponibles.setBounds(72, 124, 153, 22);
+		SeleccionPeliPanel.add(SpLblPelisDisponibles);
+		
+		SpCbSeleccionPeli = new JComboBox();
+		SpCbSeleccionPeli.setBounds(72, 157, 222, 22);
+		SeleccionPeliPanel.add(SpCbSeleccionPeli);
+		
+		SpBtnAceptar = new JButton("Aceptar");
+		SpBtnAceptar.setBounds(404, 126, 258, 53);
+		SeleccionPeliPanel.add(SpBtnAceptar);
+		
+		SpBtnResumenDeCompra = new JButton("Resumen de Compra");
+		SpBtnResumenDeCompra.setBounds(404, 250, 258, 53);
+		SeleccionPeliPanel.add(SpBtnResumenDeCompra);
 		
 		JPanel InicioPanel = new JPanel();
 		InicioPanel.setBounds(0, 0, 672, 350);
@@ -77,12 +216,12 @@ public class CajeroEntradas {
 		InicioLblCompra.setBounds(71, 229, 120, 36);
 		InicioPanel.add(InicioLblCompra);
 		
-		JButton InicioBtnIniciar = new JButton("Iniciar");
+		InicioBtnIniciar = new JButton("Iniciar");
 		InicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		InicioBtnIniciar.setBounds(327, 218, 296, 99);
 		InicioPanel.add(InicioBtnIniciar);
 		
-		JButton InicioBtnRegistrar = new JButton("Regístrate!");
+		InicioBtnRegistrar = new JButton("Regístrate!");
 		InicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		InicioBtnRegistrar.setBounds(415, 25, 225, 36);
 		InicioPanel.add(InicioBtnRegistrar);
@@ -164,18 +303,18 @@ public class CajeroEntradas {
 		RegistroTfDireccion.setBounds(444, 209, 136, 17);
 		RegistroPanel.add(RegistroTfDireccion);
 		
-		JComboBox RegistroCBSexo = new JComboBox();
-		RegistroCBSexo.setToolTipText("Seleccione su Sexo");
-		RegistroCBSexo.setMaximumRowCount(3);
-		RegistroCBSexo.setBounds(141, 208, 136, 18);
-		RegistroPanel.add(RegistroCBSexo);
+		RegistroCbSexo = new JComboBox();
+		RegistroCbSexo.setToolTipText("Seleccione su Sexo");
+		RegistroCbSexo.setMaximumRowCount(3);
+		RegistroCbSexo.setBounds(141, 208, 136, 18);
+		RegistroPanel.add(RegistroCbSexo);
 		
-		JButton RegistroBtnAceptar = new JButton("Aceptar");
+		RegistroBtnAceptar = new JButton("Aceptar");
 		RegistroBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		RegistroBtnAceptar.setBounds(119, 259, 158, 49);
 		RegistroPanel.add(RegistroBtnAceptar);
 		
-		JButton RegistroBtnCancelar = new JButton("Cancelar");
+		RegistroBtnCancelar = new JButton("Cancelar");
 		RegistroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		RegistroBtnCancelar.setBounds(422, 259, 158, 49);
 		RegistroPanel.add(RegistroBtnCancelar);
