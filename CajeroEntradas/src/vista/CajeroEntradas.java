@@ -25,7 +25,7 @@ public class CajeroEntradas {
 	private JTextField RegistroTfDireccion;
 	private JButton ScBtnFinalizarSesion;
 	private JButton ScBtnAceptar;
-	private JComboBox ScCbSeleccionCine;
+	public JComboBox ScCbSeleccionCine;
 	private JButton InicioBtnIniciar;
 	private JButton InicioBtnRegistrar;
 	private JComboBox RegistroCbSexo;
@@ -41,6 +41,8 @@ public class CajeroEntradas {
 	private JTextArea rcTaPrecioTotal;
 	private JButton rcBtnAceptar;
 	private JButton rcBtnCancelar;
+	private JTextField loginTfEmail;
+	private JTextField loginTfContrasena;
 
 	/**
 	 * Launch the application.
@@ -82,8 +84,26 @@ public class CajeroEntradas {
 		JLabel loginLbl = new JLabel("Login");
 		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		loginLbl.setBounds(227, 26, 263, 49);
+		loginLbl.setBounds(220, 11, 263, 49);
 		loginPanel.add(loginLbl);
+		
+		loginTfEmail = new JTextField();
+		loginTfEmail.setBounds(270, 86, 263, 37);
+		loginPanel.add(loginTfEmail);
+		loginTfEmail.setColumns(10);
+		
+		loginTfContrasena = new JTextField();
+		loginTfContrasena.setColumns(10);
+		loginTfContrasena.setBounds(270, 181, 263, 37);
+		loginPanel.add(loginTfContrasena);
+		
+		JLabel loginLblEmail = new JLabel("Email:");
+		loginLblEmail.setBounds(232, 88, 28, 32);
+		loginPanel.add(loginLblEmail);
+		
+		JLabel loginLblContrasena = new JLabel("Contraseña:");
+		loginLblContrasena.setBounds(200, 183, 66, 32);
+		loginPanel.add(loginLblContrasena);
 		
 		JPanel resumenCompraPanel = new JPanel();
 		resumenCompraPanel.setBounds(0, 0, 672, 350);
