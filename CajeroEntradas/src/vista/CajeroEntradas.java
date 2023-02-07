@@ -81,6 +81,61 @@ public class CajeroEntradas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		JPanel seleccionCinePanel = new JPanel();
+		seleccionCinePanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionCinePanel);
+		seleccionCinePanel.setLayout(null);
+		
+		scCbSeleccionCine = new JComboBox();
+		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
+		scCbSeleccionCine.setBounds(55, 139, 239, 30);
+		seleccionCinePanel.add(scCbSeleccionCine);
+		
+		JLabel scLbl = new JLabel("Selecciona el Cine");
+		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		scLbl.setBounds(167, 25, 344, 36);
+		seleccionCinePanel.add(scLbl);
+		
+		scBtnAceptar = new JButton("Aceptar");
+		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnAceptar.setBounds(422, 116, 224, 53);
+		seleccionCinePanel.add(scBtnAceptar);
+		
+		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
+		seleccionCinePanel.add(scBtnFinalizarSesion);
+		
+		JPanel inicioPanel = new JPanel();
+		inicioPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(inicioPanel);
+		inicioPanel.setLayout(null);
+		
+		JLabel inicioLbl = new JLabel("BOOBA");
+		inicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		inicioLbl.setBounds(71, 36, 158, 101);
+		inicioPanel.add(inicioLbl);
+		
+		JLabel inicioLblCompra = new JLabel("Compra de Entradas");
+		inicioLblCompra.setBounds(71, 229, 120, 36);
+		inicioPanel.add(inicioLblCompra);
+		
+		inicioBtnIniciar = new JButton("Iniciar");
+		inicioBtnIniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SolicitaCines solicitud = new SolicitaCines();
+				solicitud.SolicitarCines();
+			}
+		});
+		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		inicioBtnIniciar.setBounds(327, 218, 296, 99);
+		inicioPanel.add(inicioBtnIniciar);
+		
+		inicioBtnRegistrar = new JButton("Regístrate!");
+		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
+		inicioPanel.add(inicioBtnRegistrar);
+		
 		JPanel loginPanel = new JPanel();
 		loginPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(loginPanel);
@@ -180,31 +235,6 @@ public class CajeroEntradas {
 		horariosBtnCancelar.setBounds(462, 238, 186, 57);
 		horariosPanel.add(horariosBtnCancelar);
 		
-		JPanel seleccionCinePanel = new JPanel();
-		seleccionCinePanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(seleccionCinePanel);
-		seleccionCinePanel.setLayout(null);
-		
-		scCbSeleccionCine = new JComboBox();
-		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
-		scCbSeleccionCine.setBounds(55, 139, 239, 30);
-		seleccionCinePanel.add(scCbSeleccionCine);
-		
-		JLabel scLbl = new JLabel("Selecciona el Cine");
-		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		scLbl.setBounds(167, 25, 344, 36);
-		seleccionCinePanel.add(scLbl);
-		
-		scBtnAceptar = new JButton("Aceptar");
-		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnAceptar.setBounds(422, 116, 224, 53);
-		seleccionCinePanel.add(scBtnAceptar);
-		
-		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
-		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
-		seleccionCinePanel.add(scBtnFinalizarSesion);
-		
 		JPanel seleccionPeliPanel = new JPanel();
 		seleccionPeliPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(seleccionPeliPanel);
@@ -231,36 +261,6 @@ public class CajeroEntradas {
 		spBtnResumenDeCompra = new JButton("Resumen de Compra");
 		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
 		seleccionPeliPanel.add(spBtnResumenDeCompra);
-		
-		JPanel inicioPanel = new JPanel();
-		inicioPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(inicioPanel);
-		inicioPanel.setLayout(null);
-		
-		JLabel inicioLbl = new JLabel("BOOBA");
-		inicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
-		inicioLbl.setBounds(71, 36, 158, 101);
-		inicioPanel.add(inicioLbl);
-		
-		JLabel inicioLblCompra = new JLabel("Compra de Entradas");
-		inicioLblCompra.setBounds(71, 229, 120, 36);
-		inicioPanel.add(inicioLblCompra);
-		
-		inicioBtnIniciar = new JButton("Iniciar");
-		inicioBtnIniciar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SolicitaCines solicitud = new SolicitaCines();
-				solicitud.SolicitarCines();
-			}
-		});
-		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		inicioBtnIniciar.setBounds(327, 218, 296, 99);
-		inicioPanel.add(inicioBtnIniciar);
-		
-		inicioBtnRegistrar = new JButton("Regístrate!");
-		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
-		inicioPanel.add(inicioBtnRegistrar);
 		
 		JPanel registroPanel = new JPanel();
 		registroPanel.setBounds(0, 0, 672, 350);
