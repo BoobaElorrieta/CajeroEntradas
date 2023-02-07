@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import Modelo.pojos.Cliente;
 import Modelo.pojos.Entrada;
-import Modelo.pojos.Pelicula;
 
 class ClienteTest {
 

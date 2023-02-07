@@ -3,16 +3,13 @@ package Test;
 import static org.junit.Assert.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
 import Modelo.pojos.Pelicula;
-import Modelo.pojos.Sala;
 
 class PeliculaTest {
 
-	// ***** para probar la serialización
 	@Test
 	public void testSerailizable() {
 		Pelicula pelicula = new Pelicula();
@@ -60,14 +57,6 @@ class PeliculaTest {
 	}
 	
 	@Test
-	public void testSala() {
-		Pelicula pelicula = new Pelicula();
-		ArrayList<Sala> sala = null;
-		pelicula.setSalas(sala);
-		assertNotEquals("Id no está accesible", sala, pelicula.getCod());
-	}
-
-	@Test
 	public void testPeliculaExiste() {
 		Pelicula pelicula = new Pelicula();
 		pelicula.setCod(1234);
@@ -101,6 +90,7 @@ class PeliculaTest {
 		pelicula.setDuracion(123);
 		pelicula.setGenero("Hola");
 		pelicula.setCoste(123);
+<<<<<<< HEAD
 		pelicula.setSalas(null);
 		String expected = "Pelicula [cod=" + pelicula.getCod() + ", titulo=" + pelicula.getTitulo() + ", duracion="
 				+ pelicula.getDuracion() + ", genero=" + pelicula.getGenero() + ", coste=" + pelicula.getCoste()
@@ -109,6 +99,10 @@ class PeliculaTest {
 		assertEquals(expected, pelicula.toString());
 
 =======
+=======
+		String expected = "Pelicula [cod=" + pelicula.getCod() + ", titulo=" + pelicula.getTitulo() + ", duracion=" + pelicula.getDuracion() + ", genero=" + pelicula.getGenero()
+				+ ", coste=" + pelicula.getCoste() + ", proyeccion=" + pelicula.getProyeccion() + "]";
+>>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
 		assertNotEquals(expected, pelicula.toString());
 >>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
 	}

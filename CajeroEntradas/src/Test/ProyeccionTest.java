@@ -20,9 +20,9 @@ class ProyeccionTest {
 	@Test
 	public void testId() {
 		Proyeccion proyeccion = new Proyeccion();
-		int id = 123;
-		proyeccion.setId(id);
-		assertNotEquals("Id no esta accesible", id, proyeccion.getId());
+		int cod = 123;
+		proyeccion.setCod(cod);
+		assertNotEquals("Id no esta accesible", cod, proyeccion.getCod());
 	}
 	
 	@Test
@@ -44,12 +44,12 @@ class ProyeccionTest {
 	@Test
 	public void testProyeccionExiste() {
 		Proyeccion proyeccion = new Proyeccion();
-		proyeccion.setId(1234);
+		proyeccion.setCod(1234);
 		proyeccion.setFecha(null);
 		proyeccion.setHora(null);
 		
 		Proyeccion otroProyeccion= new Proyeccion();
-		otroProyeccion.setId(1234);
+		otroProyeccion.setCod(1234);
 		otroProyeccion.setFecha(null);
 		otroProyeccion.setHora(null);
 		
@@ -60,12 +60,12 @@ class ProyeccionTest {
 	@Test
 	public void testToString () {
 		Proyeccion proyeccion = new Proyeccion(); // you didn't supply the object, so I guessed
-		proyeccion.setId(123);
+		proyeccion.setCod(123);
 		proyeccion.setFecha(null);
 		proyeccion.setHora(null);
 		proyeccion.setPelicula(null);
 		proyeccion.setEntradas(null);
-        String expected = "Proyeccion [id=" + proyeccion.getId() + ", fecha=" + proyeccion.getFecha() + ", hora=" + proyeccion.getHora() + "]";
+        String expected = "Proyeccion [id=" + proyeccion.getCod() + ", fecha=" + proyeccion.getFecha() + ", hora=" + proyeccion.getHora() + "]";
         assertEquals(expected, proyeccion.toString());
 	}
 }

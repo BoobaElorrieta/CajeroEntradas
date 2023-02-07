@@ -15,7 +15,7 @@ public class Sala implements Serializable{
 
 	private int cod = 0;
 	
-	private String Nombre = null;
+	private String nombre = null;
 	
 	ArrayList<Proyeccion> proyeccion;
 	Cine cine = null;
@@ -27,10 +27,10 @@ public class Sala implements Serializable{
 		this.cod = cod;
 	}
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		nombre = nombre;
 	}
 	public ArrayList<Proyeccion> getProyeccion() {
 		return proyeccion;
@@ -49,7 +49,7 @@ public class Sala implements Serializable{
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Nombre, cine, cod, proyeccion);
+		return Objects.hash(nombre, cine, cod, proyeccion);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -60,12 +60,12 @@ public class Sala implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Sala other = (Sala) obj;
-		return Objects.equals(Nombre, other.Nombre) && Objects.equals(cine, other.cine) && cod == other.cod
+		return Objects.equals(nombre, other.nombre) && Objects.equals(cine, other.cine) && cod == other.cod
 				&& Objects.equals(proyeccion, other.proyeccion);
 	}
 	@Override
 	public String toString() {
-		return "Sala [cod=" + cod + ", Nombre=" + Nombre + ", proyeccion=" + proyeccion + ", cine=" + cine + "]";
+		return "Sala [cod=" + cod + ", Nombre=" + nombre + ", proyeccion=" + proyeccion + ", cine=" + cine + "]";
 	}
 	
 }
