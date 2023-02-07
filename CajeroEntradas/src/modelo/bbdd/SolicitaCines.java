@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import modelo.pojos.Cine;
 import utils.DBUtils;
 import vista.CajeroEntradas;
+import controlador.Controlador;
 
 public class SolicitaCines {
 
@@ -95,9 +96,9 @@ public class SolicitaCines {
 		SolicitaCines solicitud = new SolicitaCines();
 		ArrayList<Cine> cines = solicitud.solicitaCine();
 		
-		CajeroEntradas cajero = new CajeroEntradas ();
+		Controlador cajero = new Controlador ();
 		for (int i = 0; i < cines.size(); i++) {
-			cajero.mostrarAlumno (cines.get(i));
+			cajero.asignarCine (cines.get(i));
 		}
 	}
 }
