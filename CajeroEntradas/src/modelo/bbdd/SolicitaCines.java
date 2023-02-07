@@ -52,11 +52,7 @@ public class SolicitaCines {
 				Cine cine = new Cine ();
 				
 				// Sacamos las columnas del RS
-				int id = resultSet.getInt("id");
-                String nombre = resultSet.getString("nombre");
-                String apellidos = resultSet.getString("apellidos");
-                int edad = resultSet.getInt("edad");
-                
+                String nombre = resultSet.getString("nombre");           
                 // Metemos los datos a Ejemplo
                 cine.setNombre(nombre);
 
