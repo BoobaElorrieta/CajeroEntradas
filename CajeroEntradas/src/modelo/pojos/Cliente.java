@@ -7,12 +7,14 @@ import java.util.Objects;
 public class Cliente implements Serializable{
 
 	/**
-	 * 
+	 * Existe una relacion 1:N con Entradas
 	 */
 	private static final long serialVersionUID = 3058116800081599783L;
 	
+//	Clave Primaria
 	private String dni = null;
 	
+//	Atributos
 	private String nombre = null;
 	private String apellidos = null;
 	private String sexo = null;
@@ -21,6 +23,7 @@ public class Cliente implements Serializable{
 	private String direccion = null;
 	private String email = null;
 	
+//	Relaciones
 	private ArrayList <Entrada>entradas = null;
 
 	public String getDni() {

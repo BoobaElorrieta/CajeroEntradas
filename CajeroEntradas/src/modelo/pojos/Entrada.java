@@ -12,10 +12,13 @@ public class Entrada implements Serializable{
 	 */
 	private static final long serialVersionUID = 2320199558574154732L;
 
+//	Clave Primaria
 	private int cod = 0;
 	
+//	Atributos
 	private Date fechaDeCompra = null;
 	
+//	Relaciones
 	private Cliente cliente = null;
 	private Proyeccion proyeccion = null;
 	
