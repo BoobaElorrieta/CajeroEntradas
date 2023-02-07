@@ -30,7 +30,7 @@ public class Sala implements Serializable{
 		return nombre;
 	}
 	public void setNombre(String nombre) {
-		nombre = nombre;
+		this.nombre = nombre;
 	}
 	public ArrayList<Proyeccion> getProyeccion() {
 		return proyeccion;

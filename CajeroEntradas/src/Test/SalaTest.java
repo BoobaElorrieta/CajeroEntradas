@@ -21,14 +21,14 @@ class SalaTest {
 		Sala sala = new Sala();
 		int cod = 123;
 		sala.setCod(cod);
-		assertNotEquals("Id no esta accesible", cod, sala.getCod());
+		assertNotEquals("Cod no esta accesible", cod, sala.getCod());
 	}
 	
 	public void testnombre() {
 		Sala sala = new Sala();
 		String nombre = "Alfredo";
 		sala.setNombre(nombre);
-		assertNotEquals("Id no esta accesible", nombre, sala.getNombre());
+		assertNotEquals("Nombre no esta accesible", nombre, sala.getNombre());
 	}
 
 	@Test
@@ -42,7 +42,7 @@ class SalaTest {
 		otraSala.setCod(1234);
 		otraSala.setNombre(null);
 		
-		assertEquals("usuarios no son iguales!!!!", sala, otraSala);	
+		assertEquals("Salas no son iguales!!!!", sala, otraSala);	
 		
 	}
 	

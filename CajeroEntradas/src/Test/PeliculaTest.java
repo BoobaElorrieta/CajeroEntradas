@@ -21,7 +21,7 @@ class PeliculaTest {
 		Pelicula pelicula = new Pelicula();
 		int cod = 99999991;
 		pelicula.setCod(cod);
-		assertNotEquals("Id no está accesible", cod, pelicula.getCod());
+		assertNotEquals("Cod no está accesible", cod, pelicula.getCod());
 	}
 
 	@Test
@@ -29,7 +29,7 @@ class PeliculaTest {
 		Pelicula pelicula = new Pelicula();
 		String titulo = "un texto";
 		pelicula.setTitulo(titulo);
-		assertNotEquals("Nombre no está accesible", titulo, pelicula.getTitulo());
+		assertNotEquals("Titulo no está accesible", titulo, pelicula.getTitulo());
 	}
 
 	@Test
@@ -37,7 +37,7 @@ class PeliculaTest {
 		Pelicula pelicula = new Pelicula();
 		int duracion = 125;
 		pelicula.setCod(duracion);
-		assertEquals("Id no está accesible", duracion, pelicula.getCod());
+		assertEquals("Duracion no está accesible", duracion, pelicula.getCod());
 	}
 
 	@Test
@@ -45,7 +45,7 @@ class PeliculaTest {
 		Pelicula pelicula = new Pelicula();
 		String genero = "genero";
 		pelicula.setTitulo(genero);
-		assertNotEquals("Nombre no está accesible", genero, pelicula.getTitulo());
+		assertNotEquals("Genero no está accesible", genero, pelicula.getTitulo());
 	}
 
 	@Test
@@ -53,7 +53,7 @@ class PeliculaTest {
 		Pelicula pelicula = new Pelicula();
 		int coste = 125;
 		pelicula.setCod(coste);
-		assertNotEquals("Id no está accesible", coste, pelicula.getCod());
+		assertNotEquals("Coste no está accesible", coste, pelicula.getCod());
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ class PeliculaTest {
 		pelicula2.setCod(1234);
 		pelicula2.setTitulo("Zipi");
 
-		assertEquals("usuarios no son iguales!!!!", pelicula, pelicula2);
+		assertEquals("Peliculas no son iguales!!!!", pelicula, pelicula2);
 	}
 
 	@Test
@@ -78,7 +78,7 @@ class PeliculaTest {
 		pelicula2.setCod(1234);
 		pelicula2.setTitulo("Zipi");
 
-		assertNotEquals("usuarios son iguales!!!!", pelicula, pelicula2);
+		assertNotEquals("Peliculas son iguales!!!!", pelicula, pelicula2);
 
 	}
 
@@ -90,21 +90,12 @@ class PeliculaTest {
 		pelicula.setDuracion(123);
 		pelicula.setGenero("Hola");
 		pelicula.setCoste(123);
-<<<<<<< HEAD
-		pelicula.setSalas(null);
+		pelicula.setProyeccion(null);
 		String expected = "Pelicula [cod=" + pelicula.getCod() + ", titulo=" + pelicula.getTitulo() + ", duracion="
 				+ pelicula.getDuracion() + ", genero=" + pelicula.getGenero() + ", coste=" + pelicula.getCoste()
-				+ ", salas=" + pelicula.getSalas() + "]";
-<<<<<<< HEAD
+				+ ", proyeccion=" + pelicula.getProyeccion() + "]";
 		assertEquals(expected, pelicula.toString());
-
-=======
-=======
-		String expected = "Pelicula [cod=" + pelicula.getCod() + ", titulo=" + pelicula.getTitulo() + ", duracion=" + pelicula.getDuracion() + ", genero=" + pelicula.getGenero()
-				+ ", coste=" + pelicula.getCoste() + ", proyeccion=" + pelicula.getProyeccion() + "]";
->>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
-		assertNotEquals(expected, pelicula.toString());
->>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
+		
 	}
 
 }

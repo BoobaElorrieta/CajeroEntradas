@@ -69,10 +69,12 @@ public class Proyeccion implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cod, entradas, fecha, hora, pelicula, precio, sala);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -86,6 +88,7 @@ public class Proyeccion implements Serializable {
 				&& Objects.equals(hora, other.hora) && Objects.equals(pelicula, other.pelicula)
 				&& precio == other.precio && Objects.equals(sala, other.sala);
 	}
+	
 	@Override
 	public String toString() {
 		return "Proyeccion [cod=" + cod + ", fecha=" + fecha + ", hora=" + hora + ", precio=" + precio + ", sala="

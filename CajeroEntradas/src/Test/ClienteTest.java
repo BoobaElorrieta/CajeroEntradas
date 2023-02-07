@@ -23,7 +23,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		String dni = "12345789D";
 		cliente.setDni(dni);
-		assertNotEquals("Id no está accesible", dni, cliente.getDni());
+		assertNotEquals("DNI no está accesible", dni, cliente.getDni());
 	}
 
 	@Test
@@ -40,7 +40,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		String apellido = "Gimenez";
 		cliente.setApellidos(apellido);
-		assertNotEquals("Nombre no está accesible", apellido, cliente.getApellidos());
+		assertNotEquals("Apellido no está accesible", apellido, cliente.getApellidos());
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		String sexo = "Hombre";
 		cliente.setSexo(sexo);
-		assertNotEquals("Nombre no está accesible", sexo, cliente.getSexo());
+		assertNotEquals("Sexo no está accesible", sexo, cliente.getSexo());
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		String contraseña = "abc17384CBA";
 		cliente.setContrasena(contraseña);
-		assertNotEquals("Nombre no está accesible", contraseña, cliente.getContrasena());
+		assertNotEquals("Contraseña no está accesible", contraseña, cliente.getContrasena());
 	}
 	
 	@Test
@@ -64,7 +64,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		int tfno = 99999991;
 		cliente.setTfno(tfno);
-		assertNotEquals("Id no está accesible", tfno, cliente.getTfno());
+		assertNotEquals("Tfno no está accesible", tfno, cliente.getTfno());
 	}
 	
 	@Test
@@ -72,7 +72,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		String direccion = "C/Lehendakari Aguirre 179";
 		cliente.setDireccion(direccion);
-		assertNotEquals("Nombre no está accesible", direccion, cliente.getDireccion());
+		assertNotEquals("Direccion no está accesible", direccion, cliente.getDireccion());
 	}
 	
 	@Test
@@ -80,7 +80,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		String email = "elorritea@gmail.com";
 		cliente.setEmail(email);
-		assertNotEquals("Nombre no está accesible", email, cliente.getEmail());
+		assertNotEquals("Email no está accesible", email, cliente.getEmail());
 	}
 	
 	
@@ -89,7 +89,7 @@ class ClienteTest {
 		Cliente cliente = new Cliente();
 		ArrayList<Entrada> entradas = null;
 		cliente.setEntradas(entradas);
-		assertNotEquals("Nombre no está accesible", entradas, cliente.getEmail());
+		assertNotEquals("Entrada no está accesible", entradas, cliente.getEmail());
 	}
 	
 	@Test
@@ -101,7 +101,7 @@ class ClienteTest {
 		cliente2.setTfno(1234);
 		cliente2.setDni("Zipi");
 
-		assertEquals("usuarios no son iguales!!!!", cliente, cliente2);
+		assertEquals("Clientes no son iguales!!!!", cliente, cliente2);
 	}
 
 	@Test
@@ -113,7 +113,7 @@ class ClienteTest {
 		cliente2.setTfno(1234);
 		cliente2.setDni("Zipi");
 
-		assertNotEquals("usuarios son iguales!!!!", cliente, cliente2);
+		assertNotEquals("Clientes son iguales!!!!", cliente, cliente2);
 
 	}
 
@@ -133,11 +133,6 @@ class ClienteTest {
 				+ cliente.getApellidos() + ", Sexo=" + cliente.getSexo() + ", Contraseña=" + cliente.getContrasena()
 				+ ", Tlfn=" + cliente.getTfno() + ", Direccion=" + cliente.getDireccion()
 				+", Email=" + cliente.getEmail() + ", Entradas=" + cliente.getEntradas() + "]";
-<<<<<<< HEAD
 		assertEquals(expected, cliente.toString());
-
-=======
-		assertNotEquals(expected, cliente.toString());
->>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
 	}
 }

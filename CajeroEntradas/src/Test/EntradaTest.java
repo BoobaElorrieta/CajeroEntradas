@@ -19,7 +19,7 @@ class EntradaTest {
 		assertTrue("No se puede realizar la serializacion!!!", entrada instanceof Serializable);
 	}
 	@Test
-	public void testcod() {
+	public void testCod() {
 		Entrada entrada = new Entrada();
 		int cod= 163;
 		entrada.setCod(cod);
@@ -31,7 +31,7 @@ class EntradaTest {
 		Entrada entrada = new Entrada();
 		Date fechaDeCompra= null  ;
 		entrada.setFechaDeCompra(fechaDeCompra);
-		assertNotEquals("fechaDeCompra no esta accesible", fechaDeCompra, entrada.getFechaDeCompra());
+		assertNotEquals("Fecha De Compra no esta accesible", fechaDeCompra, entrada.getFechaDeCompra());
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ class EntradaTest {
 		otraEntrada.setCod(123);
 		otraEntrada.setFechaDeCompra(null);
 		
-		assertEquals("usuarios no son iguales!!!!", entrada, otraEntrada);
+		assertEquals("Entradas no son iguales!!!!", entrada, otraEntrada);
 		
 	}
 	
@@ -58,7 +58,7 @@ class EntradaTest {
 		otraEntrada.setCod(1234);
 		otraEntrada.setFechaDeCompra(null);;
 		
-		assertNotEquals("usuarios son iguales!!!!", entrada, otraEntrada);
+		assertNotEquals("Entradas son iguales!!!!", entrada, otraEntrada);
 }
 	@Test
 	public void testToString () {

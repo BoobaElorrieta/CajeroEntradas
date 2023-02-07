@@ -22,7 +22,7 @@ class ProyeccionTest {
 		Proyeccion proyeccion = new Proyeccion();
 		int cod = 123;
 		proyeccion.setCod(cod);
-		assertNotEquals("Id no esta accesible", cod, proyeccion.getCod());
+		assertNotEquals("Cod no esta accesible", cod, proyeccion.getCod());
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ class ProyeccionTest {
 		Proyeccion proyeccion = new Proyeccion();
 		Date fecha = null;
 		proyeccion.setFecha(fecha);
-		assertNotEquals("Id no esta accesible", fecha, proyeccion.getFecha());
+		assertNotEquals("Fecha no esta accesible", fecha, proyeccion.getFecha());
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ class ProyeccionTest {
 		Proyeccion proyeccion = new Proyeccion();
 		Date hora = null;
 		proyeccion.setFecha(hora);
-		assertNotEquals("Id no esta accesible", hora, proyeccion.getHora());
+		assertNotEquals("Hora no esta accesible", hora, proyeccion.getHora());
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ class ProyeccionTest {
 		otroProyeccion.setFecha(null);
 		otroProyeccion.setHora(null);
 		
-		assertEquals("usuarios no son iguales!!!!", proyeccion, otroProyeccion);	
+		assertEquals("Proyecciones no son iguales!!!!", proyeccion, otroProyeccion);	
 		
 	}
 	

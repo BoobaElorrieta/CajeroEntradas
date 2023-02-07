@@ -18,7 +18,7 @@ public class Pelicula implements Serializable {
 	private String genero = null;
 	private int coste = 0;
 	
-	Proyeccion proyeccion = null;
+	ArrayList<Proyeccion> proyecciones;
 
 	public int getCod() {
 		return cod;
@@ -60,12 +60,12 @@ public class Pelicula implements Serializable {
 		this.coste = coste;
 	}
 
-	public Proyeccion getProyeccion() {
-		return proyeccion;
+	public ArrayList<Proyeccion> getProyeccion() {
+		return proyecciones;
 	}
 
-	public void setProyeccion(Proyeccion proyeccion) {
-		this.proyeccion = proyeccion;
+	public void setProyeccion(ArrayList<Proyeccion> proyeccion) {
+		this.proyecciones = proyeccion;
 	}
 
 	public static long getSerialversionuid() {
@@ -74,7 +74,7 @@ public class Pelicula implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod, coste, duracion, genero, proyeccion, titulo);
+		return Objects.hash(cod, coste, duracion, genero, proyecciones, titulo);
 	}
 
 	@Override
@@ -87,14 +87,14 @@ public class Pelicula implements Serializable {
 			return false;
 		Pelicula other = (Pelicula) obj;
 		return cod == other.cod && coste == other.coste && duracion == other.duracion
-				&& Objects.equals(genero, other.genero) && Objects.equals(proyeccion, other.proyeccion)
+				&& Objects.equals(genero, other.genero) && Objects.equals(proyecciones, other.proyecciones)
 				&& Objects.equals(titulo, other.titulo);
 	}
 
 	@Override
 	public String toString() {
 		return "Pelicula [cod=" + cod + ", titulo=" + titulo + ", duracion=" + duracion + ", genero=" + genero
-				+ ", coste=" + coste + ", proyeccion=" + proyeccion + "]";
+				+ ", coste=" + coste + ", proyeccion=" + proyecciones + "]";
 	}
-	
+
 }
