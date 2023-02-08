@@ -5,31 +5,43 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 
 import modelo.bbdd.SolicitaCines;
+import modelo.bbdd.SolicitaPeliculas;
 import modelo.pojos.Cine;
+import modelo.pojos.Pelicula;
 import vista.CajeroEntradas;
 
 public class Controlador {
-	
+
 	CajeroEntradas cajero = null;
-	SolicitaCines solicitud = null;
+	SolicitaCines solicitudCine = null;
+	SolicitaPeliculas solicitudPeliculas = null;
 
 	public void asignarCinePrueba(JComboBox<String> scCbSeleccionCine) {
-		solicitud = new SolicitaCines();
-		ArrayList<Cine> cines = solicitud.getCines();
+		solicitudCine = new SolicitaCines();
+		ArrayList<Cine> cines = solicitudCine.getCines();
 		for (int i = 0; i < cines.size(); i++) {
 			scCbSeleccionCine.addItem(cines.get(i).getNombre());
 
 		}
 	}
-	
-	public void esogerCine(JComboBox<String> scCbSeleccionCine) {
+
+	public void esogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli) {
 		String pelicula = null;
-		solicitud = new SolicitaCines();
 		pelicula = (String) scCbSeleccionCine.getSelectedItem();
 		System.out.println(pelicula);
 
+		// busca las peliculas y las añade al combobox
+		solicitudPeliculas = new SolicitaPeliculas();
+	//	ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas( "Select Titulo From Peliculas Pe join Proyecciones Pr on Pe.cod = Pr.codPeli join Salas S on Pr.codSala = S.cod join Cines C on S.codCine = C.cod Where C.Nombre = " + pelicula + " Order by Fecha, Horas ASC");
+		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas("Select Titulo From Peliculas");
+		for (int i = 0; i < pelis.size(); i++) {
+			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
+
 		}
+
+	}
 	
+
 //	//	Ir al panel Inicio
 //	public void mostrarPanelInicio() {
 //		cajero = new CajeroEntradas();
@@ -113,5 +125,4 @@ public class Controlador {
 //		cajero.loginPanel.setVisible(true);	
 //	}
 
-	
 }

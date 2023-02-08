@@ -256,7 +256,7 @@ public class CajeroEntradas {
 		spLblPelisDisponibles.setBounds(72, 124, 153, 22);
 		seleccionPeliPanel.add(spLblPelisDisponibles);
 		
-		JComboBox spCbSeleccionPeli = new JComboBox();
+		JComboBox<String> spCbSeleccionPeli = new JComboBox<String>();
 		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
 		seleccionPeliPanel.add(spCbSeleccionPeli);
 		
@@ -300,7 +300,7 @@ public class CajeroEntradas {
 		scBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
-				solicitud.esogerCine(scCbSeleccionCine);
+				solicitud.esogerCine(scCbSeleccionCine, spCbSeleccionPeli);
 				mostrarPanelSeleccionPeli();
 			}
 		});
