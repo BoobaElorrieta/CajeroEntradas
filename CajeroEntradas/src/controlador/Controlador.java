@@ -11,13 +11,12 @@ import vista.CajeroEntradas;
 public class Controlador {
 
 	
-	public void asignarCinePrueba(JComboBox scCbSeleccionCine) {
+	public void asignarCinePrueba(JComboBox<String> scCbSeleccionCine) {
 		SolicitaCines solicitud = new SolicitaCines();
 		ArrayList<Cine> cines = solicitud.getCines();
-		CajeroEntradas cajero = new CajeroEntradas ();
 		for (int i = 0; i < cines.size(); i++) {
 			System.out.println(cines.get(i).getNombre());
-			cajero.scCbSeleccionCine.addItem (cines.get(i).getNombre());
+			scCbSeleccionCine.addItem (cines.get(i).getNombre());
 			
 		}	
 		}

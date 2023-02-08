@@ -32,7 +32,7 @@ public class CajeroEntradas {
 	private JTextField registroTfDireccion;
 	private JButton scBtnFinalizarSesion;
 	private JButton scBtnAceptar;
-	public JComboBox scCbSeleccionCine;
+	public JComboBox<String> scCbSeleccionCine;
 	private JButton inicioBtnIniciar;
 	private JButton inicioBtnRegistrar;
 	private JComboBox registroCbSexo;
