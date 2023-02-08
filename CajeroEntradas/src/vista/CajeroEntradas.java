@@ -83,6 +83,8 @@ public class CajeroEntradas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+//		SELECCION DE CINE
+		
 		JPanel seleccionCinePanel = new JPanel();
 		seleccionCinePanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(seleccionCinePanel);
@@ -107,6 +109,8 @@ public class CajeroEntradas {
 		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
 		seleccionCinePanel.add(scBtnFinalizarSesion);
+		
+//		INICIO
 		
 		JPanel inicioPanel = new JPanel();
 		inicioPanel.setBounds(0, 0, 672, 350);
@@ -137,6 +141,8 @@ public class CajeroEntradas {
 		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
 		inicioPanel.add(inicioBtnRegistrar);
+		
+//		LOGIN
 		
 		JPanel loginPanel = new JPanel();
 		loginPanel.setBounds(0, 0, 672, 350);
@@ -171,6 +177,8 @@ public class CajeroEntradas {
 		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		loginBtnAceptar.setBounds(235, 259, 263, 58);
 		loginPanel.add(loginBtnAceptar);
+		
+//		RESUMEN DE COMPRA
 		
 		JPanel resumenCompraPanel = new JPanel();
 		resumenCompraPanel.setBounds(0, 0, 672, 350);
@@ -207,6 +215,8 @@ public class CajeroEntradas {
 		rcBtnCancelar.setBounds(401, 273, 243, 51);
 		resumenCompraPanel.add(rcBtnCancelar);
 		
+//		HORARIOS
+		
 		JPanel horariosPanel = new JPanel();
 		horariosPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(horariosPanel);
@@ -237,6 +247,8 @@ public class CajeroEntradas {
 		horariosBtnCancelar.setBounds(462, 238, 186, 57);
 		horariosPanel.add(horariosBtnCancelar);
 		
+//		SELECCION DE PELICULAS
+		
 		JPanel seleccionPeliPanel = new JPanel();
 		seleccionPeliPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(seleccionPeliPanel);
@@ -263,6 +275,8 @@ public class CajeroEntradas {
 		spBtnResumenDeCompra = new JButton("Resumen de Compra");
 		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
 		seleccionPeliPanel.add(spBtnResumenDeCompra);
+		
+//		REGISTRO
 		
 		JPanel registroPanel = new JPanel();
 		registroPanel.setBounds(0, 0, 672, 350);
