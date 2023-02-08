@@ -109,6 +109,7 @@ public class CajeroEntradas {
 		inicioBtnIniciar = new JButton("Iniciar");
 		inicioBtnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mostrarPanelSeleccionCine();
 				Controlador solicitud = new Controlador();
 				solicitud.asignarCinePrueba();
 			}
@@ -118,36 +119,56 @@ public class CajeroEntradas {
 		inicioPanel.add(inicioBtnIniciar);
 		
 		inicioBtnRegistrar = new JButton("Regístrate!");
+		inicioBtnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelRegistro();
+			}
+		});
 		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
 		inicioPanel.add(inicioBtnRegistrar);
 		
-//		SELECCION DE CINE
+//		HORARIOS
 		
-		seleccionCinePanel = new JPanel();
-		seleccionCinePanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(seleccionCinePanel);
-		seleccionCinePanel.setLayout(null);
+		horariosPanel = new JPanel();
+		horariosPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(horariosPanel);
+		horariosPanel.setLayout(null);
 		
-		scCbSeleccionCine = new JComboBox<String>();
-		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
-		scCbSeleccionCine.setBounds(55, 139, 239, 30);
-		seleccionCinePanel.add(scCbSeleccionCine);
+		JLabel horariosLbl = new JLabel("Horarios");
+		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		horariosLbl.setBounds(195, 11, 279, 57);
+		horariosPanel.add(horariosLbl);
 		
-		JLabel scLbl = new JLabel("Selecciona el Cine");
-		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		scLbl.setBounds(167, 25, 344, 36);
-		seleccionCinePanel.add(scLbl);
+		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
+		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
+		horariosPanel.add(horariosLblHorariosDisponibles);
 		
-		scBtnAceptar = new JButton("Aceptar");
-		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnAceptar.setBounds(422, 116, 224, 53);
-		seleccionCinePanel.add(scBtnAceptar);
+		horariosCbHorariosDisponibles = new JComboBox();
+		horariosCbHorariosDisponibles.setToolTipText("Horarios");
+		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
+		horariosPanel.add(horariosCbHorariosDisponibles);
 		
-		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
-		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
-		seleccionCinePanel.add(scBtnFinalizarSesion);
+		horariosBtnAceptar = new JButton("Aceptar");
+		horariosBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnAceptar.setBounds(462, 135, 186, 57);
+		horariosPanel.add(horariosBtnAceptar);
+		
+		horariosBtnCancelar = new JButton("Cancelar");
+		horariosBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnCancelar.setBounds(462, 238, 186, 57);
+		horariosPanel.add(horariosBtnCancelar);
 		
 //		LOGIN
 		
@@ -181,6 +202,11 @@ public class CajeroEntradas {
 		loginPanel.add(loginLblContrasena);
 		
 		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
+		loginBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
 		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		loginBtnAceptar.setBounds(235, 259, 263, 58);
 		loginPanel.add(loginBtnAceptar);
@@ -215,44 +241,22 @@ public class CajeroEntradas {
 		resumenCompraPanel.add(rcTaPrecioTotal);
 		
 		rcBtnAceptar = new JButton("Aceptar");
+		rcBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
 		rcBtnAceptar.setBounds(401, 189, 243, 51);
 		resumenCompraPanel.add(rcBtnAceptar);
 		
 		rcBtnCancelar = new JButton("Cancelar");
+		rcBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
 		rcBtnCancelar.setBounds(401, 273, 243, 51);
 		resumenCompraPanel.add(rcBtnCancelar);
-		
-//		HORARIOS
-		
-		horariosPanel = new JPanel();
-		horariosPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(horariosPanel);
-		horariosPanel.setLayout(null);
-		
-		JLabel horariosLbl = new JLabel("Horarios");
-		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		horariosLbl.setBounds(195, 11, 279, 57);
-		horariosPanel.add(horariosLbl);
-		
-		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
-		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
-		horariosPanel.add(horariosLblHorariosDisponibles);
-		
-		horariosCbHorariosDisponibles = new JComboBox();
-		horariosCbHorariosDisponibles.setToolTipText("Horarios");
-		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
-		horariosPanel.add(horariosCbHorariosDisponibles);
-		
-		horariosBtnAceptar = new JButton("Aceptar");
-		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		horariosBtnAceptar.setBounds(462, 135, 186, 57);
-		horariosPanel.add(horariosBtnAceptar);
-		
-		horariosBtnCancelar = new JButton("Cancelar");
-		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		horariosBtnCancelar.setBounds(462, 238, 186, 57);
-		horariosPanel.add(horariosBtnCancelar);
 		
 //		SELECCION DE PELICULAS
 		
@@ -276,12 +280,54 @@ public class CajeroEntradas {
 		seleccionPeliPanel.add(spCbSeleccionPeli);
 		
 		spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelHorarios();
+			}
+		});
 		spBtnAceptar.setBounds(404, 126, 258, 53);
 		seleccionPeliPanel.add(spBtnAceptar);
 		
 		spBtnResumenDeCompra = new JButton("Resumen de Compra");
+		spBtnResumenDeCompra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelResumenCompra();
+			}
+		});
 		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
 		seleccionPeliPanel.add(spBtnResumenDeCompra);
+		
+//		SELECCION DE CINE
+		
+		seleccionCinePanel = new JPanel();
+		seleccionCinePanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionCinePanel);
+		seleccionCinePanel.setLayout(null);
+		
+		scCbSeleccionCine = new JComboBox<String>();
+		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
+		scCbSeleccionCine.setBounds(55, 139, 239, 30);
+		seleccionCinePanel.add(scCbSeleccionCine);
+		
+		JLabel scLbl = new JLabel("Selecciona el Cine");
+		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		scLbl.setBounds(167, 25, 344, 36);
+		seleccionCinePanel.add(scLbl);
+		
+		scBtnAceptar = new JButton("Aceptar");
+		scBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelSeleccionPeli();
+			}
+		});
+		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnAceptar.setBounds(422, 116, 224, 53);
+		seleccionCinePanel.add(scBtnAceptar);
+		
+		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
+		seleccionCinePanel.add(scBtnFinalizarSesion);
 		
 //		REGISTRO
 		
@@ -369,11 +415,21 @@ public class CajeroEntradas {
 		registroPanel.add(registroCbSexo);
 		
 		registroBtnAceptar = new JButton("Aceptar");
+		registroBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
 		registroBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		registroBtnAceptar.setBounds(119, 259, 158, 49);
 		registroPanel.add(registroBtnAceptar);
 		
 		registroBtnCancelar = new JButton("Cancelar");
+		registroBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
 		registroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		registroBtnCancelar.setBounds(422, 259, 158, 49);
 		registroPanel.add(registroBtnCancelar);
