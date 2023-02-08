@@ -322,6 +322,8 @@ public class CajeroEntradas {
 		scBtnAceptar = new JButton("Aceptar");
 		scBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Controlador solicitud = new Controlador();
+				solicitud.esogerCine(scCbSeleccionCine);
 				mostrarPanelSeleccionPeli();
 			}
 		});
