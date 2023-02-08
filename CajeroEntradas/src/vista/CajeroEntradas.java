@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
+import controlador.Controlador;
 import modelo.bbdd.SolicitaCines;
 
 import javax.swing.JTextArea;
@@ -124,8 +125,8 @@ public class CajeroEntradas {
 		inicioBtnIniciar = new JButton("Iniciar");
 		inicioBtnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SolicitaCines solicitud = new SolicitaCines();
-				solicitud.SolicitarCines();
+				Controlador solicitud = new Controlador();
+				solicitud.asignarCinePrueba();
 			}
 		});
 		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));

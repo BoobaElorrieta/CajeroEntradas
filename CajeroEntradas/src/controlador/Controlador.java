@@ -2,18 +2,21 @@ package controlador;
 
 import java.util.ArrayList;
 
+import modelo.bbdd.SolicitaCines;
 import modelo.pojos.Cine;
 import vista.CajeroEntradas;
 
 public class Controlador {
 
-	public void asignarCine(Cine cine) {
+	
+	public void asignarCinePrueba() {
+		SolicitaCines solicitud = new SolicitaCines();
+		ArrayList<Cine> cines = solicitud.solicitaCine();
 
-		ArrayList<String> cines = new ArrayList<String>();
-		cines.add(cine.getNombre());
-		System.out.print(cines);
-		CajeroEntradas cajero = new CajeroEntradas();
-		cajero.scCbSeleccionCine.addItem(cines.toString());
-	}
-
+		CajeroEntradas cajero = new CajeroEntradas ();
+		for (int i = 0; i < cines.size(); i++) {
+			cajero.scCbSeleccionCine.addItem (cines.get(i).getNombre());
+			
+		}	
+		}
 }

@@ -16,7 +16,7 @@ public class SolicitaCines {
 
 	// Retorna todas las filas de la tabla alumno
 	// Si no hay nada, retorna NULL
-	private ArrayList <Cine> solicitaCine (){
+	public ArrayList <Cine> solicitaCine (){
 		ArrayList <Cine> ret = null;
 		
 		// SQL que queremos lanzar
@@ -94,7 +94,7 @@ public class SolicitaCines {
 		
 		Controlador cajero = new Controlador ();
 		for (int i = 0; i < cines.size(); i++) {
-			cajero.asignarCine (cines.get(i));
+			//cajero.asignarCine (cines.get(i));
 		}
 	}
 }
