@@ -11,8 +11,8 @@ public class Controlador {
 	
 	public void asignarCinePrueba() {
 		SolicitaCines solicitud = new SolicitaCines();
-		ArrayList<Cine> cines = solicitud.solicitaCine();
-
+		ArrayList<Cine> cines = solicitud.getCines();
+		System.out.println(cines);
 		CajeroEntradas cajero = new CajeroEntradas ();
 		for (int i = 0; i < cines.size(); i++) {
 			cajero.scCbSeleccionCine.addItem (cines.get(i).getNombre());

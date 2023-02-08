@@ -16,11 +16,11 @@ public class SolicitaCines {
 
 	// Retorna todas las filas de la tabla alumno
 	// Si no hay nada, retorna NULL
-	public ArrayList <Cine> solicitaCine (){
+	public ArrayList <Cine> getCines(){
 		ArrayList <Cine> ret = null;
 		
 		// SQL que queremos lanzar
-		String sql = "select nombre from Cines";
+		String sql = "SELECT nombre FROM Cines";
 		
 		// La conexion con BBDD
 		Connection connection = null;
@@ -86,15 +86,5 @@ public class SolicitaCines {
 			};					
 		}
 		return ret;
-	}
-
-	public static void SolicitarCines () {
-		SolicitaCines solicitud = new SolicitaCines();
-		ArrayList<Cine> cines = solicitud.solicitaCine();
-		
-		Controlador cajero = new Controlador ();
-		for (int i = 0; i < cines.size(); i++) {
-			//cajero.asignarCine (cines.get(i));
-		}
 	}
 }
