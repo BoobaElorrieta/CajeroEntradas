@@ -24,6 +24,10 @@ public class Cliente implements Serializable{
 	private String email = null;
 	
 //	Relaciones
+	
+	/**
+	 * Existe una relacion 1:N con Entradas
+	 */
 	private ArrayList <Entrada>entradas = null;
 
 	public String getDni() {

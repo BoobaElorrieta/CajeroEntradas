@@ -7,9 +7,7 @@ import java.util.Date;
 
 public class Entrada implements Serializable{
 	
-	/**
-	 *  Existe una relacion de 
-	 */
+	
 	private static final long serialVersionUID = 2320199558574154732L;
 
 //	Clave Primaria
@@ -19,7 +17,15 @@ public class Entrada implements Serializable{
 	private Date fechaDeCompra = null;
 	
 //	Relaciones
+	
+	/**
+	 *  Existe una relacion de N:1 con Cliente
+	 */
 	private Cliente cliente = null;
+	
+	/**
+	 *  Existe una relacion de N:1 con Cliente
+	 */
 	private Proyeccion proyeccion = null;
 	
 	public int getCod() {
