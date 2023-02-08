@@ -134,6 +134,7 @@ public class CajeroEntradas {
 		horariosPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(horariosPanel);
 		horariosPanel.setLayout(null);
+		horariosPanel.setVisible(false);
 		
 		JLabel horariosLbl = new JLabel("Horarios");
 		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -176,6 +177,7 @@ public class CajeroEntradas {
 		loginPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(loginPanel);
 		loginPanel.setLayout(null);
+		loginPanel.setVisible(false);
 		
 		JLabel loginLbl = new JLabel("Login");
 		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -217,6 +219,7 @@ public class CajeroEntradas {
 		resumenCompraPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(resumenCompraPanel);
 		resumenCompraPanel.setLayout(null);
+		resumenCompraPanel.setVisible(false);
 		
 		JLabel rcLbl = new JLabel("Resumen De Compra");
 		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -264,6 +267,7 @@ public class CajeroEntradas {
 		seleccionPeliPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(seleccionPeliPanel);
 		seleccionPeliPanel.setLayout(null);
+		seleccionPeliPanel.setVisible(false);
 		
 		JLabel spLbl = new JLabel("Cine");
 		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -303,6 +307,7 @@ public class CajeroEntradas {
 		seleccionCinePanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(seleccionCinePanel);
 		seleccionCinePanel.setLayout(null);
+		seleccionCinePanel.setVisible(false);
 		
 		scCbSeleccionCine = new JComboBox<String>();
 		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
@@ -335,6 +340,7 @@ public class CajeroEntradas {
 		registroPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(registroPanel);
 		registroPanel.setLayout(null);
+		registroPanel.setVisible(false);
 		
 		JLabel registroLbl = new JLabel("Registro De Usuario");
 		registroLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
