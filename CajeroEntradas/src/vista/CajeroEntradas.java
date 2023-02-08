@@ -111,7 +111,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelSeleccionCine();
 				Controlador solicitud = new Controlador();
-				solicitud.asignarCinePrueba();
+				solicitud.asignarCinePrueba(scCbSeleccionCine);
 			}
 		});
 		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));

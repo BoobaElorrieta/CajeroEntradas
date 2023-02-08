@@ -2,6 +2,8 @@ package controlador;
 
 import java.util.ArrayList;
 
+import javax.swing.JComboBox;
+
 import modelo.bbdd.SolicitaCines;
 import modelo.pojos.Cine;
 import vista.CajeroEntradas;
@@ -9,7 +11,7 @@ import vista.CajeroEntradas;
 public class Controlador {
 
 	
-	public void asignarCinePrueba() {
+	public void asignarCinePrueba(JComboBox scCbSeleccionCine) {
 		SolicitaCines solicitud = new SolicitaCines();
 		ArrayList<Cine> cines = solicitud.getCines();
 		CajeroEntradas cajero = new CajeroEntradas ();
