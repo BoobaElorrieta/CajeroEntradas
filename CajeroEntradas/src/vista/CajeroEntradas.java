@@ -21,16 +21,19 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class CajeroEntradas {
+	
+	Controlador controlador = new Controlador();
 
 	private JFrame frame;
 	public JComboBox<String> scCbSeleccionCine;
-	private JPanel inicioPanel;
-	private JPanel loginPanel;
-	private JPanel resumenCompraPanel;
-	private JPanel horariosPanel;
-	private JPanel seleccionPeliPanel;
-	private JPanel registroPanel;
-	private JPanel seleccionCinePanel;
+	public JPanel inicioPanel;
+	public JPanel loginPanel;
+	public JPanel resumenCompraPanel;
+	public JPanel horariosPanel;
+	public JPanel seleccionPeliPanel;
+	public JPanel registroPanel;
+	public JPanel seleccionCinePanel;
+	private JComboBox horariosCbHorariosDisponibles;
 
 	/**
 	 * Launch the application.
@@ -120,7 +123,7 @@ public class CajeroEntradas {
 		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
 		horariosPanel.add(horariosLblHorariosDisponibles);
 		
-		JComboBox horariosCbHorariosDisponibles = new JComboBox();
+		horariosCbHorariosDisponibles = new JComboBox();
 		horariosCbHorariosDisponibles.setToolTipText("Horarios");
 		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
 		horariosPanel.add(horariosCbHorariosDisponibles);
@@ -419,7 +422,7 @@ public class CajeroEntradas {
 	
 //	METODOS
 	
-//	Ir al panel Inicio
+	//	Ir al panel Inicio
 	private void mostrarPanelInicio() {
 		inicioPanel.setVisible(true);
 		registroPanel.setVisible(false);
