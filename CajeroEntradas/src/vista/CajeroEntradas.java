@@ -23,33 +23,7 @@ import java.awt.event.ActionEvent;
 public class CajeroEntradas {
 
 	private JFrame frame;
-	private JTextField registroTfNombre;
-	private JTextField registroTfApellidos;
-	private JTextField registroTfDNI;
-	private JTextField registroTfEmail;
-	private JTextField registroTfContrasena;
-	private JTextField registroTfTfno;
-	private JTextField registroTfDireccion;
-	private JButton scBtnFinalizarSesion;
-	private JButton scBtnAceptar;
 	public JComboBox<String> scCbSeleccionCine;
-	private JButton inicioBtnIniciar;
-	private JButton inicioBtnRegistrar;
-	private JComboBox registroCbSexo;
-	private JButton registroBtnAceptar;
-	private JButton registroBtnCancelar;
-	private JButton spBtnResumenDeCompra;
-	private JComboBox spCbSeleccionPeli;
-	private JButton spBtnAceptar;
-	private JButton horariosBtnAceptar;
-	private JComboBox horariosCbHorariosDisponibles;
-	private JButton horariosBtnCancelar;
-	private JTextArea rcTaEntradasSeleccionadas;
-	private JTextArea rcTaPrecioTotal;
-	private JButton rcBtnAceptar;
-	private JButton rcBtnCancelar;
-	private JTextField loginTfEmail;
-	private JTextField loginTfContrasena;
 	private JPanel inicioPanel;
 	private JPanel loginPanel;
 	private JPanel resumenCompraPanel;
@@ -106,7 +80,7 @@ public class CajeroEntradas {
 		inicioLblCompra.setBounds(71, 229, 120, 36);
 		inicioPanel.add(inicioLblCompra);
 		
-		inicioBtnIniciar = new JButton("Iniciar");
+		JButton inicioBtnIniciar = new JButton("Iniciar");
 		inicioBtnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelSeleccionCine();
@@ -118,7 +92,7 @@ public class CajeroEntradas {
 		inicioBtnIniciar.setBounds(327, 218, 296, 99);
 		inicioPanel.add(inicioBtnIniciar);
 		
-		inicioBtnRegistrar = new JButton("Regístrate!");
+		JButton inicioBtnRegistrar = new JButton("Regístrate!");
 		inicioBtnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelRegistro();
@@ -146,12 +120,12 @@ public class CajeroEntradas {
 		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
 		horariosPanel.add(horariosLblHorariosDisponibles);
 		
-		horariosCbHorariosDisponibles = new JComboBox();
+		JComboBox horariosCbHorariosDisponibles = new JComboBox();
 		horariosCbHorariosDisponibles.setToolTipText("Horarios");
 		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
 		horariosPanel.add(horariosCbHorariosDisponibles);
 		
-		horariosBtnAceptar = new JButton("Aceptar");
+		JButton horariosBtnAceptar = new JButton("Aceptar");
 		horariosBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelInicio();
@@ -161,7 +135,7 @@ public class CajeroEntradas {
 		horariosBtnAceptar.setBounds(462, 135, 186, 57);
 		horariosPanel.add(horariosBtnAceptar);
 		
-		horariosBtnCancelar = new JButton("Cancelar");
+		JButton horariosBtnCancelar = new JButton("Cancelar");
 		horariosBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelInicio();
@@ -185,12 +159,12 @@ public class CajeroEntradas {
 		loginLbl.setBounds(220, 11, 263, 49);
 		loginPanel.add(loginLbl);
 		
-		loginTfEmail = new JTextField();
+		JTextField loginTfEmail = new JTextField();
 		loginTfEmail.setBounds(235, 87, 263, 37);
 		loginPanel.add(loginTfEmail);
 		loginTfEmail.setColumns(10);
 		
-		loginTfContrasena = new JTextField();
+		JTextField loginTfContrasena = new JTextField();
 		loginTfContrasena.setColumns(10);
 		loginTfContrasena.setBounds(235, 182, 263, 37);
 		loginPanel.add(loginTfContrasena);
@@ -230,7 +204,7 @@ public class CajeroEntradas {
 		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
 		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
 		
-		rcTaEntradasSeleccionadas = new JTextArea();
+		JTextArea rcTaEntradasSeleccionadas = new JTextArea();
 		rcTaEntradasSeleccionadas.setEditable(false);
 		rcTaEntradasSeleccionadas.setBounds(31, 101, 333, 223);
 		resumenCompraPanel.add(rcTaEntradasSeleccionadas);
@@ -239,11 +213,11 @@ public class CajeroEntradas {
 		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
 		resumenCompraPanel.add(rcLblPrecioTotal);
 		
-		rcTaPrecioTotal = new JTextArea();
+		JTextArea rcTaPrecioTotal = new JTextArea();
 		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
 		resumenCompraPanel.add(rcTaPrecioTotal);
 		
-		rcBtnAceptar = new JButton("Aceptar");
+		JButton rcBtnAceptar = new JButton("Aceptar");
 		rcBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelInicio();
@@ -252,7 +226,7 @@ public class CajeroEntradas {
 		rcBtnAceptar.setBounds(401, 189, 243, 51);
 		resumenCompraPanel.add(rcBtnAceptar);
 		
-		rcBtnCancelar = new JButton("Cancelar");
+		JButton rcBtnCancelar = new JButton("Cancelar");
 		rcBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelInicio();
@@ -279,11 +253,11 @@ public class CajeroEntradas {
 		spLblPelisDisponibles.setBounds(72, 124, 153, 22);
 		seleccionPeliPanel.add(spLblPelisDisponibles);
 		
-		spCbSeleccionPeli = new JComboBox();
+		JComboBox spCbSeleccionPeli = new JComboBox();
 		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
 		seleccionPeliPanel.add(spCbSeleccionPeli);
 		
-		spBtnAceptar = new JButton("Aceptar");
+		JButton spBtnAceptar = new JButton("Aceptar");
 		spBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelHorarios();
@@ -292,7 +266,7 @@ public class CajeroEntradas {
 		spBtnAceptar.setBounds(404, 126, 258, 53);
 		seleccionPeliPanel.add(spBtnAceptar);
 		
-		spBtnResumenDeCompra = new JButton("Resumen de Compra");
+		JButton spBtnResumenDeCompra = new JButton("Resumen de Compra");
 		spBtnResumenDeCompra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelResumenCompra();
@@ -319,7 +293,7 @@ public class CajeroEntradas {
 		scLbl.setBounds(167, 25, 344, 36);
 		seleccionCinePanel.add(scLbl);
 		
-		scBtnAceptar = new JButton("Aceptar");
+		JButton scBtnAceptar = new JButton("Aceptar");
 		scBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
@@ -331,7 +305,7 @@ public class CajeroEntradas {
 		scBtnAceptar.setBounds(422, 116, 224, 53);
 		seleccionCinePanel.add(scBtnAceptar);
 		
-		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		JButton scBtnFinalizarSesion = new JButton("Finalizar Sesion");
 		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
 		seleccionCinePanel.add(scBtnFinalizarSesion);
@@ -381,48 +355,48 @@ public class CajeroEntradas {
 		registroLblEmail.setBounds(371, 91, 65, 14);
 		registroPanel.add(registroLblEmail);
 		
-		registroTfNombre = new JTextField();
+		JTextField registroTfNombre = new JTextField();
 		registroTfNombre.setBounds(141, 89, 136, 17);
 		registroPanel.add(registroTfNombre);
 		registroTfNombre.setColumns(10);
 		
-		registroTfApellidos = new JTextField();
+		JTextField registroTfApellidos = new JTextField();
 		registroTfApellidos.setColumns(10);
 		registroTfApellidos.setBounds(141, 125, 136, 17);
 		registroPanel.add(registroTfApellidos);
 		
-		registroTfDNI = new JTextField();
+		JTextField registroTfDNI = new JTextField();
 		registroTfDNI.setColumns(10);
 		registroTfDNI.setBounds(141, 166, 136, 17);
 		registroPanel.add(registroTfDNI);
 		
-		registroTfEmail = new JTextField();
+		JTextField registroTfEmail = new JTextField();
 		registroTfEmail.setColumns(10);
 		registroTfEmail.setBounds(444, 88, 136, 17);
 		registroPanel.add(registroTfEmail);
 		
-		registroTfContrasena = new JTextField();
+		JTextField registroTfContrasena = new JTextField();
 		registroTfContrasena.setColumns(10);
 		registroTfContrasena.setBounds(444, 125, 136, 17);
 		registroPanel.add(registroTfContrasena);
 		
-		registroTfTfno = new JTextField();
+		JTextField registroTfTfno = new JTextField();
 		registroTfTfno.setColumns(10);
 		registroTfTfno.setBounds(444, 166, 136, 17);
 		registroPanel.add(registroTfTfno);
 		
-		registroTfDireccion = new JTextField();
+		JTextField registroTfDireccion = new JTextField();
 		registroTfDireccion.setColumns(10);
 		registroTfDireccion.setBounds(444, 209, 136, 17);
 		registroPanel.add(registroTfDireccion);
 		
-		registroCbSexo = new JComboBox();
+		JComboBox registroCbSexo = new JComboBox();
 		registroCbSexo.setToolTipText("Seleccione su Sexo");
 		registroCbSexo.setMaximumRowCount(3);
 		registroCbSexo.setBounds(141, 208, 136, 18);
 		registroPanel.add(registroCbSexo);
 		
-		registroBtnAceptar = new JButton("Aceptar");
+		JButton registroBtnAceptar = new JButton("Aceptar");
 		registroBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelInicio();
@@ -432,7 +406,7 @@ public class CajeroEntradas {
 		registroBtnAceptar.setBounds(119, 259, 158, 49);
 		registroPanel.add(registroBtnAceptar);
 		
-		registroBtnCancelar = new JButton("Cancelar");
+		JButton registroBtnCancelar = new JButton("Cancelar");
 		registroBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarPanelInicio();
