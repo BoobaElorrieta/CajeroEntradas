@@ -50,6 +50,13 @@ public class CajeroEntradas {
 	private JButton rcBtnCancelar;
 	private JTextField loginTfEmail;
 	private JTextField loginTfContrasena;
+	private JPanel inicioPanel;
+	private JPanel loginPanel;
+	private JPanel resumenCompraPanel;
+	private JPanel horariosPanel;
+	private JPanel seleccionPeliPanel;
+	private JPanel registroPanel;
+	private JPanel seleccionCinePanel;
 
 	/**
 	 * Launch the application.
@@ -83,36 +90,9 @@ public class CajeroEntradas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-//		SELECCION DE CINE
-		
-		JPanel seleccionCinePanel = new JPanel();
-		seleccionCinePanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(seleccionCinePanel);
-		seleccionCinePanel.setLayout(null);
-		
-		scCbSeleccionCine = new JComboBox<String>();
-		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
-		scCbSeleccionCine.setBounds(55, 139, 239, 30);
-		seleccionCinePanel.add(scCbSeleccionCine);
-		
-		JLabel scLbl = new JLabel("Selecciona el Cine");
-		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		scLbl.setBounds(167, 25, 344, 36);
-		seleccionCinePanel.add(scLbl);
-		
-		scBtnAceptar = new JButton("Aceptar");
-		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnAceptar.setBounds(422, 116, 224, 53);
-		seleccionCinePanel.add(scBtnAceptar);
-		
-		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
-		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
-		seleccionCinePanel.add(scBtnFinalizarSesion);
-		
 //		INICIO
 		
-		JPanel inicioPanel = new JPanel();
+		inicioPanel = new JPanel();
 		inicioPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(inicioPanel);
 		inicioPanel.setLayout(null);
@@ -142,9 +122,36 @@ public class CajeroEntradas {
 		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
 		inicioPanel.add(inicioBtnRegistrar);
 		
+//		SELECCION DE CINE
+		
+		seleccionCinePanel = new JPanel();
+		seleccionCinePanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionCinePanel);
+		seleccionCinePanel.setLayout(null);
+		
+		scCbSeleccionCine = new JComboBox<String>();
+		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
+		scCbSeleccionCine.setBounds(55, 139, 239, 30);
+		seleccionCinePanel.add(scCbSeleccionCine);
+		
+		JLabel scLbl = new JLabel("Selecciona el Cine");
+		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		scLbl.setBounds(167, 25, 344, 36);
+		seleccionCinePanel.add(scLbl);
+		
+		scBtnAceptar = new JButton("Aceptar");
+		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnAceptar.setBounds(422, 116, 224, 53);
+		seleccionCinePanel.add(scBtnAceptar);
+		
+		scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
+		seleccionCinePanel.add(scBtnFinalizarSesion);
+		
 //		LOGIN
 		
-		JPanel loginPanel = new JPanel();
+		loginPanel = new JPanel();
 		loginPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(loginPanel);
 		loginPanel.setLayout(null);
@@ -180,7 +187,7 @@ public class CajeroEntradas {
 		
 //		RESUMEN DE COMPRA
 		
-		JPanel resumenCompraPanel = new JPanel();
+		resumenCompraPanel = new JPanel();
 		resumenCompraPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(resumenCompraPanel);
 		resumenCompraPanel.setLayout(null);
@@ -217,7 +224,7 @@ public class CajeroEntradas {
 		
 //		HORARIOS
 		
-		JPanel horariosPanel = new JPanel();
+		horariosPanel = new JPanel();
 		horariosPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(horariosPanel);
 		horariosPanel.setLayout(null);
@@ -249,7 +256,7 @@ public class CajeroEntradas {
 		
 //		SELECCION DE PELICULAS
 		
-		JPanel seleccionPeliPanel = new JPanel();
+		seleccionPeliPanel = new JPanel();
 		seleccionPeliPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(seleccionPeliPanel);
 		seleccionPeliPanel.setLayout(null);
@@ -278,7 +285,7 @@ public class CajeroEntradas {
 		
 //		REGISTRO
 		
-		JPanel registroPanel = new JPanel();
+		registroPanel = new JPanel();
 		registroPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(registroPanel);
 		registroPanel.setLayout(null);
@@ -370,5 +377,83 @@ public class CajeroEntradas {
 		registroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		registroBtnCancelar.setBounds(422, 259, 158, 49);
 		registroPanel.add(registroBtnCancelar);
+	}
+	
+//	METODOS
+	
+//	Ir al panel Inicio
+	private void mostrarPanelInicio() {
+		inicioPanel.setVisible(true);
+		registroPanel.setVisible(false);
+		seleccionCinePanel.setVisible(false);
+		seleccionPeliPanel.setVisible(false);
+		horariosPanel.setVisible(false);
+		resumenCompraPanel.setVisible(false);
+		loginPanel.setVisible(false);		
+	}
+	
+//	Ir al panel Registro
+	private void mostrarPanelRegistro() {
+		inicioPanel.setVisible(false);
+		registroPanel.setVisible(true);
+		seleccionCinePanel.setVisible(false);
+		seleccionPeliPanel.setVisible(false);
+		horariosPanel.setVisible(false);
+		resumenCompraPanel.setVisible(false);
+		loginPanel.setVisible(false);		
+	}
+	
+//	Ir al panel Seleccion Cine
+	private void mostrarPanelSeleccionCine() {
+		inicioPanel.setVisible(false);
+		registroPanel.setVisible(false);
+		seleccionCinePanel.setVisible(true);
+		seleccionPeliPanel.setVisible(false);
+		horariosPanel.setVisible(false);
+		resumenCompraPanel.setVisible(false);
+		loginPanel.setVisible(false);		
+	}
+	
+//	Ir al panel Seleccion Peli
+	private void mostrarPanelSeleccionPeli() {
+		inicioPanel.setVisible(false);
+		registroPanel.setVisible(false);
+		seleccionCinePanel.setVisible(false);
+		seleccionPeliPanel.setVisible(true);
+		horariosPanel.setVisible(false);
+		resumenCompraPanel.setVisible(false);
+		loginPanel.setVisible(false);		
+	}
+	
+//	Ir al panel Horarios
+	private void mostrarPanelHorarios() {
+		inicioPanel.setVisible(false);
+		registroPanel.setVisible(false);
+		seleccionCinePanel.setVisible(false);
+		seleccionPeliPanel.setVisible(false);
+		horariosPanel.setVisible(true);
+		resumenCompraPanel.setVisible(false);
+		loginPanel.setVisible(false);		
+	}
+	
+//	Ir al panel Resumen Compra
+	private void mostrarPanelResumenCompra() {
+		inicioPanel.setVisible(false);
+		registroPanel.setVisible(false);
+		seleccionCinePanel.setVisible(false);
+		seleccionPeliPanel.setVisible(false);
+		horariosPanel.setVisible(false);
+		resumenCompraPanel.setVisible(true);
+		loginPanel.setVisible(false);		
+	}
+//	Ir al panle Login
+	private void mostrarPanelLogin() {
+		inicioPanel.setVisible(false);
+		registroPanel.setVisible(false);
+		seleccionCinePanel.setVisible(false);
+		seleccionPeliPanel.setVisible(false);
+		horariosPanel.setVisible(false);
+		resumenCompraPanel.setVisible(false);
+		loginPanel.setVisible(true);		
 	}
 }
