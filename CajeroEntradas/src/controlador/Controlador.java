@@ -14,7 +14,7 @@ public class Controlador {
 		ArrayList<Cine> cines = solicitud.getCines();
 		CajeroEntradas cajero = new CajeroEntradas ();
 		for (int i = 0; i < cines.size(); i++) {
-			System.out.println(cines);
+			System.out.println(cines.get(i).getNombre());
 			cajero.scCbSeleccionCine.addItem (cines.get(i).getNombre());
 			
 		}	
