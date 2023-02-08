@@ -28,7 +28,6 @@ public class Controlador {
 	public void esogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli) {
 		String pelicula = null;
 		pelicula = (String) scCbSeleccionCine.getSelectedItem();
-		System.out.println(pelicula);
 
 		// busca las peliculas y las añade al combobox
 		solicitudPeliculas = new SolicitaPeliculas();
