@@ -22,7 +22,15 @@ public class Sala implements Serializable{
 	private String nombre = null;
 	
 //	Relaciones
+	
+	/**
+	 *  Existe una relacion N:1 con Cine
+	 */
 	private ArrayList<Proyeccion> proyeccion = null;
+	
+	/**
+	 *  Existe una relacion 1:N con Proyeccion
+	 */
 	private Cine cine = null;
 	
 	public int getCod() {

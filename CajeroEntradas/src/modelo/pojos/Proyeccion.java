@@ -8,11 +8,7 @@ import java.util.Objects;
 
 public class Proyeccion implements Serializable {
 
-	/**
-	 * Existe una relacion N:1 con Sala
-	 * Existe una relacion N:1 con Pelicula
-	 * Existe una relacion 1:N con Entrada
-	 */
+	
 	
 	private static final long serialVersionUID = 5154322425865131472L;
 	
@@ -25,8 +21,20 @@ public class Proyeccion implements Serializable {
 	private int precio = 0;
 	
 //	Relaciones
+	
+	/**
+	 *  Existe una relacion N:1 con Sala
+	 */
 	private Sala sala = null;
+	
+	/**
+	 *  Existe una relacion N:1 con Pelicula
+	 */
 	private Pelicula pelicula = null;
+	
+	/**
+	 *  Existe una relacion 1:N con Entrada
+	 */
 	private ArrayList <Entrada> entradas = null;
 	
 	public int getCod() {

@@ -6,9 +6,7 @@ import java.util.Objects;
 
 public class Cine implements Serializable {
 	
-	/**
-	 * Existe una relacion 1:N con Sala
-	 */
+	
 	
 	private static final long serialVersionUID = 565880329585090674L;
 
@@ -20,6 +18,10 @@ public class Cine implements Serializable {
 	private String direccion = null;
 	
 //	Relaciones
+	
+	/**
+	 * Existe una relacion 1:N con Sala
+	 */
 	private ArrayList <Sala> salas = null;
 
 	public int getCod() {

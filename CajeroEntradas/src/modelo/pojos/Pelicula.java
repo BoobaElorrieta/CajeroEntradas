@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Pelicula implements Serializable {
-	/**
-	 *  Existe una relacion 1:N con Proyeccion
-	 */
+	
 	private static final long serialVersionUID = -8809226843737235064L;
 
 // 	Clave primaria
@@ -20,6 +18,10 @@ public class Pelicula implements Serializable {
 	private int coste = 0;
 	
 //	Relaciones
+	
+	/**
+	 *  Existe una relacion 1:N con Proyeccion
+	 */
 	private ArrayList<Proyeccion> proyecciones = null;
 
 	public int getCod() {
