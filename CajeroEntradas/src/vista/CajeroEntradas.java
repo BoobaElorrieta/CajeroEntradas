@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import java.util.Date;
 
 import controlador.Controlador;
 import controlador.ControladorEneko;
