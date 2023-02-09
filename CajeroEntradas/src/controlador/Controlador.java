@@ -10,6 +10,7 @@ import modelo.bbdd.SolicitaPeliculas;
 import modelo.pojos.Cine;
 import modelo.pojos.Pelicula;
 import modelo.pojos.Proyeccion;
+import modelo.pojos.Sala;
 import vista.CajeroEntradas;
 
 public class Controlador {
@@ -50,10 +51,10 @@ public class Controlador {
 		
 		// busca las peliculas y las añade al combobox
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
+		ArrayList<Sala> sala = solicitudHorarios.getSalas( "Select nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
-		//	System.out.println(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora() + " / " + );
-			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala());
+			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora().getTime() + " / " + proyeccion.get(i).getPrecio() + "€  / " + sala.get(i).getNombre());
 
 		}
 
