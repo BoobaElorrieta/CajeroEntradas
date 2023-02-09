@@ -34,6 +34,7 @@ public class Controlador {
 		pelicula = (String) scCbSeleccionCine.getSelectedItem();
 
 		// busca las peliculas y las añade al combobox
+		spCbSeleccionPeli.removeAllItems();
 		solicitudPeliculas = new SolicitaPeliculas();
 		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas( "Select Titulo From Peliculas, Proyecciones, Salas, Cines Where cines.Nombre = '" + pelicula + "' and peliculas.codigo = proyecciones.cod_peli and proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod");
 		for (int i = 0; i < pelis.size(); i++) {
