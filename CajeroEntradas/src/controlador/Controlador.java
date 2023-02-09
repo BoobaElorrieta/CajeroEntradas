@@ -20,6 +20,7 @@ public class Controlador {
 	SolicitaHorarios solicitudHorarios = null;
 
 	public void asignarCinePrueba(JComboBox<String> scCbSeleccionCine) {
+		scCbSeleccionCine.removeAllItems();
 		solicitudCine = new SolicitaCines();
 		ArrayList<Cine> cines = solicitudCine.getCines();
 		for (int i = 0; i < cines.size(); i++) {
