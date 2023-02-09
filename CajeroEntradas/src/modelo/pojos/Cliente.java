@@ -74,8 +74,8 @@ public class Cliente implements Serializable{
 		return tfno;
 	}
 
-	public void setTfno(int tfno) {
-		this.tfno = tfno;
+	public void setTfno(int string) {
+		this.tfno = string;
 	}
 
 	public String getDireccion() {
