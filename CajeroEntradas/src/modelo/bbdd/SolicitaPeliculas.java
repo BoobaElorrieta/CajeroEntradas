@@ -86,7 +86,7 @@ public class SolicitaPeliculas {
 		return ret;
 	}
 	
-	
+//	QUITAR MAIN
 
 	public static void main(String[] args) {
 
