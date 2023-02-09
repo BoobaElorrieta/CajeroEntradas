@@ -31,8 +31,8 @@ public class Controlador {
 
 		// busca las peliculas y las añade al combobox
 		solicitudPeliculas = new SolicitaPeliculas();
-	//	ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas( "Select Titulo From Peliculas Pe join Proyecciones Pr on Pe.cod = Pr.codPeli join Salas S on Pr.codSala = S.cod join Cines C on S.codCine = C.cod Where C.Nombre = " + pelicula + " Order by Fecha, Horas ASC");
-		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas("Select Titulo From Peliculas");
+		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas( "Select Titulo From Peliculas Pe join Proyecciones Pr on Pe.cod = Pr.codPeli join Salas S on Pr.codSala = S.cod join Cines C on S.codCine = C.cod Where C.Nombre = " + pelicula + " Order by Fecha, Horas ASC");
+	//	ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas("Select Titulo From Peliculas");
 		for (int i = 0; i < pelis.size(); i++) {
 			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
 
