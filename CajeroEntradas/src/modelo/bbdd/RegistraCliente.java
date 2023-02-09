@@ -16,9 +16,6 @@ public class RegistraCliente {
 
 	// Inserta un alumno
 		public void insertCliente(Cliente cliente){
-			RegistraCliente registraCliente = new RegistraCliente();
-			
-			registraCliente.insertCliente(cliente);
 			
 			// La conexion con BBDD
 			Connection connection = null;
@@ -37,7 +34,7 @@ public class RegistraCliente {
 				statement = connection.createStatement();
 				
 				// Montamos la SQL 
-				String sql = "insert into t_alumno (dni, nombre, apellidos, sexo, contrasena, tfno, direccion, email) VALUES ('" +  
+				String sql = "insert into clientes (dni, nombre, apellidos, sexo, contrasena, tfno, direccion, email) VALUES ('" +  
 						cliente.getDni() + "', '" + 
 						cliente.getNombre() + "', '" +  
 						cliente.getApellidos() + "', '" +  
