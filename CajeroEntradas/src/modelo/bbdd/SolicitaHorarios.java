@@ -1,7 +1,7 @@
 package modelo.bbdd;
 
 import java.sql.Connection;
-import java.util.Date;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -197,7 +197,6 @@ public class SolicitaHorarios {
 				Date fecha = resultSet.getDate("fecha");
 				Date hora = resultSet.getDate("hora");
 				int precio = resultSet.getInt("precio");
-				String Nombre = resultSet.getString("nombre");
 				// Metemos los datos a Ejemplo
 				proyeccion.setFecha(fecha);
 				proyeccion.setHora(hora);

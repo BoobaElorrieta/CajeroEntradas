@@ -30,13 +30,13 @@ public class Controlador {
 	}
 
 	public void esogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli) {
-		String pelicula = null;
-		pelicula = (String) scCbSeleccionCine.getSelectedItem();
+		String cine = null;
+		cine = (String) scCbSeleccionCine.getSelectedItem();
 
 		// busca las peliculas y las añade al combobox
 		spCbSeleccionPeli.removeAllItems();
 		solicitudPeliculas = new SolicitaPeliculas();
-		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas( "Select Titulo From Peliculas, Proyecciones, Salas, Cines Where cines.Nombre = '" + pelicula + "' and peliculas.codigo = proyecciones.cod_peli and proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod");
+		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas( "Select Titulo From Peliculas, Proyecciones, Salas, Cines Where cines.Nombre = '" + cine + "' and peliculas.codigo = proyecciones.cod_peli and proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod");
 		for (int i = 0; i < pelis.size(); i++) {
 			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
 
@@ -44,12 +44,15 @@ public class Controlador {
 
 	}
 	
-	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles) {
+	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli) {
+		String cine = null;
+		cine = (String) spCbSeleccionPeli.getSelectedItem();
 		
 		// busca las peliculas y las añade al combobox
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select Titulo From Peliculas, Proyecciones, Salas, Cines Where cines.Nombre = '" + pelicula + "' and peliculas.codigo = proyecciones.cod_peli and proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + Aquaman + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
+			System.out.println(proyeccion.get(i).getPrecio());
 			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getPrecio());
 
 		}
