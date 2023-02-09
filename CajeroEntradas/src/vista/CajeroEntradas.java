@@ -15,7 +15,9 @@ import java.util.Date;
 
 import controlador.Controlador;
 import controlador.ControladorEneko;
+import modelo.bbdd.RegistraCliente;
 import modelo.bbdd.SolicitaCines;
+import modelo.pojos.Cliente;
 
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
@@ -39,7 +41,7 @@ public class CajeroEntradas {
 	public JTextField registroTfNombre;
 	public JTextField registroTfApellidos;
 	public JTextField registroTfDNI;
-	public JComboBox registroCbSexo;
+	public JComboBox<String> registroCbSexo;
 	public JTextField registroTfEmail;
 	public JTextField registroTfContrasena;
 	public JTextField registroTfTfno;
@@ -207,8 +209,9 @@ public class CajeroEntradas {
 		JButton registroBtnAceptar = new JButton("Aceptar");
 		registroBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ControladorEneko cont = new ControladorEneko(); 
-				cont.registrarUsuario();
+				ControladorEneko cont = new ControladorEneko();
+				cont.registrarUsuario(registroTfNombre, registroTfApellidos, registroTfDNI, registroTfEmail,
+				registroTfContrasena, registroTfTfno, registroTfDireccion, registroCbSexo);
 				mostrarPanelInicio();
 				
 			}
@@ -382,6 +385,8 @@ public class CajeroEntradas {
 		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
 		seleccionPeliPanel.add(spCbSeleccionPeli);
 		
+//		Va mal
+		
 		JButton spBtnAceptar = new JButton("Aceptar");
 		spBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -514,5 +519,22 @@ public class CajeroEntradas {
 		horariosPanel.setVisible(false);
 		resumenCompraPanel.setVisible(false);
 		loginPanel.setVisible(true);		
+	}
+	
+	public void registrarUsuario() {
+		
+		Cliente cliente = new Cliente();
+		
+		cliente.setDni(registroTfDNI.getText());
+		cliente.setNombre(registroTfNombre.getText());
+		cliente.setApellidos(registroTfApellidos.getText());
+		cliente.setSexo(registroCbSexo.getSelectedItem().toString());
+		cliente.setContrasena(registroTfContrasena.getText());
+		cliente.setTfno(registroTfTfno.getText());
+		cliente.setDireccion(registroTfDireccion.getText());
+		cliente.setEmail(registroTfEmail.getText());
+		System.out.println(cliente.toString());
+		RegistraCliente registraCliente = new RegistraCliente();
+		registraCliente.insertCliente(cliente);
 	}
 }
