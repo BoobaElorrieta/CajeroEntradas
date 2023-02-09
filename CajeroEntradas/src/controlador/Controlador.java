@@ -45,15 +45,15 @@ public class Controlador {
 	}
 	
 	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli) {
-		String cine = null;
-		cine = (String) spCbSeleccionPeli.getSelectedItem();
+		String pelicula = null;
+		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		
 		// busca las peliculas y las añade al combobox
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + Aquaman + "'");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
-			System.out.println(proyeccion.get(i).getPrecio());
-			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getPrecio());
+			System.out.println(proyeccion.get(i).getFecha());
+			//horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getPrecio());
 
 		}
 
