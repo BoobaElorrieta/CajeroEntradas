@@ -191,7 +191,7 @@ public class SolicitaHorarios {
 
 				// Si es necesario, inicializamos la lista
 				if (null == ret)
-					ret = new <Sala>ArrayList();
+					ret = new ArrayList<Sala>();
 
 				Sala sala = new Sala();
 
@@ -263,7 +263,7 @@ public class SolicitaHorarios {
 
 				// Si es necesario, inicializamos la lista
 				if (null == ret)
-					ret = new <Proyeccion>ArrayList();
+					ret = new ArrayList<Proyeccion>();
 
 				Proyeccion proyeccion = new Proyeccion();
 
