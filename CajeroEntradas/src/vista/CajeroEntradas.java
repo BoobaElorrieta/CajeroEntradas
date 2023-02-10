@@ -52,6 +52,8 @@ public class CajeroEntradas {
 	private JButton btnAtras_1;
 	private JTable table;
 	private JComboBox<String> spCbSeleccionPeli;
+	private JButton btnAtras_4;
+	private JButton btnAtras_5;
 
 	/**
 	 * Launch the application.
@@ -84,6 +86,126 @@ public class CajeroEntradas {
 		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+//		LOGIN
+		
+		loginPanel = new JPanel();
+		loginPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(loginPanel);
+		loginPanel.setLayout(null);
+		loginPanel.setVisible(false);
+		
+		JLabel loginLbl = new JLabel("Login");
+		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		loginLbl.setBounds(220, 11, 263, 49);
+		loginPanel.add(loginLbl);
+		
+		JTextField loginTfEmail = new JTextField();
+		loginTfEmail.setBounds(235, 87, 263, 37);
+		loginPanel.add(loginTfEmail);
+		loginTfEmail.setColumns(10);
+		
+		JTextField loginTfContrasena = new JTextField();
+		loginTfContrasena.setColumns(10);
+		loginTfContrasena.setBounds(235, 182, 263, 37);
+		loginPanel.add(loginTfContrasena);
+		
+		JLabel loginLblEmail = new JLabel("Email:");
+		loginLblEmail.setBounds(197, 89, 28, 32);
+		loginPanel.add(loginLblEmail);
+		
+		JLabel loginLblContrasena = new JLabel("Contraseña:");
+		loginLblContrasena.setBounds(165, 184, 66, 32);
+		loginPanel.add(loginLblContrasena);
+		
+		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
+		loginBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		loginBtnAceptar.setBounds(235, 259, 263, 58);
+		loginPanel.add(loginBtnAceptar);
+		
+		btnAtras_5 = new JButton("🡠 Atras");
+		btnAtras_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+				controladorEneko.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel, 
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		btnAtras_5.setBounds(10, 11, 105, 30);
+		loginPanel.add(btnAtras_5);
+		
+//		RESUMEN DE COMPRA
+		
+		resumenCompraPanel = new JPanel();
+		resumenCompraPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(resumenCompraPanel);
+		resumenCompraPanel.setLayout(null);
+		resumenCompraPanel.setVisible(false);
+		
+		JLabel rcLbl = new JLabel("Resumen De Compra");
+		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		rcLbl.setBounds(158, 11, 383, 51);
+		resumenCompraPanel.add(rcLbl);
+		
+		JLabel rcLblEntradasSeleccionadas = new JLabel("Entradas Seleccionadas:");
+		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
+		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
+		
+		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
+		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
+		resumenCompraPanel.add(rcLblPrecioTotal);
+		
+		JTextArea rcTaPrecioTotal = new JTextArea();
+		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
+		resumenCompraPanel.add(rcTaPrecioTotal);
+		
+		JButton rcBtnAceptar = new JButton("Aceptar");
+		rcBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		rcBtnAceptar.setBounds(401, 189, 243, 51);
+		resumenCompraPanel.add(rcBtnAceptar);
+		
+		JButton rcBtnCancelar = new JButton("Cancelar");
+		rcBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		rcBtnCancelar.setBounds(401, 273, 243, 51);
+		resumenCompraPanel.add(rcBtnCancelar);
+		
+		btnAtras_4 = new JButton("🡠 Atras");
+		btnAtras_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+				controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		btnAtras_4.setBounds(10, 11, 105, 30);
+		resumenCompraPanel.add(btnAtras_4);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(55, 119, 272, 197);
+		resumenCompraPanel.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		
 //		SELECCION DE PELICULAS
 		
@@ -143,54 +265,6 @@ public class CajeroEntradas {
 		});
 		btnAtras_2.setBounds(10, 11, 105, 30);
 		seleccionPeliPanel.add(btnAtras_2);
-		
-//		LOGIN
-		
-		loginPanel = new JPanel();
-		loginPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(loginPanel);
-		loginPanel.setLayout(null);
-		loginPanel.setVisible(false);
-		
-		JLabel loginLbl = new JLabel("Login");
-		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		loginLbl.setBounds(220, 11, 263, 49);
-		loginPanel.add(loginLbl);
-		
-		JTextField loginTfEmail = new JTextField();
-		loginTfEmail.setBounds(235, 87, 263, 37);
-		loginPanel.add(loginTfEmail);
-		loginTfEmail.setColumns(10);
-		
-		JTextField loginTfContrasena = new JTextField();
-		loginTfContrasena.setColumns(10);
-		loginTfContrasena.setBounds(235, 182, 263, 37);
-		loginPanel.add(loginTfContrasena);
-		
-		JLabel loginLblEmail = new JLabel("Email:");
-		loginLblEmail.setBounds(197, 89, 28, 32);
-		loginPanel.add(loginLblEmail);
-		
-		JLabel loginLblContrasena = new JLabel("Contraseña:");
-		loginLblContrasena.setBounds(165, 184, 66, 32);
-		loginPanel.add(loginLblContrasena);
-		
-		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
-		loginBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		loginBtnAceptar.setBounds(235, 259, 263, 58);
-		loginPanel.add(loginBtnAceptar);
-		
-		JButton btnAtras_5 = new JButton("🡠 Atras");
-		btnAtras_5.setBounds(10, 11, 105, 30);
-		loginPanel.add(btnAtras_5);
 		
 //		SELECCION DE CINE
 		
@@ -299,64 +373,6 @@ public class CajeroEntradas {
 		});
 		btnAtras_1.setBounds(10, 11, 105, 30);
 		horariosPanel.add(btnAtras_1);
-		
-//		RESUMEN DE COMPRA
-		
-		resumenCompraPanel = new JPanel();
-		resumenCompraPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(resumenCompraPanel);
-		resumenCompraPanel.setLayout(null);
-		resumenCompraPanel.setVisible(false);
-		
-		JLabel rcLbl = new JLabel("Resumen De Compra");
-		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		rcLbl.setBounds(158, 11, 383, 51);
-		resumenCompraPanel.add(rcLbl);
-		
-		JLabel rcLblEntradasSeleccionadas = new JLabel("Entradas Seleccionadas:");
-		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
-		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
-		
-		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
-		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
-		resumenCompraPanel.add(rcLblPrecioTotal);
-		
-		JTextArea rcTaPrecioTotal = new JTextArea();
-		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
-		resumenCompraPanel.add(rcTaPrecioTotal);
-		
-		JButton rcBtnAceptar = new JButton("Aceptar");
-		rcBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		rcBtnAceptar.setBounds(401, 189, 243, 51);
-		resumenCompraPanel.add(rcBtnAceptar);
-		
-		JButton rcBtnCancelar = new JButton("Cancelar");
-		rcBtnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		rcBtnCancelar.setBounds(401, 273, 243, 51);
-		resumenCompraPanel.add(rcBtnCancelar);
-		
-		JButton btnAtras_4 = new JButton("🡠 Atras");
-		btnAtras_4.setBounds(10, 11, 105, 30);
-		resumenCompraPanel.add(btnAtras_4);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(55, 119, 272, 197);
-		resumenCompraPanel.add(scrollPane);
-		
-		table = new JTable();
-		scrollPane.setViewportView(table);
 		
 //		REGISTRO
 		
