@@ -23,6 +23,7 @@ public class Controlador {
 	SolicitaPeliculas solicitudPeliculas = null;
 	SolicitaHorarios solicitudHorarios = null;
 
+	// Busca los cines disponibles que hay
 	public void asignarCinePrueba(JComboBox<String> scCbSeleccionCine) {
 		scCbSeleccionCine.removeAllItems();
 		solicitudCine = new SolicitaCines();
@@ -32,12 +33,12 @@ public class Controlador {
 
 		}
 	}
-
+	// Añade las peliculas al combo box enbase a el cine seleccionado
 	public void esogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli) {
 		String cine = null;
 		cine = (String) scCbSeleccionCine.getSelectedItem();
 
-		// busca las peliculas y las añade al combobox
+		
 		spCbSeleccionPeli.removeAllItems();
 		solicitudPeliculas = new SolicitaPeliculas();
 		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas(
@@ -53,14 +54,11 @@ public class Controlador {
 		}
 
 	}
-	
+	// Pone los horarios disponible en base a la pelicula seleccionada
 	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli) {
 		String pelicula = null;
 		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		
-
-		
-		// busca las peliculas y las añade al combobox
 		solicitudHorarios = new SolicitaHorarios();
 		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
@@ -86,6 +84,8 @@ public class Controlador {
 		registraCliente.insertCliente(cliente);
 	}
 	
+	// Ventana Emergente
+	
 	  public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles) {
 			String cine = null;
 			cine = (String) horariosCbHorariosDisponibles.getSelectedItem();
@@ -97,14 +97,8 @@ public class Controlador {
 			String sala = parts[3];
 			
 	        JFrame jFrame = new JFrame();
-	        int result = JOptionPane.showConfirmDialog(jFrame, "Has seleccionado la siguientes opciones: \r\n" + "La pelicula sera el dia " + fecha + "a las " + hora + "en la sala " + sala + " por un precio de " + precio);
+	        JOptionPane.showMessageDialog(jFrame, "Has seleccionado la siguientes opciones: \r\n" + "La pelicula sera el dia " + fecha + "a las " + hora + "en la sala " + sala + " por un precio de " + precio);
 
-	        if (result == 0)
-	            System.out.println("You pressed Yes");
-	        else if (result == 1)
-	            System.out.println("You pressed NO");
-	        else
-	            System.out.println("You pressed Cancel");
 
 	    }
 }
