@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 
 import modelo.bbdd.RegistraCliente;
 import modelo.bbdd.SolicitaCines;
+import modelo.bbdd.SolicitaCliente;
 import modelo.bbdd.SolicitaHorarios;
 import modelo.bbdd.SolicitaPeliculas;
 import modelo.pojos.Cine;
@@ -22,6 +23,7 @@ public class Controlador {
 	SolicitaCines solicitudCine = null;
 	SolicitaPeliculas solicitudPeliculas = null;
 	SolicitaHorarios solicitudHorarios = null;
+	SolicitaCliente solicitudClientes = null;
 
 	// Busca los cines disponibles que hay
 	public void asignarCinePrueba(JComboBox<String> scCbSeleccionCine) {
@@ -101,4 +103,27 @@ public class Controlador {
 
 
 	    }
+	  
+		public void comprobarLogin() {
+			String correo = null;
+			String contrasenaUsuario = null;
+			String contrasenaReal = null;
+			//correo = (String) spCbSeleccionPeli.getSelectedItem();
+			//contraseñaUsuario = (String) spCbSeleccionPeli.getSelectedItem();
+			try {
+				
+			
+			solicitudClientes = new SolicitaCliente();
+			ArrayList<Cliente> cliente = solicitudClientes.getClientes("SELECT email, contrasena FROM Clientes WHERE email = '" + correo + "'");
+			contrasenaReal = cliente.get(0).getContrasena();
+			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
+				//Se le deja pasar
+			}else {
+				//no se le deja pasar
+			}
+		}catch (Exception e) {
+			JFrame jFrame = new JFrame();
+	        JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
+		}
+		}
 }

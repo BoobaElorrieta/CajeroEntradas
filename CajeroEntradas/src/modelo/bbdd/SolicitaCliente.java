@@ -13,11 +13,8 @@ import utils.DBUtils;
 public class SolicitaCliente {
 	// Retorna todas las filas de la tabla alumno
 	// Si no hay nada, retorna NULL
-	public ArrayList<Cliente> getClientes() {
+	public ArrayList<Cliente> getClientes(String sql) {
 		ArrayList<Cliente> ret = null;
-
-		// SQL que queremos lanzar
-		String sql = "SELECT email, contrasena FROM Clientes WHERE email = '" + correo +"'";
 
 		// La conexion con BBDD
 		Connection connection = null;
