@@ -104,26 +104,31 @@ public class Controlador {
 
 	    }
 	  
-		public void comprobarLogin() {
+		public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) {
 			String correo = null;
 			String contrasenaUsuario = null;
 			String contrasenaReal = null;
-			//correo = (String) spCbSeleccionPeli.getSelectedItem();
-			//contraseñaUsuario = (String) spCbSeleccionPeli.getSelectedItem();
+			boolean ret = false;
+			correo = (String) loginTfEmail.getText();
+			contrasenaUsuario = (String) loginTfContrasena.getText();
 			try {
-				
 			
 			solicitudClientes = new SolicitaCliente();
 			ArrayList<Cliente> cliente = solicitudClientes.getClientes("SELECT email, contrasena FROM Clientes WHERE email = '" + correo + "'");
 			contrasenaReal = cliente.get(0).getContrasena();
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
 				//Se le deja pasar
+				System.out.println("ES CORRECTO");
+				ret = true;
+				
 			}else {
-				//no se le deja pasar
+				System.out.println("ES FALSO");
+				ret = false;
 			}
 		}catch (Exception e) {
 			JFrame jFrame = new JFrame();
 	        JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
 		}
+			return ret;
 		}
 }

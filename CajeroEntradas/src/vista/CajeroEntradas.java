@@ -188,9 +188,15 @@ public class CajeroEntradas {
 		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
 		loginBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				boolean solucion = false;
+				controlador = new Controlador();
+				solucion = controlador.comprobarLogin(loginTfEmail, loginTfContrasena);
+				
+				if (solucion = true) {	
 				controladorEneko = new ControladorEneko();
 			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+				}
 			}
 		});
 		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
