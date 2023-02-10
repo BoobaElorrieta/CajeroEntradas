@@ -266,15 +266,19 @@ public class SolicitaHorarios {
 					ret = new ArrayList<Proyeccion>();
 
 				Proyeccion proyeccion = new Proyeccion();
+				Sala sala = new Sala();
 
 				// Sacamos las columnas del RS
 				Date fecha = resultSet.getDate("fecha");
 				Date hora = resultSet.getDate("hora");
 				int precio = resultSet.getInt("precio");
+				String nombre = resultSet.getString("nombre");
 				// Metemos los datos a Ejemplo
 				proyeccion.setFecha(fecha);
 				proyeccion.setHora(hora);
 				proyeccion.setPrecio(precio);
+				sala.setNombre(nombre);
+				proyeccion.setSala(sala);
 				
 				// Lo guardamos en ret
 				ret.add(proyeccion);
