@@ -18,6 +18,9 @@ import modelo.pojos.Cliente;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import java.awt.ScrollPane;
+import javax.swing.JScrollPane;
 
 public class CajeroEntradas {
 	
@@ -41,6 +44,11 @@ public class CajeroEntradas {
 	public JTextField registroTfContrasena;
 	public JTextField registroTfTfno;
 	public JTextField registroTfDireccion;
+	private JButton btnAtras_3;
+	private JButton btnAtras;
+	private JButton btnAtras_2;
+	private JButton btnAtras_1;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -73,6 +81,257 @@ public class CajeroEntradas {
 		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+//		LOGIN
+		
+		loginPanel = new JPanel();
+		loginPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(loginPanel);
+		loginPanel.setLayout(null);
+		loginPanel.setVisible(false);
+		
+		JLabel loginLbl = new JLabel("Login");
+		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		loginLbl.setBounds(220, 11, 263, 49);
+		loginPanel.add(loginLbl);
+		
+		JTextField loginTfEmail = new JTextField();
+		loginTfEmail.setBounds(235, 87, 263, 37);
+		loginPanel.add(loginTfEmail);
+		loginTfEmail.setColumns(10);
+		
+		JTextField loginTfContrasena = new JTextField();
+		loginTfContrasena.setColumns(10);
+		loginTfContrasena.setBounds(235, 182, 263, 37);
+		loginPanel.add(loginTfContrasena);
+		
+		JLabel loginLblEmail = new JLabel("Email:");
+		loginLblEmail.setBounds(197, 89, 28, 32);
+		loginPanel.add(loginLblEmail);
+		
+		JLabel loginLblContrasena = new JLabel("Contraseña:");
+		loginLblContrasena.setBounds(165, 184, 66, 32);
+		loginPanel.add(loginLblContrasena);
+		
+		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
+		loginBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		loginBtnAceptar.setBounds(235, 259, 263, 58);
+		loginPanel.add(loginBtnAceptar);
+		
+		JButton btnAtras_5 = new JButton("🡠 Atras");
+		btnAtras_5.setBounds(10, 11, 105, 30);
+		loginPanel.add(btnAtras_5);
+		
+//		SELECCION DE CINE
+		
+		seleccionCinePanel = new JPanel();
+		seleccionCinePanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionCinePanel);
+		seleccionCinePanel.setLayout(null);
+		seleccionCinePanel.setVisible(false);
+		
+		scCbSeleccionCine = new JComboBox<String>();
+		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
+		scCbSeleccionCine.setBounds(55, 139, 239, 30);
+		seleccionCinePanel.add(scCbSeleccionCine);
+		
+		JLabel scLbl = new JLabel("Selecciona el Cine");
+		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		scLbl.setBounds(167, 25, 344, 36);
+		seleccionCinePanel.add(scLbl);
+		
+		JButton scBtnAceptar = new JButton("Aceptar");
+		scBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controlador solicitud = new Controlador();
+				solicitud.esogerCine(scCbSeleccionCine, spCbSeleccionPeli);
+				mostrarPanelSeleccionPeli();
+			}
+		});
+		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnAceptar.setBounds(422, 116, 224, 53);
+		seleccionCinePanel.add(scBtnAceptar);
+		
+		JButton scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
+		seleccionCinePanel.add(scBtnFinalizarSesion);
+		
+		btnAtras = new JButton("🡠 Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		btnAtras.setBounds(10, 11, 105, 30);
+		seleccionCinePanel.add(btnAtras);
+		
+//		HORARIOS
+		
+		horariosPanel = new JPanel();
+		horariosPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(horariosPanel);
+		horariosPanel.setLayout(null);
+		horariosPanel.setVisible(false);
+		
+		JLabel horariosLbl = new JLabel("Horarios");
+		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		horariosLbl.setBounds(195, 11, 279, 57);
+		horariosPanel.add(horariosLbl);
+		
+		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
+		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
+		horariosPanel.add(horariosLblHorariosDisponibles);
+		
+		horariosCbHorariosDisponibles = new JComboBox<String>();
+		horariosCbHorariosDisponibles.setToolTipText("Horarios");
+		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
+		horariosPanel.add(horariosCbHorariosDisponibles);
+		
+		JButton horariosBtnAceptar = new JButton("Aceptar");
+		horariosBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controlador solicitud = new Controlador();
+				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
+				mostrarPanelInicio();
+			}
+		});
+		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnAceptar.setBounds(462, 135, 186, 57);
+		horariosPanel.add(horariosBtnAceptar);
+		
+		JButton horariosBtnCancelar = new JButton("Cancelar");
+		horariosBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnCancelar.setBounds(462, 238, 186, 57);
+		horariosPanel.add(horariosBtnCancelar);
+		
+		btnAtras_1 = new JButton("🡠 Atras");
+		btnAtras_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelSeleccionPeli();
+			}
+		});
+		btnAtras_1.setBounds(10, 11, 105, 30);
+		horariosPanel.add(btnAtras_1);
+		
+//		RESUMEN DE COMPRA
+		
+		resumenCompraPanel = new JPanel();
+		resumenCompraPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(resumenCompraPanel);
+		resumenCompraPanel.setLayout(null);
+		resumenCompraPanel.setVisible(false);
+		
+		JLabel rcLbl = new JLabel("Resumen De Compra");
+		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		rcLbl.setBounds(158, 11, 383, 51);
+		resumenCompraPanel.add(rcLbl);
+		
+		JLabel rcLblEntradasSeleccionadas = new JLabel("Entradas Seleccionadas:");
+		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
+		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
+		
+		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
+		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
+		resumenCompraPanel.add(rcLblPrecioTotal);
+		
+		JTextArea rcTaPrecioTotal = new JTextArea();
+		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
+		resumenCompraPanel.add(rcTaPrecioTotal);
+		
+		JButton rcBtnAceptar = new JButton("Aceptar");
+		rcBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		rcBtnAceptar.setBounds(401, 189, 243, 51);
+		resumenCompraPanel.add(rcBtnAceptar);
+		
+		JButton rcBtnCancelar = new JButton("Cancelar");
+		rcBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		rcBtnCancelar.setBounds(401, 273, 243, 51);
+		resumenCompraPanel.add(rcBtnCancelar);
+		
+		JButton btnAtras_4 = new JButton("🡠 Atras");
+		btnAtras_4.setBounds(10, 11, 105, 30);
+		resumenCompraPanel.add(btnAtras_4);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(55, 119, 272, 197);
+		resumenCompraPanel.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
+//		SELECCION DE PELICULAS
+		
+		seleccionPeliPanel = new JPanel();
+		seleccionPeliPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionPeliPanel);
+		seleccionPeliPanel.setLayout(null);
+		seleccionPeliPanel.setVisible(false);
+		
+		JLabel spLbl = new JLabel("Cine");
+		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		spLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		spLbl.setBounds(208, 11, 274, 45);
+		seleccionPeliPanel.add(spLbl);
+		
+		JLabel spLblPelisDisponibles = new JLabel("Películas Disponibles:");
+		spLblPelisDisponibles.setBounds(72, 124, 153, 22);
+		seleccionPeliPanel.add(spLblPelisDisponibles);
+		
+		JComboBox<String> spCbSeleccionPeli = new JComboBox<String>();
+		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
+		seleccionPeliPanel.add(spCbSeleccionPeli);
+		
+//		Va mal
+		
+		JButton spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador = new Controlador();
+				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli);
+				mostrarPanelHorarios();
+			}
+		});
+		spBtnAceptar.setBounds(404, 126, 258, 53);
+		seleccionPeliPanel.add(spBtnAceptar);
+		
+		JButton spBtnResumenDeCompra = new JButton("Resumen de Compra");
+		spBtnResumenDeCompra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelResumenCompra();
+			}
+		});
+		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
+		seleccionPeliPanel.add(spBtnResumenDeCompra);
+		
+		btnAtras_2 = new JButton("🡠 Atras");
+		btnAtras_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelSeleccionCine();
+			}
+		});
+		btnAtras_2.setBounds(10, 11, 105, 30);
+		seleccionPeliPanel.add(btnAtras_2);
 		
 //		REGISTRO
 		
@@ -186,6 +445,15 @@ public class CajeroEntradas {
 		registroBtnCancelar.setBounds(422, 259, 158, 49);
 		registroPanel.add(registroBtnCancelar);
 		
+		btnAtras_3 = new JButton("🡠 Atras");
+		btnAtras_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelInicio();
+			}
+		});
+		btnAtras_3.setBounds(10, 11, 105, 30);
+		registroPanel.add(btnAtras_3);
+		
 //		INICIO
 		
 		inicioPanel = new JPanel();
@@ -223,220 +491,6 @@ public class CajeroEntradas {
 		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
 		inicioPanel.add(inicioBtnRegistrar);
-		
-//		HORARIOS
-		
-		horariosPanel = new JPanel();
-		horariosPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(horariosPanel);
-		horariosPanel.setLayout(null);
-		horariosPanel.setVisible(false);
-		
-		JLabel horariosLbl = new JLabel("Horarios");
-		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		horariosLbl.setBounds(195, 11, 279, 57);
-		horariosPanel.add(horariosLbl);
-		
-		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
-		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
-		horariosPanel.add(horariosLblHorariosDisponibles);
-		
-		horariosCbHorariosDisponibles = new JComboBox<String>();
-		horariosCbHorariosDisponibles.setToolTipText("Horarios");
-		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
-		horariosPanel.add(horariosCbHorariosDisponibles);
-		
-		JButton horariosBtnAceptar = new JButton("Aceptar");
-		horariosBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Controlador solicitud = new Controlador();
-				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
-				mostrarPanelInicio();
-			}
-		});
-		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		horariosBtnAceptar.setBounds(462, 135, 186, 57);
-		horariosPanel.add(horariosBtnAceptar);
-		
-		JButton horariosBtnCancelar = new JButton("Cancelar");
-		horariosBtnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
-			}
-		});
-		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		horariosBtnCancelar.setBounds(462, 238, 186, 57);
-		horariosPanel.add(horariosBtnCancelar);
-		
-//		LOGIN
-		
-		loginPanel = new JPanel();
-		loginPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(loginPanel);
-		loginPanel.setLayout(null);
-		loginPanel.setVisible(false);
-		
-		JLabel loginLbl = new JLabel("Login");
-		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		loginLbl.setBounds(220, 11, 263, 49);
-		loginPanel.add(loginLbl);
-		
-		JTextField loginTfEmail = new JTextField();
-		loginTfEmail.setBounds(235, 87, 263, 37);
-		loginPanel.add(loginTfEmail);
-		loginTfEmail.setColumns(10);
-		
-		JTextField loginTfContrasena = new JTextField();
-		loginTfContrasena.setColumns(10);
-		loginTfContrasena.setBounds(235, 182, 263, 37);
-		loginPanel.add(loginTfContrasena);
-		
-		JLabel loginLblEmail = new JLabel("Email:");
-		loginLblEmail.setBounds(197, 89, 28, 32);
-		loginPanel.add(loginLblEmail);
-		
-		JLabel loginLblContrasena = new JLabel("Contraseña:");
-		loginLblContrasena.setBounds(165, 184, 66, 32);
-		loginPanel.add(loginLblContrasena);
-		
-		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
-		loginBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
-			}
-		});
-		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		loginBtnAceptar.setBounds(235, 259, 263, 58);
-		loginPanel.add(loginBtnAceptar);
-		
-//		RESUMEN DE COMPRA
-		
-		resumenCompraPanel = new JPanel();
-		resumenCompraPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(resumenCompraPanel);
-		resumenCompraPanel.setLayout(null);
-		resumenCompraPanel.setVisible(false);
-		
-		JLabel rcLbl = new JLabel("Resumen De Compra");
-		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		rcLbl.setBounds(158, 11, 383, 51);
-		resumenCompraPanel.add(rcLbl);
-		
-		JLabel rcLblEntradasSeleccionadas = new JLabel("Entradas Seleccionadas:");
-		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
-		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
-		
-		JTextArea rcTaEntradasSeleccionadas = new JTextArea();
-		rcTaEntradasSeleccionadas.setEditable(false);
-		rcTaEntradasSeleccionadas.setBounds(31, 101, 333, 223);
-		resumenCompraPanel.add(rcTaEntradasSeleccionadas);
-		
-		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
-		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
-		resumenCompraPanel.add(rcLblPrecioTotal);
-		
-		JTextArea rcTaPrecioTotal = new JTextArea();
-		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
-		resumenCompraPanel.add(rcTaPrecioTotal);
-		
-		JButton rcBtnAceptar = new JButton("Aceptar");
-		rcBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
-			}
-		});
-		rcBtnAceptar.setBounds(401, 189, 243, 51);
-		resumenCompraPanel.add(rcBtnAceptar);
-		
-		JButton rcBtnCancelar = new JButton("Cancelar");
-		rcBtnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
-			}
-		});
-		rcBtnCancelar.setBounds(401, 273, 243, 51);
-		resumenCompraPanel.add(rcBtnCancelar);
-		
-//		SELECCION DE PELICULAS
-		
-		seleccionPeliPanel = new JPanel();
-		seleccionPeliPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(seleccionPeliPanel);
-		seleccionPeliPanel.setLayout(null);
-		seleccionPeliPanel.setVisible(false);
-		
-		JLabel spLbl = new JLabel("Cine");
-		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		spLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		spLbl.setBounds(208, 11, 274, 45);
-		seleccionPeliPanel.add(spLbl);
-		
-		JLabel spLblPelisDisponibles = new JLabel("Películas Disponibles:");
-		spLblPelisDisponibles.setBounds(72, 124, 153, 22);
-		seleccionPeliPanel.add(spLblPelisDisponibles);
-		
-		JComboBox<String> spCbSeleccionPeli = new JComboBox<String>();
-		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
-		seleccionPeliPanel.add(spCbSeleccionPeli);
-		
-//		Va mal
-		
-		JButton spBtnAceptar = new JButton("Aceptar");
-		spBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador = new Controlador();
-				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli);
-				mostrarPanelHorarios();
-			}
-		});
-		spBtnAceptar.setBounds(404, 126, 258, 53);
-		seleccionPeliPanel.add(spBtnAceptar);
-		
-		JButton spBtnResumenDeCompra = new JButton("Resumen de Compra");
-		spBtnResumenDeCompra.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelResumenCompra();
-			}
-		});
-		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
-		seleccionPeliPanel.add(spBtnResumenDeCompra);
-		
-//		SELECCION DE CINE
-		
-		seleccionCinePanel = new JPanel();
-		seleccionCinePanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(seleccionCinePanel);
-		seleccionCinePanel.setLayout(null);
-		seleccionCinePanel.setVisible(false);
-		
-		scCbSeleccionCine = new JComboBox<String>();
-		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
-		scCbSeleccionCine.setBounds(55, 139, 239, 30);
-		seleccionCinePanel.add(scCbSeleccionCine);
-		
-		JLabel scLbl = new JLabel("Selecciona el Cine");
-		scLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		scLbl.setBounds(167, 25, 344, 36);
-		seleccionCinePanel.add(scLbl);
-		
-		JButton scBtnAceptar = new JButton("Aceptar");
-		scBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Controlador solicitud = new Controlador();
-				solicitud.esogerCine(scCbSeleccionCine, spCbSeleccionPeli);
-				mostrarPanelSeleccionPeli();
-			}
-		});
-		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnAceptar.setBounds(422, 116, 224, 53);
-		seleccionCinePanel.add(scBtnAceptar);
-		
-		JButton scBtnFinalizarSesion = new JButton("Finalizar Sesion");
-		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
-		seleccionCinePanel.add(scBtnFinalizarSesion);
 	}
 	
 //	METODOS
