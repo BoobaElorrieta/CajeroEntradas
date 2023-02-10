@@ -34,7 +34,7 @@ public class Controlador {
 		}
 	}
 	// Añade las peliculas al combo box enbase a el cine seleccionado
-	public void esogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli) {
+	public void escogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli) {
 		String cine = null;
 		cine = (String) scCbSeleccionCine.getSelectedItem();
 
