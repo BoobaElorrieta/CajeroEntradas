@@ -2,6 +2,8 @@ package controlador;
 
 import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import modelo.bbdd.RegistraCliente;
@@ -83,4 +85,26 @@ public class Controlador {
 		RegistraCliente registraCliente = new RegistraCliente();
 		registraCliente.insertCliente(cliente);
 	}
+	
+	  public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles) {
+			String cine = null;
+			cine = (String) horariosCbHorariosDisponibles.getSelectedItem();
+			
+			String[] parts = cine.split("/");
+			String fecha = parts[0];
+			String hora = parts[1]; 
+			String precio = parts[2];
+			String sala = parts[3];
+			
+	        JFrame jFrame = new JFrame();
+	        int result = JOptionPane.showConfirmDialog(jFrame, "Has seleccionado la siguientes opciones: \r\n" + "La pelicula sera el dia " + fecha + "a las " + hora + "en la sala " + sala + " por un precio de " + precio);
+
+	        if (result == 0)
+	            System.out.println("You pressed Yes");
+	        else if (result == 1)
+	            System.out.println("You pressed NO");
+	        else
+	            System.out.println("You pressed Cancel");
+
+	    }
 }

@@ -250,6 +250,8 @@ public class CajeroEntradas {
 		JButton horariosBtnAceptar = new JButton("Aceptar");
 		horariosBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Controlador solicitud = new Controlador();
+				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
 				mostrarPanelInicio();
 			}
 		});
