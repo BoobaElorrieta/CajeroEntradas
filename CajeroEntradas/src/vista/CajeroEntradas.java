@@ -32,7 +32,7 @@ public class CajeroEntradas {
 	public JPanel seleccionPeliPanel;
 	public JPanel registroPanel;
 	public JPanel seleccionCinePanel;
-	private JComboBox horariosCbHorariosDisponibles;
+	private JComboBox<String> horariosCbHorariosDisponibles;
 	public JTextField registroTfNombre;
 	public JTextField registroTfApellidos;
 	public JTextField registroTfDNI;
@@ -166,7 +166,6 @@ public class CajeroEntradas {
 		JButton registroBtnAceptar = new JButton("Aceptar");
 		registroBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Controlador controlador = new Controlador();
 				controlador.registrarUsuario(registroTfDNI, registroTfNombre, registroTfApellidos, registroTfContrasena,
 				registroTfTfno, registroTfDireccion, registroTfEmail, registroCbSexo);
 				mostrarPanelInicio();
@@ -385,8 +384,8 @@ public class CajeroEntradas {
 		JButton spBtnAceptar = new JButton("Aceptar");
 		spBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Controlador solicitud = new Controlador();
-				solicitud.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli);
+				controlador = new Controlador();
+				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli);
 				mostrarPanelHorarios();
 			}
 		});
