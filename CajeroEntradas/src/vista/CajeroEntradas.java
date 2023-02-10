@@ -4,24 +4,19 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
-import java.util.Date;
 
 import controlador.Controlador;
-import controlador.ControladorEneko;
 import modelo.bbdd.RegistraCliente;
-import modelo.bbdd.SolicitaCines;
 import modelo.pojos.Cliente;
 
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class CajeroEntradas {
@@ -159,7 +154,7 @@ public class CajeroEntradas {
 		registroTfDireccion.setBounds(444, 209, 136, 17);
 		registroPanel.add(registroTfDireccion);
 		
-		registroCbSexo = new JComboBox();
+		registroCbSexo = new JComboBox<String>();
 		registroCbSexo.setToolTipText("Seleccione su Sexo");
 		registroCbSexo.addItem("Hombre");
 		registroCbSexo.addItem("Mujer");
@@ -248,7 +243,7 @@ public class CajeroEntradas {
 		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
 		horariosPanel.add(horariosLblHorariosDisponibles);
 		
-		horariosCbHorariosDisponibles = new JComboBox();
+		horariosCbHorariosDisponibles = new JComboBox<String>();
 		horariosCbHorariosDisponibles.setToolTipText("Horarios");
 		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
 		horariosPanel.add(horariosCbHorariosDisponibles);

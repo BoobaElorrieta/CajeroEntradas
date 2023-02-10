@@ -1,7 +1,6 @@
 package controlador;
 
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -13,7 +12,6 @@ import modelo.pojos.Cine;
 import modelo.pojos.Cliente;
 import modelo.pojos.Pelicula;
 import modelo.pojos.Proyeccion;
-import modelo.pojos.Sala;
 import vista.CajeroEntradas;
 
 public class Controlador {
@@ -68,7 +66,7 @@ public class Controlador {
 	}
 	
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
-			JTextField tfno, JTextField direccion, JTextField email, JComboBox sexo) {
+			JTextField tfno, JTextField direccion, JTextField email, JComboBox<String> sexo) {
 		Cliente cliente = new Cliente();
 		
 		cliente.setDni(dni.getText());
