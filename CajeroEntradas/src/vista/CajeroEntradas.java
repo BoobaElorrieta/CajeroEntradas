@@ -79,44 +79,6 @@ public class CajeroEntradas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-//		INICIO
-		
-		inicioPanel = new JPanel();
-		inicioPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(inicioPanel);
-		inicioPanel.setLayout(null);
-		
-		JLabel inicioLbl = new JLabel("BOOBA");
-		inicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
-		inicioLbl.setBounds(71, 36, 158, 101);
-		inicioPanel.add(inicioLbl);
-		
-		JLabel inicioLblCompra = new JLabel("Compra de Entradas");
-		inicioLblCompra.setBounds(71, 215, 120, 36);
-		inicioPanel.add(inicioLblCompra);
-		
-		JButton inicioBtnIniciar = new JButton("Iniciar");
-		inicioBtnIniciar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelSeleccionCine();
-				Controlador solicitud = new Controlador();
-				solicitud.asignarCinePrueba(scCbSeleccionCine);
-			}
-		});
-		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		inicioBtnIniciar.setBounds(327, 218, 296, 99);
-		inicioPanel.add(inicioBtnIniciar);
-		
-		JButton inicioBtnRegistrar = new JButton("Regístrate!");
-		inicioBtnRegistrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelRegistro();
-			}
-		});
-		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
-		inicioPanel.add(inicioBtnRegistrar);
-		
 //		REGISTRO
 		
 		registroPanel = new JPanel();
@@ -210,8 +172,8 @@ public class CajeroEntradas {
 		registroBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador controlador = new Controlador();
-				controlador.registrarUsuario(registroTfNombre, registroTfApellidos, registroTfDNI, registroTfEmail,
-				registroTfContrasena, registroTfTfno, registroTfDireccion, registroCbSexo);
+				controlador.registrarUsuario(registroTfDNI, registroTfNombre, registroTfApellidos, registroTfContrasena,
+				registroTfTfno, registroTfDireccion, registroTfEmail, registroCbSexo);
 				mostrarPanelInicio();
 				
 			}
@@ -229,6 +191,44 @@ public class CajeroEntradas {
 		registroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		registroBtnCancelar.setBounds(422, 259, 158, 49);
 		registroPanel.add(registroBtnCancelar);
+		
+//		INICIO
+		
+		inicioPanel = new JPanel();
+		inicioPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(inicioPanel);
+		inicioPanel.setLayout(null);
+		
+		JLabel inicioLbl = new JLabel("BOOBA");
+		inicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		inicioLbl.setBounds(71, 36, 158, 101);
+		inicioPanel.add(inicioLbl);
+		
+		JLabel inicioLblCompra = new JLabel("Compra de Entradas");
+		inicioLblCompra.setBounds(71, 215, 120, 36);
+		inicioPanel.add(inicioLblCompra);
+		
+		JButton inicioBtnIniciar = new JButton("Iniciar");
+		inicioBtnIniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelSeleccionCine();
+				Controlador solicitud = new Controlador();
+				solicitud.asignarCinePrueba(scCbSeleccionCine);
+			}
+		});
+		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		inicioBtnIniciar.setBounds(327, 218, 296, 99);
+		inicioPanel.add(inicioBtnIniciar);
+		
+		JButton inicioBtnRegistrar = new JButton("Regístrate!");
+		inicioBtnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarPanelRegistro();
+			}
+		});
+		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
+		inicioPanel.add(inicioBtnRegistrar);
 		
 //		HORARIOS
 		

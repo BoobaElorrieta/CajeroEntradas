@@ -41,11 +41,11 @@ public class Controlador {
 		spCbSeleccionPeli.removeAllItems();
 		solicitudPeliculas = new SolicitaPeliculas();
 		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas(
-				"Select Titulo"
-				+ "From Peliculas, Proyecciones, Salas, Cines"
-				+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and"
-					+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod"
-				+ "GROUP BY titulo"
+				"Select Titulo "
+				+ "From Peliculas, Proyecciones, Salas, Cines "
+				+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and "
+					+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
+				+ "GROUP BY titulo "
 				+ "ORDER BY FECHA asc, hora ASC");
 		for (int i = 0; i < pelis.size(); i++) {
 			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
