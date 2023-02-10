@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
 import controlador.Controlador;
+import controlador.ControladorEneko;
 import modelo.bbdd.RegistraCliente;
 import modelo.pojos.Cliente;
 
@@ -25,6 +26,7 @@ import javax.swing.JScrollPane;
 public class CajeroEntradas {
 	
 	Controlador controlador = new Controlador();
+	ControladorEneko controladorEneko = new ControladorEneko();
 
 	private JFrame frame;
 	public JComboBox<String> scCbSeleccionCine;
@@ -49,6 +51,7 @@ public class CajeroEntradas {
 	private JButton btnAtras_2;
 	private JButton btnAtras_1;
 	private JTable table;
+	private JComboBox<String> spCbSeleccionPeli;
 
 	/**
 	 * Launch the application.
@@ -81,6 +84,65 @@ public class CajeroEntradas {
 		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+//		SELECCION DE PELICULAS
+		
+		seleccionPeliPanel = new JPanel();
+		seleccionPeliPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(seleccionPeliPanel);
+		seleccionPeliPanel.setLayout(null);
+		seleccionPeliPanel.setVisible(false);
+		
+		JLabel spLbl = new JLabel("Cine");
+		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		spLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		spLbl.setBounds(208, 11, 274, 45);
+		seleccionPeliPanel.add(spLbl);
+		
+		JLabel spLblPelisDisponibles = new JLabel("Películas Disponibles:");
+		spLblPelisDisponibles.setBounds(72, 124, 153, 22);
+		seleccionPeliPanel.add(spLblPelisDisponibles);
+		
+		spCbSeleccionPeli = new JComboBox<String>();
+		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
+		seleccionPeliPanel.add(spCbSeleccionPeli);
+		
+//		Va mal
+		
+		JButton spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador = new Controlador();
+				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli);
+				controladorEneko = new ControladorEneko();
+				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		spBtnAceptar.setBounds(404, 126, 258, 53);
+		seleccionPeliPanel.add(spBtnAceptar);
+		
+		JButton spBtnResumenDeCompra = new JButton("Resumen de Compra");
+		spBtnResumenDeCompra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
+		seleccionPeliPanel.add(spBtnResumenDeCompra);
+		
+		btnAtras_2 = new JButton("🡠 Atras");
+		btnAtras_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		btnAtras_2.setBounds(10, 11, 105, 30);
+		seleccionPeliPanel.add(btnAtras_2);
 		
 //		LOGIN
 		
@@ -117,7 +179,9 @@ public class CajeroEntradas {
 		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
 		loginBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -151,7 +215,9 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
 				solicitud.esogerCine(scCbSeleccionCine, spCbSeleccionPeli);
-				mostrarPanelSeleccionPeli();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		scBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -166,7 +232,9 @@ public class CajeroEntradas {
 		btnAtras = new JButton("🡠 Atras");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		btnAtras.setBounds(10, 11, 105, 30);
@@ -200,7 +268,9 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
 				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -210,7 +280,9 @@ public class CajeroEntradas {
 		JButton horariosBtnCancelar = new JButton("Cancelar");
 		horariosBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -220,7 +292,9 @@ public class CajeroEntradas {
 		btnAtras_1 = new JButton("🡠 Atras");
 		btnAtras_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelSeleccionPeli();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		btnAtras_1.setBounds(10, 11, 105, 30);
@@ -254,7 +328,9 @@ public class CajeroEntradas {
 		JButton rcBtnAceptar = new JButton("Aceptar");
 		rcBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		rcBtnAceptar.setBounds(401, 189, 243, 51);
@@ -263,7 +339,9 @@ public class CajeroEntradas {
 		JButton rcBtnCancelar = new JButton("Cancelar");
 		rcBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		rcBtnCancelar.setBounds(401, 273, 243, 51);
@@ -279,59 +357,6 @@ public class CajeroEntradas {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		
-//		SELECCION DE PELICULAS
-		
-		seleccionPeliPanel = new JPanel();
-		seleccionPeliPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(seleccionPeliPanel);
-		seleccionPeliPanel.setLayout(null);
-		seleccionPeliPanel.setVisible(false);
-		
-		JLabel spLbl = new JLabel("Cine");
-		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		spLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		spLbl.setBounds(208, 11, 274, 45);
-		seleccionPeliPanel.add(spLbl);
-		
-		JLabel spLblPelisDisponibles = new JLabel("Películas Disponibles:");
-		spLblPelisDisponibles.setBounds(72, 124, 153, 22);
-		seleccionPeliPanel.add(spLblPelisDisponibles);
-		
-		JComboBox<String> spCbSeleccionPeli = new JComboBox<String>();
-		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
-		seleccionPeliPanel.add(spCbSeleccionPeli);
-		
-//		Va mal
-		
-		JButton spBtnAceptar = new JButton("Aceptar");
-		spBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador = new Controlador();
-				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli);
-				mostrarPanelHorarios();
-			}
-		});
-		spBtnAceptar.setBounds(404, 126, 258, 53);
-		seleccionPeliPanel.add(spBtnAceptar);
-		
-		JButton spBtnResumenDeCompra = new JButton("Resumen de Compra");
-		spBtnResumenDeCompra.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelResumenCompra();
-			}
-		});
-		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);
-		seleccionPeliPanel.add(spBtnResumenDeCompra);
-		
-		btnAtras_2 = new JButton("🡠 Atras");
-		btnAtras_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarPanelSeleccionCine();
-			}
-		});
-		btnAtras_2.setBounds(10, 11, 105, 30);
-		seleccionPeliPanel.add(btnAtras_2);
 		
 //		REGISTRO
 		
@@ -427,7 +452,9 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				controlador.registrarUsuario(registroTfDNI, registroTfNombre, registroTfApellidos, registroTfContrasena,
 				registroTfTfno, registroTfDireccion, registroTfEmail, registroCbSexo);
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				
 			}
 		});
@@ -438,7 +465,9 @@ public class CajeroEntradas {
 		JButton registroBtnCancelar = new JButton("Cancelar");
 		registroBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		registroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -448,7 +477,9 @@ public class CajeroEntradas {
 		btnAtras_3 = new JButton("🡠 Atras");
 		btnAtras_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelInicio();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		btnAtras_3.setBounds(10, 11, 105, 30);
@@ -473,7 +504,9 @@ public class CajeroEntradas {
 		JButton inicioBtnIniciar = new JButton("Iniciar");
 		inicioBtnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelSeleccionCine();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				Controlador solicitud = new Controlador();
 				solicitud.asignarCinePrueba(scCbSeleccionCine);
 			}
@@ -485,106 +518,13 @@ public class CajeroEntradas {
 		JButton inicioBtnRegistrar = new JButton("Regístrate!");
 		inicioBtnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarPanelRegistro();
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelRegistro(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
 		inicioBtnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		inicioBtnRegistrar.setBounds(415, 25, 225, 36);
 		inicioPanel.add(inicioBtnRegistrar);
-	}
-	
-//	METODOS
-	
-	//	Ir al panel Inicio
-	private void mostrarPanelInicio() {
-		inicioPanel.setVisible(true);
-		registroPanel.setVisible(false);
-		seleccionCinePanel.setVisible(false);
-		seleccionPeliPanel.setVisible(false);
-		horariosPanel.setVisible(false);
-		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
-	}
-	
-//	Ir al panel Registro
-	private void mostrarPanelRegistro() {
-		inicioPanel.setVisible(false);
-		registroPanel.setVisible(true);
-		seleccionCinePanel.setVisible(false);
-		seleccionPeliPanel.setVisible(false);
-		horariosPanel.setVisible(false);
-		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
-	}
-	
-//	Ir al panel Seleccion Cine
-	private void mostrarPanelSeleccionCine() {
-		inicioPanel.setVisible(false);
-		registroPanel.setVisible(false);
-		seleccionCinePanel.setVisible(true);
-		seleccionPeliPanel.setVisible(false);
-		horariosPanel.setVisible(false);
-		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
-	}
-	
-//	Ir al panel Seleccion Peli
-	private void mostrarPanelSeleccionPeli() {
-		inicioPanel.setVisible(false);
-		registroPanel.setVisible(false);
-		seleccionCinePanel.setVisible(false);
-		seleccionPeliPanel.setVisible(true);
-		horariosPanel.setVisible(false);
-		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
-	}
-	
-//	Ir al panel Horarios
-	private void mostrarPanelHorarios() {
-		inicioPanel.setVisible(false);
-		registroPanel.setVisible(false);
-		seleccionCinePanel.setVisible(false);
-		seleccionPeliPanel.setVisible(false);
-		horariosPanel.setVisible(true);
-		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
-	}
-	
-//	Ir al panel Resumen Compra
-	private void mostrarPanelResumenCompra() {
-		inicioPanel.setVisible(false);
-		registroPanel.setVisible(false);
-		seleccionCinePanel.setVisible(false);
-		seleccionPeliPanel.setVisible(false);
-		horariosPanel.setVisible(false);
-		resumenCompraPanel.setVisible(true);
-		loginPanel.setVisible(false);		
-	}
-//	Ir al panle Login
-	private void mostrarPanelLogin() {
-		inicioPanel.setVisible(false);
-		registroPanel.setVisible(false);
-		seleccionCinePanel.setVisible(false);
-		seleccionPeliPanel.setVisible(false);
-		horariosPanel.setVisible(false);
-		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(true);		
-	}
-	
-	public void registrarUsuario() {
-		
-		Cliente cliente = new Cliente();
-		
-		cliente.setDni(registroTfDNI.getText());
-		cliente.setNombre(registroTfNombre.getText());
-		cliente.setApellidos(registroTfApellidos.getText());
-		cliente.setSexo(registroCbSexo.getSelectedItem().toString());
-		cliente.setContrasena(registroTfContrasena.getText());
-		cliente.setTfno(registroTfTfno.getText());
-		cliente.setDireccion(registroTfDireccion.getText());
-		cliente.setEmail(registroTfEmail.getText());
-		System.out.println(cliente.toString());
-		RegistraCliente registraCliente = new RegistraCliente();
-		registraCliente.insertCliente(cliente);
 	}
 }
