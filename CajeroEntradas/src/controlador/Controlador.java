@@ -3,11 +3,14 @@ package controlador;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
+import modelo.bbdd.RegistraCliente;
 import modelo.bbdd.SolicitaCines;
 import modelo.bbdd.SolicitaHorarios;
 import modelo.bbdd.SolicitaPeliculas;
 import modelo.pojos.Cine;
+import modelo.pojos.Cliente;
 import modelo.pojos.Pelicula;
 import modelo.pojos.Proyeccion;
 import modelo.pojos.Sala;
@@ -37,7 +40,13 @@ public class Controlador {
 		// busca las peliculas y las añade al combobox
 		spCbSeleccionPeli.removeAllItems();
 		solicitudPeliculas = new SolicitaPeliculas();
-		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas( "Select Titulo From Peliculas, Proyecciones, Salas, Cines Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod GROUP BY titulo ORDER BY FECHA asc, hora ASC");
+		ArrayList<Pelicula> pelis = solicitudPeliculas.getPeliculas(
+				"Select Titulo"
+				+ "From Peliculas, Proyecciones, Salas, Cines"
+				+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and"
+					+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod"
+				+ "GROUP BY titulo"
+				+ "ORDER BY FECHA asc, hora ASC");
 		for (int i = 0; i < pelis.size(); i++) {
 			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
 
@@ -56,93 +65,22 @@ public class Controlador {
 			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora().getTime() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
 
 		}
-
 	}
 	
-	
-	
-
-//	//	Ir al panel Inicio
-//	public void mostrarPanelInicio() {
-//		cajero = new CajeroEntradas();
-//		cajero.inicioPanel.setVisible(true);
-//		cajero.registroPanel.setVisible(false);
-//		cajero.seleccionCinePanel.setVisible(false);
-//		cajero.seleccionPeliPanel.setVisible(false);
-//		cajero.horariosPanel.setVisible(false);
-//		cajero.resumenCompraPanel.setVisible(false);
-//		cajero.loginPanel.setVisible(false);		
-//	}
-//	
-////	Ir al panel Registro
-//	public void mostrarPanelRegistro() {
-//		cajero = new CajeroEntradas();
-//		cajero.inicioPanel.setVisible(false);
-//		cajero.registroPanel.setVisible(true);
-//		cajero.seleccionCinePanel.setVisible(false);
-//		cajero.seleccionPeliPanel.setVisible(false);
-//		cajero.horariosPanel.setVisible(false);
-//		cajero.resumenCompraPanel.setVisible(false);
-//		cajero.loginPanel.setVisible(false);		
-//	}
-//	
-////	Ir al panel Seleccion Cine
-//	public void mostrarPanelSeleccionCine() {
-//		cajero = new CajeroEntradas();
-//		cajero.inicioPanel.setVisible(false);
-//		cajero.registroPanel.setVisible(false);
-//		cajero.seleccionCinePanel.setVisible(true);
-//		cajero.seleccionPeliPanel.setVisible(false);
-//		cajero.horariosPanel.setVisible(false);
-//		cajero.resumenCompraPanel.setVisible(false);
-//		cajero.loginPanel.setVisible(false);
-//	}
-//	
-////	Ir al panel Seleccion Peli
-//	public void mostrarPanelSeleccionPeli() {
-//		cajero = new CajeroEntradas();
-//		cajero.inicioPanel.setVisible(false);
-//		cajero.registroPanel.setVisible(false);
-//		cajero.seleccionCinePanel.setVisible(false);
-//		cajero.seleccionPeliPanel.setVisible(true);
-//		cajero.horariosPanel.setVisible(false);
-//		cajero.resumenCompraPanel.setVisible(false);
-//		cajero.loginPanel.setVisible(false);	
-//	}
-//	
-////	Ir al panel Horarios
-//	public void mostrarPanelHorarios() {
-//		cajero = new CajeroEntradas();
-//		cajero.inicioPanel.setVisible(false);
-//		cajero.registroPanel.setVisible(false);
-//		cajero.seleccionCinePanel.setVisible(false);
-//		cajero.seleccionPeliPanel.setVisible(false);
-//		cajero.horariosPanel.setVisible(true);
-//		cajero.resumenCompraPanel.setVisible(false);
-//		cajero.loginPanel.setVisible(false);		
-//	}
-//	
-////	Ir al panel Resumen Compra
-//	public void mostrarPanelResumenCompra() {
-//		cajero = new CajeroEntradas();
-//		cajero.inicioPanel.setVisible(false);
-//		cajero.registroPanel.setVisible(false);
-//		cajero.seleccionCinePanel.setVisible(false);
-//		cajero.seleccionPeliPanel.setVisible(false);
-//		cajero.horariosPanel.setVisible(false);
-//		cajero.resumenCompraPanel.setVisible(true);
-//		cajero.loginPanel.setVisible(false);			
-//	}
-////	Ir al panle Login
-//	public void mostrarPanelLogin() {
-//		cajero = new CajeroEntradas();
-//		cajero.inicioPanel.setVisible(false);
-//		cajero.registroPanel.setVisible(false);
-//		cajero.seleccionCinePanel.setVisible(false);
-//		cajero.seleccionPeliPanel.setVisible(false);
-//		cajero.horariosPanel.setVisible(false);
-//		cajero.resumenCompraPanel.setVisible(false);
-//		cajero.loginPanel.setVisible(true);	
-//	}
-
+	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
+			JTextField tfno, JTextField direccion, JTextField email, JComboBox sexo) {
+		Cliente cliente = new Cliente();
+		
+		cliente.setDni(dni.getText());
+		cliente.setNombre(nombre.getText());
+		cliente.setApellidos(apellidos.getText());
+		cliente.setSexo(sexo.getSelectedItem().toString());
+		cliente.setContrasena(contrasena.getText());
+		cliente.setTfno(tfno.getText());
+		cliente.setDireccion(direccion.getText());
+		cliente.setEmail(email.getText());
+		System.out.println(cliente.toString());
+		RegistraCliente registraCliente = new RegistraCliente();
+		registraCliente.insertCliente(cliente);
+	}
 }

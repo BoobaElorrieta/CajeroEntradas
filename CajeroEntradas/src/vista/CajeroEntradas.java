@@ -209,8 +209,8 @@ public class CajeroEntradas {
 		JButton registroBtnAceptar = new JButton("Aceptar");
 		registroBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ControladorEneko cont = new ControladorEneko();
-				cont.registrarUsuario(registroTfNombre, registroTfApellidos, registroTfDNI, registroTfEmail,
+				Controlador controlador = new Controlador();
+				controlador.registrarUsuario(registroTfNombre, registroTfApellidos, registroTfDNI, registroTfEmail,
 				registroTfContrasena, registroTfTfno, registroTfDireccion, registroCbSexo);
 				mostrarPanelInicio();
 				
