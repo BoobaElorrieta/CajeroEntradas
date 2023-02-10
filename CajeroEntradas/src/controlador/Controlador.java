@@ -128,6 +128,7 @@ public class Controlador {
 		}catch (Exception e) {
 			JFrame jFrame = new JFrame();
 	        JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
+	        ret = false;
 		}
 			return ret;
 		}
