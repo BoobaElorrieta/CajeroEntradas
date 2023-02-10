@@ -6,13 +6,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import modelo.pojos.Cine;
-import modelo.pojos.Pelicula;
 import modelo.pojos.Proyeccion;
 import modelo.pojos.Sala;
 import utils.DBUtils;
