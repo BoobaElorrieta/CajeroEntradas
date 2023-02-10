@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import modelo.pojos.Cine;
@@ -52,7 +54,8 @@ public class SolicitaHorarios {
 
 				// Sacamos las columnas del RS
 				Date fecha = resultSet.getDate("fecha");
-				Date hora = resultSet.getDate("hora");
+				java.sql.Time horaSql = resultSet.getTime("hora");
+				LocalTime hora = horaSql.toLocalTime();
 				int precio = resultSet.getInt("precio");
 				String nombre = resultSet.getString("nombre");
 				// Metemos los datos a Ejemplo

@@ -1,6 +1,7 @@
 package modelo.pojos;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
@@ -17,7 +18,7 @@ public class Proyeccion implements Serializable {
 	
 //	Atributos
 	private Date fecha = null;
-	private Date hora = null;
+	private LocalTime hora = null;
 	private int precio = 0;
 	
 //	Relaciones
@@ -49,10 +50,10 @@ public class Proyeccion implements Serializable {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public Date getHora() {
+	public LocalTime getHora() {
 		return hora;
 	}
-	public void setHora(Date hora) {
+	public void setHora(LocalTime hora) {
 		this.hora = hora;
 	}
 	public int getPrecio() {
