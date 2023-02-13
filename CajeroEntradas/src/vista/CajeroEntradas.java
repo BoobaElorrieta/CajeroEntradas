@@ -55,7 +55,7 @@ public class CajeroEntradas {
 	private JButton btnAtras_2;
 	private JButton btnAtras_1;
 	private JTable table;
-	private JComboBox<String> spCbSeleccionPeli;
+	public JComboBox<String> spCbSeleccionPeli;
 	private JButton btnAtras_4;
 	private JButton btnAtras_5;
 	private JButton rcBtnAceptar;
