@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import modelo.pojos.Pelicula;
 import modelo.pojos.Proyeccion;
 import modelo.pojos.Sala;
 import utils.DBUtils;
@@ -48,7 +47,6 @@ public class SolicitaHorarios {
 
 				Proyeccion proyeccion = new Proyeccion();
 				Sala sala = new Sala();
-				Pelicula pelicula = new Pelicula();
 
 				// Sacamos las columnas del RS
 				Date fecha = resultSet.getDate("fecha");
@@ -56,13 +54,11 @@ public class SolicitaHorarios {
 				LocalTime hora = horaSql.toLocalTime();
 				int precio = resultSet.getInt("precio");
 				String nombre = resultSet.getString("nombre");
-				String titulo = resultSet.getString("titulo");
 				// Metemos los datos a Ejemplo
 				proyeccion.setFecha(fecha);
 				proyeccion.setHora(hora);
 				proyeccion.setPrecio(precio);
 				sala.setNombre(nombre);
-				pelicula.setTitulo(titulo);
 				proyeccion.setSala(sala);
 				
 				// Lo guardamos en ret

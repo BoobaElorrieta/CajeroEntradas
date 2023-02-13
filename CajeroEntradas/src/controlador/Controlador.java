@@ -48,7 +48,7 @@ public class Controlador {
 				"Select Titulo "
 				+ "From Peliculas, Proyecciones, Salas, Cines "
 				+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and "
-					+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
+				+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
 				+ "GROUP BY titulo "
 				+ "ORDER BY FECHA asc, hora ASC");
 		for (int i = 0; i < pelis.size(); i++) {
@@ -63,10 +63,10 @@ public class Controlador {
 		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select titulo, fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
 			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
-			horariosLblHorariosDisponibles.setText(proyeccion.get(i).getPelicula().getTitulo());
+			horariosLblHorariosDisponibles.setText(pelicula);
 		}
 		
 	}
