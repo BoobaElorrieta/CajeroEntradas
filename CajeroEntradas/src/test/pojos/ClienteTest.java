@@ -1,4 +1,4 @@
-package Test;
+package test.pojos;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +7,10 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import Modelo.pojos.Cliente;
-import Modelo.pojos.Entrada;
+import modelo.pojos.Cliente;
+import modelo.pojos.Entrada;
+
+
 
 class ClienteTest {
 

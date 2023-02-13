@@ -19,7 +19,7 @@ public class Cliente implements Serializable{
 	private String apellidos = null;
 	private String sexo = null;
 	private String contrasena = null;
-	private String tfno = null;
+	private int tfno = 0;
 	private String direccion = null;
 	private String email = null;
 	
@@ -70,12 +70,12 @@ public class Cliente implements Serializable{
 		this.contrasena = contrasena;
 	}
 
-	public String getTfno() {
+	public int getTfno() {
 		return tfno;
 	}
 
-	public void setTfno(String string) {
-		this.tfno = string;
+	public void setTfno(int i) {
+		this.tfno = i;
 	}
 
 	public String getDireccion() {

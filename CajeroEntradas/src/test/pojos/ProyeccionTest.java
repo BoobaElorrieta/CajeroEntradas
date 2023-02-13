@@ -1,4 +1,4 @@
-package Test;
+package test.pojos;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +7,9 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import Modelo.pojos.Proyeccion;
+import modelo.pojos.Proyeccion;
+
+
 
 class ProyeccionTest {
 

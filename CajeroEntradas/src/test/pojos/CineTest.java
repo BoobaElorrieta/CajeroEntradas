@@ -1,4 +1,4 @@
-package Test;
+package test.pojos;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,9 @@ import java.io.Serializable;
 
 import org.junit.jupiter.api.Test;
 
-import Modelo.pojos.Cine;
+import modelo.pojos.Cine;
+
+
 
 class CineTest {
 	

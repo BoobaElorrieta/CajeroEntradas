@@ -1,11 +1,14 @@
-package Test;
+package test.pojos;
 
 import static org.junit.Assert.*;
 import java.io.Serializable;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
-import Modelo.pojos.Entrada;
+
+import modelo.pojos.Entrada;
+
+
 
 class EntradaTest {
 

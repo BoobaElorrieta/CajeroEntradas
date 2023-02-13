@@ -1,4 +1,4 @@
-package Test;
+package test.pojos;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,9 @@ import java.io.Serializable;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.pojos.Sala;
 
-import Modelo.pojos.Sala;
+
 
 class SalaTest {
 	@Test
