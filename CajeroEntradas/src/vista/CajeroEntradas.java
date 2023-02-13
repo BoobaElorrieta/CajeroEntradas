@@ -115,6 +115,7 @@ public class CajeroEntradas {
 		resumenCompraPanel.add(rcLblPrecioTotal);
 		
 		JTextArea rcTaPrecioTotal = new JTextArea();
+		rcTaPrecioTotal.setEditable(false);
 		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
 		resumenCompraPanel.add(rcTaPrecioTotal);
 		
@@ -163,6 +164,11 @@ public class CajeroEntradas {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
+		lblNewLabel_4.setBounds(187, 73, 485, 325);
+		resumenCompraPanel.add(lblNewLabel_4);
 		
 //		REGISTRO
 		
