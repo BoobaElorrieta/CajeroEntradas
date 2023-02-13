@@ -32,7 +32,6 @@ class ControladorTest {
 		controlador = new Controlador();
 		cajeroEntradas = new CajeroEntradas();
 		solicitaCine = new SolicitaCines();
-//		controlador.asignarCinePrueba(cajeroEntradas.scCbSeleccionCine);
 		ArrayList<Cine> cines = solicitaCine.getCines();
 		for (int i = 0; i < cines.size(); i++) {
 			cajeroEntradas.scCbSeleccionCine.addItem(cines.get(i).getNombre());

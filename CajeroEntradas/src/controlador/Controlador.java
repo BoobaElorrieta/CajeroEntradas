@@ -27,7 +27,7 @@ public class Controlador {
 	SolicitaCliente solicitudClientes = null;
 
 	// Busca los cines disponibles que hay
-	public void asignarCinePrueba(JComboBox<String> scCbSeleccionCine) {
+	public void buscarCine(JComboBox<String> scCbSeleccionCine) {
 		scCbSeleccionCine.removeAllItems();
 		solicitudCine = new SolicitaCines();
 		ArrayList<Cine> cines = solicitudCine.getCines();
