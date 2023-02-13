@@ -62,7 +62,7 @@ public class Controlador {
 	public void escogerFecha(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli, JComboBox<String> spCbDia) {
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
-//		try {
+		try {
 		solicitudHorarios = new SolicitaHorarios();
 		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre "
 				+ "FROM proyecciones pr "
@@ -74,11 +74,11 @@ public class Controlador {
 		for (int i = 0; i < proyeccion.size(); i++) {
 			spCbDia.addItem(proyeccion.get(i).getFecha().toString());
 	}
-//		}catch (Exception e) {
-//			JFrame jFrame = new JFrame();
-//	        JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
-//			
-//		}
+		}catch (Exception e) {
+			JFrame jFrame = new JFrame();
+	        JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
+			
+		}
 		
 	}
 	
@@ -117,18 +117,20 @@ public class Controlador {
 	
 	// Ventana Emergente
 	
-	  public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles) {
-			String cine = null;
-			cine = (String) horariosCbHorariosDisponibles.getSelectedItem();
+	  public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia) {
+			String horario = (String) horariosCbHorariosDisponibles.getSelectedItem();
+			String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
+			String cine = (String) scCbSeleccionCine.getSelectedItem();
+			String fecha = (String) spCbDia.getSelectedItem();
+
 			
-			String[] parts = cine.split("/");
-			String fecha = parts[0];
-			String hora = parts[1]; 
-			String precio = parts[2];
-			String sala = parts[3];
+			String[] parts = horario.split("/");
+			String hora = parts[0]; 
+			String precio = parts[1];
+			String sala = parts[2];
 			
 	        JFrame jFrame = new JFrame();
-	        JOptionPane.showMessageDialog(jFrame, "Has seleccionado la siguientes opciones: \r\n" + "La pelicula sera el dia " + fecha + "a las " + hora + "en la sala " + sala + " por un precio de " + precio);
+	        JOptionPane.showMessageDialog(jFrame, "Has seleccionado la siguientes opciones: \r\n" + "La pelicula " + pelicula + " sera el dia " + fecha + " a las " + hora + "en la sala " + sala + " del cine " + cine + " por un precio de " + precio);
 
 
 	    }

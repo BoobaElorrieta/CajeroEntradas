@@ -193,7 +193,7 @@ public class CajeroEntradas {
 		horariosBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
-				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
+				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine, spCbDia);
 				controladorEneko = new ControladorEneko();
 			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
