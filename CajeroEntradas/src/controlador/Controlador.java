@@ -59,7 +59,11 @@ public class Controlador {
 
 	}
 	// Nos Muestra las fecahs disponibles para esa pelicula
-	public void escogerFecha(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli, JComboBox<String> spCbDia) {
+	public void escogerFecha(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli,JComboBox<String> spCbDia) {
+
+//		Arreglar
+		
+		spCbSeleccionPeli.removeAllItems();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
 		try {
@@ -71,6 +75,7 @@ public class Controlador {
 				+ "JOIN cines c ON c.cod = s.cod_cine "
 				+ "WHERE c.nombre = '" + cine + "' AND titulo = '" + pelicula + "' "
 				+ "GROUP BY fecha");
+		System.out.println(proyeccion.toString());
 		for (int i = 0; i < proyeccion.size(); i++) {
 			spCbDia.addItem(proyeccion.get(i).getFecha().toString());
 	}
@@ -84,13 +89,19 @@ public class Controlador {
 	
 	
 	// Pone los horarios disponible en base a la pelicula seleccionada
-	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli,
-			JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia) {
+	public void escogerHorarios(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia) {
+
+		spCbDia.removeAllItems();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String fecha = (String) spCbDia.getSelectedItem();
+		String cine = (String) scCbSeleccionCine.getSelectedItem();
 		
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and fecha = '" + fecha + "'");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre\r\n"
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n"
+				+ "JOIN cines c ON s.cod_cine = c.cod\r\n"
+				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
 			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
 			horariosLblHorariosDisponibles.setText(pelicula);
