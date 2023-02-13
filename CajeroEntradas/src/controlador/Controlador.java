@@ -92,7 +92,7 @@ public class Controlador {
 		fecha = (String) spCbDia.getSelectedItem();
 		
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + fecha + "'");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and fecha = '" + fecha + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
 			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
 			horariosLblHorariosDisponibles.setText(pelicula);
