@@ -133,4 +133,8 @@ public class Controlador {
 		}
 			return ret;
 		}
+		
+		public void cerrarPrograma() {
+			System.exit(0);
+		}
 }

@@ -560,7 +560,8 @@ public class CajeroEntradas {
 		JButton scBtnFinalizarSesion = new JButton("Finalizar Sesion");
 		scBtnFinalizarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cerrarPrograma();
+				Controlador controlador = new Controlador();
+				controlador.cerrarPrograma();
 			}
 		});
 		scBtnFinalizarSesion.setForeground(Color.WHITE);
