@@ -95,6 +95,7 @@ public class CajeroEntradas {
 //		RESUMEN DE COMPRA
 		
 		resumenCompraPanel = new JPanel();
+		resumenCompraPanel.setBackground(Color.WHITE);
 		resumenCompraPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(resumenCompraPanel);
 		resumenCompraPanel.setLayout(null);
