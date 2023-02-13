@@ -552,6 +552,11 @@ public class CajeroEntradas {
 		seleccionCinePanel.add(scBtnAceptar);
 		
 		JButton scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		scBtnFinalizarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cerrarPrograma();
+			}
+		});
 		scBtnFinalizarSesion.setForeground(Color.WHITE);
 		scBtnFinalizarSesion.setBackground(Color.DARK_GRAY);
 		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
