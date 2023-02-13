@@ -606,7 +606,7 @@ public class CajeroEntradas {
 			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				Controlador solicitud = new Controlador();
-				solicitud.asignarCinePrueba(scCbSeleccionCine);
+				solicitud.buscarCine(scCbSeleccionCine);
 			}
 		});
 		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
