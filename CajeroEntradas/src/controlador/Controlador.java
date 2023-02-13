@@ -65,8 +65,9 @@ public class Controlador {
 		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
 			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
-
+			horariosLblHorariosDisponibles.setText(proyeccion.get(i).getPelicula().getTitulo());
 		}
+		
 	}
 	
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
