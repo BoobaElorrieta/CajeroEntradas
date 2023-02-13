@@ -36,7 +36,7 @@ public class Controlador {
 		}
 	}
 	// Añade las peliculas al combo box enbase a el cine seleccionado
-	public void escogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli) {
+	public void escogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli, JLabel spLbl) {
 		String cine = null;
 		cine = (String) scCbSeleccionCine.getSelectedItem();
 
@@ -54,6 +54,7 @@ public class Controlador {
 			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
 
 		}
+		spLbl.setText("Cine " + cine);
 
 	}
 	// Pone los horarios disponible en base a la pelicula seleccionada

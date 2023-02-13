@@ -547,7 +547,7 @@ public class CajeroEntradas {
 		scBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
-				solicitud.escogerCine(scCbSeleccionCine, spCbSeleccionPeli);
+				solicitud.escogerCine(scCbSeleccionCine, spCbSeleccionPeli, spLbl);
 				controladorEneko = new ControladorEneko();
 			controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
