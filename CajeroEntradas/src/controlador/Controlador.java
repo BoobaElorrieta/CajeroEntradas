@@ -63,7 +63,8 @@ public class Controlador {
 
 //		Arreglar
 		
-		spCbSeleccionPeli.removeAllItems();
+	//	spCbSeleccionPeli.removeAllItems();
+		spCbDia.removeAllItems();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
 		try {
@@ -91,7 +92,7 @@ public class Controlador {
 	// Pone los horarios disponible en base a la pelicula seleccionada
 	public void escogerHorarios(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia) {
 
-		spCbDia.removeAllItems();
+		horariosCbHorariosDisponibles.removeAllItems();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String fecha = (String) spCbDia.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
