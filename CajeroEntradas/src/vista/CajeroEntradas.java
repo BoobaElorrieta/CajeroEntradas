@@ -349,10 +349,6 @@ public class CajeroEntradas {
 				controladorEneko = new ControladorEneko();
 			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-				}else {
-					controladorEneko = new ControladorEneko();
-					controladorEneko.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel, 
-							seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				}
 			}
 		});

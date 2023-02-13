@@ -120,11 +120,13 @@ public class Controlador {
 			contrasenaReal = cliente.get(0).getContrasena();
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
 				//Se le deja pasar
-				System.out.println("ES CORRECTO");
+				JFrame jFrame = new JFrame();
+		        JOptionPane.showMessageDialog(jFrame, "ACESO PERMITIDO");
 				ret = true;
 				
 			}else {
-				System.out.println("ES FALSO");
+				JFrame jFrame = new JFrame();
+		        JOptionPane.showMessageDialog(jFrame, "ACESO DENEGADO");
 				ret = false;
 			}
 		}catch (Exception e) {
