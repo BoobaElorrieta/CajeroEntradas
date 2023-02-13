@@ -30,7 +30,7 @@ public class Controlador {
 	public void buscarCine(JComboBox<String> scCbSeleccionCine) {
 		scCbSeleccionCine.removeAllItems();
 		solicitudCine = new SolicitaCines();
-		ArrayList<Cine> cines = solicitudCine.getCines();
+		ArrayList<Cine> cines = solicitudCine.getCines("SELECT nombre FROM Cines");
 		for (int i = 0; i < cines.size(); i++) {
 			scCbSeleccionCine.addItem(cines.get(i).getNombre());
 		}

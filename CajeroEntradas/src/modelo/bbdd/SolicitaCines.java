@@ -16,11 +16,9 @@ public class SolicitaCines {
 
 	// Retorna todas las filas de la tabla alumno
 	// Si no hay nada, retorna NULL
-	public ArrayList <Cine> getCines(){
+	public ArrayList <Cine> getCines(String sql){
 		ArrayList <Cine> ret = null;
-		
-		// SQL que queremos lanzar
-		String sql = "SELECT nombre FROM Cines";
+
 		
 		// La conexion con BBDD
 		Connection connection = null;
