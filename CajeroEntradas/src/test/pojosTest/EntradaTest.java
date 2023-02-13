@@ -1,4 +1,4 @@
-package test.pojos;
+package test.pojosTest;
 
 import static org.junit.Assert.*;
 import java.io.Serializable;
