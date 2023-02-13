@@ -39,8 +39,7 @@ public class Controlador {
 	}
 	// Añade las peliculas al combo box enbase a el cine seleccionado
 	public void escogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli, JLabel spLbl) {
-		String cine = null;
-		cine = (String) scCbSeleccionCine.getSelectedItem();
+		String cine = (String) scCbSeleccionCine.getSelectedItem();
 
 		
 		spCbSeleccionPeli.removeAllItems();
@@ -60,12 +59,18 @@ public class Controlador {
 
 	}
 	// Nos Muestra las fecahs disponibles para esa pelicula
-	public void escogerFecha(JComboBox<String> spCbSeleccionPeli, JComboBox<String> spCbDia) {
-		String pelicula = null;
-		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
+	public void escogerFecha(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli, JComboBox<String> spCbDia) {
+		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
+		String cine = (String) scCbSeleccionCine.getSelectedItem();
 //		try {
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre "
+				+ "FROM proyecciones pr "
+				+ "JOIN salas S ON pr.cod_sala=S.cod "
+				+ "JOIN peliculas pe ON pr.cod_peli=pe.codigo "
+				+ "JOIN cines c ON c.cod = s.cod_cine "
+				+ "WHERE c.nombre = '" + cine + "' AND titulo = '" + pelicula + "' "
+				+ "GROUP BY fecha");
 		for (int i = 0; i < proyeccion.size(); i++) {
 			spCbDia.addItem(proyeccion.get(i).getFecha().toString());
 	}

@@ -105,29 +105,11 @@ public class CajeroEntradas {
 		
 //		JButton movido
 		
-		JButton spBtnAceptar = new JButton("Aceptar");
-		spBtnAceptar.setForeground(Color.WHITE);
-		spBtnAceptar.setBackground(Color.DARK_GRAY);
-		spBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador = new Controlador();
-				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia);
-				controladorEneko = new ControladorEneko();
-				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
-						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
 		
-		JButton spBtnBuscarDia = new JButton("Buscar Dia");
-		spBtnBuscarDia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.escogerFecha(spCbSeleccionPeli, spCbDia);
-			}
-		});
-		spBtnBuscarDia.setBounds(72, 190, 143, 30);
-		seleccionPeliPanel.add(spBtnBuscarDia);
-		spBtnAceptar.setBounds(404, 126, 258, 53);
-		seleccionPeliPanel.add(spBtnAceptar);
+		
+		
+		
+		
 		
 		JLabel spLbl = new JLabel("Cine");
 		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -174,11 +156,6 @@ public class CajeroEntradas {
 		});
 		btnAtras_2.setBounds(10, 11, 105, 30);
 		seleccionPeliPanel.add(btnAtras_2);
-		
-		JLabel spImagen = new JLabel("");
-		spImagen.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
-		spImagen.setBounds(187, 41, 485, 325);
-		seleccionPeliPanel.add(spImagen);
 		
 		JComboBox<String> spCbDia = new JComboBox<String>();
 		spCbDia.setBounds(72, 249, 222, 30);
@@ -260,6 +237,39 @@ public class CajeroEntradas {
 		lblNewLabel_3.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
 		lblNewLabel_3.setBounds(187, 41, 485, 325);
 		horariosPanel.add(lblNewLabel_3);
+		
+		
+		
+//		JButton movido
+		
+		JButton spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.setForeground(Color.WHITE);
+		spBtnAceptar.setBackground(Color.DARK_GRAY);
+		spBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador = new Controlador();
+				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia);
+				controladorEneko = new ControladorEneko();
+				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		
+		JButton spBtnBuscarDia = new JButton("Buscar Dia");
+		spBtnBuscarDia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
+			}
+		});
+		spBtnBuscarDia.setBounds(72, 190, 143, 30);
+		seleccionPeliPanel.add(spBtnBuscarDia);
+		spBtnAceptar.setBounds(404, 126, 258, 53);
+		seleccionPeliPanel.add(spBtnAceptar);
+		
+		JLabel spImagen = new JLabel("");
+		spImagen.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
+		spImagen.setBounds(187, 41, 485, 325);
+		seleccionPeliPanel.add(spImagen);
 		
 //		REGISTRO
 		
