@@ -13,8 +13,8 @@ import javax.swing.SwingConstants;
 
 import controlador.Controlador;
 import controlador.ControladorEneko;
-import modelo.bbdd.RegistraCliente;
-import modelo.pojos.Cliente;
+//import modelo.bbdd.RegistraCliente;
+//import modelo.pojos.Cliente;
 
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
@@ -117,34 +117,9 @@ public class CajeroEntradas {
 		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
 		seleccionPeliPanel.add(spCbSeleccionPeli);
 		
-//		HORARIOS LABEL HORARIOS DISPONIBLES
+
+
 		
-		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
-		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
-		horariosPanel.add(horariosLblHorariosDisponibles);
-		
-		
-//		SELECCIONAR PELI COMBOBOX DIA
-		
-		JComboBox<String> spCbDia = new JComboBox<String>();
-		spCbDia.setBounds(72, 249, 222, 30);
-		seleccionPeliPanel.add(spCbDia);
-		
-		
-		JButton spBtnAceptar = new JButton("Aceptar");
-		spBtnAceptar.setForeground(Color.WHITE);
-		spBtnAceptar.setBackground(Color.DARK_GRAY);
-		spBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador = new Controlador();
-				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia);
-				controladorEneko = new ControladorEneko();
-				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
-						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		spBtnAceptar.setBounds(404, 126, 258, 53);
-		seleccionPeliPanel.add(spBtnAceptar);
 		
 		JButton spBtnResumenDeCompra = new JButton("Resumen de Compra");
 		spBtnResumenDeCompra.setForeground(Color.WHITE);
@@ -177,7 +152,9 @@ public class CajeroEntradas {
 		spImagen.setBounds(187, 41, 485, 325);
 		seleccionPeliPanel.add(spImagen);
 		
-		
+		JComboBox<String> spCbDia = new JComboBox<String>();
+		spCbDia.setBounds(72, 249, 222, 30);
+		seleccionPeliPanel.add(spCbDia);
 		
 		JButton spBtnBuscarDia = new JButton("Buscar Dia");
 		spBtnBuscarDia.addActionListener(new ActionListener() {
@@ -202,7 +179,9 @@ public class CajeroEntradas {
 		horariosLbl.setBounds(195, 11, 279, 57);
 		horariosPanel.add(horariosLbl);
 		
-		
+		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
+		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
+		horariosPanel.add(horariosLblHorariosDisponibles);
 		
 		horariosCbHorariosDisponibles = new JComboBox<String>();
 		horariosCbHorariosDisponibles.setBackground(Color.DARK_GRAY);
@@ -226,6 +205,28 @@ public class CajeroEntradas {
 		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		horariosBtnAceptar.setBounds(462, 135, 186, 57);
 		horariosPanel.add(horariosBtnAceptar);
+		
+		
+		
+//		JButton movido
+		
+		JButton spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.setForeground(Color.WHITE);
+		spBtnAceptar.setBackground(Color.DARK_GRAY);
+		spBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador = new Controlador();
+				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia);
+				controladorEneko = new ControladorEneko();
+				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		spBtnAceptar.setBounds(404, 126, 258, 53);
+		seleccionPeliPanel.add(spBtnAceptar);
+		
+		
+		
 		
 		JButton horariosBtnCancelar = new JButton("Cancelar");
 		horariosBtnCancelar.setBackground(Color.DARK_GRAY);
