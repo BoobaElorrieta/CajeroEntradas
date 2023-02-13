@@ -72,7 +72,8 @@ public class Controlador {
 	
 	
 	// Pone los horarios disponible en base a la pelicula seleccionada
-	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox spCbDia) {
+	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli,
+			JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia) {
 		String pelicula = null;
 		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String fecha = null;
