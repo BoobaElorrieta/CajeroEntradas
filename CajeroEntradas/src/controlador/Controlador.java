@@ -1,7 +1,6 @@
 package controlador;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -108,6 +107,23 @@ public class Controlador {
 			horariosLblHorariosDisponibles.setText(pelicula);
 		}
 		
+	}
+	
+	public void selecionarHora (JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia, JLabel precioSesiontLbl, JLabel numeroSalaLbl) {
+		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
+		String fecha = (String) spCbDia.getSelectedItem();
+		String cine = (String) scCbSeleccionCine.getSelectedItem();
+		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
+		solicitudHorarios = new SolicitaHorarios();
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre\r\n"
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n"
+				+ "JOIN cines c ON s.cod_cine = c.cod\r\n"
+				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula + "' and hora = '" + hora +"'");
+		for (int i = 0; i < proyeccion.size(); i++) {
+			precioSesiontLbl.setText(proyeccion.get(i).getSala().getNombre());
+		}
+
 	}
 	
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
