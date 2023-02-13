@@ -60,20 +60,20 @@ public class Controlador {
 
 	}
 	// Nos Muestra las fecahs disponibles para esa pelicula
-	public void escogerFecha(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JComboBox<String> spCbDia) {
+	public void escogerFecha(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JComboBox<Date> spCbDia) {
 		String pelicula = null;
 		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
-		//try {
+//		try {
 		solicitudHorarios = new SolicitaHorarios();
 		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
-			spCbDia.addItem(proyeccion.get(i).getFecha().toString());
-		}
-		//}catch (Exception e) {
-		//	JFrame jFrame = new JFrame();
-	    //    JOptionPane.showMessageDialog(jFrame, "ERROR");
-			
-		//}
+			spCbDia.addItem(proyeccion.get(i).getFecha());
+	}
+//		}catch (Exception e) {
+//			JFrame jFrame = new JFrame();
+//	        JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
+//			
+//		}
 		
 	}
 	
