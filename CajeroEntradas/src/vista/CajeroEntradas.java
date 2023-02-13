@@ -159,7 +159,7 @@ public class CajeroEntradas {
 		JButton spBtnBuscarDia = new JButton("Buscar Dia");
 		spBtnBuscarDia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.escogerFecha(spCbDia, spCbSeleccionPeli, spCbDia);
+				controlador.escogerFecha(spCbSeleccionPeli, spCbDia);
 			}
 		});
 		spBtnBuscarDia.setBounds(72, 190, 143, 30);

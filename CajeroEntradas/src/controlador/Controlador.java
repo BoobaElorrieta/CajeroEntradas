@@ -60,7 +60,7 @@ public class Controlador {
 
 	}
 	// Nos Muestra las fecahs disponibles para esa pelicula
-	public void escogerFecha(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JComboBox<String> spCbDia) {
+	public void escogerFecha(JComboBox<String> spCbSeleccionPeli, JComboBox<String> spCbDia) {
 		String pelicula = null;
 		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 //		try {
