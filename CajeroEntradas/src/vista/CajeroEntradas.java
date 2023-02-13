@@ -25,6 +25,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import java.awt.Color;
+import javax.swing.JTextPane;
 
 public class CajeroEntradas {
 	
@@ -91,6 +92,140 @@ public class CajeroEntradas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+//		REGISTRO
+		
+		registroPanel = new JPanel();
+		registroPanel.setBackground(Color.WHITE);
+		registroPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(registroPanel);
+		registroPanel.setLayout(null);
+		registroPanel.setVisible(false);
+		
+		JLabel registroLbl = new JLabel("Registro De Usuario");
+		registroLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		registroLbl.setBounds(152, 11, 350, 49);
+		registroPanel.add(registroLbl);
+		
+		JLabel registroLblNombre = new JLabel("Nombre:");
+		registroLblNombre.setBounds(61, 91, 50, 14);
+		registroPanel.add(registroLblNombre);
+		
+		JLabel registroLblApellidos = new JLabel("Apellidos:");
+		registroLblApellidos.setBounds(61, 128, 78, 14);
+		registroPanel.add(registroLblApellidos);
+		
+		JLabel registroLblContraseña = new JLabel("Contraseña:");
+		registroLblContraseña.setBounds(371, 128, 71, 14);
+		registroPanel.add(registroLblContraseña);
+		
+		JLabel registroLblDni = new JLabel("DNI:");
+		registroLblDni.setBounds(61, 169, 65, 14);
+		registroPanel.add(registroLblDni);
+		
+		JLabel registroLblDireccion = new JLabel("Dirección:");
+		registroLblDireccion.setBounds(371, 212, 71, 14);
+		registroPanel.add(registroLblDireccion);
+		
+		JLabel registroLblSexo = new JLabel("Sexo:");
+		registroLblSexo.setBounds(61, 212, 59, 14);
+		registroPanel.add(registroLblSexo);
+		
+		JLabel registroLblTfno = new JLabel("Teléfono:");
+		registroLblTfno.setBounds(371, 169, 65, 14);
+		registroPanel.add(registroLblTfno);
+		
+		JLabel registroLblEmail = new JLabel("E-Mail:");
+		registroLblEmail.setBounds(371, 91, 65, 14);
+		registroPanel.add(registroLblEmail);
+		
+		registroTfNombre = new JTextField();
+		registroTfNombre.setBounds(141, 89, 136, 17);
+		registroPanel.add(registroTfNombre);
+		registroTfNombre.setColumns(10);
+		
+		registroTfApellidos = new JTextField();
+		registroTfApellidos.setColumns(10);
+		registroTfApellidos.setBounds(141, 125, 136, 17);
+		registroPanel.add(registroTfApellidos);
+		
+		registroTfDNI = new JTextField();
+		registroTfDNI.setColumns(10);
+		registroTfDNI.setBounds(141, 166, 136, 17);
+		registroPanel.add(registroTfDNI);
+		
+		registroTfEmail = new JTextField();
+		registroTfEmail.setColumns(10);
+		registroTfEmail.setBounds(444, 88, 136, 17);
+		registroPanel.add(registroTfEmail);
+		
+		registroTfContrasena = new JTextField();
+		registroTfContrasena.setColumns(10);
+		registroTfContrasena.setBounds(444, 125, 136, 17);
+		registroPanel.add(registroTfContrasena);
+		
+		registroTfTfno = new JTextField();
+		registroTfTfno.setColumns(10);
+		registroTfTfno.setBounds(444, 166, 136, 17);
+		registroPanel.add(registroTfTfno);
+		
+		registroTfDireccion = new JTextField();
+		registroTfDireccion.setColumns(10);
+		registroTfDireccion.setBounds(444, 209, 136, 17);
+		registroPanel.add(registroTfDireccion);
+		
+		registroCbSexo = new JComboBox<String>();
+		registroCbSexo.setToolTipText("Seleccione su Sexo");
+		registroCbSexo.addItem("Hombre");
+		registroCbSexo.addItem("Mujer");
+		registroCbSexo.addItem("Otro");
+		registroCbSexo.setMaximumRowCount(3);
+		registroCbSexo.setBounds(141, 208, 136, 18);
+		registroPanel.add(registroCbSexo);
+		
+		JButton registroBtnAceptar = new JButton("Aceptar");
+		registroBtnAceptar.setForeground(Color.WHITE);
+		registroBtnAceptar.setBackground(Color.DARK_GRAY);
+		registroBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.registrarUsuario(registroTfDNI, registroTfNombre, registroTfApellidos, registroTfContrasena,
+				registroTfTfno, registroTfDireccion, registroTfEmail, registroCbSexo);
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+				
+			}
+		});
+		registroBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		registroBtnAceptar.setBounds(119, 259, 158, 49);
+		registroPanel.add(registroBtnAceptar);
+		
+		JButton registroBtnCancelar = new JButton("Cancelar");
+		registroBtnCancelar.setForeground(Color.WHITE);
+		registroBtnCancelar.setBackground(Color.DARK_GRAY);
+		registroBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		registroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		registroBtnCancelar.setBounds(422, 259, 158, 49);
+		registroPanel.add(registroBtnCancelar);
+		
+		btnAtras_3 = new JButton("🡠 Atras");
+		btnAtras_3.setForeground(Color.WHITE);
+		btnAtras_3.setBackground(Color.DARK_GRAY);
+		btnAtras_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		btnAtras_3.setBounds(10, 11, 105, 30);
+		registroPanel.add(btnAtras_3);
+		
 //		INICIO
 		
 		inicioPanel = new JPanel();
@@ -103,11 +238,6 @@ public class CajeroEntradas {
 		inicioLbl.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		inicioLbl.setBounds(10, 11, 424, 101);
 		inicioPanel.add(inicioLbl);
-		
-		JLabel inicioLblCompra = new JLabel("Bienvenidos al cajero de entradas de \r\n Cines Elorrietas porgramada por el \r\ngrupo BOOBA");
-		inicioLblCompra.setHorizontalAlignment(SwingConstants.LEFT);
-		inicioLblCompra.setBounds(237, 97, 357, 101);
-		inicioPanel.add(inicioLblCompra);
 		
 		JButton inicioBtnIniciar = new JButton("Iniciar");
 		inicioBtnIniciar.setForeground(Color.WHITE);
@@ -144,6 +274,73 @@ public class CajeroEntradas {
 		lblNewLabel.setBounds(0, 97, 239, 253);
 		inicioPanel.add(lblNewLabel);
 		
+		JTextPane txtpnBienvenidosAlCajero = new JTextPane();
+		txtpnBienvenidosAlCajero.setEditable(false);
+		txtpnBienvenidosAlCajero.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtpnBienvenidosAlCajero.setText("Bienvenidos al cajero de entradas de Cines Elorrieta porgramado por la empresa BOOBA");
+		txtpnBienvenidosAlCajero.setBounds(355, 108, 245, 99);
+		inicioPanel.add(txtpnBienvenidosAlCajero);
+		
+//		HORARIOS
+		
+		horariosPanel = new JPanel();
+		horariosPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(horariosPanel);
+		horariosPanel.setLayout(null);
+		horariosPanel.setVisible(false);
+		
+		JLabel horariosLbl = new JLabel("Horarios");
+		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		horariosLbl.setBounds(195, 11, 279, 57);
+		horariosPanel.add(horariosLbl);
+		
+		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
+		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
+		horariosPanel.add(horariosLblHorariosDisponibles);
+		
+		horariosCbHorariosDisponibles = new JComboBox<String>();
+		horariosCbHorariosDisponibles.setToolTipText("Horarios");
+		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
+		horariosPanel.add(horariosCbHorariosDisponibles);
+		
+		JButton horariosBtnAceptar = new JButton("Aceptar");
+		horariosBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controlador solicitud = new Controlador();
+				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnAceptar.setBounds(462, 135, 186, 57);
+		horariosPanel.add(horariosBtnAceptar);
+		
+		JButton horariosBtnCancelar = new JButton("Cancelar");
+		horariosBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnCancelar.setBounds(462, 238, 186, 57);
+		horariosPanel.add(horariosBtnCancelar);
+		
+		btnAtras_1 = new JButton("🡠 Atras");
+		btnAtras_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorEneko = new ControladorEneko();
+			controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
+					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		btnAtras_1.setBounds(10, 11, 105, 30);
+		horariosPanel.add(btnAtras_1);
+		
 //		SELECCION DE CINE
 		
 		seleccionCinePanel = new JPanel();
@@ -154,6 +351,8 @@ public class CajeroEntradas {
 		seleccionCinePanel.setVisible(false);
 		
 		scCbSeleccionCine = new JComboBox<String>();
+		scCbSeleccionCine.setForeground(Color.WHITE);
+		scCbSeleccionCine.setBackground(Color.DARK_GRAY);
 		scCbSeleccionCine.setToolTipText("Selecciona el Cine");
 		scCbSeleccionCine.setBounds(55, 139, 239, 30);
 		seleccionCinePanel.add(scCbSeleccionCine);
@@ -164,6 +363,8 @@ public class CajeroEntradas {
 		seleccionCinePanel.add(scLbl);
 		
 		JButton scBtnAceptar = new JButton("Aceptar");
+		scBtnAceptar.setForeground(Color.WHITE);
+		scBtnAceptar.setBackground(Color.DARK_GRAY);
 		scBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
@@ -178,11 +379,15 @@ public class CajeroEntradas {
 		seleccionCinePanel.add(scBtnAceptar);
 		
 		JButton scBtnFinalizarSesion = new JButton("Finalizar Sesion");
+		scBtnFinalizarSesion.setForeground(Color.WHITE);
+		scBtnFinalizarSesion.setBackground(Color.DARK_GRAY);
 		scBtnFinalizarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		scBtnFinalizarSesion.setBounds(422, 225, 224, 53);
 		seleccionCinePanel.add(scBtnFinalizarSesion);
 		
 		btnAtras = new JButton("🡠 Atras");
+		btnAtras.setBackground(Color.DARK_GRAY);
+		btnAtras.setForeground(Color.WHITE);
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controladorEneko = new ControladorEneko();
@@ -394,192 +599,5 @@ public class CajeroEntradas {
 		});
 		btnAtras_2.setBounds(10, 11, 105, 30);
 		seleccionPeliPanel.add(btnAtras_2);
-		
-//		HORARIOS
-		
-		horariosPanel = new JPanel();
-		horariosPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(horariosPanel);
-		horariosPanel.setLayout(null);
-		horariosPanel.setVisible(false);
-		
-		JLabel horariosLbl = new JLabel("Horarios");
-		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		horariosLbl.setBounds(195, 11, 279, 57);
-		horariosPanel.add(horariosLbl);
-		
-		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles Para Esta Pelicula");
-		horariosLblHorariosDisponibles.setBounds(47, 118, 186, 26);
-		horariosPanel.add(horariosLblHorariosDisponibles);
-		
-		horariosCbHorariosDisponibles = new JComboBox<String>();
-		horariosCbHorariosDisponibles.setToolTipText("Horarios");
-		horariosCbHorariosDisponibles.setBounds(47, 166, 284, 26);
-		horariosPanel.add(horariosCbHorariosDisponibles);
-		
-		JButton horariosBtnAceptar = new JButton("Aceptar");
-		horariosBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Controlador solicitud = new Controlador();
-				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		horariosBtnAceptar.setBounds(462, 135, 186, 57);
-		horariosPanel.add(horariosBtnAceptar);
-		
-		JButton horariosBtnCancelar = new JButton("Cancelar");
-		horariosBtnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		horariosBtnCancelar.setBounds(462, 238, 186, 57);
-		horariosPanel.add(horariosBtnCancelar);
-		
-		btnAtras_1 = new JButton("🡠 Atras");
-		btnAtras_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		btnAtras_1.setBounds(10, 11, 105, 30);
-		horariosPanel.add(btnAtras_1);
-		
-//		REGISTRO
-		
-		registroPanel = new JPanel();
-		registroPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(registroPanel);
-		registroPanel.setLayout(null);
-		registroPanel.setVisible(false);
-		
-		JLabel registroLbl = new JLabel("Registro De Usuario");
-		registroLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		registroLbl.setBounds(152, 11, 350, 49);
-		registroPanel.add(registroLbl);
-		
-		JLabel registroLblNombre = new JLabel("Nombre:");
-		registroLblNombre.setBounds(61, 91, 50, 14);
-		registroPanel.add(registroLblNombre);
-		
-		JLabel registroLblApellidos = new JLabel("Apellidos:");
-		registroLblApellidos.setBounds(61, 128, 78, 14);
-		registroPanel.add(registroLblApellidos);
-		
-		JLabel registroLblContraseña = new JLabel("Contraseña:");
-		registroLblContraseña.setBounds(371, 128, 71, 14);
-		registroPanel.add(registroLblContraseña);
-		
-		JLabel registroLblDni = new JLabel("DNI:");
-		registroLblDni.setBounds(61, 169, 65, 14);
-		registroPanel.add(registroLblDni);
-		
-		JLabel registroLblDireccion = new JLabel("Dirección:");
-		registroLblDireccion.setBounds(371, 212, 71, 14);
-		registroPanel.add(registroLblDireccion);
-		
-		JLabel registroLblSexo = new JLabel("Sexo:");
-		registroLblSexo.setBounds(61, 212, 59, 14);
-		registroPanel.add(registroLblSexo);
-		
-		JLabel registroLblTfno = new JLabel("Teléfono:");
-		registroLblTfno.setBounds(371, 169, 65, 14);
-		registroPanel.add(registroLblTfno);
-		
-		JLabel registroLblEmail = new JLabel("E-Mail:");
-		registroLblEmail.setBounds(371, 91, 65, 14);
-		registroPanel.add(registroLblEmail);
-		
-		registroTfNombre = new JTextField();
-		registroTfNombre.setBounds(141, 89, 136, 17);
-		registroPanel.add(registroTfNombre);
-		registroTfNombre.setColumns(10);
-		
-		registroTfApellidos = new JTextField();
-		registroTfApellidos.setColumns(10);
-		registroTfApellidos.setBounds(141, 125, 136, 17);
-		registroPanel.add(registroTfApellidos);
-		
-		registroTfDNI = new JTextField();
-		registroTfDNI.setColumns(10);
-		registroTfDNI.setBounds(141, 166, 136, 17);
-		registroPanel.add(registroTfDNI);
-		
-		registroTfEmail = new JTextField();
-		registroTfEmail.setColumns(10);
-		registroTfEmail.setBounds(444, 88, 136, 17);
-		registroPanel.add(registroTfEmail);
-		
-		registroTfContrasena = new JTextField();
-		registroTfContrasena.setColumns(10);
-		registroTfContrasena.setBounds(444, 125, 136, 17);
-		registroPanel.add(registroTfContrasena);
-		
-		registroTfTfno = new JTextField();
-		registroTfTfno.setColumns(10);
-		registroTfTfno.setBounds(444, 166, 136, 17);
-		registroPanel.add(registroTfTfno);
-		
-		registroTfDireccion = new JTextField();
-		registroTfDireccion.setColumns(10);
-		registroTfDireccion.setBounds(444, 209, 136, 17);
-		registroPanel.add(registroTfDireccion);
-		
-		registroCbSexo = new JComboBox<String>();
-		registroCbSexo.setToolTipText("Seleccione su Sexo");
-		registroCbSexo.addItem("Hombre");
-		registroCbSexo.addItem("Mujer");
-		registroCbSexo.addItem("Otro");
-		registroCbSexo.setMaximumRowCount(3);
-		registroCbSexo.setBounds(141, 208, 136, 18);
-		registroPanel.add(registroCbSexo);
-		
-		JButton registroBtnAceptar = new JButton("Aceptar");
-		registroBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.registrarUsuario(registroTfDNI, registroTfNombre, registroTfApellidos, registroTfContrasena,
-				registroTfTfno, registroTfDireccion, registroTfEmail, registroCbSexo);
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-				
-			}
-		});
-		registroBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		registroBtnAceptar.setBounds(119, 259, 158, 49);
-		registroPanel.add(registroBtnAceptar);
-		
-		JButton registroBtnCancelar = new JButton("Cancelar");
-		registroBtnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		registroBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		registroBtnCancelar.setBounds(422, 259, 158, 49);
-		registroPanel.add(registroBtnCancelar);
-		
-		btnAtras_3 = new JButton("🡠 Atras");
-		btnAtras_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
-					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		btnAtras_3.setBounds(10, 11, 105, 30);
-		registroPanel.add(btnAtras_3);
 	}
 }
