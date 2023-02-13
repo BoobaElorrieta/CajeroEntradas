@@ -3,6 +3,7 @@ package controlador;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -46,7 +47,7 @@ public class Controlador {
 				"Select Titulo "
 				+ "From Peliculas, Proyecciones, Salas, Cines "
 				+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and "
-					+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
+				+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
 				+ "GROUP BY titulo "
 				+ "ORDER BY FECHA asc, hora ASC");
 		for (int i = 0; i < pelis.size(); i++) {
@@ -56,7 +57,7 @@ public class Controlador {
 
 	}
 	// Pone los horarios disponible en base a la pelicula seleccionada
-	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli) {
+	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles) {
 		String pelicula = null;
 		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		
@@ -64,8 +65,9 @@ public class Controlador {
 		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
 			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
-
+			horariosLblHorariosDisponibles.setText(pelicula);
 		}
+		
 	}
 	
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
