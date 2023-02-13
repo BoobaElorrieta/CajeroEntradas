@@ -32,7 +32,6 @@ public class Controlador {
 		ArrayList<Cine> cines = solicitudCine.getCines();
 		for (int i = 0; i < cines.size(); i++) {
 			scCbSeleccionCine.addItem(cines.get(i).getNombre());
-
 		}
 	}
 	// Añade las peliculas al combo box enbase a el cine seleccionado
