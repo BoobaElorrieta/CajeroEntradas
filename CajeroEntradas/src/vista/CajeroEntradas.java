@@ -569,7 +569,7 @@ public class CajeroEntradas {
 		spBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador = new Controlador();
-				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli);
+				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles);
 				controladorEneko = new ControladorEneko();
 				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
