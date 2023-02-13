@@ -403,7 +403,7 @@ public class CajeroEntradas {
 				Controlador solicitud = new Controlador();
 				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles);
 				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
