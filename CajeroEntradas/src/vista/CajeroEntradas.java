@@ -101,6 +101,34 @@ public class CajeroEntradas {
 		seleccionPeliPanel.setLayout(null);
 		seleccionPeliPanel.setVisible(false);
 		
+		
+		
+//		JButton movido
+		
+		JButton spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.setForeground(Color.WHITE);
+		spBtnAceptar.setBackground(Color.DARK_GRAY);
+		spBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador = new Controlador();
+				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia);
+				controladorEneko = new ControladorEneko();
+				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		
+		JButton spBtnBuscarDia = new JButton("Buscar Dia");
+		spBtnBuscarDia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.escogerFecha(spCbSeleccionPeli, spCbDia);
+			}
+		});
+		spBtnBuscarDia.setBounds(72, 190, 143, 30);
+		seleccionPeliPanel.add(spBtnBuscarDia);
+		spBtnAceptar.setBounds(404, 126, 258, 53);
+		seleccionPeliPanel.add(spBtnAceptar);
+		
 		JLabel spLbl = new JLabel("Cine");
 		spLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		spLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
@@ -156,15 +184,6 @@ public class CajeroEntradas {
 		spCbDia.setBounds(72, 249, 222, 30);
 		seleccionPeliPanel.add(spCbDia);
 		
-		JButton spBtnBuscarDia = new JButton("Buscar Dia");
-		spBtnBuscarDia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.escogerFecha(spCbSeleccionPeli, spCbDia);
-			}
-		});
-		spBtnBuscarDia.setBounds(72, 190, 143, 30);
-		seleccionPeliPanel.add(spBtnBuscarDia);
-		
 //		HORARIOS
 		
 		horariosPanel = new JPanel();
@@ -206,25 +225,6 @@ public class CajeroEntradas {
 		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		horariosBtnAceptar.setBounds(462, 135, 186, 57);
 		horariosPanel.add(horariosBtnAceptar);
-		
-		
-		
-//		JButton movido
-		
-		JButton spBtnAceptar = new JButton("Aceptar");
-		spBtnAceptar.setForeground(Color.WHITE);
-		spBtnAceptar.setBackground(Color.DARK_GRAY);
-		spBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador = new Controlador();
-				controlador.escogerHorarios(horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia);
-				controladorEneko = new ControladorEneko();
-				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
-						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		spBtnAceptar.setBounds(404, 126, 258, 53);
-		seleccionPeliPanel.add(spBtnAceptar);
 		
 		
 		
