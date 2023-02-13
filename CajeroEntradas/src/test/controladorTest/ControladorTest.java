@@ -7,15 +7,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 
 import org.junit.jupiter.api.Test;
 
 import controlador.Controlador;
 import modelo.bbdd.SolicitaCines;
+import modelo.bbdd.SolicitaHorarios;
 import modelo.bbdd.SolicitaPeliculas;
 import modelo.pojos.Cine;
-import modelo.pojos.Cliente;
 import modelo.pojos.Pelicula;
+import modelo.pojos.Proyeccion;
 import vista.CajeroEntradas;
 
 class ControladorTest {
@@ -24,11 +26,7 @@ class ControladorTest {
 	CajeroEntradas cajeroEntradas = null;
 	SolicitaCines solicitaCine = null;
 	SolicitaPeliculas solicitaPeliculas = null;
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+	SolicitaHorarios solicitaHorarios = null;
 	
 	@Test
 	public void testBuscarCines() {
@@ -45,7 +43,7 @@ class ControladorTest {
 	public void testEscogerCine() {
 		cajeroEntradas = new CajeroEntradas();
 		solicitaPeliculas = new SolicitaPeliculas();
-		String cine = null;
+		String cine = (String) cajeroEntradas.scCbSeleccionCine.getSelectedItem();
 		ArrayList<Pelicula> pelis = solicitaPeliculas.getPeliculas(
 				"Select Titulo "
 				+ "From Peliculas, Proyecciones, Salas, Cines "
@@ -53,11 +51,16 @@ class ControladorTest {
 				+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
 				+ "GROUP BY titulo "
 				+ "ORDER BY FECHA asc, hora ASC");
-		ArrayList<Pelicula> peliculas = solicitaPeliculas.getPeliculas(cine);
-		for (int i = 0; i < pelis.size(); i++) {
-			cajeroEntradas.spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
-		}
-		
+		assertNotNull(pelis);
 	}
-
+	
+	public void testEscogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles) {
+		cajeroEntradas = new CajeroEntradas();
+		solicitaPeliculas = new SolicitaPeliculas();
+		solicitaHorarios = new SolicitaHorarios();
+		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
+		
+		ArrayList<Proyeccion> proyeccion = solicitaHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
+		assertNotNull(proyeccion);
+	}
 }
