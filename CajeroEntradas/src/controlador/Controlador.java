@@ -78,7 +78,7 @@ public class Controlador {
 		cliente.setApellidos(apellidos.getText());
 		cliente.setSexo(sexo.getSelectedItem().toString());
 		cliente.setContrasena(contrasena.getText());
-		cliente.setTfno(tfno.getText());
+		cliente.setTfno(Integer.parseInt(tfno.getText()));
 		cliente.setDireccion(direccion.getText());
 		cliente.setEmail(email.getText());
 		System.out.println(cliente.toString());
