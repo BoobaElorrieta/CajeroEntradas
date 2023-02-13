@@ -86,10 +86,8 @@ public class Controlador {
 	// Pone los horarios disponible en base a la pelicula seleccionada
 	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli,
 			JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia) {
-		String pelicula = null;
-		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
-		String fecha = null;
-		fecha = (String) spCbDia.getSelectedItem();
+		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
+		String fecha = (String) spCbDia.getSelectedItem();
 		
 		solicitudHorarios = new SolicitaHorarios();
 		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and fecha = '" + fecha + "'");
