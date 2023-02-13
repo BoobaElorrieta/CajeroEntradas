@@ -57,15 +57,31 @@ public class Controlador {
 		spLbl.setText("Cine " + cine);
 
 	}
-	// Pone los horarios disponible en base a la pelicula seleccionada
-	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles) {
+	
+	public void escogerFecha(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JComboBox spCbDia) {
 		String pelicula = null;
 		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		
 		solicitudHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select fecha From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyeccion.size(); i++) {
-			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getFecha() + " / " + proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
+			spCbDia.addItem(proyeccion.get(i).getFecha());
+		}
+		
+	}
+	
+	
+	// Pone los horarios disponible en base a la pelicula seleccionada
+	public void escogerHorarios(JComboBox<String> horariosCbHorariosDisponibles, JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox spCbDia) {
+		String pelicula = null;
+		pelicula = (String) spCbSeleccionPeli.getSelectedItem();
+		String fecha = null;
+		fecha = (String) spCbDia.getSelectedItem();
+		
+		solicitudHorarios = new SolicitaHorarios();
+		ArrayList<Proyeccion> proyeccion = solicitudHorarios.getProyecciones( "Select hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = '" + fecha + "'");
+		for (int i = 0; i < proyeccion.size(); i++) {
+			horariosCbHorariosDisponibles.addItem(proyeccion.get(i).getHora() + " / " + proyeccion.get(i).getPrecio() + "€  / " + proyeccion.get(i).getSala().getNombre());
 			horariosLblHorariosDisponibles.setText(pelicula);
 		}
 		
