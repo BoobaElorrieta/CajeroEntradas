@@ -75,7 +75,6 @@ public class Controlador {
 				+ "JOIN cines c ON c.cod = s.cod_cine "
 				+ "WHERE c.nombre = '" + cine + "' AND titulo = '" + pelicula + "' "
 				+ "GROUP BY fecha");
-		System.out.println(proyeccion.toString());
 		for (int i = 0; i < proyeccion.size(); i++) {
 			spCbDia.addItem(proyeccion.get(i).getFecha().toString());
 	}
@@ -121,7 +120,9 @@ public class Controlador {
 				+ "JOIN cines c ON s.cod_cine = c.cod\r\n"
 				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula + "' and hora = '" + hora +"'");
 		for (int i = 0; i < proyeccion.size(); i++) {
-			precioSesiontLbl.setText(proyeccion.get(i).getSala().getNombre());
+			System.out.println("" + proyeccion.get(i).getPrecio() + "");
+			precioSesiontLbl.setText("" + proyeccion.get(i).getPrecio() + "");
+			
 		}
 
 	}

@@ -190,6 +190,15 @@ public class CajeroEntradas {
 		NumeroSalaLbl_2.setBounds(87, 280, 90, 30);
 		horariosPanel.add(NumeroSalaLbl_2);
 		
+		JButton btnSeleccionarHora = new JButton("Seleccionar");
+		btnSeleccionarHora.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.selecionarHora(horariosCbHorariosDisponibles, horariosCbHorariosDisponibles, horariosCbHorariosDisponibles, NumeroSalaLbl_2, horariosCbHorariosDisponibles, NumeroSalaLbl_2, NumeroSalaLbl_2);
+			}
+		});
+		btnSeleccionarHora.setBounds(20, 199, 140, 21);
+		horariosPanel.add(btnSeleccionarHora);
+		
 //		SELECCION DE PELICULAS
 		
 		seleccionPeliPanel = new JPanel();
