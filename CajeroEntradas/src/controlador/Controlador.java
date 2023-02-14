@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import modelo.bbdd.RegistraCliente;
 import modelo.bbdd.SolicitaCines;
@@ -27,11 +29,10 @@ public class Controlador {
 	SolicitaPeliculas solicitaPeliculas = null;
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
-	
-	
+
 //	Ir al panel Inicio
-	
-	public void mostrarPanelInicio(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel, 
+
+	public void mostrarPanelInicio(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
 			JPanel seleccionPeliPanel, JPanel horariosPanel, JPanel resumenCompraPanel, JPanel loginPanel) {
 		inicioPanel.setVisible(true);
 		registroPanel.setVisible(false);
@@ -39,11 +40,11 @@ public class Controlador {
 		seleccionPeliPanel.setVisible(false);
 		horariosPanel.setVisible(false);
 		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
+		loginPanel.setVisible(false);
 	}
-	
+
 //	Ir al panel Registro
-	public void mostrarPanelRegistro(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel, 
+	public void mostrarPanelRegistro(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
 			JPanel seleccionPeliPanel, JPanel horariosPanel, JPanel resumenCompraPanel, JPanel loginPanel) {
 		inicioPanel.setVisible(false);
 		registroPanel.setVisible(true);
@@ -51,12 +52,12 @@ public class Controlador {
 		seleccionPeliPanel.setVisible(false);
 		horariosPanel.setVisible(false);
 		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
+		loginPanel.setVisible(false);
 	}
-	
+
 //	Ir al panel Seleccion Cine
-	
-	public void mostrarPanelSeleccionCine(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel, 
+
+	public void mostrarPanelSeleccionCine(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
 			JPanel seleccionPeliPanel, JPanel horariosPanel, JPanel resumenCompraPanel, JPanel loginPanel) {
 		inicioPanel.setVisible(false);
 		registroPanel.setVisible(false);
@@ -64,12 +65,12 @@ public class Controlador {
 		seleccionPeliPanel.setVisible(false);
 		horariosPanel.setVisible(false);
 		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
+		loginPanel.setVisible(false);
 	}
-	
+
 //	Ir al panel Seleccion Peli
-	
-	public void mostrarPanelSeleccionPeli(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel, 
+
+	public void mostrarPanelSeleccionPeli(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
 			JPanel seleccionPeliPanel, JPanel horariosPanel, JPanel resumenCompraPanel, JPanel loginPanel) {
 		inicioPanel.setVisible(false);
 		registroPanel.setVisible(false);
@@ -77,12 +78,12 @@ public class Controlador {
 		seleccionPeliPanel.setVisible(true);
 		horariosPanel.setVisible(false);
 		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
+		loginPanel.setVisible(false);
 	}
-	
+
 //	Ir al panel Horarios
-	
-	public void mostrarPanelHorarios(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel, 
+
+	public void mostrarPanelHorarios(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
 			JPanel seleccionPeliPanel, JPanel horariosPanel, JPanel resumenCompraPanel, JPanel loginPanel) {
 		inicioPanel.setVisible(false);
 		registroPanel.setVisible(false);
@@ -90,12 +91,12 @@ public class Controlador {
 		seleccionPeliPanel.setVisible(false);
 		horariosPanel.setVisible(true);
 		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(false);		
+		loginPanel.setVisible(false);
 	}
-	
+
 //	Ir al panel Resumen Compra
-	
-	public void mostrarPanelResumenCompra(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel, 
+
+	public void mostrarPanelResumenCompra(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
 			JPanel seleccionPeliPanel, JPanel horariosPanel, JPanel resumenCompraPanel, JPanel loginPanel) {
 		inicioPanel.setVisible(false);
 		registroPanel.setVisible(false);
@@ -103,11 +104,11 @@ public class Controlador {
 		seleccionPeliPanel.setVisible(false);
 		horariosPanel.setVisible(false);
 		resumenCompraPanel.setVisible(true);
-		loginPanel.setVisible(false);		
+		loginPanel.setVisible(false);
 	}
 //	Ir al panel Login
-	
-	public void mostrarPanelLogin(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel, 
+
+	public void mostrarPanelLogin(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
 			JPanel seleccionPeliPanel, JPanel horariosPanel, JPanel resumenCompraPanel, JPanel loginPanel) {
 		inicioPanel.setVisible(false);
 		registroPanel.setVisible(false);
@@ -115,7 +116,7 @@ public class Controlador {
 		seleccionPeliPanel.setVisible(false);
 		horariosPanel.setVisible(false);
 		resumenCompraPanel.setVisible(false);
-		loginPanel.setVisible(true);		
+		loginPanel.setVisible(true);
 	}
 
 	// Busca los cines disponibles que hay
@@ -135,11 +136,9 @@ public class Controlador {
 		spCbSeleccionPeli.removeAllItems();
 		solicitaPeliculas = new SolicitaPeliculas();
 		ArrayList<Pelicula> pelis = solicitaPeliculas
-				.getPeliculas("Select Titulo " 
-						+ "From Peliculas, Proyecciones, Salas, Cines "
+				.getPeliculas("Select Titulo " + "From Peliculas, Proyecciones, Salas, Cines "
 						+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and "
-						+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod " 
-						+ "GROUP BY titulo "
+						+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod " + "GROUP BY titulo "
 						+ "ORDER BY FECHA asc, hora ASC");
 		for (int i = 0; i < pelis.size(); i++) {
 			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
@@ -162,11 +161,10 @@ public class Controlador {
 		try {
 			solicitaHorarios = new SolicitaHorarios();
 			ArrayList<Proyeccion> proyecciones = solicitaHorarios
-					.getProyecciones("SELECT fecha, hora, precio, s.nombre "
-								+ "FROM proyecciones pr " + "JOIN salas S ON pr.cod_sala=S.cod "
-								+ "JOIN peliculas pe ON pr.cod_peli=pe.codigo " + "JOIN cines c ON c.cod = s.cod_cine "
-								+ "WHERE c.nombre = '" + cine + "' AND titulo = '" + pelicula + "' " 
-								+ "GROUP BY fecha");
+					.getProyecciones("SELECT fecha, hora, precio, s.nombre " + "FROM proyecciones pr "
+							+ "JOIN salas S ON pr.cod_sala=S.cod " + "JOIN peliculas pe ON pr.cod_peli=pe.codigo "
+							+ "JOIN cines c ON c.cod = s.cod_cine " + "WHERE c.nombre = '" + cine + "' AND titulo = '"
+							+ pelicula + "' " + "GROUP BY fecha");
 			for (int i = 0; i < proyecciones.size(); i++) {
 				spCbDia.addItem(proyecciones.get(i).getFecha().toString());
 			}
@@ -188,14 +186,16 @@ public class Controlador {
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
 
 		solicitaHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios
-				.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
-							+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
-							+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
-							+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula + "'");
+		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
+				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula + "'");
 		for (int i = 0; i < proyecciones.size(); i++) {
-			horariosCbHorariosDisponibles.addItem(proyecciones.get(i).getHora().toString()/* + " / " + proyeccion.get(i).getPrecio()
-					+ "€  / " + proyeccion.get(i).getSala().getNombre()*/);
+			horariosCbHorariosDisponibles.addItem(
+					proyecciones.get(i).getHora().toString()/*
+															 * + " / " + proyeccion.get(i).getPrecio() + "€  / " +
+															 * proyeccion.get(i).getSala().getNombre()
+															 */);
 			horariosLblHorariosDisponibles.setText(pelicula);
 		}
 	}
@@ -208,12 +208,11 @@ public class Controlador {
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
 		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
 		solicitaHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios
-				.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
-							+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
-							+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
-							+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
-							+ "' and hora = '" + hora + "'");
+		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
+				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
+				+ "' and hora = '" + hora + "'");
 		for (int i = 0; i < proyecciones.size(); i++) {
 			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + " €");
 			horariosLblNombreSala.setText("" + proyecciones.get(i).getSala().getNombre() + "");
@@ -221,7 +220,6 @@ public class Controlador {
 		}
 
 	}
-	
 
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
 			JTextField tfno, JTextField direccion, JTextField email, JComboBox<String> sexo) {
@@ -243,13 +241,17 @@ public class Controlador {
 	// Ventana Emergente
 
 	public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles,
-			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia, JLabel precioSesiontLbl, JLabel horariosLblNombreSala) {
+			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia,
+			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo) {
 		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
 		String fecha = (String) spCbDia.getSelectedItem();
 		String precio = (String) precioSesiontLbl.getText();
 		String sala = (String) horariosLblNombreSala.getText();
+		
+
+		
 
 
 		JFrame jFrame = new JFrame();
@@ -257,6 +259,8 @@ public class Controlador {
 				"Has seleccionado la siguientes opciones: \r\n" + "La pelicula " + pelicula + " sera el dia " + fecha
 						+ " a las " + hora + "en la sala " + sala + " del cine " + cine + " por un precio de "
 						+ precio);
+		
+		modelo.addRow(new String[] {hora, pelicula, cine, fecha, precio, sala});
 
 	}
 

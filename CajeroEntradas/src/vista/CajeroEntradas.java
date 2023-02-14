@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 import controlador.Controlador;
 //import modelo.bbdd.RegistraCliente;
@@ -91,34 +92,34 @@ public class CajeroEntradas {
 		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		//		RESUMEN DE COMPRA
-		
+
+		// RESUMEN DE COMPRA
+
 		resumenCompraPanel = new JPanel();
 		resumenCompraPanel.setBackground(Color.WHITE);
 		resumenCompraPanel.setBounds(0, 0, 672, 350);
 		frame.getContentPane().add(resumenCompraPanel);
 		resumenCompraPanel.setLayout(null);
 		resumenCompraPanel.setVisible(false);
-		
+
 		JLabel rcLbl = new JLabel("Resumen De Compra");
 		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		rcLbl.setBounds(158, 11, 383, 51);
 		resumenCompraPanel.add(rcLbl);
-		
+
 		JLabel rcLblEntradasSeleccionadas = new JLabel("Entradas Seleccionadas:");
 		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
 		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
-								
+
 		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
 		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
 		resumenCompraPanel.add(rcLblPrecioTotal);
-										
+
 		JTextArea rcTaPrecioTotal = new JTextArea();
 		rcTaPrecioTotal.setEditable(false);
 		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
 		resumenCompraPanel.add(rcTaPrecioTotal);
-												
+
 		rcBtnAceptar = new JButton("Aceptar");
 		rcBtnAceptar.setBackground(Color.DARK_GRAY);
 		rcBtnAceptar.setForeground(Color.WHITE);
@@ -130,7 +131,7 @@ public class CajeroEntradas {
 		});
 		rcBtnAceptar.setBounds(401, 189, 243, 51);
 		resumenCompraPanel.add(rcBtnAceptar);
-														
+
 		JButton rcBtnCancelar = new JButton("Cancelar");
 		rcBtnCancelar.setBackground(Color.DARK_GRAY);
 		rcBtnCancelar.setForeground(Color.WHITE);
@@ -142,7 +143,7 @@ public class CajeroEntradas {
 		});
 		rcBtnCancelar.setBounds(401, 273, 243, 51);
 		resumenCompraPanel.add(rcBtnCancelar);
-																
+
 		rcBtnAtras = new JButton("🡠 Atras");
 		rcBtnAtras.setForeground(Color.WHITE);
 		rcBtnAtras.setBackground(Color.DARK_GRAY);
@@ -154,14 +155,27 @@ public class CajeroEntradas {
 		});
 		rcBtnAtras.setBounds(10, 11, 105, 30);
 		resumenCompraPanel.add(rcBtnAtras);
-																		
+
 		JScrollPane rcSpResumenCompra = new JScrollPane();
-		rcSpResumenCompra.setBounds(55, 119, 272, 197);
+		rcSpResumenCompra.setBounds(10, 111, 369, 213);
 		resumenCompraPanel.add(rcSpResumenCompra);
-																				
+
 		table = new JTable();
 		rcSpResumenCompra.setViewportView(table);
-																						
+
+		final Object[] object = new Object[6];
+		final DefaultTableModel modelo;
+		modelo = new DefaultTableModel();
+		table.setModel(modelo);
+		
+		// Columnas de la tabla
+		modelo.addColumn("Hora");
+		modelo.addColumn("Pelicula");
+		modelo.addColumn("Cine");
+		modelo.addColumn("Fecha");
+		modelo.addColumn("Precio");
+		modelo.addColumn("Sala");
+
 		JLabel rcLblImagen = new JLabel("");
 		rcLblImagen.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
 		rcLblImagen.setBounds(187, 73, 485, 325);
@@ -201,7 +215,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
 				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine,
-						spCbDia, horariosLblPrecio, horariosLblNombreSala);
+						spCbDia, horariosLblPrecio, horariosLblNombreSala, modelo);
 				controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
