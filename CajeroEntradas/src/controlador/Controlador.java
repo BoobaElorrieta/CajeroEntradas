@@ -118,14 +118,14 @@ public class Controlador {
 				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
 				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
 				+ "' and hora = '" + hora + "'");
-		System.out.println(cine);
+//		System.out.println(cine);
 //		System.out.println(fecha);
 //		System.out.println(pelicula);
 //		System.out.println(hora);
-		System.out.println(proyeccion);
+//		System.out.println(proyeccion);
 		for (int i = 0; i < proyeccion.size(); i++) {
-		//	System.out.println("" + proyeccion.get(i).getPrecio() + "");
-		//	precioSesiontLbl.setText("" + proyeccion.get(i).getPrecio() + "");
+			System.out.println("" + proyeccion.get(i).getPrecio() + "");
+			precioSesiontLbl.setText("" + proyeccion.get(i).getPrecio() + "");
 
 		}
 
