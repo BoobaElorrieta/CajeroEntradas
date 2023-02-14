@@ -20,10 +20,8 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
-import java.awt.ScrollPane;
 import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
-import javax.swing.JEditorPane;
 import java.awt.Color;
 import javax.swing.JTextPane;
 
@@ -59,6 +57,8 @@ public class CajeroEntradas {
 	private JButton btnAtras_4;
 	private JButton btnAtras_5;
 	private JButton rcBtnAceptar;
+	private JComboBox<String> spCbDia;
+	private JLabel horariosLblHorariosDisponibles;
 
 	/**
 	 * Launch the application.
@@ -107,7 +107,7 @@ public class CajeroEntradas {
 		horariosLbl.setBounds(195, 11, 279, 57);
 		horariosPanel.add(horariosLbl);
 		
-		JLabel horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles \r\n Para Esta Pelicula");
+		horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles \r\n Para Esta Pelicula");
 		horariosLblHorariosDisponibles.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		horariosLblHorariosDisponibles.setBounds(20, 121, 385, 26);
 		horariosPanel.add(horariosLblHorariosDisponibles);
@@ -255,7 +255,7 @@ public class CajeroEntradas {
 		btnAtras_2.setBounds(10, 11, 105, 30);
 		seleccionPeliPanel.add(btnAtras_2);
 		
-		JComboBox<String> spCbDia = new JComboBox<String>();
+		spCbDia = new JComboBox<String>();
 		spCbDia.setBounds(72, 249, 222, 30);
 		seleccionPeliPanel.add(spCbDia);
 		
