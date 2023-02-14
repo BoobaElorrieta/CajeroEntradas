@@ -102,12 +102,11 @@ public class Controlador {
 					+ "€  / " + proyeccion.get(i).getSala().getNombre()*/);
 			horariosLblHorariosDisponibles.setText(pelicula);
 		}
-		System.out.println(cine);
 	}
 
 	public void selecionarHora(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
 			JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia,
-			JLabel precioSesiontLbl, JLabel numeroSalaLbl) {
+			JLabel precioSesiontLbl, JLabel horariosLblNombreSala) {
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String fecha = (String) spCbDia.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
@@ -118,14 +117,9 @@ public class Controlador {
 				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
 				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
 				+ "' and hora = '" + hora + "'");
-//		System.out.println(cine);
-//		System.out.println(fecha);
-//		System.out.println(pelicula);
-//		System.out.println(hora);
-//		System.out.println(proyeccion);
 		for (int i = 0; i < proyeccion.size(); i++) {
-			System.out.println("" + proyeccion.get(i).getPrecio() + "");
-			precioSesiontLbl.setText("" + proyeccion.get(i).getPrecio() + "");
+			precioSesiontLbl.setText("" + proyeccion.get(i).getPrecio() + " €");
+			horariosLblNombreSala.setText("" + proyeccion.get(i).getSala().getNombre() + "");
 
 		}
 
@@ -151,16 +145,14 @@ public class Controlador {
 	// Ventana Emergente
 
 	public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles,
-			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia) {
-		String horario = (String) horariosCbHorariosDisponibles.getSelectedItem();
+			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia, JLabel precioSesiontLbl, JLabel horariosLblNombreSala) {
+		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
 		String fecha = (String) spCbDia.getSelectedItem();
+		String precio = (String) precioSesiontLbl.getText();
+		String sala = (String) horariosLblNombreSala.getText();
 
-		String[] parts = horario.split("/");
-		String hora = parts[0];
-		String precio = parts[1];
-		String sala = parts[2];
 
 		JFrame jFrame = new JFrame();
 		JOptionPane.showMessageDialog(jFrame,

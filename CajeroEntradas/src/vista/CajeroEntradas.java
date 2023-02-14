@@ -127,7 +127,7 @@ public class CajeroEntradas {
 		horariosBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
-				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine, spCbDia);
+				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine, spCbDia, horariosLblPrecio, horariosLblNombreSala);
 				controladorEneko = new ControladorEneko();
 			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
@@ -195,7 +195,7 @@ public class CajeroEntradas {
 		JButton horariosBtnSeleccionarHora = new JButton("Seleccionar");
 		horariosBtnSeleccionarHora.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.selecionarHora(scCbSeleccionCine,horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblSala);
+				controlador.selecionarHora(scCbSeleccionCine,horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
 			}
 		});
 		horariosBtnSeleccionarHora.setBounds(20, 199, 140, 21);
