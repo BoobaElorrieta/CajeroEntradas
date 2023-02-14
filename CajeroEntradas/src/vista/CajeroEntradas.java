@@ -172,24 +172,24 @@ public class CajeroEntradas {
 		horariosLblImagen.setBounds(187, 41, 485, 325);
 		horariosPanel.add(horariosLblImagen);
 		
-		JLabel horarioSelectLbl = new JLabel("Hora:");
+		JLabel horarioSelectLbl = new JLabel("Precio:");
 		horarioSelectLbl.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		horarioSelectLbl.setBounds(20, 230, 90, 30);
 		horariosPanel.add(horarioSelectLbl);
 		
 		JLabel horariosLblSala = new JLabel("Sala:");
 		horariosLblSala.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		horariosLblSala.setBounds(20, 280, 90, 30);
+		horariosLblSala.setBounds(36, 280, 90, 30);
 		horariosPanel.add(horariosLblSala);
 		
 		horariosLblPrecio = new JLabel("------");
 		horariosLblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		horariosLblPrecio.setBounds(86, 230, 90, 30);
+		horariosLblPrecio.setBounds(98, 230, 90, 30);
 		horariosPanel.add(horariosLblPrecio);
 		
 		horariosLblNombreSala = new JLabel("------");
 		horariosLblNombreSala.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		horariosLblNombreSala.setBounds(87, 280, 90, 30);
+		horariosLblNombreSala.setBounds(98, 280, 90, 30);
 		horariosPanel.add(horariosLblNombreSala);
 		
 		JButton horariosBtnSeleccionarHora = new JButton("Seleccionar");
