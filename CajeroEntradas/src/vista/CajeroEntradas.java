@@ -28,7 +28,6 @@ import javax.swing.JTextPane;
 public class CajeroEntradas {
 	
 	Controlador controlador = new Controlador();
-	ControladorEneko controladorEneko = new ControladorEneko();
 
 	private JFrame frame;
 	public JComboBox<String> scCbSeleccionCine;
@@ -128,8 +127,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
 				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine, spCbDia, horariosLblPrecio, horariosLblNombreSala);
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -145,8 +143,7 @@ public class CajeroEntradas {
 		horariosBtnCancelar.setForeground(Color.WHITE);
 		horariosBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -159,8 +156,7 @@ public class CajeroEntradas {
 		horariosBtnAtras.setForeground(Color.WHITE);
 		horariosBtnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -245,8 +241,7 @@ public class CajeroEntradas {
 		spBtnResumenDeCompra.setBackground(Color.DARK_GRAY);
 		spBtnResumenDeCompra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -258,8 +253,7 @@ public class CajeroEntradas {
 		spBtnAtras.setBackground(Color.DARK_GRAY);
 		spBtnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -281,8 +275,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				controlador = new Controlador();
 				controlador.escogerHorarios(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia);
-				controladorEneko = new ControladorEneko();
-				controladorEneko.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
+				controlador.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, 
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -331,8 +324,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
 				solicitud.escogerCine(scCbSeleccionCine, spCbSeleccionPeli, spLbl);
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
+				controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -358,8 +350,7 @@ public class CajeroEntradas {
 		scBtnAtras.setForeground(Color.WHITE);
 		scBtnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -468,8 +459,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				controlador.registrarUsuario(registroTfDNI, registroTfNombre, registroTfApellidos, registroTfContrasena,
 				registroTfTfno, registroTfDireccion, registroTfEmail, registroCbSexo);
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				
 			}
@@ -483,8 +473,7 @@ public class CajeroEntradas {
 		registroBtnCancelar.setBackground(Color.DARK_GRAY);
 		registroBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -497,8 +486,7 @@ public class CajeroEntradas {
 		registroBtnAtras.setBackground(Color.DARK_GRAY);
 		registroBtnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -537,8 +525,7 @@ public class CajeroEntradas {
 		rcBtnAceptar.setForeground(Color.WHITE);
 		rcBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelLogin(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelLogin(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -550,8 +537,7 @@ public class CajeroEntradas {
 		rcBtnCancelar.setForeground(Color.WHITE);
 		rcBtnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -563,8 +549,7 @@ public class CajeroEntradas {
 		rcBtnAtras.setBackground(Color.DARK_GRAY);
 		rcBtnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-				controladorEneko.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
+				controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel, 
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -625,8 +610,7 @@ public class CajeroEntradas {
 				solucion = controlador.comprobarLogin(loginTfEmail, loginTfContrasena);
 				
 				if (solucion = true) {	
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				}
 			}
@@ -640,8 +624,7 @@ public class CajeroEntradas {
 		loginBtnAtras.setBackground(Color.DARK_GRAY);
 		loginBtnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-				controladorEneko.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel, 
+				controlador.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel, 
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
@@ -666,8 +649,7 @@ public class CajeroEntradas {
 		inicioBtnIniciar.setBackground(Color.DARK_GRAY);
 		inicioBtnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				Controlador solicitud = new Controlador();
 				solicitud.buscarCine(scCbSeleccionCine);
@@ -682,8 +664,7 @@ public class CajeroEntradas {
 		inicioBtnRegistrar.setBackground(Color.DARK_GRAY);
 		inicioBtnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorEneko = new ControladorEneko();
-			controladorEneko.mostrarPanelRegistro(inicioPanel, registroPanel, seleccionCinePanel, 
+			controlador.mostrarPanelRegistro(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
