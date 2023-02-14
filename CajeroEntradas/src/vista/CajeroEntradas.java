@@ -193,7 +193,7 @@ public class CajeroEntradas {
 		JButton btnSeleccionarHora = new JButton("Seleccionar");
 		btnSeleccionarHora.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.selecionarHora(horariosCbHorariosDisponibles, horariosCbHorariosDisponibles, horariosCbHorariosDisponibles, NumeroSalaLbl_2, horariosCbHorariosDisponibles, NumeroSalaLbl_2, NumeroSalaLbl_2);
+				controlador.selecionarHora(scCbSeleccionCine,horariosCbHorariosDisponibles, spCbSeleccionPeli, horariosLblHorariosDisponibles, spCbDia, precioSesiontLbl, numeroSalaLbl);
 			}
 		});
 		btnSeleccionarHora.setBounds(20, 199, 140, 21);
