@@ -41,7 +41,7 @@ public class SolicitaCliente {
 
 				// Si es necesario, inicializamos la lista
 				if (null == ret)
-					ret = new <Cliente>ArrayList();
+					ret = new ArrayList<Cliente>();
 
 				Cliente cliente = new Cliente();
 
