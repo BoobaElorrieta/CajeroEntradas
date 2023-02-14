@@ -1,13 +1,8 @@
 package test.controladorTest;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
 
 import org.junit.jupiter.api.Test;
 

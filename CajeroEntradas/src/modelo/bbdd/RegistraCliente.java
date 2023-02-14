@@ -4,12 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
-import modelo.pojos.Cine;
 import modelo.pojos.Cliente;
 import utils.DBUtils;
-import vista.CajeroEntradas;
 
 
 public class RegistraCliente {

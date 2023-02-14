@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 import modelo.pojos.Cine;
 import utils.DBUtils;
-import vista.CajeroEntradas;
-import controlador.Controlador;
 
 public class SolicitaCines {
 
@@ -45,7 +43,7 @@ public class SolicitaCines {
 				
 				// Si es necesario, inicializamos la lista
 				if (null == ret)
-					ret = new <Cine> ArrayList ();
+					ret = new ArrayList<Cine> ();
 				
 				Cine cine = new Cine ();
 				

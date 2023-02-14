@@ -12,7 +12,6 @@ import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
 import controlador.Controlador;
-import controlador.ControladorEneko;
 //import modelo.bbdd.RegistraCliente;
 //import modelo.pojos.Cliente;
 
@@ -605,15 +604,15 @@ public class CajeroEntradas {
 		loginBtnAceptar.setForeground(Color.WHITE);
 		loginBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean solucion = false;
-				controlador = new Controlador();
-				solucion = controlador.comprobarLogin(loginTfEmail, loginTfContrasena);
-				
-				if (solucion = true) {	
+//				boolean solucion = false;
+//				controlador = new Controlador();
+//				solucion = controlador.comprobarLogin(loginTfEmail, loginTfContrasena);
+//				
+//				if (solucion = true) {	
 			controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, 
 					seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				}
-			}
+//			}
 		});
 		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		loginBtnAceptar.setBounds(235, 259, 263, 58);
