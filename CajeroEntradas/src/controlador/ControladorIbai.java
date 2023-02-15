@@ -42,10 +42,12 @@ public class ControladorIbai {
 
 				switch (ret) {
 				case 0:
-					System.out.println("Has pulsado Sí");
+					System.out.println("Su ticket ha sido guardado");
+					String directorio = JOptionPane.showInputDialog("Donde quiere guardar su ticket?");
+					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio + " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
 					break;
 				case 1:
-					System.out.println("Has pulsado No");
+					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");
 					break;
 
 				}
