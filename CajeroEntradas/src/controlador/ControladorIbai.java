@@ -14,20 +14,18 @@ import modelo.pojos.Cliente;
 import vista.CajeroEntradas;
 
 public class ControladorIbai {
-	
-	
+
 	CajeroEntradas cajero = null;
 	SolicitaCines solicitaCine = null;
 	SolicitaPeliculas solicitaPeliculas = null;
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
-	
-	
-	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) {
+
+	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) {
 		String correo = null;
 		String contrasenaUsuario = null;
 		String contrasenaReal = null;
-		boolean ret = false;
+		int ret;
 		correo = (String) loginTfEmail.getText();
 		contrasenaUsuario = (String) loginTfContrasena.getText();
 		try {
@@ -39,19 +37,26 @@ public class ControladorIbai {
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
 				// Se le deja pasar
 				JFrame jFrame = new JFrame();
-				JOptionPane.showMessageDialog(jFrame, "ACESO PERMITIDO");
-				ret = true;
+				ret = JOptionPane.showConfirmDialog(null, "ACESO PERMITIDO \r\n" + "Desea imprimir el ticket?",
+						"YES_NO_OPTION", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
+				switch (ret) {
+				case 0:
+					System.out.println("Has pulsado Sí");
+					break;
+				case 1:
+					System.out.println("Has pulsado No");
+					break;
+
+				}
 			} else {
 				JFrame jFrame = new JFrame();
 				JOptionPane.showMessageDialog(jFrame, "ACESO DENEGADO");
-				ret = false;
 			}
 		} catch (Exception e) {
 			JFrame jFrame = new JFrame();
 			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
-			ret = false;
 		}
-		return ret;
+
 	}
 }

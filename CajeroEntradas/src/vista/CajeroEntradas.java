@@ -609,7 +609,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				boolean solucion = false;
 				controlador = new Controlador();
-				solucion = controladorIbai.comprobarLogin(loginTfEmail, loginTfContrasena);
+				controladorIbai.comprobarLogin(loginTfEmail, loginTfContrasena);
 				
 				if (solucion = true) {	
 				controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
