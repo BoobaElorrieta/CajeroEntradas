@@ -98,7 +98,7 @@ public class CajeroEntradas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(CajeroEntradas.class.getResource("/imagenes/hdg.png")));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(CajeroEntradas.class.getResource("/imagenes/hdg_preview_rev_1.png")));
 
 		// RESUMEN DE COMPRA
 
