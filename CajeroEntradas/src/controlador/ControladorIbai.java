@@ -10,6 +10,7 @@ import modelo.bbdd.SolicitaCines;
 import modelo.bbdd.SolicitaCliente;
 import modelo.bbdd.SolicitaHorarios;
 import modelo.bbdd.SolicitaPeliculas;
+import modelo.ficheros.CrearEntrada;
 import modelo.pojos.Cliente;
 import vista.CajeroEntradas;
 
@@ -20,8 +21,10 @@ public class ControladorIbai {
 	SolicitaPeliculas solicitaPeliculas = null;
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
+	CrearEntrada CrearEntradas = null;
 
 	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) {
+		
 		String correo = null;
 		String contrasenaUsuario = null;
 		String contrasenaReal = null;
@@ -44,7 +47,9 @@ public class ControladorIbai {
 				case 0:
 					System.out.println("Su ticket ha sido guardado");
 					String directorio = JOptionPane.showInputDialog("Donde quiere guardar su ticket?");
-					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio + " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
+					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
+							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
+					CrearEntradas.crearFichero(directorio );
 					break;
 				case 1:
 					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");
