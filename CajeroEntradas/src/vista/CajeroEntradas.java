@@ -98,8 +98,77 @@ public class CajeroEntradas {
 		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(CajeroEntradas.class.getResource("/imagenes/hdg_preview_rev_1.png")));
+
+		frame.setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(CajeroEntradas.class.getResource("/imagenes/hdg_preview_rev_1.png")));
+
+		// LOGIN
+
+		loginPanel = new JPanel();
+		loginPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(loginPanel);
+		loginPanel.setLayout(null);
+		loginPanel.setVisible(false);
+
+		JLabel loginLbl = new JLabel("Login");
+		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		loginLbl.setBounds(220, 11, 263, 49);
+		loginPanel.add(loginLbl);
+
+		JTextField loginTfEmail = new JTextField();
+		loginTfEmail.setBounds(235, 87, 263, 37);
+		loginPanel.add(loginTfEmail);
+		loginTfEmail.setColumns(10);
+
+		JTextField loginTfContrasena = new JTextField();
+		loginTfContrasena.setColumns(10);
+		loginTfContrasena.setBounds(235, 182, 263, 37);
+		loginPanel.add(loginTfContrasena);
+
+		JLabel loginLblEmail = new JLabel("Email:");
+		loginLblEmail.setBounds(159, 89, 66, 32);
+		loginPanel.add(loginLblEmail);
+
+		JLabel loginLblContrasena = new JLabel("Contraseña:");
+		loginLblContrasena.setBounds(118, 184, 113, 32);
+		loginPanel.add(loginLblContrasena);
+
+		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
+		loginBtnAceptar.setBackground(Color.DARK_GRAY);
+		loginBtnAceptar.setForeground(Color.WHITE);
+		loginBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean solucion = false;
+				controlador = new Controlador();
+				try {
+					controladorIbai.comprobarLogin(loginTfEmail, loginTfContrasena);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				if (solucion = true) {
+					controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
+							horariosPanel, resumenCompraPanel, loginPanel);
+				}
+			}
+		});
+		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		loginBtnAceptar.setBounds(235, 259, 263, 58);
+		loginPanel.add(loginBtnAceptar);
+
+		loginBtnAtras = new JButton("🡠 Atras");
+		loginBtnAtras.setForeground(Color.WHITE);
+		loginBtnAtras.setBackground(Color.DARK_GRAY);
+		loginBtnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel,
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		loginBtnAtras.setBounds(10, 11, 105, 30);
+		loginPanel.add(loginBtnAtras);
 
 		// RESUMEN DE COMPRA
 
@@ -116,16 +185,16 @@ public class CajeroEntradas {
 		resumenCompraPanel.add(rcLbl);
 
 		JLabel rcLblEntradasSeleccionadas = new JLabel("Entradas Seleccionadas:");
-		rcLblEntradasSeleccionadas.setBounds(31, 62, 177, 28);
+		rcLblEntradasSeleccionadas.setBounds(10, 71, 177, 28);
 		resumenCompraPanel.add(rcLblEntradasSeleccionadas);
 
 		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
-		rcLblPrecioTotal.setBounds(391, 73, 114, 14);
+		rcLblPrecioTotal.setBounds(551, 41, 114, 14);
 		resumenCompraPanel.add(rcLblPrecioTotal);
 
 		JTextArea rcTaPrecioTotal = new JTextArea();
 		rcTaPrecioTotal.setEditable(false);
-		rcTaPrecioTotal.setBounds(401, 101, 243, 28);
+		rcTaPrecioTotal.setBounds(551, 73, 94, 28);
 		resumenCompraPanel.add(rcTaPrecioTotal);
 
 		rcBtnAceptar = new JButton("Aceptar");
@@ -137,7 +206,7 @@ public class CajeroEntradas {
 						horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
-		rcBtnAceptar.setBounds(401, 189, 243, 51);
+		rcBtnAceptar.setBounds(550, 189, 94, 51);
 		resumenCompraPanel.add(rcBtnAceptar);
 
 		JButton rcBtnCancelar = new JButton("Cancelar");
@@ -149,7 +218,7 @@ public class CajeroEntradas {
 						horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
-		rcBtnCancelar.setBounds(401, 273, 243, 51);
+		rcBtnCancelar.setBounds(550, 273, 94, 51);
 		resumenCompraPanel.add(rcBtnCancelar);
 
 		rcBtnAtras = new JButton("🡠 Atras");
@@ -165,7 +234,7 @@ public class CajeroEntradas {
 		resumenCompraPanel.add(rcBtnAtras);
 
 		JScrollPane rcSpResumenCompra = new JScrollPane();
-		rcSpResumenCompra.setBounds(10, 111, 369, 213);
+		rcSpResumenCompra.setBounds(10, 111, 516, 213);
 		resumenCompraPanel.add(rcSpResumenCompra);
 
 		table = new JTable();
@@ -175,7 +244,7 @@ public class CajeroEntradas {
 		final DefaultTableModel modelo;
 		modelo = new DefaultTableModel();
 		table.setModel(modelo);
-		
+
 		// Columnas de la tabla
 		modelo.addColumn("Hora");
 		modelo.addColumn("Pelicula");
@@ -212,10 +281,10 @@ public class CajeroEntradas {
 		horariosCbHorariosDisponibles = new JComboBox<String>();
 		horariosCbHorariosDisponibles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						controlador.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
-								horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
-				}
-			});
+				controlador.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
+						horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
+			}
+		});
 		horariosCbHorariosDisponibles.setBackground(Color.DARK_GRAY);
 		horariosCbHorariosDisponibles.setForeground(Color.WHITE);
 		horariosCbHorariosDisponibles.setToolTipText("Horarios");
@@ -258,14 +327,15 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-				
+
 			}
 		});
 		horariosBtnAtras.setBounds(10, 11, 105, 30);
 		horariosPanel.add(horariosBtnAtras);
 
 		JLabel horariosLblImagen = new JLabel("");
-		horariosLblImagen.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
+		horariosLblImagen
+				.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
 		horariosLblImagen.setBounds(187, 41, 485, 325);
 		horariosPanel.add(horariosLblImagen);
 
@@ -313,9 +383,9 @@ public class CajeroEntradas {
 		spCbSeleccionPeli = new JComboBox<String>();
 		spCbSeleccionPeli.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					controlador.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
-				}
-			});
+				controlador.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
+			}
+		});
 		spCbSeleccionPeli.setForeground(Color.WHITE);
 		spCbSeleccionPeli.setBackground(Color.DARK_GRAY);
 		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
@@ -567,74 +637,6 @@ public class CajeroEntradas {
 		});
 		registroBtnAtras.setBounds(10, 11, 105, 30);
 		registroPanel.add(registroBtnAtras);
-
-//		LOGIN
-
-		loginPanel = new JPanel();
-		loginPanel.setBounds(0, 0, 672, 350);
-		frame.getContentPane().add(loginPanel);
-		loginPanel.setLayout(null);
-		loginPanel.setVisible(false);
-
-		JLabel loginLbl = new JLabel("Login");
-		loginLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		loginLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		loginLbl.setBounds(220, 11, 263, 49);
-		loginPanel.add(loginLbl);
-
-		JTextField loginTfEmail = new JTextField();
-		loginTfEmail.setBounds(235, 87, 263, 37);
-		loginPanel.add(loginTfEmail);
-		loginTfEmail.setColumns(10);
-
-		JTextField loginTfContrasena = new JTextField();
-		loginTfContrasena.setColumns(10);
-		loginTfContrasena.setBounds(235, 182, 263, 37);
-		loginPanel.add(loginTfContrasena);
-
-		JLabel loginLblEmail = new JLabel("Email:");
-		loginLblEmail.setBounds(197, 89, 28, 32);
-		loginPanel.add(loginLblEmail);
-
-		JLabel loginLblContrasena = new JLabel("Contraseña:");
-		loginLblContrasena.setBounds(165, 184, 66, 32);
-		loginPanel.add(loginLblContrasena);
-
-		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
-		loginBtnAceptar.setBackground(Color.DARK_GRAY);
-		loginBtnAceptar.setForeground(Color.WHITE);
-		loginBtnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				boolean solucion = false;
-				controlador = new Controlador();
-				try {
-					controladorIbai.comprobarLogin(loginTfEmail, loginTfContrasena);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				if (solucion = true) {	
-				controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
-						horariosPanel, resumenCompraPanel, loginPanel);
-			}
-			}
-		});
-		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		loginBtnAceptar.setBounds(235, 259, 263, 58);
-		loginPanel.add(loginBtnAceptar);
-
-		loginBtnAtras = new JButton("🡠 Atras");
-		loginBtnAtras.setForeground(Color.WHITE);
-		loginBtnAtras.setBackground(Color.DARK_GRAY);
-		loginBtnAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel,
-						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-			}
-		});
-		loginBtnAtras.setBounds(10, 11, 105, 30);
-		loginPanel.add(loginBtnAtras);
 
 //		INICIO
 
