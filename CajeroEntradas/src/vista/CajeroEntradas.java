@@ -163,9 +163,9 @@ public class CajeroEntradas {
 		resumenCompraPanel.add(rcSpResumenCompra);
 
 		table = new JTable();
+		table.setEnabled(false);
 		rcSpResumenCompra.setViewportView(table);
 
-		final Object[] object = new Object[6];
 		final DefaultTableModel modelo;
 		modelo = new DefaultTableModel();
 		table.setModel(modelo);
