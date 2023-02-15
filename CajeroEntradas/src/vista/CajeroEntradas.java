@@ -204,6 +204,12 @@ public class CajeroEntradas {
 		horariosPanel.add(horariosLblHorariosDisponibles);
 
 		horariosCbHorariosDisponibles = new JComboBox<String>();
+		horariosCbHorariosDisponibles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						controlador.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
+								horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
+				}
+			});
 		horariosCbHorariosDisponibles.setBackground(Color.DARK_GRAY);
 		horariosCbHorariosDisponibles.setForeground(Color.WHITE);
 		horariosCbHorariosDisponibles.setToolTipText("Horarios");
@@ -246,6 +252,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+				
 			}
 		});
 		horariosBtnAtras.setBounds(10, 11, 105, 30);
@@ -277,16 +284,6 @@ public class CajeroEntradas {
 		horariosLblNombreSala.setBounds(98, 280, 90, 30);
 		horariosPanel.add(horariosLblNombreSala);
 
-		JButton horariosBtnSeleccionarHora = new JButton("Seleccionar");
-		horariosBtnSeleccionarHora.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
-						horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
-			}
-		});
-		horariosBtnSeleccionarHora.setBounds(20, 199, 140, 21);
-		horariosPanel.add(horariosBtnSeleccionarHora);
-
 //		SELECCION DE PELICULAS
 
 		seleccionPeliPanel = new JPanel();
@@ -309,6 +306,11 @@ public class CajeroEntradas {
 		seleccionPeliPanel.add(spLblPelisDisponibles);
 
 		spCbSeleccionPeli = new JComboBox<String>();
+		spCbSeleccionPeli.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					controlador.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
+				}
+			});
 		spCbSeleccionPeli.setForeground(Color.WHITE);
 		spCbSeleccionPeli.setBackground(Color.DARK_GRAY);
 		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
@@ -356,15 +358,6 @@ public class CajeroEntradas {
 						horariosPanel, resumenCompraPanel, loginPanel);
 			}
 		});
-
-		JButton spBtnBuscarDia = new JButton("Buscar Dia");
-		spBtnBuscarDia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlador.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
-			}
-		});
-		spBtnBuscarDia.setBounds(72, 190, 143, 30);
-		seleccionPeliPanel.add(spBtnBuscarDia);
 		spBtnAceptar.setBounds(404, 126, 258, 53);
 		seleccionPeliPanel.add(spBtnAceptar);
 
