@@ -123,7 +123,7 @@ public class Controlador {
 		loginPanel.setVisible(true);
 	}
 
-<<<<<<< HEAD
+
 	// Busca los cines disponibles que hay
 	public void buscarCine(JComboBox<String> scCbSeleccionCine) {
 		scCbSeleccionCine.removeAllItems();
@@ -222,8 +222,6 @@ public class Controlador {
 
 	}
 
-=======
->>>>>>> branch 'master' of https://github.com/BoobaElorrieta/CajeroEntradas.git
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
 			JTextField tfno, JTextField direccion, JTextField email, JComboBox<String> sexo) {
 		Cliente cliente = new Cliente();
