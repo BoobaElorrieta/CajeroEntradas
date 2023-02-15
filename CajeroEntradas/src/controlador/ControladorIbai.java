@@ -49,7 +49,7 @@ public class ControladorIbai {
 					String directorio = JOptionPane.showInputDialog("Donde quiere guardar su ticket?");
 					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
 							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
-					CrearEntradas.crearFichero(directorio );
+					CrearEntradas.crearFichero();
 					break;
 				case 1:
 					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");
