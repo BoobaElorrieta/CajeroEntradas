@@ -156,9 +156,6 @@ public class Controlador {
 	public void escogerFecha(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli,
 			JComboBox<String> spCbDia) {
 
-//		Arreglar
-
-		// spCbSeleccionPeli.removeAllItems();
 		spCbDia.removeAllItems();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
