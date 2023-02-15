@@ -162,7 +162,7 @@ public class Controlador {
 		spCbDia.removeAllItems();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
-		try {
+//		try {
 			solicitaHorarios = new SolicitaHorarios();
 			ArrayList<Proyeccion> proyecciones = solicitaHorarios
 					.getProyecciones("SELECT fecha, hora, precio, s.nombre " + "FROM proyecciones pr "
@@ -172,11 +172,11 @@ public class Controlador {
 			for (int i = 0; i < proyecciones.size(); i++) {
 				spCbDia.addItem(proyecciones.get(i).getFecha().toString());
 			}
-		} catch (Exception e) {
-			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
-
-		}
+//		} catch (Exception e) {
+//			JFrame jFrame = new JFrame();
+//			JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
+//
+//		}
 
 	}
 
@@ -310,7 +310,7 @@ public class Controlador {
 	}
 
 	public void crearFichero() throws IOException {
-
+		System.out.println("ha comezado1");
 		for (int i = 0; i < datosPelicula.size(); i++) {
 
 			String[] parts = datosPelicula.get(i).split(",");
@@ -319,7 +319,7 @@ public class Controlador {
 			String cine = parts[2];
 			String fecha = parts[3];
 
-			System.out.println("ha comezado");
+			System.out.println("ha comezado2");
 			File entrada = new File("src/tickets/ticket.txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
