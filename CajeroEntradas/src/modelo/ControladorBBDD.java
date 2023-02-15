@@ -67,9 +67,12 @@ public class ControladorBBDD {
 				solicitaHorarios = new SolicitaHorarios();
 				ArrayList<Proyeccion> proyecciones = solicitaHorarios
 						.getProyecciones("SELECT fecha, hora, precio, s.nombre " + "FROM proyecciones pr "
-								+ "JOIN salas S ON pr.cod_sala=S.cod " + "JOIN peliculas pe ON pr.cod_peli=pe.codigo "
-								+ "JOIN cines c ON c.cod = s.cod_cine " + "WHERE c.nombre = '" + cine + "' AND titulo = '"
-								+ pelicula + "' " + "GROUP BY fecha");
+								+ "JOIN salas S ON pr.cod_sala=S.cod " 
+								+ "JOIN peliculas pe ON pr.cod_peli=pe.codigo "
+								+ "JOIN cines c ON c.cod = s.cod_cine " 
+								+ "WHERE c.nombre = '" + cine + "' AND titulo = '"
+								+ pelicula + "' " 
+								+ "GROUP BY fecha");
 				for (int i = 0; i < proyecciones.size(); i++) {
 					spCbDia.addItem(proyecciones.get(i).getFecha().toString());
 				}
