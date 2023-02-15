@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import controlador.Controlador;
 //import modelo.bbdd.RegistraCliente;
 //import modelo.pojos.Cliente;
+import modelo.ControladorBBDD;
 
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
@@ -32,6 +33,7 @@ import javax.swing.JTextPane;
 public class CajeroEntradas {
 
 	Controlador controlador = new Controlador();
+	ControladorBBDD controladorBBDD = new ControladorBBDD();
 
 	private JFrame frame;
 	public JComboBox<String> scCbSeleccionCine;
@@ -279,7 +281,7 @@ public class CajeroEntradas {
 		horariosCbHorariosDisponibles = new JComboBox<String>();
 		horariosCbHorariosDisponibles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
+				controladorBBDD.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
 						horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
 			}
 		});
@@ -381,7 +383,7 @@ public class CajeroEntradas {
 		spCbSeleccionPeli = new JComboBox<String>();
 		spCbSeleccionPeli.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
+				controladorBBDD.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
 			}
 		});
 		spCbSeleccionPeli.setForeground(Color.WHITE);
@@ -424,8 +426,7 @@ public class CajeroEntradas {
 		spBtnAceptar.setBackground(Color.DARK_GRAY);
 		spBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador = new Controlador();
-				controlador.escogerHorarios(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
+				controladorBBDD.escogerHorarios(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
 						horariosLblHorariosDisponibles, spCbDia);
 				controlador.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
 						horariosPanel, resumenCompraPanel, loginPanel);
@@ -465,8 +466,7 @@ public class CajeroEntradas {
 		scBtnAceptar.setBackground(Color.DARK_GRAY);
 		scBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Controlador solicitud = new Controlador();
-				solicitud.escogerCine(scCbSeleccionCine, spCbSeleccionPeli, spLbl);
+				controladorBBDD.escogerCine(scCbSeleccionCine, spCbSeleccionPeli, spLbl);
 				controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}
@@ -656,8 +656,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-				Controlador solicitud = new Controlador();
-				solicitud.buscarCine(scCbSeleccionCine);
+				controladorBBDD.buscarCine(scCbSeleccionCine);
 			}
 		});
 		inicioBtnIniciar.setFont(new Font("Tahoma", Font.PLAIN, 40));
