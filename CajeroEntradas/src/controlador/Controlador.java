@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -212,7 +211,8 @@ public class Controlador {
 				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
 				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
 				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
-				+ "' and hora = '" + hora + "'");
+				+ "' and hora = '" + hora + "'"
+				+ "ORDER BY hora asc;");
 		for (int i = 0; i < proyecciones.size(); i++) {
 			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + " €");
 			horariosLblNombreSala.setText("" + proyecciones.get(i).getSala().getNombre() + "");
