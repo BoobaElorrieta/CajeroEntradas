@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -94,6 +97,8 @@ public class CajeroEntradas {
 		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		frame.setIconImage(new ImageIcon("hdg.png").getImage());
 
 		// RESUMEN DE COMPRA
 
@@ -259,8 +264,7 @@ public class CajeroEntradas {
 		horariosPanel.add(horariosBtnAtras);
 
 		JLabel horariosLblImagen = new JLabel("");
-		horariosLblImagen
-				.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
+		horariosLblImagen.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
 		horariosLblImagen.setBounds(187, 41, 485, 325);
 		horariosPanel.add(horariosLblImagen);
 

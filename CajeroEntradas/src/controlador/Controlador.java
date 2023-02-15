@@ -216,7 +216,6 @@ public class Controlador {
 		for (int i = 0; i < proyecciones.size(); i++) {
 			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + " €");
 			horariosLblNombreSala.setText("" + proyecciones.get(i).getSala().getNombre() + "");
-
 		}
 
 	}
