@@ -18,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
 import controlador.Controlador;
 //import modelo.bbdd.RegistraCliente;
 //import modelo.pojos.Cliente;
-import controlador.ControladorIbai;
 
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
@@ -33,7 +32,6 @@ import javax.swing.JTextPane;
 public class CajeroEntradas {
 
 	Controlador controlador = new Controlador();
-	ControladorIbai controladorIbai = new ControladorIbai();
 
 	private JFrame frame;
 	public JComboBox<String> scCbSeleccionCine;
@@ -142,7 +140,7 @@ public class CajeroEntradas {
 				boolean solucion = false;
 				controlador = new Controlador();
 				try {
-					controladorIbai.comprobarLogin(loginTfEmail, loginTfContrasena);
+					controlador.comprobarLogin(loginTfEmail, loginTfContrasena);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

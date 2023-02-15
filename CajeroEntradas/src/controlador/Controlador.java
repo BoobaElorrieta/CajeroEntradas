@@ -1,5 +1,9 @@
 package controlador;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
@@ -28,6 +32,7 @@ public class Controlador {
 	SolicitaPeliculas solicitaPeliculas = null;
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
+	ArrayList<String> datosPelicula = new ArrayList<String>();
 
 //	Ir al panel Inicio
 
@@ -211,8 +216,7 @@ public class Controlador {
 				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
 				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
 				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
-				+ "' and hora = '" + hora + "'"
-				+ "ORDER BY hora asc;");
+				+ "' and hora = '" + hora + "'" + "ORDER BY hora asc;");
 		for (int i = 0; i < proyecciones.size(); i++) {
 			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + " €");
 			horariosLblNombreSala.setText("" + proyecciones.get(i).getSala().getNombre() + "");
@@ -248,26 +252,26 @@ public class Controlador {
 		String fecha = (String) spCbDia.getSelectedItem();
 		String precio = (String) precioSesiontLbl.getText();
 		String sala = (String) horariosLblNombreSala.getText();
-		
-
-		
-
 
 		JFrame jFrame = new JFrame();
 		JOptionPane.showMessageDialog(jFrame,
 				"Has seleccionado la siguientes opciones: \r\n" + "La pelicula " + pelicula + " sera el dia " + fecha
 						+ " a las " + hora + "en la sala " + sala + " del cine " + cine + " por un precio de "
 						+ precio);
-		
-		modelo.addRow(new String[] {hora, pelicula, cine, fecha, precio, sala});
+
+		modelo.addRow(new String[] { hora, pelicula, cine, fecha, precio, sala });
+
+		String datos = pelicula + "," + hora + "," + cine + "," + fecha;
+
+		datosPelicula.add(datos);
 
 	}
 
-	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) {
+	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
 		String correo = null;
 		String contrasenaUsuario = null;
 		String contrasenaReal = null;
-		boolean ret = false;
+		int ret;
 		correo = (String) loginTfEmail.getText();
 		contrasenaUsuario = (String) loginTfContrasena.getText();
 		try {
@@ -279,20 +283,58 @@ public class Controlador {
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
 				// Se le deja pasar
 				JFrame jFrame = new JFrame();
-				JOptionPane.showMessageDialog(jFrame, "ACESO PERMITIDO");
-				ret = true;
+				ret = JOptionPane.showConfirmDialog(null, "ACESO PERMITIDO \r\n" + "Desea imprimir el ticket?",
+						"YES_NO_OPTION", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
+				switch (ret) {
+				case 0:
+					String directorio = JOptionPane.showInputDialog("Donde quiere guardar su ticket?");
+					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
+							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
+					crearFichero();
+					break;
+				case 1:
+					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");
+					break;
+
+				}
 			} else {
 				JFrame jFrame = new JFrame();
 				JOptionPane.showMessageDialog(jFrame, "ACESO DENEGADO");
-				ret = false;
 			}
+
 		} catch (Exception e) {
 			JFrame jFrame = new JFrame();
 			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
-			ret = false;
 		}
-		return ret;
+	}
+
+	public void crearFichero() throws IOException {
+
+		for (int i = 0; i < datosPelicula.size(); i++) {
+
+			String[] parts = datosPelicula.get(i).split(",");
+			String pelicula = parts[0];
+			String hora = parts[1];
+			String cine = parts[2];
+			String fecha = parts[3];
+
+			System.out.println("ha comezado");
+			File entrada = new File("src/tickets/ticket.txt");
+			FileWriter fichero = null;
+			PrintWriter pw = null;
+			fichero = new FileWriter(entrada);
+			pw = new PrintWriter(fichero);
+			pw.println("---Ticket---");
+			pw.println("Cine: " + cine);
+			pw.println("Pelicula: " + pelicula);
+			pw.println("Fecha: " + fecha);
+			pw.println("Hora: " + hora);
+			pw.println("Sala: ");
+			pw.println("Precio: ");
+			fichero.close();
+			System.out.println("ha terminado");
+		}
 	}
 
 	public void cerrarPrograma() {
