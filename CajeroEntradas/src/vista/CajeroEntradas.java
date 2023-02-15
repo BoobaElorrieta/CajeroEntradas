@@ -22,6 +22,7 @@ import controlador.ControladorIbai;
 
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -606,7 +607,12 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				boolean solucion = false;
 				controlador = new Controlador();
-				controladorIbai.comprobarLogin(loginTfEmail, loginTfContrasena);
+				try {
+					controladorIbai.comprobarLogin(loginTfEmail, loginTfContrasena);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 				if (solucion = true) {	
 				controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,

@@ -1,5 +1,9 @@
 package controlador;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -10,7 +14,6 @@ import modelo.bbdd.SolicitaCines;
 import modelo.bbdd.SolicitaCliente;
 import modelo.bbdd.SolicitaHorarios;
 import modelo.bbdd.SolicitaPeliculas;
-import modelo.ficheros.CrearEntrada;
 import modelo.pojos.Cliente;
 import vista.CajeroEntradas;
 
@@ -21,10 +24,8 @@ public class ControladorIbai {
 	SolicitaPeliculas solicitaPeliculas = null;
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
-	CrearEntrada CrearEntradas = null;
 
-	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) {
-		
+	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
 		String correo = null;
 		String contrasenaUsuario = null;
 		String contrasenaReal = null;
@@ -45,11 +46,10 @@ public class ControladorIbai {
 
 				switch (ret) {
 				case 0:
-					System.out.println("Su ticket ha sido guardado");
 					String directorio = JOptionPane.showInputDialog("Donde quiere guardar su ticket?");
 					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
 							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
-					CrearEntradas.crearFichero();
+					crearFichero();
 					break;
 				case 1:
 					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");
@@ -60,10 +60,28 @@ public class ControladorIbai {
 				JFrame jFrame = new JFrame();
 				JOptionPane.showMessageDialog(jFrame, "ACESO DENEGADO");
 			}
-		} catch (Exception e) {
-			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
-		}
+		
+		} 
+		catch(Exception e){
+		JFrame jFrame = new JFrame();
+		JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
+	}
+	}
+	public void crearFichero() throws IOException {
+		System.out.println("ha comezado");
+		File entrada = new File("src/tickets/ticket.txt");
+		FileWriter fichero = null;
+		PrintWriter pw = null;
+		fichero = new FileWriter(entrada);
+		pw = new PrintWriter(fichero);
+		pw.println("---Ticket---");
+		pw.println("Pelicula: ");
+		pw.println("Fecha: ");
+		pw.println("Hora: ");
+		pw.println("Sala: ");
+		pw.println("Precio: ");
+		fichero.close();
+		System.out.println("ha terminado");
 
 	}
 }
