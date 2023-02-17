@@ -134,94 +134,6 @@ public class Controlador {
 		}
 	}
 
-	// Añade las peliculas al combo box enbase a el cine seleccionado
-	public void escogerCine(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli, JLabel spLbl) {
-		String cine = (String) scCbSeleccionCine.getSelectedItem();
-
-		spCbSeleccionPeli.removeAllItems();
-		solicitaPeliculas = new SolicitaPeliculas();
-		ArrayList<Pelicula> pelis = solicitaPeliculas
-				.getPeliculas("Select Titulo " + "From Peliculas, Proyecciones, Salas, Cines "
-						+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and "
-						+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod " + "GROUP BY titulo "
-						+ "ORDER BY FECHA asc, hora ASC");
-		for (int i = 0; i < pelis.size(); i++) {
-			spCbSeleccionPeli.addItem(pelis.get(i).getTitulo());
-
-		}
-		spLbl.setText("Cine " + cine);
-
-	}
-
-	// Nos Muestra las fecahs disponibles para esa pelicula
-	public void escogerFecha(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli,
-			JComboBox<String> spCbDia) {
-
-		spCbDia.removeAllItems();
-		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
-		String cine = (String) scCbSeleccionCine.getSelectedItem();
-//		try {
-			solicitaHorarios = new SolicitaHorarios();
-			ArrayList<Proyeccion> proyecciones = solicitaHorarios
-					.getProyecciones("SELECT fecha, hora, precio, s.nombre " + "FROM proyecciones pr "
-							+ "JOIN salas S ON pr.cod_sala=S.cod " + "JOIN peliculas pe ON pr.cod_peli=pe.codigo "
-							+ "JOIN cines c ON c.cod = s.cod_cine " + "WHERE c.nombre = '" + cine + "' AND titulo = '"
-							+ pelicula + "' " + "GROUP BY fecha");
-			for (int i = 0; i < proyecciones.size(); i++) {
-				spCbDia.addItem(proyecciones.get(i).getFecha().toString());
-			}
-//		} catch (Exception e) {
-//			JFrame jFrame = new JFrame();
-//			JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
-//
-//		}
-
-	}
-
-	// Pone los horarios disponible en base a la pelicula seleccionada
-	public void escogerHorarios(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
-			JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia) {
-
-		horariosCbHorariosDisponibles.removeAllItems();
-		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
-		String fecha = (String) spCbDia.getSelectedItem();
-		String cine = (String) scCbSeleccionCine.getSelectedItem();
-
-		solicitaHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
-				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
-				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
-				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula + "'");
-		for (int i = 0; i < proyecciones.size(); i++) {
-			horariosCbHorariosDisponibles.addItem(
-					proyecciones.get(i).getHora().toString()/*
-															 * + " / " + proyeccion.get(i).getPrecio() + "€  / " +
-															 * proyeccion.get(i).getSala().getNombre()
-															 */);
-			horariosLblHorariosDisponibles.setText(pelicula);
-		}
-	}
-
-	public void selecionarHora(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
-			JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia,
-			JLabel precioSesiontLbl, JLabel horariosLblNombreSala) {
-		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
-		String fecha = (String) spCbDia.getSelectedItem();
-		String cine = (String) scCbSeleccionCine.getSelectedItem();
-		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
-		solicitaHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
-				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
-				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
-				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
-				+ "' and hora = '" + hora + "'" + "ORDER BY hora asc;");
-		for (int i = 0; i < proyecciones.size(); i++) {
-			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + " €");
-			horariosLblNombreSala.setText("" + proyecciones.get(i).getSala().getNombre() + "");
-		}
-
-	}
-
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
 			JTextField tfno, JTextField direccion, JTextField email, JComboBox<String> sexo) {
 		Cliente cliente = new Cliente();
@@ -238,6 +150,7 @@ public class Controlador {
 		RegistraCliente registraCliente = new RegistraCliente();
 		registraCliente.insertCliente(cliente);
 	}
+	
 
 	// Ventana Emergente
 
@@ -265,47 +178,7 @@ public class Controlador {
 
 	}
 
-	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
-		String correo = null;
-		String contrasenaUsuario = null;
-		String contrasenaReal = null;
-		int ret;
-		correo = (String) loginTfEmail.getText();
-		contrasenaUsuario = (String) loginTfContrasena.getText();
-		try {
-
-			solicitaClientes = new SolicitaCliente();
-			ArrayList<Cliente> cliente = solicitaClientes
-					.getClientes("SELECT email, contrasena FROM Clientes WHERE email = '" + correo + "'");
-			contrasenaReal = cliente.get(0).getContrasena();
-			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
-				// Se le deja pasar
-				JFrame jFrame = new JFrame();
-				ret = JOptionPane.showConfirmDialog(null, "ACESO PERMITIDO \r\n" + "Desea imprimir el ticket?",
-						"YES_NO_OPTION", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
-				switch (ret) {
-				case 0:
-					String directorio = JOptionPane.showInputDialog("Donde quiere guardar su ticket?");
-					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
-							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
-					crearFichero();
-					break;
-				case 1:
-					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");
-					break;
-
-				}
-			} else {
-				JFrame jFrame = new JFrame();
-				JOptionPane.showMessageDialog(jFrame, "ACESO DENEGADO");
-			}
-
-		} catch (Exception e) {
-			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
-		}
-	}
+	
 
 	public void crearFichero() throws IOException {
 		System.out.println("ha comezado1");

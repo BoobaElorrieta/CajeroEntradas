@@ -143,7 +143,7 @@ public class CajeroEntradas {
 				boolean solucion = false;
 				controlador = new Controlador();
 				try {
-					controlador.comprobarLogin(loginTfEmail, loginTfContrasena);
+					controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
