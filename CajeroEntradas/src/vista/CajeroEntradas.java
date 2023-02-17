@@ -66,6 +66,7 @@ public class CajeroEntradas {
 	private JLabel horariosLblHorariosDisponibles;
 	private JLabel horariosLblNombreSala;
 	private JLabel horariosLblPrecio;
+	private JButton loginBtnRegistrate;
 
 	/**
 	 * Launch the application.
@@ -123,7 +124,7 @@ public class CajeroEntradas {
 
 		JTextField loginTfContrasena = new JTextField();
 		loginTfContrasena.setColumns(10);
-		loginTfContrasena.setBounds(235, 182, 263, 37);
+		loginTfContrasena.setBounds(235, 146, 263, 37);
 		loginPanel.add(loginTfContrasena);
 
 		JLabel loginLblEmail = new JLabel("Email:");
@@ -131,7 +132,7 @@ public class CajeroEntradas {
 		loginPanel.add(loginLblEmail);
 
 		JLabel loginLblContrasena = new JLabel("Contraseña:");
-		loginLblContrasena.setBounds(118, 184, 113, 32);
+		loginLblContrasena.setBounds(123, 148, 113, 32);
 		loginPanel.add(loginLblContrasena);
 
 		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
@@ -155,7 +156,7 @@ public class CajeroEntradas {
 			}
 		});
 		loginBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		loginBtnAceptar.setBounds(235, 259, 263, 58);
+		loginBtnAceptar.setBounds(235, 260, 263, 58);
 		loginPanel.add(loginBtnAceptar);
 
 		loginBtnAtras = new JButton("🡠 Atras");
@@ -169,6 +170,18 @@ public class CajeroEntradas {
 		});
 		loginBtnAtras.setBounds(10, 11, 105, 30);
 		loginPanel.add(loginBtnAtras);
+		
+		loginBtnRegistrate = new JButton("Si no estas registrado hazlo aqui!");
+		loginBtnRegistrate.setBackground(Color.DARK_GRAY);
+		loginBtnRegistrate.setForeground(Color.WHITE);
+		loginBtnRegistrate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.mostrarPanelRegistro(inicioPanel, registroPanel, seleccionCinePanel,
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		loginBtnRegistrate.setBounds(171, 213, 383, 23);
+		loginPanel.add(loginBtnRegistrate);
 
 		// RESUMEN DE COMPRA
 
