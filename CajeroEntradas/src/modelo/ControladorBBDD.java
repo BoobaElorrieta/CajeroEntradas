@@ -42,10 +42,10 @@ public class ControladorBBDD {
 			solicitaPeliculas = new SolicitaPeliculas();
 			ArrayList<Pelicula> pelis = solicitaPeliculas
 					.getPeliculas("Select titulo "
-							+ "From peliculas pe JOIN proyecciones pr ON pe.codigo = pr.cod_peli "
+							+ "FROM peliculas pe JOIN proyecciones pr ON pe.cod = pr.cod_peli "
 							+ "JOIN salas s ON pr.cod_sala = s.cod "
 							+ "JOIN cines c ON s.cod_cine = c.cod	"
-							+ "Where c.nombre = '" + cine +"' "
+							+ "WHERE c.nombre = '" + cine +"' "
 							+ "GROUP BY titulo "
 							+ "ORDER BY fecha asc, hora ASC;");
 			for (int i = 0; i < pelis.size(); i++) {
@@ -72,7 +72,7 @@ public class ControladorBBDD {
 						.getProyecciones("SELECT fecha, hora, precio, s.nombre " 
 								+ "FROM proyecciones pr "
 								+ "JOIN salas s ON pr.cod_sala=s.cod " 
-								+ "JOIN peliculas pe ON pr.cod_peli=pe.codigo "
+								+ "JOIN peliculas pe ON pr.cod_peli=pe.cod "
 								+ "JOIN cines c ON c.cod = s.cod_cine " 
 								+ "WHERE c.nombre = '" + cine + "' AND titulo = '"
 								+ pelicula + "' " 
@@ -101,7 +101,7 @@ public class ControladorBBDD {
 			solicitaHorarios = new SolicitaHorarios();
 			ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
 					+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
-					+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" 
+					+ "JOIN peliculas pe ON pr.cod_peli = pe.cod\r\n" 
 					+ "JOIN cines c ON s.cod_cine = c.cod\r\n"
 					+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula + "'");
 			for (int i = 0; i < proyecciones.size(); i++) {
@@ -124,7 +124,7 @@ public class ControladorBBDD {
 		solicitaHorarios = new SolicitaHorarios();
 		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
 				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
-				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.cod\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
 				+ "WHERE c.nombre = '" + cine + "' and fecha = '" + fecha + "' and titulo = '" + pelicula
 				+ "' and hora = '" + hora + "'"
 				+ "ORDER BY hora asc;");
