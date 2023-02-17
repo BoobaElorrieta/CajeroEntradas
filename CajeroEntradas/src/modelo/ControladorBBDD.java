@@ -46,7 +46,7 @@ public class ControladorBBDD {
 			spCbSeleccionPeli.removeAllItems();
 			solicitaPeliculas = new SolicitaPeliculas();
 			ArrayList<Pelicula> pelis = solicitaPeliculas
-					.getPeliculas("Select titulo "
+					.getPeliculas("SELECT titulo "
 							+ "FROM peliculas pe JOIN proyecciones pr ON pe.cod = pr.cod_peli "
 							+ "JOIN salas s ON pr.cod_sala = s.cod "
 							+ "JOIN cines c ON s.cod_cine = c.cod	"
@@ -140,6 +140,16 @@ public class ControladorBBDD {
 
 	}
 	
+
+	public Cliente obtenerCliente() {
+		Cliente ret = new Cliente();
+		
+		
+		
+		return ret;
+		
+	}
+	
 	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
 		controlador = new Controlador();
 		String correo = null;
@@ -156,6 +166,10 @@ public class ControladorBBDD {
 			contrasenaReal = cliente.get(0).getContrasena();
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
 				// Se le deja pasar
+				
+//				Añadir funcion de añadir a la BDD
+				
+				
 				JFrame jFrame = new JFrame();
 				ret = JOptionPane.showConfirmDialog(null, "ACESO PERMITIDO \r\n" + "Desea imprimir el ticket?",
 						"YES_NO_OPTION", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -181,6 +195,5 @@ public class ControladorBBDD {
 			JFrame jFrame = new JFrame();
 			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
 		}
-	}
-		
+	}	
 }

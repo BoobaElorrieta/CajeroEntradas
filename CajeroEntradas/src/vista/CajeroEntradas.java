@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
@@ -16,8 +15,6 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.Controlador;
-//import modelo.bbdd.RegistraCliente;
-//import modelo.pojos.Cliente;
 import modelo.ControladorBBDD;
 
 import javax.swing.JTextArea;
@@ -144,6 +141,7 @@ public class CajeroEntradas {
 				controlador = new Controlador();
 				try {
 					controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena);
+					controlador.registrarEntrada();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

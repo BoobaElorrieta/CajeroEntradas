@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.bbdd.CompraEntradas;
 import modelo.bbdd.RegistraCliente;
 import modelo.bbdd.SolicitaCines;
 import modelo.bbdd.SolicitaCliente;
@@ -21,17 +23,23 @@ import modelo.bbdd.SolicitaHorarios;
 import modelo.bbdd.SolicitaPeliculas;
 import modelo.pojos.Cine;
 import modelo.pojos.Cliente;
+import modelo.pojos.Entrada;
 import modelo.pojos.Pelicula;
 import modelo.pojos.Proyeccion;
 import vista.CajeroEntradas;
 
 public class Controlador {
 
+	Proyeccion proyeccion = null;
+	Cliente cliente = null;
+	Entrada entrada = null;
+	Date date = null;
 	CajeroEntradas cajero = null;
 	SolicitaCines solicitaCine = null;
 	SolicitaPeliculas solicitaPeliculas = null;
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
+	CompraEntradas compraEntradas = null; 
 	ArrayList<String> datosPelicula = new ArrayList<String>();
 
 //	Ir al panel Inicio
@@ -124,19 +132,9 @@ public class Controlador {
 	}
 
 
-	// Busca los cines disponibles que hay
-	public void buscarCine(JComboBox<String> scCbSeleccionCine) {
-		scCbSeleccionCine.removeAllItems();
-		solicitaCine = new SolicitaCines();
-		ArrayList<Cine> cines = solicitaCine.getCines("SELECT nombre FROM Cines");
-		for (int i = 0; i < cines.size(); i++) {
-			scCbSeleccionCine.addItem(cines.get(i).getNombre());
-		}
-	}
-
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
 			JTextField tfno, JTextField direccion, JTextField email, JComboBox<String> sexo) {
-		Cliente cliente = new Cliente();
+		cliente = new Cliente();
 
 		cliente.setDni(dni.getText());
 		cliente.setNombre(nombre.getText());
@@ -151,6 +149,27 @@ public class Controlador {
 		registraCliente.insertCliente(cliente);
 	}
 	
+
+	public void registrarEntrada() {
+		entrada = new Entrada();
+		proyeccion = new Proyeccion();
+		compraEntradas = new CompraEntradas();
+		Date date = new Date();
+
+//		Hacer un metodo q devuelva el usuario logueado y otro para la proyeccion seleccionada
+		
+		
+		long timeInMilliSeconds = date.getTime();
+	    java.sql.Date dateSQL = new java.sql.Date(timeInMilliSeconds);
+
+		entrada.setFechaDeCompra(dateSQL);
+		entrada.setCliente(cliente);
+		entrada.setProyeccion(proyeccion);
+		
+		compraEntradas.insertEntrada(entrada);
+	}
+	
+
 
 	// Ventana Emergente
 
@@ -191,7 +210,7 @@ public class Controlador {
 			String fecha = parts[3];
 
 			System.out.println("ha comezado2");
-			File entrada = new File("src/tickets/ticket.txt");
+			File entrada = new File("C:\\Trastero\ticket.txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
 			fichero = new FileWriter(entrada);
@@ -207,7 +226,7 @@ public class Controlador {
 			System.out.println("ha terminado");
 		}
 	}
-
+	
 	public void cerrarPrograma() {
 		System.exit(0);
 	}
