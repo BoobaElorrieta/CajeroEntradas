@@ -210,7 +210,7 @@ public class Controlador {
 			String fecha = parts[3];
 
 			System.out.println("ha comezado2");
-			File entrada = new File("C:\\Trastero\ticket.txt");
+			File entrada = new File("src\tickets\ticket.txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
 			fichero = new FileWriter(entrada);
