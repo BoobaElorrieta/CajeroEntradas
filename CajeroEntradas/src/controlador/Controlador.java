@@ -227,7 +227,13 @@ public class Controlador {
 		}
 	}
 	
+	public void calcularEntrada() {
+		System.exit(0);
+	}
+	
 	public void cerrarPrograma() {
 		System.exit(0);
 	}
+	
+
 }
