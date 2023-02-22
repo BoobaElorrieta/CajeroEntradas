@@ -194,6 +194,11 @@ public class Controlador {
 		String datos = pelicula + "," + hora + "," + cine + "," + fecha;
 
 		datosPelicula.add(datos);
+		for (int i = 0; i < datosPelicula.size(); i++) {
+		System.out.print(datosPelicula.get(i));
+//		System.out.print(datosPelicula.size());
+
+		}
 
 	}
 
@@ -202,12 +207,18 @@ public class Controlador {
 	public void crearFichero() throws IOException {
 		System.out.println("ha comezado1");
 		for (int i = 0; i < datosPelicula.size(); i++) {
-
 			String[] parts = datosPelicula.get(i).split(",");
 			String pelicula = parts[0];
 			String hora = parts[1];
 			String cine = parts[2];
 			String fecha = parts[3];
+			
+			
+			System.out.println(pelicula);
+			System.out.println(hora);
+			System.out.println(cine);
+			System.out.println(fecha);
+			
 
 			System.out.println("ha comezado2");
 			File entrada = new File("src\tickets\ticket.txt");
