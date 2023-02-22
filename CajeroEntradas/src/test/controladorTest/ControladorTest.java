@@ -29,7 +29,7 @@ class ControladorTest {
 		controlador = new Controlador();
 		cajeroEntradas = new CajeroEntradas();
 		solicitaCine = new SolicitaCines();
-		ArrayList<Cine> cines = solicitaCine.getCines("SELECT nombre FROM Cines");
+		ArrayList<Cine> cines = solicitaCine.getCines("SELECT nombre FROM cines");
 		for (int i = 0; i < cines.size(); i++) {
 			cajeroEntradas.scCbSeleccionCine.addItem(cines.get(i).getNombre());
 		}
@@ -41,7 +41,7 @@ class ControladorTest {
 		controlador = new Controlador();
 		cajeroEntradas = new CajeroEntradas();
 		solicitaCine = new SolicitaCines();
-		ArrayList<Cine> cines = solicitaCine.getCines("SELECT nombre FROM Cines");
+		ArrayList<Cine> cines = solicitaCine.getCines("SELECT nombre FROM cines");
 		for (int i = 0; i < cines.size(); i++) {
 			cajeroEntradas.scCbSeleccionCine.addItem(cines.get(i).getNombre());
 		}
@@ -49,71 +49,85 @@ class ControladorTest {
 		assertEquals(cines.size(), 3);
 	}	
 	
-	
+	@Test
 	public void testEscogerCineNull() {
 		cajeroEntradas = new CajeroEntradas();
 		solicitaPeliculas = new SolicitaPeliculas();
-		String cine = (String) cajeroEntradas.scCbSeleccionCine.getSelectedItem();
 		ArrayList<Pelicula> pelis = solicitaPeliculas.getPeliculas(
-				"Select Titulo "
-				+ "From Peliculas, Proyecciones, Salas, Cines "
-				+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and "
-				+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
-				+ "GROUP BY titulo "
-				+ "ORDER BY FECHA asc, hora ASC");
+				"SELECT titulo "
+					+ "FROM peliculas pe JOIN proyecciones pr ON pe.cod = pr.cod_peli "
+					+ "JOIN salas s ON pr.cod_sala = s.cod "
+					+ "JOIN cines c ON s.cod_cine = c.cod	"
+					+ "WHERE c.nombre = 'Eneko' "
+					+ "GROUP BY titulo "
+					+ "ORDER BY fecha asc, hora ASC;");
 		assertNotNull(pelis);
 	}
 	
+	@Test
 	public void testEscogerCineSize() {
 		cajeroEntradas = new CajeroEntradas();
 		solicitaPeliculas = new SolicitaPeliculas();
-		String cine = (String) cajeroEntradas.scCbSeleccionCine.getSelectedItem();
 		ArrayList<Pelicula> pelis = solicitaPeliculas.getPeliculas(
-				"Select Titulo "
-				+ "From Peliculas, Proyecciones, Salas, Cines "
-				+ "Where cines.Nombre = '" + cine + "'and peliculas.codigo = proyecciones.cod_peli and "
-				+ "proyecciones.cod_sala = salas.cod and salas.cod_cine = cines.cod "
-				+ "GROUP BY titulo "
-				+ "ORDER BY FECHA asc, hora ASC");
+				"SELECT titulo "
+					+ "FROM peliculas pe JOIN proyecciones pr ON pe.cod = pr.cod_peli "
+					+ "JOIN salas s ON pr.cod_sala = s.cod "
+					+ "JOIN cines c ON s.cod_cine = c.cod	"
+					+ "WHERE c.nombre = 'Eneko' "
+					+ "GROUP BY titulo "
+					+ "ORDER BY fecha asc, hora ASC;");
 		assertEquals(pelis.size(), 2);
 	}
 	
+	@Test
 	public void testEscogerHorariosNull() {
 		cajeroEntradas = new CajeroEntradas();
 		solicitaPeliculas = new SolicitaPeliculas();
 		solicitaHorarios = new SolicitaHorarios();
 		
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = 'Shrek2'");
+		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre "
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod "
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.cod " 
+				+ "JOIN cines c ON s.cod_cine = c.cod "
+				+ "WHERE c.nombre = 'Eneko' and fecha = '2023-02-22' and titulo = 'Shrek 2'");
 		assertNotNull(proyecciones);
 	}
 	
+	@Test
 	public void testEscogerHorariosSize() {
 		cajeroEntradas = new CajeroEntradas();
 		solicitaPeliculas = new SolicitaPeliculas();
 		solicitaHorarios = new SolicitaHorarios();
 		
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones( "Select fecha, hora, precio, nombre From proyecciones, salas, peliculas WHERE proyecciones.cod_sala = salas.cod and proyecciones.cod_peli = peliculas.codigo and peliculas.titulo = 'Shrek2'");
-		assertEquals(proyecciones, 11);
+		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre "
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod "
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.cod " 
+				+ "JOIN cines c ON s.cod_cine = c.cod "
+				+ "WHERE c.nombre = 'Eneko' and fecha = '2023-02-22' and titulo = 'Shrek 2'");
+		assertEquals(proyecciones.size(), 2);
 	}
 	
+	@Test	
 	public void selecionarHoraNull () {
 		solicitaHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre\r\n"
-				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod"
-				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo"
-				+ "JOIN cines c ON s.cod_cine = c.cod"
+		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre "
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod "
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.cod "
+				+ "JOIN cines c ON s.cod_cine = c.cod "
 				+ "WHERE c.nombre = 'Eneko' and fecha = '2023-02-21' and titulo = 'Shrek 2' and hora = '17:00:00'");
 		
 		assertNotNull(proyecciones);
 	}
 	
+	@Test
 	public void selecionarHoraSize () {
 		solicitaHorarios = new SolicitaHorarios();
-		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones( "SELECT fecha, hora, precio, s.nombre\r\n"
-				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod"
-				+ "JOIN peliculas pe ON pr.cod_peli = pe.codigo"
-				+ "JOIN cines c ON s.cod_cine = c.cod"
-				+ "WHERE c.nombre = 'Eneko' and fecha = '2023-02-21' and titulo = 'Shrek 2' and hora = '17:00:00'");
+		ArrayList<Proyeccion> proyecciones = solicitaHorarios.getProyecciones("SELECT fecha, hora, precio, s.nombre\r\n"
+				+ "FROM proyecciones pr JOIN salas s ON pr.cod_sala = s.cod\r\n"
+				+ "JOIN peliculas pe ON pr.cod_peli = pe.cod\r\n" + "JOIN cines c ON s.cod_cine = c.cod\r\n"
+				+ "WHERE c.nombre = 'Eneko' and fecha = '2023-02-21' "
+				+ "and titulo = 'Shrek 2' and hora = '17:00:00'"
+				+ "ORDER BY hora asc;");
 		
 		assertEquals(proyecciones.size(), 1);
 	}
