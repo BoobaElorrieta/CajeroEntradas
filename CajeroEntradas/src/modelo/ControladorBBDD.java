@@ -140,16 +140,6 @@ public class ControladorBBDD {
 
 	}
 	
-
-	public Cliente obtenerCliente() {
-		Cliente ret = new Cliente();
-		
-		
-		
-		return ret;
-		
-	}
-	
 	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
 		controlador = new Controlador();
 		String correo = null;
