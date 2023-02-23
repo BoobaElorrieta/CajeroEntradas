@@ -64,6 +64,7 @@ public class CajeroEntradas {
 	private JLabel horariosLblNombreSala;
 	private JLabel horariosLblPrecio;
 	private JButton loginBtnRegistrate;
+	private JButton spBtnResumenDeCompra;
 
 	/**
 	 * Launch the application.
@@ -109,10 +110,6 @@ public class CajeroEntradas {
 		resumenCompraPanel.setLayout(null);
 		resumenCompraPanel.setVisible(false);
 
-		JLabel rcLblPrecioTotal = new JLabel("Precio Total:");
-		rcLblPrecioTotal.setBounds(613, 38, 49, 21);
-		resumenCompraPanel.add(rcLblPrecioTotal);
-
 		JLabel rcLbl = new JLabel("Resumen De Compra");
 		rcLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		rcLbl.setBounds(158, 11, 383, 51);
@@ -128,7 +125,7 @@ public class CajeroEntradas {
 
 		JTextArea rcTaPrecioTotal = new JTextArea();
 		rcTaPrecioTotal.setEditable(false);
-		rcTaPrecioTotal.setBounds(550, 107, 94, 28);
+		rcTaPrecioTotal.setBounds(551, 73, 94, 28);
 		resumenCompraPanel.add(rcTaPrecioTotal);
 
 		rcBtnAceptar = new JButton("Aceptar");
@@ -409,13 +406,14 @@ public class CajeroEntradas {
 		spCbSeleccionPeli.setBounds(72, 157, 222, 22);
 		seleccionPeliPanel.add(spCbSeleccionPeli);
 
-		JButton spBtnResumenDeCompra = new JButton("Resumen de Compra");
+		spBtnResumenDeCompra = new JButton("Resumen de Compra");
 		spBtnResumenDeCompra.setForeground(Color.WHITE);
 		spBtnResumenDeCompra.setBackground(Color.DARK_GRAY);
 		spBtnResumenDeCompra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.mostrarPanelResumenCompra(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+				controlador.calcularPrecioTotal(modelo, rcTaPrecioTotal);
 			}
 		});
 		spBtnResumenDeCompra.setBounds(404, 250, 258, 53);

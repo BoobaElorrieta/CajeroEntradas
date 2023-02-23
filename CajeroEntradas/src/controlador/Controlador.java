@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -195,11 +196,41 @@ public class Controlador {
 
 		datosPelicula.add(datos);
 		for (int i = 0; i < datosPelicula.size(); i++) {
-		System.out.print(datosPelicula.get(i));
-//		System.out.print(datosPelicula.size());
+			System.out.print(datosPelicula.get(i));
+	//		System.out.print(datosPelicula.size());
 
 		}
 
+	}
+	
+	public void calcularPrecioTotal(DefaultTableModel modelo, JTextArea rcTaPrecioTotal) {
+		
+		double precioTotal = 0;
+		ArrayList<String> precios = new ArrayList<String>();
+		int filasDeLaTabla = modelo.getRowCount();
+		
+		for (int i = 0 ; i < modelo.getRowCount() ; i++){
+			  precios.add(modelo.getValueAt(i, 4).toString());
+			}
+		
+		
+		for (int i = 0 ; i < precios.size() ; i++) {
+			precioTotal = precioTotal + Integer.parseInt(precios.get(i));
+		}
+		
+		if (filasDeLaTabla == 2) {
+			precioTotal = precioTotal * 0.8;
+		} else if (filasDeLaTabla == 3) {
+			precioTotal = precioTotal * 0.7;
+		} else if (filasDeLaTabla == 4) {
+			precioTotal = precioTotal * 0.6;
+		} if (filasDeLaTabla >= 5) {
+			precioTotal = precioTotal * 0.5;
+		}
+		
+			
+		rcTaPrecioTotal.setText("" + precioTotal + "");
+		
 	}
 
 	

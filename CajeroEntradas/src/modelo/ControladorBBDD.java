@@ -134,7 +134,7 @@ public class ControladorBBDD {
 				+ "' and hora = '" + hora + "'"
 				+ "ORDER BY hora asc;");
 		for (int i = 0; i < proyecciones.size(); i++) {
-			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + " €");
+			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + "");
 			horariosLblNombreSala.setText("" + proyecciones.get(i).getSala().getNombre() + "");
 		}
 
