@@ -229,7 +229,7 @@ public class Controlador {
 		}
 		
 			
-		rcTaPrecioTotal.setText("" + precioTotal + "");
+		rcTaPrecioTotal.setText("" + precioTotal + " €");
 		
 	}
 
