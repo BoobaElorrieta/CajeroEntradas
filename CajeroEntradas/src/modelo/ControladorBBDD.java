@@ -71,7 +71,7 @@ public class ControladorBBDD {
 			spCbDia.removeAllItems();
 			String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 			String cine = (String) scCbSeleccionCine.getSelectedItem();
-			try {
+//			try {
 				solicitaHorarios = new SolicitaHorarios();
 				ArrayList<Proyeccion> proyecciones = solicitaHorarios
 						.getProyecciones("SELECT fecha, hora, precio, s.nombre " 
@@ -85,10 +85,10 @@ public class ControladorBBDD {
 								+ "ORDER BY fecha");
 				for (int i = 0; i < proyecciones.size(); i++) {
 					spCbDia.addItem(proyecciones.get(i).getFecha().toString());
-				}
-			} catch (Exception e) {
-				JFrame jFrame = new JFrame();
-				JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
+//				}
+//			} catch (Exception e) {
+//				JFrame jFrame = new JFrame();
+//				JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
 
 			}
 
