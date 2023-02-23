@@ -420,111 +420,111 @@ public class CajeroEntradas {
 		scLblImagen.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
 		scLblImagen.setBounds(187, 41, 485, 325);
 		seleccionCinePanel.add(scLblImagen);
-		
-				// HORARIOS
-		
-				horariosPanel = new JPanel();
-				horariosPanel.setBackground(Color.WHITE);
-				horariosPanel.setBounds(0, 0, 672, 350);
-				frame.getContentPane().add(horariosPanel);
-				horariosPanel.setLayout(null);
-				horariosPanel.setVisible(false);
-				
-						JLabel horariosLbl = new JLabel("Horarios");
-						horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
-						horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
-						horariosLbl.setBounds(195, 11, 279, 57);
-						horariosPanel.add(horariosLbl);
-						
-								horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles \r\n Para Esta Pelicula");
-								horariosLblHorariosDisponibles.setFont(new Font("Tahoma", Font.PLAIN, 18));
-								horariosLblHorariosDisponibles.setBounds(20, 121, 385, 26);
-								horariosPanel.add(horariosLblHorariosDisponibles);
-								
-										horariosCbHorariosDisponibles = new JComboBox<String>();
-										horariosCbHorariosDisponibles.setBackground(Color.DARK_GRAY);
-										horariosCbHorariosDisponibles.setForeground(Color.WHITE);
-										horariosCbHorariosDisponibles.setToolTipText("Horarios");
-										horariosCbHorariosDisponibles.setBounds(20, 169, 140, 26);
-										horariosPanel.add(horariosCbHorariosDisponibles);
-										
-												JButton horariosBtnAceptar = new JButton("Aceptar");
-												horariosBtnAceptar.setBackground(Color.DARK_GRAY);
-												horariosBtnAceptar.setForeground(Color.WHITE);
-												horariosBtnAceptar.addActionListener(new ActionListener() {
-													public void actionPerformed(ActionEvent e) {
-														Controlador solicitud = new Controlador();
-														solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine,
-																spCbDia, horariosLblPrecio, horariosLblNombreSala, modelo);
-														controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel,
-																seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
-													}
-												});
-												horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-												horariosBtnAceptar.setBounds(462, 135, 186, 57);
-												horariosPanel.add(horariosBtnAceptar);
-												
-														JButton horariosBtnCancelar = new JButton("Cancelar");
-														horariosBtnCancelar.setBackground(Color.DARK_GRAY);
-														horariosBtnCancelar.setForeground(Color.WHITE);
-														horariosBtnCancelar.addActionListener(new ActionListener() {
-															public void actionPerformed(ActionEvent e) {
-																controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
-																		horariosPanel, resumenCompraPanel, loginPanel);
-															}
-														});
-														horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-														horariosBtnCancelar.setBounds(462, 238, 186, 57);
-														horariosPanel.add(horariosBtnCancelar);
-														
-																horariosBtnAtras = new JButton("🡠 Atras");
-																horariosBtnAtras.setBackground(Color.DARK_GRAY);
-																horariosBtnAtras.setForeground(Color.WHITE);
-																horariosBtnAtras.addActionListener(new ActionListener() {
-																	public void actionPerformed(ActionEvent e) {
-																		controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel,
-																				seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 
-																	}
-																});
-																horariosBtnAtras.setBounds(10, 11, 105, 30);
-																horariosPanel.add(horariosBtnAtras);
-																
-																		JLabel horariosLblImagen = new JLabel("");
-																		horariosLblImagen
-																				.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
-																		horariosLblImagen.setBounds(187, 41, 485, 325);
-																		horariosPanel.add(horariosLblImagen);
-																		
-																				JLabel horarioSelectLbl = new JLabel("Precio:");
-																				horarioSelectLbl.setFont(new Font("Tahoma", Font.PLAIN, 22));
-																				horarioSelectLbl.setBounds(20, 230, 90, 30);
-																				horariosPanel.add(horarioSelectLbl);
-																				
-																						JLabel horariosLblSala = new JLabel("Sala:");
-																						horariosLblSala.setFont(new Font("Tahoma", Font.PLAIN, 22));
-																						horariosLblSala.setBounds(36, 280, 90, 30);
-																						horariosPanel.add(horariosLblSala);
-																						
-																								horariosLblPrecio = new JLabel("------");
-																								horariosLblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 22));
-																								horariosLblPrecio.setBounds(98, 230, 90, 30);
-																								horariosPanel.add(horariosLblPrecio);
-																								
-																										horariosLblNombreSala = new JLabel("------");
-																										horariosLblNombreSala.setFont(new Font("Tahoma", Font.PLAIN, 22));
-																										horariosLblNombreSala.setBounds(98, 280, 90, 30);
-																										horariosPanel.add(horariosLblNombreSala);
-																										
-																												JButton horariosBtnSeleccionarHorario = new JButton("Seleccionar");
-																												horariosBtnSeleccionarHorario.addActionListener(new ActionListener() {
-																													public void actionPerformed(ActionEvent e) {
-																														controladorBBDD.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
-																																horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
-																													}
-																												});
-																												horariosBtnSeleccionarHorario.setBounds(20, 205, 85, 21);
-																												horariosPanel.add(horariosBtnSeleccionarHorario);
+		// HORARIOS
+
+		horariosPanel = new JPanel();
+		horariosPanel.setBackground(Color.WHITE);
+		horariosPanel.setBounds(0, 0, 672, 350);
+		frame.getContentPane().add(horariosPanel);
+		horariosPanel.setLayout(null);
+		horariosPanel.setVisible(false);
+
+		JLabel horariosLbl = new JLabel("Horarios");
+		horariosLbl.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		horariosLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		horariosLbl.setBounds(195, 11, 279, 57);
+		horariosPanel.add(horariosLbl);
+
+		horariosLblHorariosDisponibles = new JLabel("Horarios Disponibles \r\n Para Esta Pelicula");
+		horariosLblHorariosDisponibles.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		horariosLblHorariosDisponibles.setBounds(20, 121, 385, 26);
+		horariosPanel.add(horariosLblHorariosDisponibles);
+
+		horariosCbHorariosDisponibles = new JComboBox<String>();
+		horariosCbHorariosDisponibles.setBackground(Color.DARK_GRAY);
+		horariosCbHorariosDisponibles.setForeground(Color.WHITE);
+		horariosCbHorariosDisponibles.setToolTipText("Horarios");
+		horariosCbHorariosDisponibles.setBounds(20, 169, 140, 26);
+		horariosPanel.add(horariosCbHorariosDisponibles);
+
+		JButton horariosBtnAceptar = new JButton("Aceptar");
+		horariosBtnAceptar.setBackground(Color.DARK_GRAY);
+		horariosBtnAceptar.setForeground(Color.WHITE);
+		horariosBtnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controlador solicitud = new Controlador();
+				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine,
+						spCbDia, horariosLblPrecio, horariosLblNombreSala, modelo);
+				controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel,
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		horariosBtnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnAceptar.setBounds(462, 135, 186, 57);
+		horariosPanel.add(horariosBtnAceptar);
+
+		JButton horariosBtnCancelar = new JButton("Cancelar");
+		horariosBtnCancelar.setBackground(Color.DARK_GRAY);
+		horariosBtnCancelar.setForeground(Color.WHITE);
+		horariosBtnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
+						horariosPanel, resumenCompraPanel, loginPanel);
+			}
+		});
+		horariosBtnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		horariosBtnCancelar.setBounds(462, 238, 186, 57);
+		horariosPanel.add(horariosBtnCancelar);
+
+		horariosBtnAtras = new JButton("🡠 Atras");
+		horariosBtnAtras.setBackground(Color.DARK_GRAY);
+		horariosBtnAtras.setForeground(Color.WHITE);
+		horariosBtnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.mostrarPanelSeleccionPeli(inicioPanel, registroPanel, seleccionCinePanel,
+						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
+
+			}
+		});
+		horariosBtnAtras.setBounds(10, 11, 105, 30);
+		horariosPanel.add(horariosBtnAtras);
+
+		JLabel horariosLblImagen = new JLabel("");
+		horariosLblImagen
+				.setIcon(new ImageIcon(CajeroEntradas.class.getResource("/Imagenes/5f54a46fcce59c0004901ce0.png")));
+		horariosLblImagen.setBounds(187, 41, 485, 325);
+		horariosPanel.add(horariosLblImagen);
+
+		JLabel horarioSelectLbl = new JLabel("Precio:");
+		horarioSelectLbl.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		horarioSelectLbl.setBounds(20, 230, 90, 30);
+		horariosPanel.add(horarioSelectLbl);
+
+		JLabel horariosLblSala = new JLabel("Sala:");
+		horariosLblSala.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		horariosLblSala.setBounds(36, 280, 90, 30);
+		horariosPanel.add(horariosLblSala);
+
+		horariosLblPrecio = new JLabel("------");
+		horariosLblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		horariosLblPrecio.setBounds(98, 230, 90, 30);
+		horariosPanel.add(horariosLblPrecio);
+
+		horariosLblNombreSala = new JLabel("------");
+		horariosLblNombreSala.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		horariosLblNombreSala.setBounds(98, 280, 90, 30);
+		horariosPanel.add(horariosLblNombreSala);
+
+		JButton horariosBtnSeleccionarHorario = new JButton("Seleccionar");
+		horariosBtnSeleccionarHorario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorBBDD.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
+						horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
+			}
+		});
+		horariosBtnSeleccionarHorario.setBounds(20, 205, 85, 21);
+		horariosPanel.add(horariosBtnSeleccionarHorario);
 
 //		REGISTRO
 
