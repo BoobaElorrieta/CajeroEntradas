@@ -80,6 +80,24 @@ class ControladorTest {
 	}
 	
 	@Test
+	public void testEscogerCineOrden() {
+		cajeroEntradas = new CajeroEntradas();
+		solicitaPeliculas = new SolicitaPeliculas();
+		ArrayList<Pelicula> pelis = solicitaPeliculas.getPeliculas(
+				"SELECT fecha "
+					+ "FROM peliculas pe JOIN proyecciones pr ON pe.cod = pr.cod_peli "
+					+ "JOIN salas s ON pr.cod_sala = s.cod "
+					+ "JOIN cines c ON s.cod_cine = c.cod	"
+					+ "WHERE c.nombre = 'Eneko' "
+					+ "GROUP BY titulo "
+					+ "ORDER BY fecha asc, hora ASC;");
+
+		java.util.Date  utilDate = new java.util.Date(pelis.get(0).());
+		assertTrue(pelis.get(0) < pelis.get(1));
+	}
+	
+	
+	@Test
 	public void testEscogerHorariosNull() {
 		cajeroEntradas = new CajeroEntradas();
 		solicitaPeliculas = new SolicitaPeliculas();
