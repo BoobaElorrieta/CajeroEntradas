@@ -119,6 +119,7 @@ public class Controlador {
 		resumenCompraPanel.setVisible(true);
 		loginPanel.setVisible(false);
 	}
+	
 //	Ir al panel Login
 
 	public void mostrarPanelLogin(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
@@ -132,6 +133,7 @@ public class Controlador {
 		loginPanel.setVisible(true);
 	}
 
+//	Registrar el Usuario
 
 	public void registrarUsuario(JTextField dni, JTextField nombre, JTextField apellidos, JTextField contrasena,
 			JTextField tfno, JTextField direccion, JTextField email, JComboBox<String> sexo) {
@@ -150,6 +152,7 @@ public class Controlador {
 		registraCliente.insertCliente(cliente);
 	}
 	
+//	Registrar la entrada
 
 	public void registrarEntrada() {
 		entrada = new Entrada();
@@ -203,6 +206,8 @@ public class Controlador {
 
 	}
 	
+//	Calcular el Precio Total
+	
 	public void calcularPrecioTotal(DefaultTableModel modelo, JTextArea rcTaPrecioTotal) {
 		
 		double precioTotal = 0;
@@ -212,7 +217,6 @@ public class Controlador {
 		for (int i = 0 ; i < modelo.getRowCount() ; i++){
 			  precios.add(modelo.getValueAt(i, 4).toString());
 			}
-		
 		
 		for (int i = 0 ; i < precios.size() ; i++) {
 			precioTotal = precioTotal + Integer.parseInt(precios.get(i));
