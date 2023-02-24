@@ -220,7 +220,7 @@ public class CajeroEntradas {
 					}
 					controlador.registrarEntrada();
 
-				if (solucion = true) {
+				if (solucion == true) {
 					controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
 							horariosPanel, resumenCompraPanel, loginPanel);
 				}else {
