@@ -28,6 +28,8 @@ import modelo.pojos.Entrada;
 import modelo.pojos.Proyeccion;
 import vista.CajeroEntradas;
 
+
+
 public class Controlador {
 
 	Proyeccion proyeccion = null;
@@ -39,8 +41,10 @@ public class Controlador {
 	SolicitaPeliculas solicitaPeliculas = null;
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
-	CompraEntradas compraEntradas = null; 
-	ArrayList<String> datosPelicula = new ArrayList<String>();
+	CompraEntradas compraEntradas = null;
+
+
+
 
 //	Ir al panel Inicio
 
@@ -177,7 +181,7 @@ public class Controlador {
 
 	public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles,
 			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia,
-			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo, JButton horariosBtnAceptar) {
+			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo, JButton horariosBtnAceptar, ArrayList<String> datosPeliculas) {
 		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
@@ -195,9 +199,10 @@ public class Controlador {
 
 		String datos = pelicula + "," + hora + "," + cine + "," + fecha;
 
-		datosPelicula.add(datos);
-		for (int i = 0; i < datosPelicula.size(); i++) {
-			System.out.print(datosPelicula.get(i));
+		datosPeliculas.add(datos);
+		
+		for (int i = 0; i < datosPeliculas.size(); i++) {
+			System.out.print(datosPeliculas.get(i));
 	//		System.out.print(datosPelicula.size());
 
 		}
@@ -237,14 +242,16 @@ public class Controlador {
 
 	
 
-	public void crearFichero() throws IOException {
+	public void crearFichero(ArrayList<String> datosPeliculas) throws IOException {
 		System.out.println("ha comezado1");
-		for (int i = 0; i < datosPelicula.size(); i++) {
-			String[] parts = datosPelicula.get(i).split(",");
-			String pelicula = parts[0];
-			String hora = parts[1];
-			String cine = parts[2];
-			String fecha = parts[3];
+		System.out.println(datosPeliculas.toString());
+		for (int i = 0; i < datosPeliculas.size(); i++) {
+			String datosPelicula = datosPeliculas.get(i);
+			String[] infoPeli = datosPelicula.split(",");
+			String pelicula = infoPeli[0];
+			String hora = infoPeli[1];
+			String cine = infoPeli[2];
+			String fecha = infoPeli[3];
 			
 			
 			System.out.println(pelicula);
@@ -270,11 +277,7 @@ public class Controlador {
 			System.out.println("ha terminado");
 		}
 	}
-	
-	public void calcularEntrada() {
-		System.exit(0);
-	}
-	
+
 	public void cerrarPrograma() {
 		System.exit(0);
 	}

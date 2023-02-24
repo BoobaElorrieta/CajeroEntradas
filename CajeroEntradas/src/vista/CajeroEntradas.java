@@ -20,6 +20,7 @@ import modelo.ControladorBBDD;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -65,6 +66,7 @@ public class CajeroEntradas {
 	private JLabel horariosLblPrecio;
 	private JButton loginBtnRegistrate;
 	private JButton spBtnResumenDeCompra;
+	private ArrayList<String> datosPeliculas = null;
 
 	/**
 	 * Launch the application.
@@ -86,6 +88,7 @@ public class CajeroEntradas {
 	 * Create the application.
 	 */
 	public CajeroEntradas() {
+		datosPeliculas = new ArrayList<String>();
 		initialize();
 	}
 
@@ -213,7 +216,7 @@ public class CajeroEntradas {
 				boolean solucion = false;
 				controlador = new Controlador();
 					try {
-						solucion = controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena);
+						solucion = controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena, datosPeliculas);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -458,7 +461,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
 				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine,
-						spCbDia, horariosLblPrecio, horariosLblNombreSala, modelo,horariosBtnAceptar);
+						spCbDia, horariosLblPrecio, horariosLblNombreSala, modelo, horariosBtnAceptar, datosPeliculas);
 				controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}

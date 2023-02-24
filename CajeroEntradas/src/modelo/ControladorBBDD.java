@@ -133,7 +133,7 @@ public class ControladorBBDD {
 
 	}
 
-	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena/*, Proyeccion proyeccion*/) throws IOException {
+	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena/*, Proyeccion proyeccion*/, ArrayList<String> datosPeliculas) throws IOException {
 		controlador = new Controlador();
 		String correo = null;
 		String contrasenaUsuario = null;
@@ -162,7 +162,7 @@ public class ControladorBBDD {
 					String directorio = JOptionPane.showInputDialog("Como quiere nombrar el ticket?");
 					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
 							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
-					controlador.crearFichero();
+					controlador.crearFichero(datosPeliculas);
 					break;
 				case 1:
 					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");
