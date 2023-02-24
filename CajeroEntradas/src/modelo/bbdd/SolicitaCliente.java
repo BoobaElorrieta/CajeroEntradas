@@ -13,8 +13,8 @@ import utils.DBUtils;
 public class SolicitaCliente {
 	// Retorna todas las filas de la tabla alumno
 	// Si no hay nada, retorna NULL
-	public ArrayList<Cliente> getClientes(String sql) {
-		ArrayList<Cliente> ret = null;
+	public Cliente getCliente(String sql) {
+		Cliente ret = null;
 
 		// La conexion con BBDD
 		Connection connection = null;
@@ -41,21 +41,16 @@ public class SolicitaCliente {
 
 				// Si es necesario, inicializamos la lista
 				if (null == ret)
-					ret = new ArrayList<Cliente>();
-
-				Cliente cliente = new Cliente();
+					ret = new Cliente();
 
 				// Sacamos las columnas del RS
 				String dni = resultSet.getString("dni");
 				String email = resultSet.getString("email");
 				String contrasena = resultSet.getString("contrasena");
 				// Metemos los datos a Ejemplo
-				cliente.setDni(dni);
-				cliente.setEmail(email);
-				cliente.setContrasena(contrasena);
-
-				// Lo guardamos en ret
-				ret.add(cliente);
+				ret.setDni(dni);
+				ret.setEmail(email);
+				ret.setContrasena(contrasena);
 			}
 		} catch (SQLException sqle) {
 			System.out.println("Error con la BBDD - " + sqle.getMessage());

@@ -218,7 +218,6 @@ public class CajeroEntradas {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					controlador.registrarEntrada();
 
 				if (solucion == true) {
 					controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,

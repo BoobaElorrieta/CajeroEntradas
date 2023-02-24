@@ -133,7 +133,7 @@ public class ControladorBBDD {
 
 	}
 
-	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
+	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena, Proyeccion proyeccion) throws IOException {
 		controlador = new Controlador();
 		String correo = null;
 		String contrasenaUsuario = null;
@@ -145,13 +145,11 @@ public class ControladorBBDD {
 		try {
 
 			solicitaClientes = new SolicitaCliente();
-			ArrayList<Cliente> clientes = solicitaClientes
-					.getClientes("SELECT dni, email, contrasena FROM clientes WHERE email = '" + correo + "'");
-			contrasenaReal = clientes.get(0).getContrasena();
+			Cliente cliente = solicitaClientes
+					.getCliente("SELECT* FROM clientes WHERE email = '" + correo + "'");
+			contrasenaReal = cliente.getContrasena();
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
-				// Se le deja pasar
-				String dni = clientes.get(0).getDni();
-				
+				controlador.registrarEntrada(cliente, proyeccion);
 				
 //				Añadir funcion de añadir a la BDD
 
@@ -185,13 +183,17 @@ public class ControladorBBDD {
 		return loging;
 
 	}
-
-	public void dniCliente(Cliente clientes) {
-
-		String dni = clientes.get(0).getDni();
-		System.out.println(dni);
-
-	}
+	
+//	public Proyeccion obtenerProyeccion() {
+//		
+//		Proyeccion ret = null;
+//		
+//		
+//		
+//		return ret;
+//	}
+	
+	
 
 //	public String dniCliente(JTextField loginTfEmail) {
 //		String correo = (String) loginTfEmail.getText();

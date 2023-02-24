@@ -1,7 +1,11 @@
 package test.controladorTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -82,19 +86,26 @@ class ControladorTest {
 	@Test
 	public void testEscogerCineOrden() {
 		cajeroEntradas = new CajeroEntradas();
-		solicitaPeliculas = new SolicitaPeliculas();
-		ArrayList<Pelicula> pelis = solicitaPeliculas.getPeliculas(
-				"SELECT fecha "
+		solicitaHorarios = new SolicitaHorarios();
+		ArrayList<Proyeccion> fechas = solicitaHorarios.getProyecciones(
+				"SELECT * "
 					+ "FROM peliculas pe JOIN proyecciones pr ON pe.cod = pr.cod_peli "
 					+ "JOIN salas s ON pr.cod_sala = s.cod "
 					+ "JOIN cines c ON s.cod_cine = c.cod	"
 					+ "WHERE c.nombre = 'Eneko' "
-					+ "GROUP BY titulo "
-					+ "ORDER BY fecha asc, hora ASC;");
-
-		java.util.Date  utilDate = new java.util.Date(pelis.get(0).());
-		assertTrue(pelis.get(0) < pelis.get(1));
-	}
+					+ "ORDER BY fecha;");
+		assertEquals(25, fechas.size());
+		
+		java.util.Date fechaAnterior = null;
+		
+		for (Proyeccion fecha : fechas) {
+			if (fechaAnterior != null) {
+				assertTrue(fecha.getFecha().compareTo(fechaAnterior) >= 0);
+			}
+			fechaAnterior = fecha.getFecha();
+		}
+		
+	} 
 	
 	
 	@Test
