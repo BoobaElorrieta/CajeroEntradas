@@ -261,7 +261,7 @@ public class Controlador {
 			
 
 			System.out.println("ha comezado2");
-			File entrada = new File("src\tickets\ticket.txt");
+			File entrada = new File("src//tickets//ticket.txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
 			fichero = new FileWriter(entrada);
