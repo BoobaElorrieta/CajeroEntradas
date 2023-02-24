@@ -212,13 +212,13 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				boolean solucion = false;
 				controlador = new Controlador();
-				try {
-					solucion = controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena);
+					try {
+						solucion = controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					controlador.registrarEntrada();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 
 				if (solucion = true) {
 					controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
