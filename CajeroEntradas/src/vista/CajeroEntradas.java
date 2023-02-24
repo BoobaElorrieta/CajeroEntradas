@@ -331,12 +331,13 @@ public class CajeroEntradas {
 		// JButton movido
 
 		JButton spBtnAceptar = new JButton("Aceptar");
+		spBtnAceptar.setEnabled(false);
 		spBtnAceptar.setForeground(Color.WHITE);
 		spBtnAceptar.setBackground(Color.DARK_GRAY);
 		spBtnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controladorBBDD.escogerHorarios(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
-						horariosLblHorariosDisponibles, spCbDia);
+						horariosLblHorariosDisponibles, spCbDia, spBtnAceptar);
 				controlador.mostrarPanelHorarios(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
 						horariosPanel, resumenCompraPanel, loginPanel);
 			}
@@ -352,7 +353,7 @@ public class CajeroEntradas {
 		JButton spBtnSeleccionPeli = new JButton("SeleccionarPeli");
 		spBtnSeleccionPeli.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorBBDD.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia);
+				controladorBBDD.escogerFecha(scCbSeleccionCine, spCbSeleccionPeli, spCbDia, spBtnAceptar);
 			}
 		});
 		spBtnSeleccionPeli.setBounds(72, 189, 85, 21);
@@ -458,7 +459,7 @@ public class CajeroEntradas {
 			public void actionPerformed(ActionEvent e) {
 				Controlador solicitud = new Controlador();
 				solicitud.ventanaDeConfirmacion(horariosCbHorariosDisponibles, spCbSeleccionPeli, scCbSeleccionCine,
-						spCbDia, horariosLblPrecio, horariosLblNombreSala, modelo);
+						spCbDia, horariosLblPrecio, horariosLblNombreSala, modelo,horariosBtnAceptar);
 				controlador.mostrarPanelSeleccionCine(inicioPanel, registroPanel, seleccionCinePanel,
 						seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 			}

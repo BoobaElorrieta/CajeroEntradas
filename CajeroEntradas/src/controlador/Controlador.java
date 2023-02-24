@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -179,7 +180,7 @@ public class Controlador {
 
 	public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles,
 			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia,
-			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo) {
+			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo, JButton horariosBtnAceptar) {
 		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
@@ -203,7 +204,7 @@ public class Controlador {
 	//		System.out.print(datosPelicula.size());
 
 		}
-
+		horariosBtnAceptar.setEnabled(false);
 	}
 	
 //	Calcular el Precio Total

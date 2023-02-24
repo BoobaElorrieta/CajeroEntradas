@@ -64,7 +64,7 @@ public class ControladorBBDD {
 
 		// Nos Muestra las fecahs disponibles para esa pelicula
 		public void escogerFecha(JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbSeleccionPeli,
-				JComboBox<String> spCbDia) {
+				JComboBox<String> spCbDia, JButton spBtnAceptar) {
 
 //				Arreglar
 
@@ -92,12 +92,12 @@ public class ControladorBBDD {
 //				JOptionPane.showMessageDialog(jFrame, "ERROR (prueba a elegir una fecha que has elegido una fecha)");
 
 			}
-
+				spBtnAceptar.setEnabled(true);
 		}
 
 		// Pone los horarios disponible en base a la pelicula seleccionada
 		public void escogerHorarios(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
-				JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia) {
+				JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia, JButton spBtnAceptar) {
 
 			horariosCbHorariosDisponibles.removeAllItems();
 			String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
@@ -118,6 +118,7 @@ public class ControladorBBDD {
 																 */);
 				horariosLblHorariosDisponibles.setText(pelicula);
 			}
+			spBtnAceptar.setEnabled(false);
 		}
 
 	public void selecionarHora(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
