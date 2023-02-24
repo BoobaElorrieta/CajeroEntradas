@@ -145,12 +145,14 @@ public class ControladorBBDD {
 		try {
 
 			solicitaClientes = new SolicitaCliente();
-			ArrayList<Cliente> cliente = solicitaClientes
+			ArrayList<Cliente> clientes = solicitaClientes
 					.getClientes("SELECT dni, email, contrasena FROM clientes WHERE email = '" + correo + "'");
-			contrasenaReal = cliente.get(0).getContrasena();
+			contrasenaReal = clientes.get(0).getContrasena();
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
 				// Se le deja pasar
-
+				String dni = clientes.get(0).getDni();
+				
+				
 //				Añadir funcion de añadir a la BDD
 
 				JFrame jFrame = new JFrame();
@@ -183,17 +185,24 @@ public class ControladorBBDD {
 		return loging;
 
 	}
-	
-	public String dniCliente(JTextField loginTfEmail) {
-		String correo = (String) loginTfEmail.getText();
-		String ret;
-		System.out.println(correo);
-		solicitaClientes = new SolicitaCliente();
-		ArrayList<Cliente> cliente = solicitaClientes
-				.getClientes("SELECT dni, email, contrasena FROM clientes WHERE email = '" + correo + "'");
-		ret = cliente.get(0).getDni();
-		System.out.print(ret);
-		return ret;
+
+	public void dniCliente(Cliente clientes) {
+
+		String dni = clientes.get(0).getDni();
+		System.out.println(dni);
+
 	}
-	
+
+//	public String dniCliente(JTextField loginTfEmail) {
+//		String correo = (String) loginTfEmail.getText();
+//		String ret;
+//		System.out.println(correo);
+//		solicitaClientes = new SolicitaCliente();
+//		ArrayList<Cliente> cliente = solicitaClientes
+//				.getClientes("SELECT dni, email, contrasena FROM clientes WHERE email = '" + correo + "'");
+//		ret = cliente.get(0).getDni();
+//		System.out.print(ret);
+//		return ret;
+//	}
+
 }
