@@ -146,7 +146,7 @@ public class ControladorBBDD {
 
 			solicitaClientes = new SolicitaCliente();
 			ArrayList<Cliente> cliente = solicitaClientes
-					.getClientes("SELECT email, contrasena FROM clientes WHERE email = '" + correo + "'");
+					.getClientes("SELECT dni, email, contrasena FROM clientes WHERE email = '" + correo + "'");
 			contrasenaReal = cliente.get(0).getContrasena();
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
 				// Se le deja pasar
@@ -159,7 +159,7 @@ public class ControladorBBDD {
 
 				switch (ret) {
 				case 0:
-					String directorio = JOptionPane.showInputDialog("Donde quiere guardar su ticket?");
+					String directorio = JOptionPane.showInputDialog("Como quiere nombrar el ticket?");
 					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
 							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
 					controlador.crearFichero();
@@ -183,4 +183,17 @@ public class ControladorBBDD {
 		return loging;
 
 	}
+	
+	public String dniCliente(JTextField loginTfEmail) {
+		String correo = (String) loginTfEmail.getText();
+		String ret;
+		System.out.println(correo);
+		solicitaClientes = new SolicitaCliente();
+		ArrayList<Cliente> cliente = solicitaClientes
+				.getClientes("SELECT dni, email, contrasena FROM clientes WHERE email = '" + correo + "'");
+		ret = cliente.get(0).getDni();
+		System.out.print(ret);
+		return ret;
+	}
+	
 }

@@ -46,9 +46,11 @@ public class SolicitaCliente {
 				Cliente cliente = new Cliente();
 
 				// Sacamos las columnas del RS
+				String dni = resultSet.getString("dni");
 				String email = resultSet.getString("email");
 				String contrasena = resultSet.getString("contrasena");
 				// Metemos los datos a Ejemplo
+				cliente.setDni(dni);
 				cliente.setEmail(email);
 				cliente.setContrasena(contrasena);
 

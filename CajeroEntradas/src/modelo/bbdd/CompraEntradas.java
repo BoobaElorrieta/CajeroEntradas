@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 
+import controlador.Controlador;
+import modelo.ControladorBBDD;
 import modelo.pojos.Entrada;
 import utils.DBUtils;
 
@@ -15,7 +17,7 @@ public class CompraEntradas {
 	
 	// Inserta un alumno
 		public void insertEntrada(Entrada entrada){
-			
+						
 			// La conexion con BBDD
 			Connection connection = null;
 			

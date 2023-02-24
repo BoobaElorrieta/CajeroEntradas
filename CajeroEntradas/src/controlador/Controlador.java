@@ -23,10 +23,8 @@ import modelo.bbdd.SolicitaCines;
 import modelo.bbdd.SolicitaCliente;
 import modelo.bbdd.SolicitaHorarios;
 import modelo.bbdd.SolicitaPeliculas;
-import modelo.pojos.Cine;
 import modelo.pojos.Cliente;
 import modelo.pojos.Entrada;
-import modelo.pojos.Pelicula;
 import modelo.pojos.Proyeccion;
 import vista.CajeroEntradas;
 
