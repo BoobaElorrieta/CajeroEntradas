@@ -153,7 +153,7 @@ public class Controlador {
 	
 //	Registrar la entrada
 
-	public void registrarEntrada(Cliente cliente, Proyeccion proyeccion) {
+	public void registrarEntrada(Cliente cliente/*, Proyeccion proyeccion*/) {
 		entrada = new Entrada();
 		compraEntradas = new CompraEntradas();
 		Date date = new Date();

@@ -133,7 +133,7 @@ public class ControladorBBDD {
 
 	}
 
-	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena, Proyeccion proyeccion) throws IOException {
+	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena/*, Proyeccion proyeccion*/) throws IOException {
 		controlador = new Controlador();
 		String correo = null;
 		String contrasenaUsuario = null;
@@ -149,7 +149,7 @@ public class ControladorBBDD {
 					.getCliente("SELECT* FROM clientes WHERE email = '" + correo + "'");
 			contrasenaReal = cliente.getContrasena();
 			if (contrasenaUsuario.equalsIgnoreCase(contrasenaReal)) {
-				controlador.registrarEntrada(cliente, proyeccion);
+				controlador.registrarEntrada(cliente/*, proyeccion*/);
 				
 //				Añadir funcion de añadir a la BDD
 
@@ -184,7 +184,9 @@ public class ControladorBBDD {
 
 	}
 	
-//	public Proyeccion obtenerProyeccion() {
+//	public Proyeccion obtenerProyeccion(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
+//			JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia,
+//			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, JButton horariosBtnAceptar) {
 //		
 //		Proyeccion ret = null;
 //		
