@@ -3,6 +3,7 @@ package modelo;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -121,7 +122,7 @@ public class ControladorBBDD {
 
 	public void selecionarHora(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
 			JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia,
-			JLabel precioSesiontLbl, JLabel horariosLblNombreSala) {
+			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, JButton horariosBtnAceptar) {
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String fecha = (String) spCbDia.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
@@ -137,14 +138,16 @@ public class ControladorBBDD {
 			precioSesiontLbl.setText("" + proyecciones.get(i).getPrecio() + "");
 			horariosLblNombreSala.setText("" + proyecciones.get(i).getSala().getNombre() + "");
 		}
+		horariosBtnAceptar.setEnabled(true);
 
 	}
 	
-	public void comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
+	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena) throws IOException {
 		controlador = new Controlador();
 		String correo = null;
 		String contrasenaUsuario = null;
 		String contrasenaReal = null;
+		boolean loging = false;
 		int ret;
 		correo = (String) loginTfEmail.getText();
 		contrasenaUsuario = (String) loginTfContrasena.getText();
@@ -176,6 +179,7 @@ public class ControladorBBDD {
 					break;
 
 				}
+			loging = false;
 			} else {
 				JFrame jFrame = new JFrame();
 				JOptionPane.showMessageDialog(jFrame, "ACESO DENEGADO");
@@ -185,5 +189,7 @@ public class ControladorBBDD {
 			JFrame jFrame = new JFrame();
 			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
 		}
+		return loging;
+
 	}	
 }

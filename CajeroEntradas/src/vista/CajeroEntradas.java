@@ -213,7 +213,7 @@ public class CajeroEntradas {
 				boolean solucion = false;
 				controlador = new Controlador();
 				try {
-					controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena);
+					solucion = controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena);
 					controlador.registrarEntrada();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -223,6 +223,8 @@ public class CajeroEntradas {
 				if (solucion = true) {
 					controlador.mostrarPanelInicio(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel,
 							horariosPanel, resumenCompraPanel, loginPanel);
+				}else {
+					controlador.mostrarPanelLogin(inicioPanel, registroPanel, seleccionCinePanel, seleccionPeliPanel, horariosPanel, resumenCompraPanel, loginPanel);
 				}
 			}
 		});
@@ -449,6 +451,7 @@ public class CajeroEntradas {
 		horariosPanel.add(horariosCbHorariosDisponibles);
 
 		JButton horariosBtnAceptar = new JButton("Aceptar");
+		horariosBtnAceptar.setEnabled(false);
 		horariosBtnAceptar.setBackground(Color.DARK_GRAY);
 		horariosBtnAceptar.setForeground(Color.WHITE);
 		horariosBtnAceptar.addActionListener(new ActionListener() {
@@ -520,7 +523,7 @@ public class CajeroEntradas {
 		horariosBtnSeleccionarHorario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controladorBBDD.selecionarHora(scCbSeleccionCine, horariosCbHorariosDisponibles, spCbSeleccionPeli,
-						horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala);
+						horariosLblHorariosDisponibles, spCbDia, horariosLblPrecio, horariosLblNombreSala, horariosBtnAceptar);
 			}
 		});
 		horariosBtnSeleccionarHorario.setBounds(20, 205, 85, 21);
