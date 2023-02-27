@@ -142,7 +142,7 @@ public class ControladorBBDD {
 		int ret;
 		correo = (String) loginTfEmail.getText();
 		contrasenaUsuario = (String) loginTfContrasena.getText();
-		try {
+//		try {
 
 			solicitaClientes = new SolicitaCliente();
 			Cliente cliente = solicitaClientes
@@ -176,10 +176,10 @@ public class ControladorBBDD {
 				loging = false;
 			}
 
-		} catch (Exception e) {
-			JFrame jFrame = new JFrame();
-			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
-		}
+//		} catch (Exception e) {
+//			JFrame jFrame = new JFrame();
+//			JOptionPane.showMessageDialog(jFrame, "ERROR, ese email no existe en la base de datos.");
+//		}
 		return loging;
 
 	}

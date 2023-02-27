@@ -244,9 +244,6 @@ public class Controlador {
 
 	public void crearFichero(ArrayList<String> datosPeliculas) throws IOException {
 		System.out.println("ha comezado1");
-		
-		long timeInMilliSeconds = date.getTime();
-	    java.sql.Date dateSQL = new java.sql.Date(timeInMilliSeconds);
 
 		
 		
@@ -274,7 +271,7 @@ public class Controlador {
 			pw.println("Hora: " + hora);
 			pw.println("Sala: " + sala);
 			pw.println("Precio: " + precio);
-			pw.println("Fecha impresion: " + dateSQL);
+			pw.println("Fecha impresion: " + date);
 			fichero.close();
 			System.out.println("ha terminado");
 		}
