@@ -238,6 +238,7 @@ public class Controlador {
 			precioTotal = precioTotal * 0.5;
 		}
 		
+		precioTotal = Math.round(precioTotal * 100) / 100d;
 			
 		rcTaPrecioTotal.setText("" + precioTotal + " €");
 		
