@@ -197,7 +197,7 @@ public class Controlador {
 
 		modelo.addRow(new String[] { hora, pelicula, cine, fecha, precio, sala });
 
-		String datos = pelicula + "," + hora + "," + cine + "," + fecha;
+		String datos = pelicula + "," + hora + "," + cine + "," + fecha + "," + sala + "," + precio;
 
 		datosPeliculas.add(datos);
 		
@@ -244,6 +244,12 @@ public class Controlador {
 
 	public void crearFichero(ArrayList<String> datosPeliculas) throws IOException {
 		System.out.println("ha comezado1");
+		
+		long timeInMilliSeconds = date.getTime();
+	    java.sql.Date dateSQL = new java.sql.Date(timeInMilliSeconds);
+
+		
+		
 		System.out.println(datosPeliculas.toString());
 		for (int i = 0; i < datosPeliculas.size(); i++) {
 			String datosPelicula = datosPeliculas.get(i);
@@ -252,14 +258,9 @@ public class Controlador {
 			String hora = infoPeli[1];
 			String cine = infoPeli[2];
 			String fecha = infoPeli[3];
+			String sala = infoPeli[4];
+			String precio = infoPeli[5];
 			
-			
-			System.out.println(pelicula);
-			System.out.println(hora);
-			System.out.println(cine);
-			System.out.println(fecha);
-			
-
 			System.out.println("ha comezado2");
 			File entrada = new File("src//tickets//ticket.txt");
 			FileWriter fichero = null;
@@ -271,8 +272,9 @@ public class Controlador {
 			pw.println("Pelicula: " + pelicula);
 			pw.println("Fecha: " + fecha);
 			pw.println("Hora: " + hora);
-			pw.println("Sala: ");
-			pw.println("Precio: ");
+			pw.println("Sala: " + sala);
+			pw.println("Precio: " + precio);
+			pw.println("Fecha impresion: " + dateSQL);
 			fichero.close();
 			System.out.println("ha terminado");
 		}
