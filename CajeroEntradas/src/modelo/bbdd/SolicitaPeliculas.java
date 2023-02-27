@@ -7,11 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import modelo.pojos.Cine;
 import modelo.pojos.Pelicula;
 import utils.DBUtils;
-import vista.CajeroEntradas;
-import controlador.Controlador;
 
 public class SolicitaPeliculas {
 
@@ -45,7 +42,7 @@ public class SolicitaPeliculas {
 				
 				// Si es necesario, inicializamos la lista
 				if (null == ret)
-					ret = new <Pelicula> ArrayList ();
+					ret = new ArrayList <Pelicula> ();
 				
 				Pelicula pelicula = new Pelicula ();
 				

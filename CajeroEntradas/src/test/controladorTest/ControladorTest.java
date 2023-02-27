@@ -1,11 +1,9 @@
 package test.controladorTest;
 
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
