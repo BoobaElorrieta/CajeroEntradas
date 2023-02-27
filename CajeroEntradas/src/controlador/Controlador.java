@@ -242,13 +242,14 @@ public class Controlador {
 
 	
 
-	public void crearFichero(ArrayList<String> datosPeliculas) throws IOException {
+	public void crearFichero(ArrayList<String> datosPeliculas, String directorio) throws IOException {
 		System.out.println("ha comezado1");
 
 		
 		
 		System.out.println(datosPeliculas.toString());
 		for (int i = 0; i < datosPeliculas.size(); i++) {
+			Date date = new Date();
 			String datosPelicula = datosPeliculas.get(i);
 			String[] infoPeli = datosPelicula.split(",");
 			String pelicula = infoPeli[0];
@@ -257,9 +258,11 @@ public class Controlador {
 			String fecha = infoPeli[3];
 			String sala = infoPeli[4];
 			String precio = infoPeli[5];
+	        
+
 			
 			System.out.println("ha comezado2");
-			File entrada = new File("src//tickets//ticket.txt");
+			File entrada = new File("src//tickets//" + directorio + ".txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
 			fichero = new FileWriter(entrada);
@@ -270,7 +273,7 @@ public class Controlador {
 			pw.println("Fecha: " + fecha);
 			pw.println("Hora: " + hora);
 			pw.println("Sala: " + sala);
-			pw.println("Precio: " + precio);
+			pw.println("Precio: " + precio + "€");
 			pw.println("Fecha impresion: " + date);
 			fichero.close();
 			System.out.println("ha terminado");
