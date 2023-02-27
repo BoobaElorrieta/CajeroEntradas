@@ -160,5 +160,6 @@ class ControladorTest {
 		
 		assertEquals(proyecciones.size(), 1);
 	}
+
 	
 }

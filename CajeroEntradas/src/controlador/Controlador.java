@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.ControladorBBDD;
 import modelo.bbdd.CompraEntradas;
 import modelo.bbdd.RegistraCliente;
 import modelo.bbdd.SolicitaCines;
@@ -42,6 +43,7 @@ public class Controlador {
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
 	CompraEntradas compraEntradas = null;
+	ControladorBBDD bbdd = null;
 
 //	Ir al panel Inicio
 
@@ -229,9 +231,10 @@ public class Controlador {
 
 	public void crearFichero(ArrayList<String> datosPeliculas) throws IOException {
 		for (int i = 0; i < datosPeliculas.size(); i++) {
+			bbdd = new ControladorBBDD();
 			DateFormat dateFormat = new SimpleDateFormat("MMM yyyy HH_mm_ss");
 			String date = dateFormat.format(new Date());
-			;
+			
 			String datosPelicula = datosPeliculas.get(i);
 			String[] infoPeli = datosPelicula.split(",");
 			String pelicula = infoPeli[0];
@@ -241,6 +244,7 @@ public class Controlador {
 			String sala = infoPeli[4];
 			String precio = infoPeli[5];
 
+			
 			File entrada = new File("src//tickets//" + date + ".txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
@@ -258,6 +262,7 @@ public class Controlador {
 			pw.println("");
 			fichero.close();
 		}
+		datosPeliculas.clear();
 	}
 
 	public void cerrarPrograma() {
