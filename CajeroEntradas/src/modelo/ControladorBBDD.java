@@ -159,10 +159,8 @@ public class ControladorBBDD {
 
 				switch (ret) {
 				case 0:
-					String directorio = JOptionPane.showInputDialog("Como quiere nombrar el ticket?");
-					JOptionPane.showMessageDialog(jFrame, "Su ticket " + directorio
-							+ " ha sido guardado en DESCARGAS \r\n" + "Gracias por su compra:)");
-					controlador.crearFichero(datosPeliculas, directorio);
+					JOptionPane.showMessageDialog(jFrame, "Su ticket ha sido guardado\r\n" + "Gracias por su compra:)");
+					controlador.crearFichero(datosPeliculas);
 					break;
 				case 1:
 					JOptionPane.showMessageDialog(jFrame, "Gracias Por su compra:)");

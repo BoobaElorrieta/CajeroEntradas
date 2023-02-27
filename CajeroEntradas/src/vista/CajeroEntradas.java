@@ -100,6 +100,7 @@ public class CajeroEntradas {
 		frame.setBounds(100, 100, 688, 389);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 
 		frame.setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(CajeroEntradas.class.getResource("/imagenes/hdg_preview_rev_1.png")));

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -182,6 +184,7 @@ public class Controlador {
 	public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles,
 			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia,
 			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo, JButton horariosBtnAceptar, ArrayList<String> datosPeliculas) {
+		Date date = new Date();
 		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
@@ -242,14 +245,15 @@ public class Controlador {
 
 	
 
-	public void crearFichero(ArrayList<String> datosPeliculas, String directorio) throws IOException {
+	public void crearFichero(ArrayList<String> datosPeliculas) throws IOException {
 		System.out.println("ha comezado1");
 
 		
 		
 		System.out.println(datosPeliculas.toString());
 		for (int i = 0; i < datosPeliculas.size(); i++) {
-			Date date = new Date();
+			DateFormat dateFormat = new SimpleDateFormat("MMM yyyy HH_mm_ss");
+	        String date = dateFormat.format(new Date());;
 			String datosPelicula = datosPeliculas.get(i);
 			String[] infoPeli = datosPelicula.split(",");
 			String pelicula = infoPeli[0];
@@ -262,10 +266,10 @@ public class Controlador {
 
 			
 			System.out.println("ha comezado2");
-			File entrada = new File("src//tickets//" + directorio + ".txt");
+			File entrada = new File("src//tickets//" + date + ".txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
-			fichero = new FileWriter(entrada);
+			fichero = new FileWriter(entrada, true);
 			pw = new PrintWriter(fichero);
 			pw.println("---Ticket---");
 			pw.println("Cine: " + cine);
@@ -275,6 +279,8 @@ public class Controlador {
 			pw.println("Sala: " + sala);
 			pw.println("Precio: " + precio + "€");
 			pw.println("Fecha impresion: " + date);
+			pw.println("------------------------");
+			pw.println("");
 			fichero.close();
 			System.out.println("ha terminado");
 		}
@@ -283,6 +289,7 @@ public class Controlador {
 	public void cerrarPrograma() {
 		System.exit(0);
 	}
+
 	
 
 }
