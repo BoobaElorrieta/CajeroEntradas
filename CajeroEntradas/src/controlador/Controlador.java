@@ -30,8 +30,6 @@ import modelo.pojos.Entrada;
 import modelo.pojos.Proyeccion;
 import vista.CajeroEntradas;
 
-
-
 public class Controlador {
 
 	Proyeccion proyeccion = null;
@@ -44,9 +42,6 @@ public class Controlador {
 	SolicitaHorarios solicitaHorarios = null;
 	SolicitaCliente solicitaClientes = null;
 	CompraEntradas compraEntradas = null;
-
-
-
 
 //	Ir al panel Inicio
 
@@ -124,7 +119,7 @@ public class Controlador {
 		resumenCompraPanel.setVisible(true);
 		loginPanel.setVisible(false);
 	}
-	
+
 //	Ir al panel Login
 
 	public void mostrarPanelLogin(JPanel inicioPanel, JPanel registroPanel, JPanel seleccionCinePanel,
@@ -152,39 +147,35 @@ public class Controlador {
 		cliente.setTfno(Integer.parseInt(tfno.getText()));
 		cliente.setDireccion(direccion.getText());
 		cliente.setEmail(email.getText());
-		System.out.println(cliente.toString());
 		RegistraCliente registraCliente = new RegistraCliente();
 		registraCliente.insertCliente(cliente);
 	}
-	
+
 //	Registrar la entrada
 
-	public void registrarEntrada(Cliente cliente/*, Proyeccion proyeccion*/) {
+	public void registrarEntrada(Cliente cliente/* , Proyeccion proyeccion */) {
 		entrada = new Entrada();
 		compraEntradas = new CompraEntradas();
 		Date date = new Date();
 
 //		Hacer un metodo q devuelva el usuario logueado y otro para la proyeccion seleccionada
-		
-		
+
 		long timeInMilliSeconds = date.getTime();
-	    java.sql.Date dateSQL = new java.sql.Date(timeInMilliSeconds);
+		java.sql.Date dateSQL = new java.sql.Date(timeInMilliSeconds);
 
 		entrada.setFechaDeCompra(dateSQL);
 		entrada.setCliente(cliente);
 		entrada.setProyeccion(proyeccion);
-		
+
 		compraEntradas.insertEntrada(entrada);
 	}
-	
-
 
 	// Ventana Emergente
 
 	public void ventanaDeConfirmacion(JComboBox<String> horariosCbHorariosDisponibles,
 			JComboBox<String> spCbSeleccionPeli, JComboBox<String> scCbSeleccionCine, JComboBox<String> spCbDia,
-			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo, JButton horariosBtnAceptar, ArrayList<String> datosPeliculas) {
-		Date date = new Date();
+			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, DefaultTableModel modelo, JButton horariosBtnAceptar,
+			ArrayList<String> datosPeliculas) {
 		String hora = (String) horariosCbHorariosDisponibles.getSelectedItem();
 		String pelicula = (String) spCbSeleccionPeli.getSelectedItem();
 		String cine = (String) scCbSeleccionCine.getSelectedItem();
@@ -197,64 +188,50 @@ public class Controlador {
 				"Has seleccionado la siguientes opciones: \r\n" + "La pelicula " + pelicula + " sera el dia " + fecha
 						+ " a las " + hora + "en la sala " + sala + " del cine " + cine + " por un precio de "
 						+ precio);
-
 		modelo.addRow(new String[] { hora, pelicula, cine, fecha, precio, sala });
-
 		String datos = pelicula + "," + hora + "," + cine + "," + fecha + "," + sala + "," + precio;
-
 		datosPeliculas.add(datos);
-		
-		for (int i = 0; i < datosPeliculas.size(); i++) {
-			System.out.print(datosPeliculas.get(i));
-	//		System.out.print(datosPelicula.size());
-
-		}
 		horariosBtnAceptar.setEnabled(false);
 	}
-	
+
 //	Calcular el Precio Total
-	
+
 	public void calcularPrecioTotal(DefaultTableModel modelo, JTextArea rcTaPrecioTotal) {
-		
+
 		double precioTotal = 0;
 		ArrayList<String> precios = new ArrayList<String>();
 		int filasDeLaTabla = modelo.getRowCount();
-		
-		for (int i = 0 ; i < modelo.getRowCount() ; i++){
-			  precios.add(modelo.getValueAt(i, 4).toString());
-			}
-		
-		for (int i = 0 ; i < precios.size() ; i++) {
+
+		for (int i = 0; i < modelo.getRowCount(); i++) {
+			precios.add(modelo.getValueAt(i, 4).toString());
+		}
+
+		for (int i = 0; i < precios.size(); i++) {
 			precioTotal = precioTotal + Integer.parseInt(precios.get(i));
 		}
-		
+
 		if (filasDeLaTabla == 2) {
 			precioTotal = precioTotal * 0.8;
 		} else if (filasDeLaTabla == 3) {
 			precioTotal = precioTotal * 0.7;
 		} else if (filasDeLaTabla == 4) {
 			precioTotal = precioTotal * 0.6;
-		} if (filasDeLaTabla >= 5) {
+		}
+		if (filasDeLaTabla >= 5) {
 			precioTotal = precioTotal * 0.5;
 		}
-		
+
 		precioTotal = Math.round(precioTotal * 100) / 100d;
-			
+
 		rcTaPrecioTotal.setText("" + precioTotal + " €");
-		
+
 	}
 
-	
-
 	public void crearFichero(ArrayList<String> datosPeliculas) throws IOException {
-		System.out.println("ha comezado1");
-
-		
-		
-		System.out.println(datosPeliculas.toString());
 		for (int i = 0; i < datosPeliculas.size(); i++) {
 			DateFormat dateFormat = new SimpleDateFormat("MMM yyyy HH_mm_ss");
-	        String date = dateFormat.format(new Date());;
+			String date = dateFormat.format(new Date());
+			;
 			String datosPelicula = datosPeliculas.get(i);
 			String[] infoPeli = datosPelicula.split(",");
 			String pelicula = infoPeli[0];
@@ -263,10 +240,7 @@ public class Controlador {
 			String fecha = infoPeli[3];
 			String sala = infoPeli[4];
 			String precio = infoPeli[5];
-	        
 
-			
-			System.out.println("ha comezado2");
 			File entrada = new File("src//tickets//" + date + ".txt");
 			FileWriter fichero = null;
 			PrintWriter pw = null;
@@ -283,14 +257,11 @@ public class Controlador {
 			pw.println("------------------------");
 			pw.println("");
 			fichero.close();
-			System.out.println("ha terminado");
 		}
 	}
 
 	public void cerrarPrograma() {
 		System.exit(0);
 	}
-
-	
 
 }

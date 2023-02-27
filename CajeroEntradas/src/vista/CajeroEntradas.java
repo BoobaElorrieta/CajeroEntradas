@@ -208,6 +208,13 @@ public class CajeroEntradas {
 		JLabel loginLblContrasena = new JLabel("Contraseña:");
 		loginLblContrasena.setBounds(123, 148, 113, 32);
 		loginPanel.add(loginLblContrasena);
+		
+		final DefaultTableModel modelo;
+		modelo = new DefaultTableModel();
+		table = new JTable();
+		table.setEnabled(false);
+		rcSpResumenCompra.setViewportView(table);
+		table.setModel(modelo);
 
 		JButton loginBtnAceptar = new JButton("Aceptar y guardar ticket");
 		loginBtnAceptar.setBackground(Color.DARK_GRAY);
@@ -217,7 +224,7 @@ public class CajeroEntradas {
 				boolean solucion = false;
 				controlador = new Controlador();
 					try {
-						solucion = controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena, datosPeliculas);
+						solucion = controladorBBDD.comprobarLogin(loginTfEmail, loginTfContrasena, datosPeliculas, table, modelo);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -259,12 +266,7 @@ public class CajeroEntradas {
 		loginBtnRegistrate.setBounds(171, 213, 383, 23);
 		loginPanel.add(loginBtnRegistrate);
 
-		final DefaultTableModel modelo;
-		modelo = new DefaultTableModel();
-		table = new JTable();
-		table.setEnabled(false);
-		rcSpResumenCompra.setViewportView(table);
-		table.setModel(modelo);
+
 
 		// Columnas de la tabla
 		modelo.addColumn("Hora");

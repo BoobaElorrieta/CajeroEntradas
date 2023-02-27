@@ -8,7 +8,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import controlador.Controlador;
 import modelo.bbdd.SolicitaCines;
@@ -133,7 +135,7 @@ public class ControladorBBDD {
 
 	}
 
-	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena/*, Proyeccion proyeccion*/, ArrayList<String> datosPeliculas) throws IOException {
+	public boolean comprobarLogin(JTextField loginTfEmail, JTextField loginTfContrasena/*, Proyeccion proyeccion*/, ArrayList<String> datosPeliculas, JTable table, DefaultTableModel modelo) throws IOException {
 		controlador = new Controlador();
 		String correo = null;
 		String contrasenaUsuario = null;
@@ -167,6 +169,12 @@ public class ControladorBBDD {
 					break;
 
 				}
+				
+				 int filas = table.getRowCount();
+		            for (int i = 0;filas>i; i++) {
+		                modelo.removeRow(0);
+		            }
+				
 				loging = true;
 			} else {
 				JFrame jFrame = new JFrame();
@@ -182,29 +190,5 @@ public class ControladorBBDD {
 
 	}
 	
-//	public Proyeccion obtenerProyeccion(JComboBox<String> scCbSeleccionCine, JComboBox<String> horariosCbHorariosDisponibles,
-//			JComboBox<String> spCbSeleccionPeli, JLabel horariosLblHorariosDisponibles, JComboBox<String> spCbDia,
-//			JLabel precioSesiontLbl, JLabel horariosLblNombreSala, JButton horariosBtnAceptar) {
-//		
-//		Proyeccion ret = null;
-//		
-//		
-//		
-//		return ret;
-//	}
-	
-	
-
-//	public String dniCliente(JTextField loginTfEmail) {
-//		String correo = (String) loginTfEmail.getText();
-//		String ret;
-//		System.out.println(correo);
-//		solicitaClientes = new SolicitaCliente();
-//		ArrayList<Cliente> cliente = solicitaClientes
-//				.getClientes("SELECT dni, email, contrasena FROM clientes WHERE email = '" + correo + "'");
-//		ret = cliente.get(0).getDni();
-//		System.out.print(ret);
-//		return ret;
-//	}
 
 }
