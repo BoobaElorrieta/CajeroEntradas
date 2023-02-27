@@ -12,48 +12,34 @@ import utils.DBUtils;
 
 public class SolicitaCines {
 
-	// Retorna todas las filas de la tabla alumno
-	// Si no hay nada, retorna NULL
 	public ArrayList <Cine> getCines(String sql){
 		ArrayList <Cine> ret = null;
 
 		
-		// La conexion con BBDD
 		Connection connection = null;
 		
-		// Vamos a lanzar una sentencia SQL contra la BBDD
-		// Result set va a contener todo lo que devuelve la BBDD
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
 		try {
-			// El Driver que vamos a usar
 			Class.forName(DBUtils.DRIVER);
 			
-			// Abrimos la conexion con BBDD
 			connection = DriverManager.getConnection(DBUtils.URL, DBUtils.USER, DBUtils.PASS);
 			
-			// Vamos a lanzar la sentencia...
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sql);
 			
-			// No es posible saber cuantas cosas nos ha devuelto el resultSet.
-			// Hay que ir 1 por 1 y guardandolo todo en su objeto Ejemplo correspondiente
 			while(resultSet.next()) {
 				
-				// Si es necesario, inicializamos la lista
 				if (null == ret)
 					ret = new ArrayList<Cine> ();
 				
 				Cine cine = new Cine ();
 				
-				// Sacamos las columnas del RS
                 String nombre = resultSet.getString("nombre");           
-                // Metemos los datos a Ejemplo
                 cine.setNombre(nombre);
 
                 
-                // Lo guardamos en ret
                 ret.add(cine);
 			}
 		} catch (SQLException sqle) {  
@@ -61,24 +47,20 @@ public class SolicitaCines {
 		} catch(Exception e){ 
 			System.out.println("Error generico - " + e.getMessage());
 		} finally {
-			// Cerramos al reves de como las abrimos
 			try {
 				if (resultSet != null) 
 					resultSet.close(); 
 			} catch(Exception e){ 
-				// No hace falta 
 			};
 			try {
 				if (statement != null) 
 					statement.close(); 
 			} catch(Exception e){ 
-				// No hace falta				
 			};
 			try {
 				if (connection != null) 
 					connection.close(); 
 			} catch(Exception e){ 
-				// No hace falta
 			};					
 		}
 		return ret;
